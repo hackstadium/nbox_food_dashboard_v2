@@ -46,6 +46,7 @@ $(function () {
             contentType: "application/json"
         }).done(function (states) {
             console.log(states);
+            $("#selectState").html("");
 
             for (i = 0; i < states.message.length; i++) {
                 //console.log(countries.message[i]._id);
