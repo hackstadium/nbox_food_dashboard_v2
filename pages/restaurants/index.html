@@ -18,7 +18,7 @@
     <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="bg-white text-center navbar-brand-wrapper">
             <a class="navbar-brand brand-logo" href="index.html">
-                <img src="../../images/nbox_food_logo.png" />
+                <img src="../../images/nbox_food_logo.png"/>
             </a>
             <a class="navbar-brand brand-logo-mini" href="index.html">
                 <img src="../../images/nairabox_green.svg">
@@ -98,88 +98,103 @@
                         <div class="card">
                             <div class="card-body">
                                 <!--<h5 class="card-title mb-4">Basic form elements</h5>-->
-                                <form class="bundle-form">
+                                <div class="bundle-form">
                                     <div>
-                                        <input type="text" placeholder="Name" class="input-form">
+                                        <input id="restaurantInputName" type="text" placeholder="Name" class="input-form">
                                     </div>
                                     <div class="form-group">
                                         <div class="styled-select">
-                                            <select>
+                                            <select id="restaurantSelectCountry">
+                                                <option>Select a country</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="styled-select">
+                                            <select id="restaurantSelectState">
+                                                <option>Select a state</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="styled-select">
+                                            <select id="restaurantSelectCity">
                                                 <option>Select a city</option>
-                                                <option>The second option</option>
-                                                <option>The third option</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div>
-                                        <input type="text" placeholder="Address" class="input-form">
+                                        <input id="restaurantInputAddress" type="text" placeholder="Address" class="input-form">
                                     </div>
                                     <div>
-                                        <input type="text" placeholder="Email" class="input-form">
+                                        <input id="restaurantInputEmail" type="text" placeholder="Email" class="input-form">
                                     </div>
                                     <div>
-                                        <input type="text" placeholder="Phone Number" class="input-form">
+                                        <input id="restaurantInputPhone" type="text" placeholder="Phone Number" class="input-form">
                                     </div>
-                                    <div class="">
-                                        <input type="text" placeholder="Enter Category" class="input-form">
-                                        <a class="input-action"><i class="fa fa-plus-square-o text-icon"
-                                                                   aria-hidden="true"></i>add category</a>
+                                    <div>
+                                        <input id="restaurantInputCommission" type="text" placeholder="Commission" class="input-form">
                                     </div>
+                                    <!--<div class="">-->
+                                        <!--<input type="text" placeholder="Enter Category" class="input-form">-->
+                                        <!--<a class="input-action"><i class="fa fa-plus-square-o text-icon"-->
+                                                                   <!--aria-hidden="true"></i>add category</a>-->
+                                    <!--</div>-->
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg">CREATE BUNDLE</button>
+                                        <button id="addPartner" type="submit" class="btn btn-primary btn-lg">ADD PARTNER</button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!--<div class="card">-->
-                    <!--<div class="card-body">-->
-                        <!--<h5 class="card-title mb-4">All Partners</h5>-->
-                        <!--<table class="table table-striped">-->
-                            <!--<thead>-->
-                            <!--<tr class="">-->
-                                <!--<th>Country</th>-->
-                                <!--<th>State</th>-->
-                                <!--<th>City</th>-->
-                                <!--<th>Partner</th>-->
-                                <!--<th>Category</th>-->
-                                <!--<th>Bundle</th>-->
-                                <!--<th>Menu</th>-->
-                            <!--</tr>-->
-                            <!--</thead>-->
-                            <!--<tbody>-->
-                            <!--<tr>-->
-                                <!--<td>Nigeria</td>-->
-                                <!--<td>Lagos</td>-->
-                                <!--<td>Lekki</td>-->
-                                <!--<td>The Place</td>-->
-                                <!--<td>Oriental</td>-->
-                                <!--<td>Bundle Name Here</td>-->
-                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                                <!--<td>Nigeria</td>-->
-                                <!--<td>Lagos</td>-->
-                                <!--<td>Lekki</td>-->
-                                <!--<td>The Place</td>-->
-                                <!--<td>Oriental</td>-->
-                                <!--<td>Bundle Name Here</td>-->
-                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                                <!--<td>Nigeria</td>-->
-                                <!--<td>Lagos</td>-->
-                                <!--<td>Lekki</td>-->
-                                <!--<td>The Place</td>-->
-                                <!--<td>Oriental</td>-->
-                                <!--<td>Bundle Name Here</td>-->
-                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                            <!--</tr>-->
-                            <!--</tbody>-->
-                        <!--</table>-->
-                    <!--</div>-->
+                <!--<div class="card-body">-->
+                <!--<h5 class="card-title mb-4">All Partners</h5>-->
+                <!--<table class="table table-striped">-->
+                <!--<thead>-->
+                <!--<tr class="">-->
+                <!--<th>Country</th>-->
+                <!--<th>State</th>-->
+                <!--<th>City</th>-->
+                <!--<th>Partner</th>-->
+                <!--<th>Category</th>-->
+                <!--<th>Bundle</th>-->
+                <!--<th>Menu</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                <!--<td>Nigeria</td>-->
+                <!--<td>Lagos</td>-->
+                <!--<td>Lekki</td>-->
+                <!--<td>The Place</td>-->
+                <!--<td>Oriental</td>-->
+                <!--<td>Bundle Name Here</td>-->
+                <!--<td>3 Meat Pie, 1 Sausage</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>Nigeria</td>-->
+                <!--<td>Lagos</td>-->
+                <!--<td>Lekki</td>-->
+                <!--<td>The Place</td>-->
+                <!--<td>Oriental</td>-->
+                <!--<td>Bundle Name Here</td>-->
+                <!--<td>3 Meat Pie, 1 Sausage</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>Nigeria</td>-->
+                <!--<td>Lagos</td>-->
+                <!--<td>Lekki</td>-->
+                <!--<td>The Place</td>-->
+                <!--<td>Oriental</td>-->
+                <!--<td>Bundle Name Here</td>-->
+                <!--<td>3 Meat Pie, 1 Sausage</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+                <!--</table>-->
+                <!--</div>-->
                 <!--</div>-->
             </div>
             <!-- partial:../../partials/_footer.html -->
@@ -204,6 +219,7 @@
 <script src="../../js/off-canvas.js"></script>
 <script src="../../js/hoverable-collapse.js"></script>
 <script src="../../js/misc.js"></script>
+<script src="restaurant.js"></script>
 </body>
 
 </html>

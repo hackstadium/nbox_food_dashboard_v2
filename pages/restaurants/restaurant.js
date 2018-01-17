@@ -1,6 +1,4 @@
 $(function () {
-    console.log("menu js found");
-    console.log("menu js ready");
 
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
 
@@ -20,14 +18,15 @@ $(function () {
 
             for (i = 0; i < countries.message.length; i++) {
                 //console.log(countries.message[i]._id);
-                $("#selectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
+                $("#restaurantSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
                 console.log("adding countries");
             }
         });
     }
 
 
-    $("#selectCountry").change(function () {
+
+    $("#restaurantSelectCountry").change(function () {
         console.log("select country clicked");
         //var countryID =
         var countryID = $(this).find(":selected").data("id");
@@ -36,6 +35,8 @@ $(function () {
         getStates(countryID)
 
     });
+
+
 
     function getStates(countryID) {
         $.ajax({
@@ -46,11 +47,11 @@ $(function () {
             contentType: "application/json"
         }).done(function (states) {
             console.log(states);
-            $("#selectState").html("");
+            $("#restaurantSelectState").html("");
 
             for (i = 0; i < states.message.length; i++) {
                 //console.log(countries.message[i]._id);
-                $("#selectState").append("<option data-id=" + states.message[i]._id + ">" + states.message[i].state + "</option>");
+                $("#restaurantSelectState").append("<option data-id=" + states.message[i]._id + ">" + states.message[i].state + "</option>");
                 console.log("adding countries");
             }
         })
@@ -58,7 +59,7 @@ $(function () {
 
 
 
-    $("#selectState").change(function () {
+    $("#restaurantSelectState").change(function () {
         console.log("select state clicked");
         //var countryID =
         var stateID = $(this).find(":selected").data("id");
@@ -68,7 +69,8 @@ $(function () {
 
     });
 
-    
+
+
     function getCity(stateID) {
         $.ajax({
             url: BASE_URL + "cities?state_id=" + stateID,
@@ -78,13 +80,49 @@ $(function () {
             contentType: "application/json"
         }).done(function (cities) {
             console.log(cities);
-            $("#selectCity").html("");
+            $("#restaurantSelectCity").html("");
 
             for (i = 0; i < cities.message.length; i++) {
                 //console.log(countries.message[i]._id);
-                $("#selectCity").append("<option data-id=" + cities.message[i]._id + ">" + cities.message[i].city + "</option>");
-                console.log("adding countries");
+                $("#restaurantSelectCity").append("<option data-id=" + cities.message[i]._id + ">" + cities.message[i].city + "</option>");
+                console.log("adding cities");
             }
         })
     }
+
+
+    $('#addPartner').click(function () {
+
+        console.log("Add partner btn clicked");
+        var name = $("#restaurantInputName").val();
+        var address = $("#restaurantInputAddress").val();
+        var email = $("#restaurantInputEmail").val();
+        var phone = $("#restaurantInputPhone").val();
+        var cityID = $("#restaurantSelectCity").find(":selected").data("id");
+        var commission = $("#restaurantInputCommission").val();
+
+
+        console.log(name + " - " + address + " - " + email + " - " + phone + " - " + cityID + " - " +commission);
+
+         addPartners(name,address,email,phone,cityID,commission);
+
+
+    });
+
+    function addPartners(name,address,email,phone,cityID,commission) {
+        var partnerData = {name:name,address:address,email:email,phone_number:phone,city_id:cityID,commission:commission};
+
+        $.ajax({
+            url: BASE_URL + "create/partner",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(partnerData),
+            contentType: "application/json"
+        }).done(function (partners) {
+            console.log(partners);
+
+        })
+
+    }
+
 });
