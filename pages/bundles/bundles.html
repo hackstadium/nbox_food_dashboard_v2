@@ -81,7 +81,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../partners/index.html">
+                        <a class="nav-link" href="../../pages/regions/index.html">
                             <!--<img src="../../images/icons/1.png" alt="">-->
                             <!--<i class="fa fa-home" aria-hidden="true"></i>-->
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -93,13 +93,13 @@
 
             <!-- partial -->
             <div class="content-wrapper">
-                <h3 class="page-heading mb-4">Create a Region</h3>
-                <div class="row mb-2">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <!--<h5 class="card-title mb-4">Basic form elements</h5>-->
-                                <div class="bundle-form">
+                <h3 class="page-heading mb-4">All Bundles</h3>
+                <!--<div class="row mb-2">-->
+                    <!--<div class="col-lg-12">-->
+                        <!--<div class="card">-->
+                            <!--<div class="card-body">-->
+                                <!--&lt;!&ndash;<h5 class="card-title mb-4">Basic form elements</h5>&ndash;&gt;-->
+                                <!--<form class="bundle-form">-->
                                     <!--<div class="form-group">-->
                                         <!--<div class="styled-select">-->
                                             <!--<select>-->
@@ -145,15 +145,12 @@
                                             <!--</select>-->
                                         <!--</div>-->
                                     <!--</div>-->
-                                    <div>
-                                        <input id="regionCountry" type="text" placeholder="Enter Country" class="input-form">
-                                    </div>
-                                    <div>
-                                        <input id="regionState" type="text" placeholder="Enter State" class="input-form">
-                                    </div>
-                                    <div>
-                                        <input id="regionCity" type="text" placeholder="Enter City" class="input-form">
-                                    </div>
+                                    <!--<div>-->
+                                        <!--<input type="text" placeholder="Enter Bundle Name" class="input-form">-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<input type="text" placeholder="Price" class="input-form">-->
+                                    <!--</div>-->
                                     <!--<div class="">-->
                                         <!--<input id="inputMenu" type="text" placeholder="Enter Menu" class="input-form">-->
                                         <!--<a id="addMenu" class="input-action"><i class="fa fa-plus-square-o text-icon"-->
@@ -165,62 +162,70 @@
                                         <!--<a id="addOptions" class="input-action"><i class="fa fa-plus-square-o text-icon"-->
                                                                                    <!--aria-hidden="true"></i>add options</a>-->
                                     <!--</div>-->
-                                    <div class="form-group">
-                                        <button id="addRegion" type="submit" class="btn btn-primary btn-lg">CREATE REGION</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--<div class="card">-->
-                    <!--<div class="card-body">-->
-                        <!--<h5 class="card-title mb-4">All Bundles</h5>-->
-                        <!--<table class="table table-striped">-->
-                            <!--<thead>-->
-                            <!--<tr class="">-->
-                                <!--<th>Country</th>-->
-                                <!--<th>State</th>-->
-                                <!--<th>City</th>-->
-                                <!--<th>Partner</th>-->
-                                <!--<th>Category</th>-->
-                                <!--<th>Bundle</th>-->
-                                <!--<th>Menu</th>-->
-                            <!--</tr>-->
-                            <!--</thead>-->
-                            <!--<tbody>-->
-                            <!--<tr>-->
-                                <!--<td>Nigeria</td>-->
-                                <!--<td>Lagos</td>-->
-                                <!--<td>Lekki</td>-->
-                                <!--<td>The Place</td>-->
-                                <!--<td>Oriental</td>-->
-                                <!--<td>Bundle Name Here</td>-->
-                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                                <!--<td>Nigeria</td>-->
-                                <!--<td>Lagos</td>-->
-                                <!--<td>Lekki</td>-->
-                                <!--<td>The Place</td>-->
-                                <!--<td>Oriental</td>-->
-                                <!--<td>Bundle Name Here</td>-->
-                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                                <!--<td>Nigeria</td>-->
-                                <!--<td>Lagos</td>-->
-                                <!--<td>Lekki</td>-->
-                                <!--<td>The Place</td>-->
-                                <!--<td>Oriental</td>-->
-                                <!--<td>Bundle Name Here</td>-->
-                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                            <!--</tr>-->
-                            <!--</tbody>-->
-                        <!--</table>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<button type="submit" class="btn btn-primary btn-lg">CREATE BUNDLE</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     <!--</div>-->
                 <!--</div>-->
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">All Bundles</h5>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr class="">
+                                <!--<th>Bundle ID</th>-->
+                                <th>Bundle Name</th>
+                                <th>Category</th>
+                                <th>Menu</th>
+                                <th>Options</th>
+                                <th>Description</th>
+                                <th>Partner</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Sample Bundle Name Two</td>
+                                <td>Oriental</td>
+                                <td>Jollof Rice and Chicken</td>
+                                <td>Coke, Fanta</td>
+                                <td>A delicacy of Nigerian jollof and grilled chicken</td>
+                                <td>The Place</td>
+                                <td>N 2,500</td>
+                                <td><button class="btn_table "><i class="icon_green fa fa-pencil" aria-hidden="true"></i></button></td>
+                                <td><button class="btn_table"><i class="icon_red fa fa-trash-o" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Sample Bundle Name Two</td>
+                                <td>Oriental</td>
+                                <td>Jollof Rice and Chicken</td>
+                                <td>Coke, Fanta</td>
+                                <td>A delicacy of Nigerian jollof and grilled chicken</td>
+                                <td>The Place</td>
+                                <td>N 2,500</td>
+                                <td><button class="btn_table "><i class="icon_green fa fa-pencil" aria-hidden="true"></i></button></td>
+                                <td><button class="btn_table"><i class="icon_red fa fa-trash-o" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Sample Bundle Name Two</td>
+                                <td>Oriental</td>
+                                <td>Jollof Rice and Chicken</td>
+                                <td>Coke, Fanta</td>
+                                <td>A delicacy of Nigerian jollof and grilled chicken</td>
+                                <td>The Place</td>
+                                <td>N 2,500</td>
+                                <td><button class="btn_table "><i class="icon_green fa fa-pencil" aria-hidden="true"></i></button></td>
+                                <td><button class="btn_table"><i class="icon_red fa fa-trash-o" aria-hidden="true"></i></button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <!-- partial:../../partials/_footer.html -->
 
@@ -247,8 +252,6 @@
 <script src="../../js/hoverable-collapse.js"></script>
 <script src="../../js/misc.js"></script>
 <script src="../../js/app.js"></script>
-<script src="region.js"></script>
-
 </body>
 
 </html>

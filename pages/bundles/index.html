@@ -18,7 +18,7 @@
     <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="bg-white text-center navbar-brand-wrapper">
             <a class="navbar-brand brand-logo" href="index.html">
-                <img src="../../images/nbox_food_logo.png"/>
+                <img src="../../images/nbox_food_logo.png" />
             </a>
             <a class="navbar-brand brand-logo-mini" href="index.html">
                 <img src="../../images/nairabox_green.svg">
@@ -93,63 +93,67 @@
 
             <!-- partial -->
             <div class="content-wrapper">
-                <h3 class="page-heading mb-4">Create a Category</h3>
+                <h3 class="page-heading mb-4">Create a Bundle</h3>
                 <div class="row mb-2">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <!--<h5 class="card-title mb-4">Basic form elements</h5>-->
                                 <div class="bundle-form">
-
                                     <div class="form-group">
-                                        <div>
-                                            <input id="categoryName" type="text" placeholder="Category Name" class="input-form">
-                                        </div>
-                                    </div>
-                                    <!--<div class="form-group">-->
-                                    <!--<div class="styled-select">-->
-                                    <!--<select id="categorySelectRestaurantName">-->
-                                    <!--<option>Select a partner</option>-->
-                                    <!--</select>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <div class="form-group">
-                                        <div class="styled-select">
-                                            <select id="categorySelectCountry">
+                                        <div  class="styled-select">
+                                            <select id="selectCountry">
                                                 <option>Select a country</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="styled-select">
-                                            <select id="categorySelectState">
+                                            <select id="selectState">
                                                 <option>Select a state</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="styled-select">
-                                            <select id="categorySelectCity">
+                                            <select id="selectCity">
                                                 <option>Select a city</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <!--<div class="form-group">-->
-                                        <!--<div class="styled-select">-->
-                                            <!--<select id="categorySelectPartner">-->
-                                                <!--<option>Select a partner</option>-->
-                                            <!--</select>-->
-                                        <!--</div>-->
+                                    <div class="form-group">
+                                        <div class="styled-select">
+                                            <select id="bundlesSelectPartner">
+                                                <option>Select a partner</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="styled-select">
+                                            <select id="bundlesSelectCategory">
+                                                <option>Select a category</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input id="bundleInputName" type="text" placeholder="Enter Bundle Name" class="input-form">
+                                    </div>
+                                    <div>
+                                        <input id="bundleInputPrice" type="text" placeholder="Price" class="input-form">
+                                    </div>
+                                    <!--<div class="">-->
+                                        <!--<input id="inputMenu" type="text" placeholder="Enter Menu" class="input-form">-->
+                                        <!--<a id="addMenu" class="input-action"><i class="fa fa-plus-square-o text-icon"-->
+                                                                   <!--aria-hidden="true"></i>add menu</a>-->
                                     <!--</div>-->
-
                                     <!--<div id="moreMenu"></div>-->
                                     <!--<div class="">-->
-                                    <!--<input id="inputOptions" type="text" placeholder="Enter Options" class="input-form">-->
-                                    <!--<a id="addOptions" class="input-action"><i class="fa fa-plus-square-o text-icon"-->
-                                    <!--aria-hidden="true"></i>add options</a>-->
+                                        <!--<input id="inputOptions" type="text" placeholder="Enter Options" class="input-form">-->
+                                        <!--<a id="addOptions" class="input-action"><i class="fa fa-plus-square-o text-icon"-->
+                                                                   <!--aria-hidden="true"></i>add options</a>-->
                                     <!--</div>-->
                                     <div class="form-group">
-                                        <button id="addCategory" type="submit" class="btn btn-primary btn-lg">CREATE CATEGORY</button>
+                                        <button id="addBundle" type="submit" class="btn btn-primary btn-lg">CREATE BUNDLE</button>
                                     </div>
                                 </div>
                             </div>
@@ -158,51 +162,51 @@
                 </div>
 
                 <!--<div class="card">-->
-                <!--<div class="card-body">-->
-                <!--<h5 class="card-title mb-4">All Bundles</h5>-->
-                <!--<table class="table table-striped">-->
-                <!--<thead>-->
-                <!--<tr class="">-->
-                <!--<th>Country</th>-->
-                <!--<th>State</th>-->
-                <!--<th>City</th>-->
-                <!--<th>Partner</th>-->
-                <!--<th>Category</th>-->
-                <!--<th>Bundle</th>-->
-                <!--<th>Menu</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr>-->
-                <!--<td>Nigeria</td>-->
-                <!--<td>Lagos</td>-->
-                <!--<td>Lekki</td>-->
-                <!--<td>The Place</td>-->
-                <!--<td>Oriental</td>-->
-                <!--<td>Bundle Name Here</td>-->
-                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                <!--<td>Nigeria</td>-->
-                <!--<td>Lagos</td>-->
-                <!--<td>Lekki</td>-->
-                <!--<td>The Place</td>-->
-                <!--<td>Oriental</td>-->
-                <!--<td>Bundle Name Here</td>-->
-                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                <!--<td>Nigeria</td>-->
-                <!--<td>Lagos</td>-->
-                <!--<td>Lekki</td>-->
-                <!--<td>The Place</td>-->
-                <!--<td>Oriental</td>-->
-                <!--<td>Bundle Name Here</td>-->
-                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-                <!--</table>-->
-                <!--</div>-->
+                    <!--<div class="card-body">-->
+                        <!--<h5 class="card-title mb-4">All Bundles</h5>-->
+                        <!--<table class="table table-striped">-->
+                            <!--<thead>-->
+                            <!--<tr class="">-->
+                                <!--<th>Country</th>-->
+                                <!--<th>State</th>-->
+                                <!--<th>City</th>-->
+                                <!--<th>Partner</th>-->
+                                <!--<th>Category</th>-->
+                                <!--<th>Bundle</th>-->
+                                <!--<th>Menu</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>-->
+                            <!--<tr>-->
+                                <!--<td>Nigeria</td>-->
+                                <!--<td>Lagos</td>-->
+                                <!--<td>Lekki</td>-->
+                                <!--<td>The Place</td>-->
+                                <!--<td>Oriental</td>-->
+                                <!--<td>Bundle Name Here</td>-->
+                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>Nigeria</td>-->
+                                <!--<td>Lagos</td>-->
+                                <!--<td>Lekki</td>-->
+                                <!--<td>The Place</td>-->
+                                <!--<td>Oriental</td>-->
+                                <!--<td>Bundle Name Here</td>-->
+                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>Nigeria</td>-->
+                                <!--<td>Lagos</td>-->
+                                <!--<td>Lekki</td>-->
+                                <!--<td>The Place</td>-->
+                                <!--<td>Oriental</td>-->
+                                <!--<td>Bundle Name Here</td>-->
+                                <!--<td>3 Meat Pie, 1 Sausage</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
                 <!--</div>-->
             </div>
             <!-- partial:../../partials/_footer.html -->
@@ -229,9 +233,8 @@
 <script src="../../js/off-canvas.js"></script>
 <script src="../../js/hoverable-collapse.js"></script>
 <script src="../../js/misc.js"></script>
-<script src="menus.js"></script>
+<script src="bundle.js"></script>
 <!--<script src="../../js/app.js"></script>-->
-<script src="category.js"></script>
 </body>
 
 </html>
