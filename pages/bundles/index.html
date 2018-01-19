@@ -104,57 +104,84 @@
                                     <div id="wizard">
                                         <h1>Create a bundle</h1>
                                         <section>
-                                    <div class="form-group">
-                                        <div class="styled-select">
-                                            <select id="selectCountry">
-                                                <option>Select a country</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="styled-select">
-                                            <select id="selectState">
-                                                <option>Select a state</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="styled-select">
-                                            <select id="selectCity">
-                                                <option>Select a city</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="styled-select">
-                                            <select id="bundlesSelectPartner">
-                                                <option>Select a partner</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="styled-select">
-                                            <select id="bundlesSelectCategory">
-                                                <option>Select a category</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <input id="bundleInputName" type="text" placeholder="Enter Bundle Name"
-                                               class="input-form">
-                                    </div>
-                                    <div>
-                                        <input id="bundleInputPrice" type="text" placeholder="Price" class="input-form">
-                                    </div>
-                                    <div class="form-group">
-                                        <button id="addBundle" type="submit" class="btn btn-primary btn-lg">CREATE
-                                            BUNDLE
-                                        </button>
-                                    </div>
+                                            <div class="form-group">
+                                                <div class="styled-select">
+                                                    <select id="selectCountry">
+                                                        <option>Select a country</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="styled-select">
+                                                    <select id="selectState">
+                                                        <option>Select a state</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="styled-select">
+                                                    <select id="selectCity">
+                                                        <option>Select a city</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="styled-select">
+                                                    <select id="bundlesSelectPartner">
+                                                        <option>Select a partner</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="styled-select">
+                                                    <select id="bundlesSelectCategory">
+                                                        <option>Select a category</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <input id="bundleInputName" type="text" placeholder="Enter Bundle Name"
+                                                       class="input-form">
+                                            </div>
+                                            <div>
+                                                <input id="bundleInputPrice" type="text" placeholder="Price"
+                                                       class="input-form">
+                                            </div>
+                                            <!--<div class="form-group">-->
+                                            <!--<button id="addBundle" type="submit" class="btn btn-primary btn-lg">-->
+                                            <!--CREATE-->
+                                            <!--BUNDLE-->
+                                            <!--</button>-->
+                                            <!--</div>-->
                                         </section>
 
                                         <h1>Add menu to the bundle</h1>
-                                        <section>Second Content</section>
+                                        <section>
+                                            <button onclick="createBundle.addOptions()" class="btn_theme_hollow"><i
+                                                    class="fa fa-plus text-icon" aria-hidden="true"></i>ADD OPTIONS
+                                            </button>
+                                            <button onclick="createBundle.clearOptions()" class="btn_theme_hollow"><i
+                                                    class="fa fa-plus text-icon" aria-hidden="true"></i>CLEAR OPTIONS
+                                            </button>
+                                            <div class="multipleInput">
+                                                <input id="inputMenus" type="text" placeholder="Enter Menu"
+                                                       class="input-form">
+                                                <!--<a id="" class="input-action pointer"><i class="fa fa-plus-square-o text-icon" aria-hidden="true"></i>add menus</a>-->
+                                            </div>
+                                            <!--<div id="moreMenu"></div>-->
+                                            <!--<div class="multipleInput">-->
+                                                <!--<input id="inputOptions" type="text" placeholder="Enter Options"-->
+                                                       <!--class="input-form">-->
+                                                <!--&lt;!&ndash;<a onclick="createBundle.addOptions()" id="addOptions" class="input-action pointer"><i&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;class="fa fa-plus-square-o text-icon" aria-hidden="true"></i>add&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;options</a>&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <div id="moreOptions"></div>
+
+                                            <!--<div id="moreMenu"></div>-->
+
+                                            <!--<div id="moreOptions"></div>-->
+                                        </section>
                                     </div>
 
                                 </div>
@@ -164,11 +191,11 @@
                 </div>
 
                 <!--<div id="wizard">-->
-                    <!--<h1>First Step</h1>-->
-                    <!--<div>First Content</div>-->
+                <!--<h1>First Step</h1>-->
+                <!--<div>First Content</div>-->
 
-                    <!--<h1>Second Step</h1>-->
-                    <!--<div>Second Content</div>-->
+                <!--<h1>Second Step</h1>-->
+                <!--<div>Second Content</div>-->
                 <!--</div>-->
                 <!--<button id="moveWizard">Move Wizard</button>-->
 

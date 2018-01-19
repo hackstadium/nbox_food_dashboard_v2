@@ -8,7 +8,31 @@ $(function () {
         headerTag: "h1",
         bodyTag: "section",
         transitionEffect: "fade",
-        autoFocus: true
+        autoFocus: true,
+
+        labels: {
+            next: "ADD MENU",
+            finish: "CREATE BUNDLE",
+
+        },
+
+        onFinished: function (event, currentIndex) {
+            console.log("finished stepper");
+
+            var name = $("#bundleInputName").val();
+            var price = $("#bundleInputPrice").val();
+            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+            var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
+
+            var description = "description here";
+
+            console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
+
+
+            addBundles(name, price, categoryID, description);
+
+        },
+
     });
 
 
@@ -158,7 +182,7 @@ $(function () {
 
         console.log(name + " - " + price + " - " + categoryID + " - " + description);
 
-        addBundles(name, price, categoryID, description);
+        // addBundles(name, price, categoryID, description);
 
     });
 
@@ -168,6 +192,8 @@ $(function () {
 
 
     function addBundles(name, price, categoryID, description) {
+
+        console.log("Creating a bundle")
         var bundleData = {name: name, price: price, category_id: categoryID, description: description}
 
         $.ajax({
@@ -178,7 +204,114 @@ $(function () {
             contentType: "application/json"
         }).done(function (bundles) {
             console.log(bundles);
+
+            var bundleID = bundles.bundle_id;
+            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+
+            addMenuToBundle(name, partnerID, bundleID);
         })
     }
 
+
+    function addMenuToBundle(name, partnerID, bundleID) {
+        var menuData = {menu: {name: name, partner_id: partnerID, options: ["5Alive", "Lemon"]}, bundle_id: bundleID};
+        console.log("adding menu to bundle")
+
+        $.ajax({
+            url: BASE_URL + "menu/create",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(menuData),
+            contentType: "application/json"
+        }).done(function (menus) {
+            console.log(menus);
+        })
+    }
+
+    //
+    // $('#addMenu').click(function () {
+    //     moreMenuTemplate = "<hr" +
+    //         "><div>" +
+    //         "<input class='input-form' type='text' placeholder='New Menu Name'>" +
+    //         "<div class='multipleInput'>" +
+    //         "<input id='inputOptions' type='text' placeholder='Enter Options' class='input-form'>" +
+    //         "<a id='addOptions' class='input-action pointer'><i class='fa fa-plus-square-o text-icon' aria-hidden='true'></i>add options</a>" +
+    //         "</div>" +
+    //         "</div>";
+    //
+    //     $('#moreMenu').append(moreMenuTemplate);
+    // });
+
 });
+
+var createBundle = {
+    init: function () {
+
+    },
+
+
+    addOptions: function () {
+        var optionsArray = [];
+        // $('#addOptions').click(function () {
+        // $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' placeholder='New Option Name'><a onclick='createBundle.removeOption()' id='removeOption' class='input-action'><i class='fa fa-times-circle text-icon' aria-hidden='true'></i></a></div>");
+
+        optionsArray.push("New Options");
+        console.log(optionsArray);
+
+        var initalOptions = JSON.parse(localStorage.getItem("options"));
+
+        if (initalOptions == null) {
+
+            var options = []
+            arrayValue = {option: "New Option Stored"};
+
+            options.unshift(arrayValue);
+
+            localStorage.setItem("options", JSON.stringify(options));
+
+            console.log(options);
+
+            $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' placeholder='New Option Name'></div>");
+
+        } else {
+            var options = initalOptions;
+            arrayValue = {option: "New Option Stored"};
+
+            options.unshift(arrayValue);
+            localStorage.setItem("options", JSON.stringify(options));
+            console.log(options);
+            $('#moreOptions').html("");
+
+            for (var i = 0; i < options.length; i++) {
+                $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' value='" + options[i].option + "'></div>");
+
+                //  $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' value='" + options[i].option + "'><a onclick='createBundle.removeOption(\"" + i + "\")' id='removeOption' class='input-action'><i class='fa fa-times-circle text-icon' aria-hidden='true'></i></a></div>");
+
+            }
+
+        }
+        // });
+    },
+    removeOption: function (optionsID) {
+        console.log("Removing option");
+        console.log(optionsID);
+
+        var storedOptions = JSON.parse(localStorage.getItem("options"));
+
+        var newOptionsArray = storedOptions.splice(3, 1);
+        console.log("Option removed. New Options Created");
+        console.log(newOptionsArray);
+        console.log(newOptionsArray.length);
+
+    },
+
+    clearOptions: function () {
+        localStorage.clear("options");
+        $('#moreOptions').html("");
+
+    }
+}
+
+createBundle.init();
+
+
