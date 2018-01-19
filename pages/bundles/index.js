@@ -2,6 +2,9 @@ $(function () {
     console.log("menu js found");
     console.log("menu js ready");
 
+    $("#wizard").steps();
+
+
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
 
     getCountries();
@@ -97,6 +100,7 @@ $(function () {
 
 
     function getPartner(cityID) {
+        console.log("getting Partners");
         $.ajax({
             url: BASE_URL + "partners?city_id=" + cityID,
             type: "GET",
@@ -149,6 +153,10 @@ $(function () {
 
         addBundles(name, price, categoryID, description);
 
+    });
+
+    $('#moveWizard').click(function () {
+        $("#wizard").steps();
     });
 
 

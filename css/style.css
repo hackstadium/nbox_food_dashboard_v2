@@ -14058,7 +14058,7 @@ input {
 .styled-select select {
     background: transparent;
     border: none;
-    font-size: 14px;
+    font-size: 16px;
     height: 29px;
     padding: 5px;
     width: 360px;
@@ -14092,7 +14092,7 @@ input{
 
 input::placeholder{
     color: black;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -14148,4 +14148,14 @@ input::placeholder{
 
 .icon_green{
   color: #678D61 !important;
+}
+
+
+.table_cell_link{
+  color: #678D61 !important;
+  text-decoration: underline;
+}
+
+.pointer{
+  cursor: pointer;
 }
