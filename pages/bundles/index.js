@@ -214,7 +214,17 @@ $(function () {
 
 
     function addMenuToBundle(name, partnerID, bundleID) {
-        var menuData = {menu: {name: name, partner_id: partnerID, options: ["5Alive", "Lemon"]}, bundle_id: bundleID};
+        var storedOptions = JSON.parse(localStorage.getItem("options"));
+
+        var optionsArray = [];
+
+        for ( var i = 0; i < storedOptions.length; i++){
+            optionsArray.push(storedOptions[i].option);
+            console.log("Options Array to be inserterd");
+            console.log(optionsArray);
+        }
+
+        var menuData = {menu: {name: name, partner_id: partnerID, options: optionsArray}, bundle_id: bundleID};
         console.log("adding menu to bundle")
 
         $.ajax({
@@ -275,7 +285,7 @@ var createBundle = {
 
         } else {
             var options = initalOptions;
-            arrayValue = {option: "New Option Stored"};
+            arrayValue = {option: "New Option"};
 
             options.unshift(arrayValue);
             localStorage.setItem("options", JSON.stringify(options));
