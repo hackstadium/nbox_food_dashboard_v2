@@ -2,7 +2,14 @@ $(function () {
     console.log("menu js found");
     console.log("menu js ready");
 
-    $("#wizard").steps();
+    // $("#wizard").steps();
+
+    $("#wizard").steps({
+        headerTag: "h1",
+        bodyTag: "section",
+        transitionEffect: "fade",
+        autoFocus: true
+    });
 
 
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
