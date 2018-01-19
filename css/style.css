@@ -14159,3 +14159,36 @@ input::placeholder{
 .pointer{
   cursor: pointer;
 }
+
+.wizard > .content > .body{
+  padding: 0px;
+}
+
+.wizard > .content{
+  background-color: white;
+}
+
+
+.wizard > .steps .current a, .wizard > .steps .current a:hover{
+  background: white;
+  color: #85B67E;
+  cursor: default;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 3px solid #85B67E !important;
+  border-radius: 0px;
+}
+
+.wizard > .steps .done a, .wizard > .steps .done a:hover{
+  background: white;
+  color: #85B67E;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.wizard > .steps .disabled a{
+  background: white;
+  color: #85B67E;
+  font-size: 20px;
+  font-weight: lighter;
+}
