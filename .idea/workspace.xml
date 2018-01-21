@@ -68,8 +68,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/bundles/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="13">
-                  <caret line="179" column="64" lean-forward="false" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="64" />
+                <state relative-caret-position="558">
+                  <caret line="167" column="69" lean-forward="false" selection-start-line="167" selection-start-column="59" selection-end-line="167" selection-end-column="69" />
                   <folding />
                 </state>
               </provider>
@@ -102,8 +102,8 @@
           <file leaf-file-name="bundle.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+                <state relative-caret-position="60">
+                  <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -122,8 +122,8 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/bundles/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="472">
-                  <caret line="343" column="0" lean-forward="true" selection-start-line="343" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
+                <state relative-caret-position="495">
+                  <caret line="33" column="65" lean-forward="false" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
                   <folding />
                 </state>
               </provider>
@@ -329,12 +329,12 @@
       <workItem from="1516349433985" duration="1712000" />
       <workItem from="1516351558059" duration="1654000" />
       <workItem from="1516355776945" duration="19197000" />
-      <workItem from="1516543430531" duration="7111000" />
+      <workItem from="1516543430531" duration="9074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117873000" />
+    <option name="totallyTimeSpent" value="119836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -721,14 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213120">
@@ -737,18 +729,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/bundles/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="179" column="64" lean-forward="false" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="64" />
+        <state relative-caret-position="558">
+          <caret line="167" column="69" lean-forward="false" selection-start-line="167" selection-start-column="59" selection-end-line="167" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/bundles/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="343" column="0" lean-forward="true" selection-start-line="343" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
+        <state relative-caret-position="495">
+          <caret line="33" column="65" lean-forward="false" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
           <folding />
         </state>
       </provider>

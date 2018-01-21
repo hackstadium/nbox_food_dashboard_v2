@@ -19,19 +19,19 @@ $(function () {
         onFinished: function (event, currentIndex) {
             console.log("finished stepper");
 
-            // var name = $("#bundleInputName").val();
-            // var price = $("#bundleInputPrice").val();
-            // var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
-            // var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
-            //
-            // var description = "description here";
-            //
-            // console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
-            //
+            var name = $("#bundleInputName").val();
+            var price = $("#bundleInputPrice").val();
+            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+            var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
+
+            var description = "description here";
+
+            console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
+
             //
             // addBundles(name, price, categoryID, description);
 
-            createBundle.addBundle("Test name", "9000", "2349876534567", "description here");
+            createBundle.addBundle(name, price, categoryID, description);
 
         },
 
@@ -257,6 +257,9 @@ $(function () {
 });
 
 var createBundle = {
+
+    BASE_URL: "http://staging.nairabox.com/foodhub/",
+
     init: function () {
 
     },
@@ -330,7 +333,40 @@ var createBundle = {
     addBundle: function (name, price, categoryID, description) {
 
 
-        createBundle.addMenuToBundle(name, "098765432", "0987653456789");
+        // createBundle.addMenuToBundle(name, "098765432", "0987653456789");
+
+
+
+        console.log("Creating a bundle")
+        var bundleData = {name: name, price: price, category_id: categoryID, description: description}
+
+        $.ajax({
+            url: createBundle.BASE_URL + "create/bundle",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(bundleData),
+            contentType: "application/json"
+        }).done(function (bundles) {
+            console.log(bundles);
+
+            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+            var name = $("#inputMenus").val();
+
+
+            //addMenuToBundle(name, partnerID, bundleID);
+            if (bundles.error_code === 0){
+                 bundleID = bundles.bundle_id;
+
+
+                createBundle.addMenuToBundle(name, partnerID, bundleID);
+
+            }else {
+               bundleID = bundles.id;
+                createBundle.addMenuToBundle(name, partnerID, bundleID);
+
+            }
+
+        })
 
     },
 
@@ -354,6 +390,20 @@ var createBundle = {
         }
 
         console.log(options);
+
+
+        var menuData = {menu: {name: name, partner_id: partnerID, options: options}, bundle_id: bundleID};
+        console.log("adding menu to bundle")
+
+        $.ajax({
+            url: createBundle.BASE_URL + "menu/create",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(menuData),
+            contentType: "application/json"
+        }).done(function (menus) {
+            console.log(menus);
+        })
     },
 
 
