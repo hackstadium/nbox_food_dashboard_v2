@@ -19,17 +19,19 @@ $(function () {
         onFinished: function (event, currentIndex) {
             console.log("finished stepper");
 
-            var name = $("#bundleInputName").val();
-            var price = $("#bundleInputPrice").val();
-            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
-            var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
+            // var name = $("#bundleInputName").val();
+            // var price = $("#bundleInputPrice").val();
+            // var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+            // var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
+            //
+            // var description = "description here";
+            //
+            // console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
+            //
+            //
+            // addBundles(name, price, categoryID, description);
 
-            var description = "description here";
-
-            console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
-
-
-            addBundles(name, price, categoryID, description);
+            createBundle.addBundle();
 
         },
 
@@ -325,6 +327,20 @@ var createBundle = {
         }
     },
 
+    addBundle:function () {
+        console.log("addBundle : Number of Menu Options");
+        console.log($("div#moreOptions input").length);
+
+        var inputOptionLength = $("div#moreOptions input").length;
+
+
+        for (var i = 0; i < inputOptionLength; i++ ){
+            console.log("Listing option values");
+           // inputID = i;
+            console.log($("#menuOption_" + i).val());
+        }
+    },
+
 
     addOptions: function () {
 
@@ -334,11 +350,7 @@ var createBundle = {
         var inputOptionLength = $("div#moreOptions input").length;
 
 
-
-        $('#moreOptions').prepend("<input id='menuOption" + inputOptionLength + "' class='input-form' type='text' placeholder='New Option Name'>");
-
-
-
+        $('#moreOptions').prepend("<input id='menuOption_" + inputOptionLength + "' class='input-form' type='text' placeholder='New Option Name'>");
 
 
         // // var initalOptions = JSON.parse(localStorage.getItem("options"));

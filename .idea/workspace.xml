@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/index.html" afterPath="$PROJECT_DIR$/pages/bundles/index.html" />
       <change beforePath="$PROJECT_DIR$/pages/bundles/index.js" afterPath="$PROJECT_DIR$/pages/bundles/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,7 +68,7 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/bundles/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="808">
+                <state relative-caret-position="13">
                   <caret line="179" column="64" lean-forward="false" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="64" />
                   <folding />
                 </state>
@@ -125,8 +122,8 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/bundles/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="581">
-                  <caret line="339" column="0" lean-forward="true" selection-start-line="339" selection-start-column="0" selection-end-line="339" selection-end-column="0" />
+                <state relative-caret-position="475">
+                  <caret line="340" column="9" lean-forward="true" selection-start-line="340" selection-start-column="9" selection-end-line="340" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -297,11 +294,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.index.js">
     <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$/js" />
+    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/pages/bundles" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.app.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.index.js" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.app.js" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.index.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.app.js" />
       </list>
     </recent_temporary>
   </component>
@@ -326,12 +329,12 @@
       <workItem from="1516349433985" duration="1712000" />
       <workItem from="1516351558059" duration="1654000" />
       <workItem from="1516355776945" duration="19197000" />
-      <workItem from="1516543430531" duration="5042000" />
+      <workItem from="1516543430531" duration="6251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115804000" />
+    <option name="totallyTimeSpent" value="117013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -366,7 +369,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -734,7 +739,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/bundles/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
+        <state relative-caret-position="13">
           <caret line="179" column="64" lean-forward="false" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="64" />
           <folding />
         </state>
@@ -742,8 +747,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/bundles/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="339" column="0" lean-forward="true" selection-start-line="339" selection-start-column="0" selection-end-line="339" selection-end-column="0" />
+        <state relative-caret-position="475">
+          <caret line="340" column="9" lean-forward="true" selection-start-line="340" selection-start-column="9" selection-end-line="340" selection-end-column="9" />
           <folding />
         </state>
       </provider>
