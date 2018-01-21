@@ -218,7 +218,7 @@ $(function () {
 
         var optionsArray = [];
 
-        for ( var i = 0; i < storedOptions.length; i++){
+        for (var i = 0; i < storedOptions.length; i++) {
             optionsArray.push(storedOptions[i].option);
             console.log("Options Array to be inserterd");
             console.log(optionsArray);
@@ -259,21 +259,30 @@ var createBundle = {
 
     },
 
-
-    addOptions: function () {
+    saveOptions: function () {
         var optionsArray = [];
         // $('#addOptions').click(function () {
         // $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' placeholder='New Option Name'><a onclick='createBundle.removeOption()' id='removeOption' class='input-action'><i class='fa fa-times-circle text-icon' aria-hidden='true'></i></a></div>");
 
-        optionsArray.push("New Options");
-        console.log(optionsArray);
+        // optionsArray.push("New Options");
+        // console.log(optionsArray);
+
 
         var initalOptions = JSON.parse(localStorage.getItem("options"));
+        var initialOptionsInput = JSON.parse(localStorage.getItem("optionsInput"));
+
+
+        console.log("saveOptions Length of options");
+        console.log(initialOptionsInput.length);
+
 
         if (initalOptions == null) {
 
-            var options = []
-            arrayValue = {option: "New Option Stored"};
+            var options = [];
+            var optionsInputValue = $("#option0").val();
+            console.log("Saving First value");
+            console.log(optionsInputValue);
+            arrayValue = {option: optionsInputValue};
 
             options.unshift(arrayValue);
 
@@ -281,15 +290,29 @@ var createBundle = {
 
             console.log(options);
 
-            $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' placeholder='New Option Name'></div>");
+
+            // console.log("No Options found. Add an Option")
+
+            //   $('#moreOptions').append("<div class='multipleInput'><input class='input-form' type='text' placeholder='New Option Name'></div>");
 
         } else {
             var options = initalOptions;
-            arrayValue = {option: "New Option"};
+            // var inputArrayValue = [];
 
-            options.unshift(arrayValue);
-            localStorage.setItem("options", JSON.stringify(options));
-            console.log(options);
+            for (var i = 0; i < initialOptionsInput.length; i++) {
+                // optionID
+                var inputOptionValue = $("#option" + i).val();
+                inputArrayValue = {option: inputOptionValue};
+                console.log("Input Values");
+                // console.log(inputArrayValue);
+                //inputArrayValue.push($('#options'))
+            }
+
+            // arrayValue = {option: "New Option"};
+            //
+            // options.unshift(arrayValue);
+            // localStorage.setItem("options", JSON.stringify(options));
+            // console.log(options);
             $('#moreOptions').html("");
 
             for (var i = 0; i < options.length; i++) {
@@ -300,6 +323,56 @@ var createBundle = {
             }
 
         }
+    },
+
+
+    addOptions: function () {
+
+        console.log("Number of Menu Options");
+        console.log($("div#moreOptions input").length);
+
+        var inputOptionLength = $("div#moreOptions input").length;
+
+
+
+        $('#moreOptions').prepend("<input id='menuOption" + inputOptionLength + "' class='input-form' type='text' placeholder='New Option Name'>");
+
+
+
+
+
+        // // var initalOptions = JSON.parse(localStorage.getItem("options"));
+        // var initialOptionsInput = JSON.parse(localStorage.getItem("optionsInput"));
+        //
+        // if (initialOptionsInput == null) {
+        //     var optionsInputsArray = [];
+        //
+        //     arrayInputs = {option: "option"};
+        //     optionsInputsArray.unshift(arrayInputs);
+        //     localStorage.setItem("optionsInput", JSON.stringify(optionsInputsArray));
+        //
+        //     console.log("lenght of inputs");
+        //     console.log("0")
+        //
+        //     $('#moreOptions').prepend("<input id='menuOption' class='input-form' type='text' placeholder='New Option Name'>");
+        //
+        // } else {
+        //
+        //     var optionsInputs = initialOptionsInput;
+        //
+        //     arrayInputs = {option: "option"};
+        //     optionsInputs.unshift(arrayInputs);
+        //     localStorage.setItem("optionsInput", JSON.stringify(optionsInputs));
+        //
+        //     console.log("Length of Inputs");
+        //     console.log(optionsInputs);
+        //     console.log(initialOptionsInput.length);
+        //
+        //     $('#moreOptions').prepend("<input id='menuOption' class='input-form' type='text' placeholder='New Option Name'>");
+        //
+        //     console.log("Number of Menu Options");
+        //     console.log($("div#moreOptions input").length);
+        // }
         // });
     },
     removeOption: function (optionsID) {
@@ -317,6 +390,8 @@ var createBundle = {
 
     clearOptions: function () {
         localStorage.clear("options");
+        localStorage.clear("optionsInput");
+
         $('#moreOptions').html("");
 
     }
