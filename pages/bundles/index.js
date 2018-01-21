@@ -31,7 +31,7 @@ $(function () {
             //
             // addBundles(name, price, categoryID, description);
 
-            createBundle.addBundle();
+            createBundle.addBundle("Test name", "9000", "2349876534567", "description here");
 
         },
 
@@ -327,18 +327,33 @@ var createBundle = {
         }
     },
 
-    addBundle:function () {
-        console.log("addBundle : Number of Menu Options");
+    addBundle: function (name, price, categoryID, description) {
+
+
+        createBundle.addMenuToBundle(name, "098765432", "0987653456789");
+
+    },
+
+    addMenuToBundle: function (name, partnerID, bundleID) {
+
+        var options = [];
+        console.log("addMenuToBundle : Number of Menu Options");
         console.log($("div#moreOptions input").length);
 
         var inputOptionLength = $("div#moreOptions input").length;
 
 
-        for (var i = 0; i < inputOptionLength; i++ ){
-            console.log("Listing option values");
-           // inputID = i;
+        for (var i = 0; i < inputOptionLength; i++) {
+            console.log("addMenuToBundle : Listing option values");
+            // inputID = i;
             console.log($("#menuOption_" + i).val());
+            inputOptionValue = $("#menuOption_" + i).val();
+
+            options.push(inputOptionValue);
+
         }
+
+        console.log(options);
     },
 
 
