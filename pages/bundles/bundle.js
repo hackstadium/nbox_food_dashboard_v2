@@ -7,6 +7,8 @@ var bundles = {
         bundles.getAllbundles();
     },
     getAllbundles: function () {
+
+        $("#bundlesTable").html("");
         $.ajax({
             url: bundles.BASE_URL + "bundles/all",
             type: "GET",
@@ -41,7 +43,7 @@ var bundles = {
                     + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
                     + "<td>" + allBundles.message[i].price + "</td>"
                     + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-                    + "<td><button class='btn_table'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+                    + "<td><button class='btn_table' onclick='bundles.deleteBundle(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
 
@@ -105,14 +107,93 @@ var bundles = {
             contentType: "application/json"
         }).done(function (bundle) {
             var bundleEditDetaillsTemplate = "<div>"
-                + "<p><strong>Name :  </strong><input type='text' value='" + bundle.message.name + "'>" + "</span></p>"
-                + "<p><strong>Description :  </strong><input type='text' value='" + bundle.message.description + "'>" + "</span></p>"
-                + "<p><strong>Price :  </strong><input type='text' value='" + bundle.message.price + "'>" + "</span></p>"
+                + "<div class='verticalInput'><strong>Bundle Name :  </strong><input id='modalBundlesInputName' type='text' value='" + bundle.message.name + "'></div>"
+                + "<div class='verticalInput'><strong>Description :  </strong><input id='modalBundlesInputDescription' type='text' value='" + bundle.message.description + "'></div>"
+                + "<div class='verticalInput'><strong>Price :  </strong><input id='modalBundlesInputPrice' type='text' value='" + bundle.message.price + "'></div>"
                 + "</div>";
 
-            alertify.alert(bundleEditDetaillsTemplate);
+            alertify.confirm('Edit Bundle', bundleEditDetaillsTemplate,
+                function () {
+                    //alertify.success('UPDATE');
+                    console.log("Modal ok clicked");
+                    bundles.updateBundle(bundleID);
+                },
+                function () {
+
+                }
+            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
 
         })
+    },
+
+    updateBundle: function (bundleID) {
+
+        var updateName = $("#modalBundlesInputName").val();
+        var updateDescription = $("#modalBundlesInputDescription").val();
+        var updatePrice = $("#modalBundlesInputPrice").val();
+
+        var updateBundleData = {
+            bundle_id: bundleID,
+            name: updateName,
+            price: updatePrice,
+            description: updateDescription
+        }
+
+
+        console.log("Bundle ID");
+        console.log(bundleID);
+
+        $.ajax({
+            url: bundles.BASE_URL + "bundle/update",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(updateBundleData),
+            contentType: "application/json"
+        }).done(function () {
+            console.log("Value Updated");
+            bundles.getAllbundles();
+        });
+    },
+
+    deleteBundle: function (categoryID, bundleID) {
+        console.log("Delete Bundle with ID")
+        console.log(bundleID);
+
+        var bundleData = {category_id: categoryID, bundle_id: bundleID}
+
+        var deleteBundleData = {bundle_id: bundleID};
+
+
+        $.ajax({
+            url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
+            type: "GET",
+            crossDomain: true,
+            data: JSON.stringify(bundleData),
+            contentType: "application/json"
+        }).done(function (bundle) {
+            var deleteBundleTemplate = "<p>Delete</p><h5>" + bundle.message.name + "</h5>";
+
+            alertify.confirm("Conform delete action", deleteBundleTemplate,
+                function () {
+                    alertify.success('Ok');
+                    $.ajax({
+                        url: bundles.BASE_URL + "bundle/delete",
+                        type: "POST",
+                        crossDomain: true,
+                        data: JSON.stringify(deleteBundleData),
+                        contentType: "application/json"
+                    }).done(function () {
+                        console.log("Value Deleted");
+                        bundles.getAllbundles();
+                    });
+                },
+                function () {
+                    //alertify.error('Cancel');
+                }).set({transition: 'zoom', label: ' DELETE '}).show();
+        });
+
+
     }
 }
 bundles.init();

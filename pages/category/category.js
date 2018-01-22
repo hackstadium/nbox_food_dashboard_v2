@@ -25,13 +25,40 @@ var categories = {
                     + "<td>" + categories.message[i].category + "</td>"
                     // + "<td>" + regions.message[i].state + "</td>"
                     // + "<td>" + regions.message[i].city + "</td>"
-                    // + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-                    // + "<td><button class='btn_table'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+                    + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + categories.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+                    + "<td><button class='btn_table'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
 
         });
-    }
+    },
+
+    openModalEditCategoryDetails: function (categoryID) {
+        console.log(categoryID);
+
+        console.log("Edit Modal Clicked");
+        console.log(categoryID);
+       // // console.log(bundleID);
+       //  var bundleData = {category_id: categoryID, bundle_id: bundleID}
+       //
+       //  $.ajax({
+       //      url: regions.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
+       //      type: "GET",
+       //      crossDomain: true,
+       //      data: JSON.stringify(bundleData),
+       //      contentType: "application/json"
+       //  }).done(function (bundle) {
+       //      var bundleEditDetaillsTemplate = "<div>"
+       //          + "<p><strong>Name :  </strong><input type='text' value='" + regions.message.name + "'>" + "</span></p>"
+       //          + "<p><strong>Description :  </strong><input type='text' value='" + regions.message.description + "'>" + "</span></p>"
+       //          + "<p><strong>Price :  </strong><input type='text' value='" + regions.message.price + "'>" + "</span></p>"
+       //          + "</div>";
+       //
+       //      alertify.alert(bundleEditDetaillsTemplate);
+       //
+       //  })
+    },
+
 }
 
 categories.init();

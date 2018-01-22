@@ -14218,3 +14218,46 @@ input::placeholder{
   color: #7FAE78;
   font-weight: bold;
 }
+
+.rotate{
+  -webkit-animation: rotation 1s infinite linear;
+  color: whitesmoke;
+
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+
+.verticalInput{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.alertify.ajs-closable .ajs-commands button.ajs-close{
+  background-color: transparent !important;
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok{
+  color: white;
+  border-radius: 4px;
+  padding: 8px 24px;
+  font-size: 16px;
+ box-shadow:  0px 2px 4px 0px #f2f2f2;
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-cancel{
+  background-color: #f5f5f5 !important;
+  color: #4a4a4a;
+  border-radius: 4px;
+  padding: 8px 24px;
+  box-shadow:  0px 2px 4px 0px #f2f2f2;
+
+}
