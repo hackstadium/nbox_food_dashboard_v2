@@ -105,7 +105,7 @@ var regions = {
                     data: JSON.stringify(countryData),
                     contentType: "application/json"
                 }).done(function (country) {
-                   console.log(country); 
+                   console.log(country);
                 });
             });
         });
