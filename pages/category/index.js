@@ -89,6 +89,8 @@ $(function () {
     }
 
 
+
+
     $("#addCategory").click(function () {
 
         var category = $("#categoryName").val();

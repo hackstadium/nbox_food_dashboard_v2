@@ -39,6 +39,10 @@ $(function () {
 
 
     function getStates(countryID) {
+
+        console.log("Getting States with ID");
+        console.log(countryID);
+
         $.ajax({
             url: BASE_URL + "states?country_id=" + countryID,
             type: "GET",
@@ -63,7 +67,7 @@ $(function () {
         console.log("select state clicked");
         //var countryID =
         var stateID = $(this).find(":selected").data("id");
-        console.log("Selected ID");
+        console.log("Selected ID for State");
         console.log(stateID);
         getCity(stateID);
 
@@ -89,6 +93,33 @@ $(function () {
             }
         })
     }
+
+
+
+    // $("#restaurantSelectCity").change(function () {
+    //     console.log("select city clicked");
+    //     //var countryID =
+    //     var cityID = $(this).find(":selected").data("id");
+    //     console.log("Selected ID");
+    //     console.log(cityID);
+    //     getCategories(cityID);
+    //
+    // });
+    //
+    // function getCategories(cityID) {
+    //     $.ajax({
+    //         url: BASE_URL + "categories?city_id=" + cityID,
+    //         type: "GET",
+    //         crossDomain: true,
+    //         // data: JSON.stringify(countryData),
+    //         contentType: "application/json"
+    //     }).done(function (categories) {
+    //         console.log("categories");
+    //         console.log(categories);
+    //     });
+    //
+    // }
+
 
 
     $('#addPartner').click(function () {

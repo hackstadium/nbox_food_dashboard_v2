@@ -23,8 +23,7 @@ $(function () {
             var price = $("#bundleInputPrice").val();
             var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
             var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
-
-            var description = "description here";
+            var description = $("#bundleInputDescription").val();
 
             console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
 

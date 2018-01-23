@@ -64,18 +64,16 @@ var bundles = {
             console.log("One Bundle");
             console.log(bundle.message.menu.length);
             console.log(bundle);
-            var bundleDetailsTemplate = "<div id='modalBundleDetails'><p>Bundle ID is - " + bundleID + "</p>"
-                + "<p>Category ID is - " + categoryID + "</p>"
-                + "<h3>Bundle Details</h3>"
-                + "<p><strong>Name - </strong>" + bundle.message.name + " </p>"
-                + "<p><strong>Menus </strong><ul id='bundleDetailsMenus'></ul></p>"
-                + "<p><strong>Options </strong><ul id='bundleDetailsOptions'></ul></p>"
+            var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
+                + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
+                + "<div class='multiList'><strong>Menus</strong><p id='bundleDetailsMenus'></p></p></div>"
+                + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
                 // +"<p><strong>Partners </strong><ul id='bundleDetailsPartners'></ul></p>"
-                + "<p><strong>Description - </strong>" + bundle.message.description + " </p></div>"
-                + "<p><strong>Price - </strong>" + bundle.message.price + " </p></div>";
+                + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
+                + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
 
 
-            alertify.alert(bundleDetailsTemplate);
+            alertify.alert('Bundle Details',bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
             for (var i = 0; i < bundle.message.menu.length; i++) {
                 $('#bundleDetailsMenus').html("");
                 $('#bundleDetailsOptions').html("");
@@ -197,55 +195,3 @@ var bundles = {
     }
 }
 bundles.init();
-
-// function getAllBundles() {
-//     $.ajax({
-//         url: BASE_URL + "bundles/all",
-//         type: "GET",
-//         crossDomain: true,
-//         // data: JSON.stringify(countryData),
-//         contentType: "application/json"
-//     }).done(function (allBundles) {
-//         console.log(allBundles);
-//         console.log(allBundles.message[0].name);
-//         console.log(allBundles.message[0].category_name);
-//         console.log(allBundles.message[0].menu[0].name);
-//         console.log(allBundles.message[0].menu[0].options[0]);
-//         console.log(allBundles.message[0].menu[0].options[1]);
-//         console.log(allBundles.message[0].description);
-//         console.log(allBundles.message[0].menu[0].partner_name);
-//         console.log(allBundles.message[0].price);
-//
-//
-//         // resultTemplate += "<"
-//
-//
-//         for (var i = 0; i < allBundles.message.length; i++) {
-//             $("#bundlesTable").append("<tr>"
-//                 + "<td onclick='openModalBundleDetail()'>" + allBundles.message[i].name + "</td>"
-//                 + "<td>" + allBundles.message[i].category_name + "</td>"
-//                 + "<td>" + allBundles.message[i].menu[0].name + "</td>"
-//                 + "<td>" + allBundles.message[i].menu[0].options + "</td>"
-//                 + "<td>" + allBundles.message[i].description + "</td>"
-//                 + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
-//                 + "<td>" + allBundles.message[i].price + "</td>"
-//                 + "<td><button class='btn_table'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-//                 + "<td><button class='btn_table'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
-//                 + "</tr>");
-//         }
-//
-//     });
-//
-//     function openModalBundleDetail() {
-//         console.log("clicked to open Modal");
-//     }
-// }
-//
-//
-// $('#showModal').click(function () {
-//     var bundleDetailsTemplate = "<p>Hello I am a template</p>" + "<p>Another line in that template</p>"
-//     alertify.alert(bundleDetailsTemplate);
-//
-// });
-
-
