@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/partners/partners.html" afterPath="$PROJECT_DIR$/pages/partners/partners.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/partners.js" afterPath="$PROJECT_DIR$/pages/partners/partners.js" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/region.js" afterPath="$PROJECT_DIR$/pages/regions/region.js" />
+      <change beforePath="$PROJECT_DIR$/pages/category/categories.html" afterPath="$PROJECT_DIR$/pages/category/categories.html" />
+      <change beforePath="$PROJECT_DIR$/pages/category/category.js" afterPath="$PROJECT_DIR$/pages/category/category.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +30,7 @@
             <entry file="file://$PROJECT_DIR$/pages/partners/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="465">
-                  <caret line="243" column="40" lean-forward="true" selection-start-line="243" selection-start-column="40" selection-end-line="243" selection-end-column="40" />
+                  <caret line="243" column="40" lean-forward="false" selection-start-line="243" selection-start-column="40" selection-end-line="243" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -47,18 +46,18 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="menus.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/menus/menus.html">
+          <file leaf-file-name="partners.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pages/partners/partners.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="975">
-                  <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="61" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="partners.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pages/partners/partners.html">
+          <file leaf-file-name="categories.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pages/category/categories.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="165">
                   <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
@@ -84,18 +83,18 @@
           <file leaf-file-name="bundle.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="141">
-                  <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+                <state relative-caret-position="383">
+                  <caret line="45" column="19" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="category.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="category.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/category/category.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+                <state relative-caret-position="683">
+                  <caret line="92" column="37" lean-forward="true" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
@@ -104,18 +103,18 @@
           <file leaf-file-name="region.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/regions/region.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="188">
-                  <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+                <state relative-caret-position="-247">
+                  <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="partners.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="partners.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/partners/partners.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="604">
-                  <caret line="107" column="37" lean-forward="false" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+                <state relative-caret-position="488">
+                  <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="137" selection-end-column="67" />
                   <folding />
                 </state>
               </provider>
@@ -178,17 +177,17 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/pages/bundles/bundles.html" />
         <option value="$PROJECT_DIR$/pages/bundles/index.html" />
-        <option value="$PROJECT_DIR$/pages/category/categories.html" />
         <option value="$PROJECT_DIR$/pages/category/index.html" />
         <option value="$PROJECT_DIR$/pages/partners/index.html" />
         <option value="$PROJECT_DIR$/pages/regions/index.html" />
-        <option value="$PROJECT_DIR$/pages/category/category.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/pages/bundles/bundle.js" />
         <option value="$PROJECT_DIR$/pages/regions/regions.html" />
         <option value="$PROJECT_DIR$/pages/regions/region.js" />
         <option value="$PROJECT_DIR$/pages/partners/partners.html" />
+        <option value="$PROJECT_DIR$/pages/category/categories.html" />
         <option value="$PROJECT_DIR$/pages/partners/partners.js" />
+        <option value="$PROJECT_DIR$/pages/category/category.js" />
       </list>
     </option>
   </component>
@@ -256,6 +255,12 @@
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="category" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -316,12 +321,12 @@
       <workItem from="1516351558059" duration="1654000" />
       <workItem from="1516355776945" duration="19197000" />
       <workItem from="1516543430531" duration="33974000" />
-      <workItem from="1516632896432" duration="5534000" />
+      <workItem from="1516632896432" duration="7434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150270000" />
+    <option name="totallyTimeSpent" value="152170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -638,14 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/category/categories.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="82" column="25" lean-forward="false" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213915">
@@ -691,15 +688,7 @@
     <entry file="file://$PROJECT_DIR$/pages/partners/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="243" column="40" lean-forward="true" selection-start-line="243" selection-start-column="40" selection-end-line="243" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/category/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <caret line="243" column="40" lean-forward="false" selection-start-line="243" selection-start-column="40" selection-end-line="243" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -712,14 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/partners/partners.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/regions/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="923">
@@ -728,26 +709,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/partners/partners.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/category/categories.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/regions/region.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        <state relative-caret-position="-247">
+          <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+        <state relative-caret-position="383">
+          <caret line="45" column="19" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/partners/partners.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="107" column="37" lean-forward="false" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+        <state relative-caret-position="488">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="137" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/category/category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="92" column="37" lean-forward="true" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
           <folding />
         </state>
       </provider>
