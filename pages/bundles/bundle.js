@@ -7,6 +7,7 @@ var bundles = {
         bundles.getAllbundles();
     },
     getAllbundles: function () {
+        $("#preloaderNav").show();
 
         $("#bundlesTable").html("");
         $.ajax({
@@ -15,6 +16,8 @@ var bundles = {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (allBundles) {
+            $("#preloaderNav").hide();
+
             console.log(allBundles);
             console.log(allBundles.message[0].name);
             console.log(allBundles.message[0].category_name);
@@ -26,9 +29,7 @@ var bundles = {
             console.log(allBundles.message[0].price);
 
 
-
             for (var i = 0; i < allBundles.message.length; i++) {
-
 
                 $("#bundlesTable").append("<tr>"
                     + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'>" + allBundles.message[i].name + "</td>"
@@ -44,6 +45,8 @@ var bundles = {
         });
     },
     openModalBundleDetails: function (categoryID, bundleID) {
+        $("#preloaderNav").show();
+
         console.log("clicked to open Modal");
         console.log(categoryID);
         console.log(bundleID);
@@ -55,6 +58,8 @@ var bundles = {
             data: JSON.stringify(bundleData),
             contentType: "application/json"
         }).done(function (bundle) {
+            $("#preloaderNav").hide();
+
             console.log("One Bundle");
             console.log(bundle.message.menu.length);
             console.log(bundle);
@@ -80,6 +85,8 @@ var bundles = {
 
     },
     openModalEditBundleDetails: function (categoryID, bundleID) {
+        $("#preloaderNav").show();
+
         console.log("Edit Modal Clicked");
         console.log(categoryID);
         console.log(bundleID);
@@ -92,6 +99,8 @@ var bundles = {
             data: JSON.stringify(bundleData),
             contentType: "application/json"
         }).done(function (bundle) {
+            $("#preloaderNav").hide();
+
             var bundleEditDetaillsTemplate = "<div>"
                 + "<div class='verticalInput'><strong>Bundle Name :  </strong><input id='modalBundlesInputName' type='text' value='" + bundle.message.name + "'></div>"
                 + "<div class='verticalInput'><strong>Description :  </strong><input id='modalBundlesInputDescription' type='text' value='" + bundle.message.description + "'></div>"
@@ -113,6 +122,8 @@ var bundles = {
     },
 
     updateBundle: function (bundleID) {
+        $("#preloaderNav").show();
+
 
         var updateName = $("#modalBundlesInputName").val();
         var updateDescription = $("#modalBundlesInputDescription").val();
@@ -136,12 +147,16 @@ var bundles = {
             data: JSON.stringify(updateBundleData),
             contentType: "application/json"
         }).done(function () {
+            $("#preloaderNav").hide();
+
             console.log("Value Updated");
             bundles.getAllbundles();
         });
     },
 
     deleteBundle: function (categoryID, bundleID) {
+        $("#preloaderNav").show();
+
         console.log("Delete Bundle with ID")
         console.log(bundleID);
 
@@ -157,6 +172,8 @@ var bundles = {
             data: JSON.stringify(bundleData),
             contentType: "application/json"
         }).done(function (bundle) {
+            $("#preloaderNav").hide();
+
             var deleteBundleTemplate = "<p>Delete</p><h5>" + bundle.message.name + "</h5>";
 
             alertify.confirm("Conform delete action", deleteBundleTemplate,

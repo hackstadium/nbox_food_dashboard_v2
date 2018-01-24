@@ -39,12 +39,16 @@ $(function () {
     getCountries();
 
     function getCountries() {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "countries",
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (countries) {
+            $("#preloaderNav").hide();
+
             console.log(countries);
 
             $("#selectCountry").html("");
@@ -69,12 +73,16 @@ $(function () {
     });
 
     function getStates(countryID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "states?country_id=" + countryID,
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (states) {
+            $("#preloaderNav").hide();
+
             console.log(states);
             $("#selectState").html("");
             $("#selectState").append("<option>Select a state</option>");
@@ -98,12 +106,16 @@ $(function () {
 
 
     function getCity(stateID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "cities?state_id=" + stateID,
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (cities) {
+            $("#preloaderNav").hide();
+
             console.log(cities);
             $("#selectCity").html("");
             $("#selectCity").append("<option>Select a city</option>");
@@ -125,6 +137,8 @@ $(function () {
 
 
     function getPartner(cityID) {
+        $("#preloaderNav").show();
+
         console.log("getting Partners");
         $.ajax({
             url: BASE_URL + "partners?city_id=" + cityID,
@@ -132,6 +146,8 @@ $(function () {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (partners) {
+            $("#preloaderNav").hide();
+
             console.log(partners);
             $("#bundlesSelectPartner").html("");
             $("#bundlesSelectPartner").append("<option>Select a partner</option>");
@@ -144,12 +160,16 @@ $(function () {
     }
 
     function getCategory(cityID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "categories?city_id=" + cityID,
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (categories) {
+            $("#preloaderNav").hide();
+
             console.log(categories);
 
             $("#bundlesSelectCategory").html("");
@@ -202,6 +222,8 @@ $(function () {
 
 
     function addMenuToBundle(name, partnerID, bundleID) {
+        $("#preloaderNav").show();
+
         var storedOptions = JSON.parse(localStorage.getItem("options"));
 
         var optionsArray = [];
@@ -222,6 +244,8 @@ $(function () {
             data: JSON.stringify(menuData),
             contentType: "application/json"
         }).done(function (menus) {
+            $("#preloaderNav").hide();
+
             console.log(menus);
         })
     }
@@ -283,6 +307,8 @@ var createBundle = {
     },
 
     addBundle: function (name, price, categoryID, description) {
+        $("#preloaderNav").show();
+
 
 
         console.log("Creating a bundle")
@@ -295,6 +321,8 @@ var createBundle = {
             data: JSON.stringify(bundleData),
             contentType: "application/json"
         }).done(function (bundles) {
+            $("#preloaderNav").hide();
+
             console.log(bundles);
 
             var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
@@ -318,6 +346,8 @@ var createBundle = {
     },
 
     addMenuToBundle: function (name, partnerID, bundleID) {
+        $("#preloaderNav").show();
+
 
         var options = [];
         console.log("addMenuToBundle : Number of Menu Options");
@@ -348,6 +378,8 @@ var createBundle = {
             data: JSON.stringify(menuData),
             contentType: "application/json"
         }).done(function (menus) {
+            $("#preloaderNav").hide();
+
             console.log(menus);
         })
     },
