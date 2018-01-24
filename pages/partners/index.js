@@ -5,6 +5,8 @@ $(function () {
     getCountries();
 
     function getCountries() {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "countries",
             type: "GET",
@@ -13,13 +15,12 @@ $(function () {
         }).done(function (countries) {
             console.log(countries);
             console.log(countries.message.length);
-
+            $("#preloaderNav").hide();
 
             $("#restaurantSelectCountry").html("");
             $("#restaurantSelectCountry").append("<option>Select a country</option>");
 
             for (i = 0; i < countries.message.length; i++) {
-                //console.log(countries.message[i]._id);
                 $("#restaurantSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
                 console.log("adding countries");
             }
@@ -38,6 +39,8 @@ $(function () {
 
 
     function getStates(countryID) {
+        $("#preloaderNav").show();
+
 
         console.log("Getting States with ID");
         console.log(countryID);
@@ -48,6 +51,8 @@ $(function () {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (states) {
+            $("#preloaderNav").hide();
+
             console.log(states);
             $("#restaurantSelectState").html("");
             $("#restaurantSelectState").append("<option>Select a state</option>");
@@ -73,12 +78,16 @@ $(function () {
 
 
     function getCity(stateID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "cities?state_id=" + stateID,
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (cities) {
+            $("#preloaderNav").hide();
+
             console.log(cities);
             $("#restaurantSelectCity").html("");
 
@@ -92,6 +101,8 @@ $(function () {
     }
 
     $('#addPartner').click(function () {
+        $("#preloaderNav").show();
+
 
         console.log("Add partner btn clicked");
         var name = $("#restaurantInputName").val();
@@ -124,6 +135,8 @@ $(function () {
             data: JSON.stringify(partnerData),
             contentType: "application/json"
         }).done(function (partners) {
+            $("#preloaderNav").hide();
+
             console.log(partners);
 
         })

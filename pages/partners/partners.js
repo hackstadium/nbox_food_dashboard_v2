@@ -9,6 +9,7 @@ var partners = {
     },
 
     getAllPartners: function () {
+        $("#preloaderNav").show();
 
         $("#partnersTable").html("");
         console.log("Getting all patners");
@@ -18,6 +19,8 @@ var partners = {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (partners) {
+            $("#preloaderNav").hide();
+
             console.log(partners);
             console.log(partners.message[0].name);
             console.log(partners.message[0].address);
@@ -80,6 +83,8 @@ var partners = {
         ).set({transition: 'zoom', label: ' UPDATE '}).show();
     },
     updatePartner: function (partnerID) {
+        $("#preloaderNav").show();
+
 
         var updateName = $("#modalPartnerInputName").val();
         var updateAddress = $("#modalPartnerInputAddress").val();
@@ -103,6 +108,8 @@ var partners = {
             data: JSON.stringify(partnerData),
             contentType: "application/json"
         }).done(function () {
+            $("#preloaderNav").hide();
+
             console.log("Value Updated");
             partners.getAllPartners();
         });
@@ -110,6 +117,7 @@ var partners = {
 
     },
     deletePartner: function (partnerID, name) {
+
         console.log("Delete Bundle with ID")
         console.log(partnerID);
 
@@ -120,6 +128,7 @@ var partners = {
 
         alertify.confirm("Conform delete action", deletePartnerTemplate,
             function () {
+                $("#preloaderNav").show();
                 $.ajax({
                     url: partners.BASE_URL + "partner/delete",
                     type: "POST",
@@ -127,6 +136,8 @@ var partners = {
                     data: JSON.stringify(deletePartnerData),
                     contentType: "application/json"
                 }).done(function () {
+                    $("#preloaderNav").hide();
+
                     console.log("Value Deleted");
                     partners.getAllPartners();
                 });
