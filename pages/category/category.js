@@ -5,6 +5,8 @@ var categories = {
     },
 
     getAllCategories: function () {
+        $("#preloaderNav").show();
+
 
         $("#categoriesTable").html("");
         console.log("Getting all categories");
@@ -14,6 +16,8 @@ var categories = {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (categories) {
+            $("#preloaderNav").hide();
+
             console.log(categories);
             console.log("Category Partner Name");
 
@@ -31,6 +35,8 @@ var categories = {
     },
 
     openModalEditCategoryDetails: function (categoryID, category) {
+        $("#preloaderNav").show();
+
         console.log("Edit Modal Clicked");
         console.log(categoryID);
 
@@ -41,6 +47,8 @@ var categories = {
             contentType: "application/json"
 
         }).done(function (category) {
+            $("#preloaderNav").hide();
+
             console.log("One Category Detail")
             console.log(category.message.partners.length);
             $("#categoriesPartnersTable").html("");
@@ -98,6 +106,8 @@ var categories = {
     },
 
     updateCategory: function (categoryID, category) {
+        $("#preloaderNav").show();
+
         var updateCategory = $("#modalCategoryInputCategory").val();
 
         var categoryData = {category_id: categoryID, category: updateCategory};
@@ -108,12 +118,15 @@ var categories = {
             data: JSON.stringify(categoryData),
             contentType: "application/json"
         }).done(function () {
+            $("#preloaderNav").hide();
+
             console.log("Value Updated");
             categories.getAllCategories();
         });
 
     },
     deleteCategory: function (categoryID, category) {
+
 
         var deleteCategoryData = {category_id: categoryID};
 
@@ -122,6 +135,8 @@ var categories = {
 
         alertify.confirm("Conform delete action", deleteCategoryTemplate,
             function () {
+                $("#preloaderNav").show();
+
                 $.ajax({
                     url: categories.BASE_URL + "category/delete",
                     type: "POST",
@@ -129,6 +144,8 @@ var categories = {
                     data: JSON.stringify(deleteCategoryData),
                     contentType: "application/json"
                 }).done(function () {
+                    $("#preloaderNav").hide();
+
                     console.log("Value Deleted");
                     categories.getAllCategories();
                 });
@@ -139,6 +156,8 @@ var categories = {
     },
 
     deletePartnerCategory: function (partnerID, categoryID) {
+        $("#preloaderNav").show();
+
         console.log("Deleting partner from category");
         console.log("Deleting with Partner ID");
         console.log(partnerID);
@@ -156,6 +175,8 @@ var categories = {
             data: JSON.stringify(deleteCategoryPartnerData),
             contentType: "application/json"
         }).done(function (message) {
+            $("#preloaderNav").hide();
+
             console.log(message);
         })
     }

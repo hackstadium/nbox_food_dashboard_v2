@@ -7,12 +7,16 @@ $(function () {
     getCountries();
 
     function getCountries() {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "countries",
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (countries) {
+            $("#preloaderNav").hide();
+
             console.log(countries);
             console.log(countries.message.length);
 
@@ -39,12 +43,16 @@ $(function () {
 
 
     function getStates(countryID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "states?country_id=" + countryID,
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (states) {
+            $("#preloaderNav").hide();
+
             console.log(states);
             $("#categorySelectState").html("");
             $("#categorySelectState").append("<option>Select a state</option>");
@@ -68,12 +76,16 @@ $(function () {
 
 
     function getCity(stateID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "cities?state_id=" + stateID,
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (cities) {
+            $("#preloaderNav").hide();
+
             console.log(cities);
             $("#categorySelectCity").html("");
             $("#categorySelectCity").append("<option>Select a city</option>");
@@ -87,6 +99,8 @@ $(function () {
 
 
     $("#addCategory").click(function () {
+        $("#preloaderNav").show();
+
 
         var category = $("#categoryName").val();
         var cityID = $("#categorySelectCity").find(":selected").data("id");
@@ -99,6 +113,8 @@ $(function () {
             data: JSON.stringify(categoryData),
             contentType: "application/json"
         }).done(function (categories) {
+            $("#preloaderNav").hide();
+
             console.log(categories);
         });
     });

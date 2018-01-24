@@ -5,12 +5,16 @@ $(function () {
     getCountries();
 
     function getCountries() {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "countries",
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (countries) {
+            $("#preloaderNav").hide();
+
             console.log(countries);
             console.log(countries.message.length);
 
@@ -36,6 +40,8 @@ $(function () {
 
 
     function getStates(countryID) {
+        $("#preloaderNav").show();
+
 
         console.log("Getting States with ID");
         console.log(countryID);
@@ -46,6 +52,8 @@ $(function () {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (states) {
+            $("#preloaderNav").hide();
+
             console.log(states);
 
             $("#categoryPartnerSelectState").html("");
@@ -72,6 +80,8 @@ $(function () {
 
 
     function getCity(stateID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "cities?state_id=" + stateID,
             type: "GET",
@@ -79,6 +89,7 @@ $(function () {
             contentType: "application/json"
         }).done(function (cities) {
             console.log(cities);
+            $("#preloaderNav").hide();
 
             $("#categoryPartnerSelectCity").html("");
             $("#categoryPartnerSelectCity").append("<option>Select a city</option>");
@@ -101,6 +112,8 @@ $(function () {
 
 
     function getPartner(cityID) {
+        $("#preloaderNav").show();
+
         console.log("getting Partners");
         $.ajax({
             url: BASE_URL + "partners?city_id=" + cityID,
@@ -109,6 +122,7 @@ $(function () {
             contentType: "application/json"
         }).done(function (partners) {
             console.log(partners);
+            $("#preloaderNav").hide();
 
             $("#categoryPartnerSelectPartner").html("");
             $("#categoryPartnerSelectPartner").append("<option>Select a partner</option>");
@@ -123,6 +137,8 @@ $(function () {
 
 
     function getCategory(cityID) {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: BASE_URL + "categories?city_id=" + cityID,
             type: "GET",
@@ -130,6 +146,7 @@ $(function () {
             contentType: "application/json"
         }).done(function (categories) {
             console.log(categories);
+            $("#preloaderNav").hide();
 
             $("#categoryPartnerSelectCategory").html("");
             $("#categoryPartnerSelectCategory").append("<option>Select a category</option>");
@@ -143,6 +160,8 @@ $(function () {
     }
 
     $("#addCategoryPartner").click(function () {
+        $("#preloaderNav").show();
+
 
         var partnerID = $("#categoryPartnerSelectPartner").find(":selected").data("id");
         var categoryID = $("#categoryPartnerSelectCategory").find(":selected").data("id");
@@ -155,6 +174,8 @@ $(function () {
             data: JSON.stringify(addCategoryPartnerData),
             contentType: "application/json"
         }).done(function (message) {
+            $("#preloaderNav").hide();
+
             console.log(message);
         })
     })
