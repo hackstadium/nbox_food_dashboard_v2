@@ -12,25 +12,16 @@ var categories = {
             url: categories.BASE_URL + "categories/all",
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (categories) {
             console.log(categories);
-            //console.log(categories.message.category);
             console.log("Category Partner Name");
-           // console.log(categories.message[0].partners[0].name);
-
 
             for (var i = 0; i < categories.message.length; i++) {
 
-                // var bundleID = 92777711;
-
                 $("#categoriesTable").append("<tr>"
                     + "<td>" + categories.message[i].category + "</td>"
-                    // + "<td>" + categories.message[i].partners[0] + "</td>"
 
-                    // + "<td>" + regions.message[i].state + "</td>"
-                    // + "<td>" + regions.message[i].city + "</td>"
                     + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + categories.message[i]._id + "\",\"" + categories.message[i].category + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
                     + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + categories.message[i]._id + "\",\"" + categories.message[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
@@ -40,24 +31,17 @@ var categories = {
     },
 
     openModalEditCategoryDetails: function (categoryID, category) {
-        // console.log(categoryID);
         console.log("Edit Modal Clicked");
         console.log(categoryID);
-        // console.log("Partners Array");
-        // console.log(partnersArray.name);
-        //console.log(toString(partnersArray));
-
 
         $.ajax({
             url: categories.BASE_URL + "category?category_id=" + categoryID,
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
 
         }).done(function (category) {
             console.log("One Category Detail")
-            // console.log(category.message.partners[0].name);
             console.log(category.message.partners.length);
             $("#categoriesPartnersTable").html("");
 
@@ -101,7 +85,6 @@ var categories = {
 
             alertify.confirm('Edit Category', RegionEditDetaillsTemplate,
                 function () {
-                    //alertify.success('UPDATE');
                     console.log("Category Modal ok clicked");
                     categories.updateCategory(categoryID);
                 },
@@ -139,7 +122,6 @@ var categories = {
 
         alertify.confirm("Conform delete action", deleteCategoryTemplate,
             function () {
-                // alertify.success('Ok');
                 $.ajax({
                     url: categories.BASE_URL + "category/delete",
                     type: "POST",

@@ -9,18 +9,15 @@ $(function () {
             url: BASE_URL + "countries",
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (countries) {
             console.log(countries);
-            // console.log(countries.message)
             console.log(countries.message.length);
 
             $("#categoryPartnerSelectCountry").html("");
             $("#categoryPartnerSelectCountry").append("<option>Select a country</option>");
 
             for (i = 0; i < countries.message.length; i++) {
-                //console.log(countries.message[i]._id);
                 $("#categoryPartnerSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
                 console.log("adding countries");
             }
@@ -30,7 +27,6 @@ $(function () {
 
     $("#categoryPartnerSelectCountry").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var countryID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(countryID);
@@ -48,19 +44,15 @@ $(function () {
             url: BASE_URL + "states?country_id=" + countryID,
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (states) {
             console.log(states);
-           // $("#categoryPartnerSelectState").html("");
-
 
             $("#categoryPartnerSelectState").html("");
             $("#categoryPartnerSelectState").append("<option>Select a state</option>");
 
 
             for (i = 0; i < states.message.length; i++) {
-                //console.log(countries.message[i]._id);
                 $("#categoryPartnerSelectState").append("<option data-id=" + states.message[i]._id + ">" + states.message[i].state + "</option>");
                 console.log("adding countries");
             }
@@ -84,18 +76,14 @@ $(function () {
             url: BASE_URL + "cities?state_id=" + stateID,
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (cities) {
             console.log(cities);
-           // $("#categoryPartnerSelectCity").html("");
-
 
             $("#categoryPartnerSelectCity").html("");
             $("#categoryPartnerSelectCity").append("<option>Select a city</option>");
 
             for (i = 0; i < cities.message.length; i++) {
-                //console.log(countries.message[i]._id);
                 $("#categoryPartnerSelectCity").append("<option data-id=" + cities.message[i]._id + ">" + cities.message[i].city + "</option>");
                 console.log("adding cities");
             }
@@ -118,19 +106,15 @@ $(function () {
             url: BASE_URL + "partners?city_id=" + cityID,
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (partners) {
             console.log(partners);
-           // $("#categoryPartnerSelectPartner").html("");
-
 
             $("#categoryPartnerSelectPartner").html("");
             $("#categoryPartnerSelectPartner").append("<option>Select a partner</option>");
 
 
             for (i = 0; i < partners.message.length; i++) {
-                //console.log(countries.message[i]._id);
                 $("#categoryPartnerSelectPartner").append("<option data-id=" + partners.message[i]._id + ">" + partners.message[i].name + "</option>");
                 console.log("adding partners");
             }
@@ -143,19 +127,14 @@ $(function () {
             url: BASE_URL + "categories?city_id=" + cityID,
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (categories) {
             console.log(categories);
-
-          //  $("#categoryPartnerSelectCategory").html("");
-
 
             $("#categoryPartnerSelectCategory").html("");
             $("#categoryPartnerSelectCategory").append("<option>Select a category</option>");
 
             for (i = 0; i < categories.message.length; i++) {
-                //console.log(countries.message[i]._id);
                 $("#categoryPartnerSelectCategory").append("<option data-id=" + categories.message[i]._id + ">" + categories.message[i].category + "</option>");
                 console.log("adding categories");
             }
@@ -168,7 +147,6 @@ $(function () {
         var partnerID = $("#categoryPartnerSelectPartner").find(":selected").data("id");
         var categoryID = $("#categoryPartnerSelectCategory").find(":selected").data("id");
         var addCategoryPartnerData = {partner_id: partnerID, category_id: categoryID};
-
 
         $.ajax({
             url: BASE_URL + "category/add/partner",
@@ -183,54 +161,3 @@ $(function () {
 
 
 });
-
-//
-// var addPartners = {
-//
-//
-//     BASE_URL: "http://staging.nairabox.com/foodhub/",
-//
-//
-//     init: function () {
-//         addPartners.getCountries();
-//
-//     },
-//
-//     getCountries: function () {
-//
-//         $.ajax({
-//             url: addPartners.BASE_URL + "countries",
-//             type: "GET",
-//             crossDomain: true,
-//             // data: JSON.stringify(countryData),
-//             contentType: "application/json"
-//         }).done(function (countries) {
-//             console.log(countries);
-//             // console.log(countries.message)
-//             console.log(countries.message.length);
-//
-//             for (i = 0; i < countries.message.length; i++) {
-//                 //console.log(countries.message[i]._id);
-//                 $("#categoryPartnerSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-//                 console.log("adding countries");
-//             }
-//         });
-//
-//     },
-//     getStates: function () {
-//
-//         console.log("Getting States from addPartners.html");
-//
-//     },
-//     getCities: function () {
-//
-//     },
-//     getPartners: function () {
-//
-//     },
-//     getCategory: function () {
-//
-//     }
-// }
-//
-// addPartners.init();

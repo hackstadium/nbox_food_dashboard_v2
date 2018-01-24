@@ -4,7 +4,6 @@ $(function () {
 
 
     $("#addRegion").click(function () {
-        // var countryData = {country: "Uganda"};
 
         var inputCountry = $('#regionCountry').val();
         var inputState = $('#regionState').val();
@@ -14,7 +13,6 @@ $(function () {
 
         createCountry(inputCountry);
 
-        // console.log(data);
 
         function createCountry(country) {
             var countryData = {country: country};
@@ -55,11 +53,6 @@ $(function () {
                 data: JSON.stringify(stateData),
                 contentType: "application/json"
             }).done(function (stateResult) {
-                // console.log(stateResult);
-                // console.log(stateResult.state_id);
-                // var city = inputCity;
-                // createCity(city,stateResult.state_id);
-
 
                 console.log(stateResult);
                 console.log(stateResult.error_code);
@@ -89,11 +82,6 @@ $(function () {
                 data: JSON.stringify(cityData),
                 contentType: "application/json"
             }).done(function (cityResult) {
-                // console.log(cityResult);
-                // console.log(cityResult.city_id);
-                // //var city = "Onitsha"
-                // // createCity(city,stateResult.state_id);
-
 
                 console.log(cityResult);
                 console.log(cityResult.error_code);
@@ -204,11 +192,6 @@ var createRegion = {
             data: JSON.stringify(stateData),
             contentType: "application/json"
         }).done(function (stateResult) {
-            // console.log(stateResult);
-            // console.log(stateResult.state_id);
-            // var city = inputCity;
-            // createCity(city,stateResult.state_id);
-
 
             console.log(stateResult);
             console.log(stateResult.error_code);
@@ -240,11 +223,6 @@ var createRegion = {
             data: JSON.stringify(cityData),
             contentType: "application/json"
         }).done(function (cityResult) {
-            // console.log(cityResult);
-            // console.log(cityResult.city_id);
-            // //var city = "Onitsha"
-            // // createCity(city,stateResult.state_id);
-
 
             console.log(cityResult);
             console.log(cityResult.error_code);

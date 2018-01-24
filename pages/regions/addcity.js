@@ -3,18 +3,15 @@ var city = {
 
     init: function () {
         city.getAllCountries();
-        //city.getAllStates();
     },
 
     getAllCountries: function () {
 
-        // city.getAllStates("CountryID Here");
 
         $.ajax({
             url: city.BASE_URL + "countries",
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (countries) {
             console.log(countries);
@@ -31,9 +28,6 @@ var city = {
     },
 
     getAllStates: function () {
-        //console.log(text);
-
-        //var countryID
 
         var countryID = $("#selectCountry").find(":selected").data("id");
 
@@ -42,7 +36,6 @@ var city = {
             url: city.BASE_URL + "states?country_id=" + countryID,
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (states) {
             console.log(states);

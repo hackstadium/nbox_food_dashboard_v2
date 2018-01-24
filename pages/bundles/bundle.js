@@ -13,7 +13,6 @@ var bundles = {
             url: bundles.BASE_URL + "bundles/all",
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (allBundles) {
             console.log(allBundles);
@@ -27,18 +26,13 @@ var bundles = {
             console.log(allBundles.message[0].price);
 
 
-            // resultTemplate += "<"
-
 
             for (var i = 0; i < allBundles.message.length; i++) {
 
-                // var bundleID = 92777711;
 
                 $("#bundlesTable").append("<tr>"
                     + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'>" + allBundles.message[i].name + "</td>"
                     + "<td>" + allBundles.message[i].category_name + "</td>"
-                    // + "<td>" + allBundles.message[i].menu[0].name + "</td>"
-                    // + "<td>" + allBundles.message[i].menu[0].options + "</td>"
                     + "<td>" + allBundles.message[i].description + "</td>"
                     + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
                     + "<td>" + allBundles.message[i].price + "</td>"
@@ -68,7 +62,6 @@ var bundles = {
                 + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
                 + "<div class='multiList'><strong>Menus</strong><p id='bundleDetailsMenus'></p></p></div>"
                 + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
-                // +"<p><strong>Partners </strong><ul id='bundleDetailsPartners'></ul></p>"
                 + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
                 + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
 
@@ -80,14 +73,9 @@ var bundles = {
 
                 $('#bundleDetailsMenus').append("<li>" + bundle.message.menu[i].name + "</li>");
                 $('#bundleDetailsOptions').append("<li>" + bundle.message.menu[i].options + "</li>");
-                // $('#bundleDetailsPartners').append("<li>"+bundle.message.menu[i].part)
                 console.log("listing menu");
             }
 
-            // for (var i = 0; i < bundle.message.menu.options.length; i++) {
-            //     $('#bundleDetailsOptions').append("<li>" + bundle.message.menu[0].options[i] + "</li>");
-            //     console.log("listing options");
-            // }
         });
 
     },
@@ -112,7 +100,6 @@ var bundles = {
 
             alertify.confirm('Edit Bundle', bundleEditDetaillsTemplate,
                 function () {
-                    //alertify.success('UPDATE');
                     console.log("Modal ok clicked");
                     bundles.updateBundle(bundleID);
                 },
@@ -174,7 +161,6 @@ var bundles = {
 
             alertify.confirm("Conform delete action", deleteBundleTemplate,
                 function () {
-                    //alertify.success('Ok');
                     $.ajax({
                         url: bundles.BASE_URL + "bundle/delete",
                         type: "POST",
@@ -187,7 +173,6 @@ var bundles = {
                     });
                 },
                 function () {
-                    //alertify.error('Cancel');
                 }).set({transition: 'zoom', label: ' DELETE '}).show();
         });
 

@@ -12,12 +12,10 @@ var partners = {
 
         $("#partnersTable").html("");
         console.log("Getting all patners");
-        // app.showNotification("hello from partners JS");
         $.ajax({
             url: partners.BASE_URL + "partners/all",
             type: "GET",
             crossDomain: true,
-            // data: JSON.stringify(countryData),
             contentType: "application/json"
         }).done(function (partners) {
             console.log(partners);
@@ -33,8 +31,6 @@ var partners = {
 
             for (var i = 0; i < partners.message.length; i++) {
 
-                // var bundleID = 92777711;
-
                 $("#partnersTable").append("<tr>"
                     + "<td>" + partners.message[i].name + "</td>"
                     + "<td>" + partners.message[i].address + "</td>"
@@ -46,9 +42,6 @@ var partners = {
                     + "<td>" + partners.message[i].commission + "</td>"
                     + "<td><button class='btn_table' onclick='partners.openModalEditPartnerDetails(\"" + partners.message[i]._id + "\",\"" + partners.message[i].name + "\",\"" + partners.message[i].address + "\",\"" + partners.message[i].email + "\",\"" + partners.message[i].phone_number + "\",\"" + partners.message[i].commission + "\" )'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
                     + "<td><button class='btn_table' onclick='partners.deletePartner(\"" + partners.message[i]._id + "\",\"" + partners.message[i].name + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
-
-                    // + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-                    // + "<td><button class='btn_table'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
 
@@ -78,7 +71,6 @@ var partners = {
 
         alertify.confirm('Edit Partner', PartnerEditDetailsTemplate,
             function () {
-                //alertify.success('UPDATE');
                 console.log("Partner Modal ok clicked");
                 partners.updatePartner(partnerID);
             },
@@ -97,7 +89,7 @@ var partners = {
 
         var partnerData = {
             partner_id: partnerID,
-            name:updateName,
+            name: updateName,
             address: updateAddress,
             email: updateEmail,
             phone_number: updatePhone,
@@ -128,7 +120,6 @@ var partners = {
 
         alertify.confirm("Conform delete action", deletePartnerTemplate,
             function () {
-                // alertify.success('Ok');
                 $.ajax({
                     url: partners.BASE_URL + "partner/delete",
                     type: "POST",
@@ -141,7 +132,6 @@ var partners = {
                 });
             },
             function () {
-                //alertify.error('Cancel');
             }).set({transition: 'zoom', label: ' DELETE '}).show();
 
 
