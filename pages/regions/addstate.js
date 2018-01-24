@@ -3,15 +3,20 @@ var state = {
 
     init: function () {
         state.getAllCountries();
+        //$("#preloaderNav").show();
     },
 
     getAllCountries: function () {
+        $("#preloaderNav").show();
+
         $.ajax({
             url: state.BASE_URL + "countries",
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
         }).done(function (countries) {
+            $("#preloaderNav").hide();
+
             console.log(countries);
             $("#selectCountry").html("");
             $("#selectCountry").append("<option>Select a country</option>");
@@ -25,6 +30,8 @@ var state = {
     },
 
     createState: function () {
+        $("#preloaderNav").show();
+
         var stateName = $("#regionState").val();
         var countryID = $("#selectCountry").find(":selected").data("id");
         var stateData = {country_id: countryID, state: stateName};
@@ -40,6 +47,8 @@ var state = {
             data: JSON.stringify(stateData),
             contentType: "application/json"
         }).done(function (state) {
+            $("#preloaderNav").hide();
+
             console.log(state)
         });
     }

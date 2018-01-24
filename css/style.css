@@ -18337,3 +18337,8 @@ input::placeholder, textarea::placeholder {
 .multiList ul{
     padding: 0px;
 }
+
+
+.navbar .navbar-menu-wrapper{
+    justify-content: space-between;
+}

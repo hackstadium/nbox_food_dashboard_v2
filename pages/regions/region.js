@@ -7,6 +7,9 @@ var regions = {
 
     getAllRegions: function () {
         console.log("Getting all regions");
+        $("#preloaderNav").show();
+
+
         $.ajax({
             url: regions.BASE_URL + "cities/all",
             type: "GET",
@@ -17,9 +20,11 @@ var regions = {
             console.log(regions.message[0].country);
             console.log(regions.message[0].state);
             console.log(regions.message[0].city);
-
+            $("#preloaderNav").hide();
+            $("#regionsTable").html("");
 
             for (var i = 0; i < regions.message.length; i++) {
+
 
                 $("#regionsTable").append("<tr>"
                     + "<td>" + regions.message[i].country + "</td>"
@@ -75,6 +80,7 @@ var regions = {
         var cityData = {city_id: cityID, city: updateCity};
         var stateData = {state_id: stateID, state: updateState};
         var countryData = {country_id: countryID, country: updateCountry};
+        $("#preloaderNav").show();
 
         $.ajax({
             url: regions.BASE_URL + "city/update",
@@ -100,6 +106,10 @@ var regions = {
                     contentType: "application/json"
                 }).done(function (country) {
                     console.log(country);
+                    $("#preloaderNav").hide();
+
+                    regions.getAllRegions();
+
                 });
             });
         });

@@ -6,6 +6,7 @@ var city = {
     },
 
     getAllCountries: function () {
+        $("#preloaderNav").show();
 
 
         $.ajax({
@@ -14,6 +15,8 @@ var city = {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (countries) {
+            $("#preloaderNav").hide();
+
             console.log(countries);
             $("#selectCountry").html("");
             $("#selectCountry").append("<option>Select a country</option>");
@@ -28,6 +31,8 @@ var city = {
     },
 
     getAllStates: function () {
+        $("#preloaderNav").show();
+
 
         var countryID = $("#selectCountry").find(":selected").data("id");
 
@@ -38,6 +43,8 @@ var city = {
             crossDomain: true,
             contentType: "application/json"
         }).done(function (states) {
+            $("#preloaderNav").hide();
+
             console.log(states);
             $("#selectState").html("");
             $("#selectState").append("<option>Select a state</option>");
@@ -52,6 +59,8 @@ var city = {
     },
 
     createCity: function () {
+        $("#preloaderNav").show();
+
         var cityName = $("#regionCity").val();
         var stateID = $("#selectState").find(":selected").data("id");
 
@@ -64,6 +73,8 @@ var city = {
             data: JSON.stringify(cityData),
             contentType: "application/json"
         }).done(function (city) {
+            $("#preloaderNav").hide();
+
             console.log(city);
         });
 
