@@ -3,238 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/PSD/StarAdmin-Free-Bootstrap-Admin-Template.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/PSD/StarAdmin-Free-Bootstrap-Admin-Template.psd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/asc.gif" afterPath="$PROJECT_DIR$/images/asc.gif" />
-      <change beforePath="$PROJECT_DIR$/images/bg.gif" afterPath="$PROJECT_DIR$/images/bg.gif" />
-      <change beforePath="$PROJECT_DIR$/images/desc.gif" afterPath="$PROJECT_DIR$/images/desc.gif" />
-      <change beforePath="$PROJECT_DIR$/images/face.jpg" afterPath="$PROJECT_DIR$/images/face.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/faces/backup/face1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/backup/face2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/backup/face3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/backup/face4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/backup/face5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/backup/face6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/faces/face8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/favicon.png" afterPath="$PROJECT_DIR$/images/favicon.png" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/001-interface-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/002-tool.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/003-interface.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/004-folder-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/005-database.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/006-record.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/007-folder.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/128/008-archive.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/001-interface-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/002-tool.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/003-interface.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/004-folder-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/005-database.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/006-record.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/007-folder.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/256/008-archive.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/001-interface-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/002-tool.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/003-interface.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/004-folder-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/005-database.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/006-record.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/007-folder.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/512/008-archive.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/001-interface-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/002-tool.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/003-interface.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/004-folder-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/005-database.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/006-record.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/007-folder.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/file-icons/64/008-archive.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AD.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AM.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AR.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/AU.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/BE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/BF.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/BG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/BO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/BR.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CD.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CH.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CL.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CM.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/CZ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/DE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/DJ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/DK.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/DZ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/EE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/EG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/ES.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/FI.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/FR.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/GA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/GB.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/GM.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/GT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/HN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/HT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/HU.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/ID.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/IE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/IL.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/IN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/IQ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/IR.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/IT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/JM.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/JO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/JP.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/KG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/KN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/KP.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/KR.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/KW.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/KZ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/LA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/LB.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/LC.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/LS.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/LU.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/LV.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/MG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/MK.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/ML.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/MM.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/MT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/MX.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/NA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/NE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/NG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/NI.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/NL.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/NO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/OM.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PK.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PL.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/PY.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/QA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/RO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/RU.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/RW.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SG.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SL.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/SV.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/TD.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/TJ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/TL.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/TR.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/TZ.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/UA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/US.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/VE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/VN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/flags/YE.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/001-doc.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/001-editing.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/001-map.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/002-edit-text.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/002-placeholder.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/002-test.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/003-file.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/003-outbox.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/004-coding.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/004-sheet.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/005-calendar.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/005-forms.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/006-form.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/006-letter.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/007-fire.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/007-star.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/008-list.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/008-maps-and-flags-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/009-layout.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/009-maps-and-flags.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/010-office-material.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/011-gallery.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/012-sliders.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/013-slider.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/014-chat.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/015-notification.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/016-diamond-1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/017-diamond.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/018-warning.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/019-fingerprint.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/020-locked.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/9.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/exclamation-mark.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/printer.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/icons/send.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/lightbox/play-button.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/lightbox/thumb-v-v-1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/lightbox/thumb-v-v-2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/lightbox/thumb-v-y-1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/lightbox/thumb-v-y-2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/logo_star.svg" afterPath="$PROJECT_DIR$/images/logo_star.svg" />
-      <change beforePath="$PROJECT_DIR$/images/logo_star_black.png" afterPath="$PROJECT_DIR$/images/logo_star_black.png" />
-      <change beforePath="$PROJECT_DIR$/images/logo_star_black.svg" afterPath="$PROJECT_DIR$/images/logo_star_black.svg" />
-      <change beforePath="$PROJECT_DIR$/images/logo_star_mini.jpg" afterPath="$PROJECT_DIR$/images/logo_star_mini.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/profile.jpg" afterPath="$PROJECT_DIR$/images/profile.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/sprites/blue.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/sprites/dark.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/sprites/green.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/sprites/red.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/sprites/yellow.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/star-admin-logo.png" afterPath="$PROJECT_DIR$/images/star-admin-logo.png" />
-      <change beforePath="$PROJECT_DIR$/pages/charts/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/forms/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/icons/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/menus/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/menus/menu.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/menus/menus.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/samples/404.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/samples/500.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/samples/blank_page.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/samples/login.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/samples/register.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/tables/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/ui-elements/buttons.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/ui-elements/typography.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/partials/_footer.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/partials/_navbar.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/partials/_sidebar.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/screenshot.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/widgets.html" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -260,8 +29,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="581" column="22" lean-forward="true" selection-start-line="581" selection-start-column="22" selection-end-line="581" selection-end-column="22" />
+                <state relative-caret-position="186">
+                  <caret line="424" column="38" lean-forward="false" selection-start-line="424" selection-start-column="38" selection-end-line="424" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -430,6 +199,11 @@
               <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -492,16 +266,15 @@
       <workItem from="1516632896432" duration="9367000" />
       <workItem from="1516695319721" duration="12134000" />
       <workItem from="1516712089120" duration="8535000" />
-      <workItem from="1516777734194" duration="9408000" />
+      <workItem from="1516777734194" duration="9735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184180000" />
+    <option name="totallyTimeSpent" value="184507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -510,7 +283,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10654762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10654762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -881,14 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="581" column="22" lean-forward="true" selection-start-line="581" selection-start-column="22" selection-end-line="581" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/category/category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -918,6 +683,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="213" column="45" lean-forward="false" selection-start-line="213" selection-start-column="45" selection-end-line="213" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="424" column="38" lean-forward="false" selection-start-line="424" selection-start-column="38" selection-end-line="424" selection-end-column="38" />
           <folding />
         </state>
       </provider>
