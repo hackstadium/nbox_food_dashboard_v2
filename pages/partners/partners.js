@@ -95,7 +95,14 @@ var partners = {
         var updatePhone = $("#modalPartnerInputPhone").val();
         var updateCommission = $("#modalPartnerInputCommission").val();
 
-        var partnerData = {partner_id: partnerID,address:updateAddress,email:updateEmail,phone_number:updatePhone,commission:updateCommission};
+        var partnerData = {
+            partner_id: partnerID,
+            name:updateName,
+            address: updateAddress,
+            email: updateEmail,
+            phone_number: updatePhone,
+            commission: updateCommission
+        };
 
         $.ajax({
             url: partners.BASE_URL + "partner/update",
@@ -110,11 +117,11 @@ var partners = {
 
 
     },
-    deletePartner:function (partnerID,name) {
+    deletePartner: function (partnerID, name) {
         console.log("Delete Bundle with ID")
         console.log(partnerID);
 
-        var deletePartnerData = {partner_id:partnerID};
+        var deletePartnerData = {partner_id: partnerID};
 
         var deletePartnerTemplate = "<p>Delete</p><h5>" + name + "</h5>";
 
@@ -136,7 +143,6 @@ var partners = {
             function () {
                 //alertify.error('Cancel');
             }).set({transition: 'zoom', label: ' DELETE '}).show();
-
 
 
     }

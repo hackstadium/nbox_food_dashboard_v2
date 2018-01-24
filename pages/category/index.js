@@ -18,6 +18,9 @@ $(function () {
             // console.log(countries.message)
             console.log(countries.message.length);
 
+            $("#categorySelectCountry").html("");
+            $("#categorySelectCountry").append("<option>Select a country</option>");
+
             for (i = 0; i < countries.message.length; i++) {
                 //console.log(countries.message[i]._id);
                 $("#categorySelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
@@ -47,7 +50,10 @@ $(function () {
             contentType: "application/json"
         }).done(function (states) {
             console.log(states);
+           // $("#categorySelectState").html("");
+
             $("#categorySelectState").html("");
+            $("#categorySelectState").append("<option>Select a state</option>");
 
             for (i = 0; i < states.message.length; i++) {
                 //console.log(countries.message[i]._id);
@@ -78,7 +84,10 @@ $(function () {
             contentType: "application/json"
         }).done(function (cities) {
             console.log(cities);
+           // $("#categorySelectCity").html("");
+
             $("#categorySelectCity").html("");
+            $("#categorySelectCity").append("<option>Select a city</option>");
 
             for (i = 0; i < cities.message.length; i++) {
                 //console.log(countries.message[i]._id);

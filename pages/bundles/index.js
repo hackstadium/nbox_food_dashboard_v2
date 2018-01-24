@@ -53,6 +53,9 @@ $(function () {
             // console.log(countries.message)
             //  console.log(countries.message.length);
 
+            $("#selectCountry").html("");
+            $("#selectCountry").append("<option>Select a country</option>");
+
             for (i = 0; i < countries.message.length; i++) {
                 //console.log(countries.message[i]._id);
                 $("#selectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
@@ -82,6 +85,7 @@ $(function () {
         }).done(function (states) {
             console.log(states);
             $("#selectState").html("");
+            $("#selectState").append("<option>Select a state</option>");
 
             for (i = 0; i < states.message.length; i++) {
                 //console.log(countries.message[i]._id);
@@ -112,7 +116,9 @@ $(function () {
             contentType: "application/json"
         }).done(function (cities) {
             console.log(cities);
+            // $("#selectCity").html("");
             $("#selectCity").html("");
+            $("#selectCity").append("<option>Select a city</option>");
 
             for (i = 0; i < cities.message.length; i++) {
                 //console.log(countries.message[i]._id);
@@ -141,7 +147,9 @@ $(function () {
             contentType: "application/json"
         }).done(function (partners) {
             console.log(partners);
+            // $("#bundlesSelectPartner").html("");
             $("#bundlesSelectPartner").html("");
+            $("#bundlesSelectPartner").append("<option>Select a partner</option>");
 
             for (i = 0; i < partners.message.length; i++) {
                 //console.log(countries.message[i]._id);
@@ -161,7 +169,9 @@ $(function () {
         }).done(function (categories) {
             console.log(categories);
 
+            // $("#bundlesSelectCategory").html("");
             $("#bundlesSelectCategory").html("");
+            $("#bundlesSelectCategory").append("<option>Select a category</option>");
 
             for (i = 0; i < categories.message.length; i++) {
                 //console.log(countries.message[i]._id);

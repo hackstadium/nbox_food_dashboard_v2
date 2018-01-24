@@ -16,6 +16,10 @@ $(function () {
             // console.log(countries.message)
             console.log(countries.message.length);
 
+
+            $("#restaurantSelectCountry").html("");
+            $("#restaurantSelectCountry").append("<option>Select a country</option>");
+
             for (i = 0; i < countries.message.length; i++) {
                 //console.log(countries.message[i]._id);
                 $("#restaurantSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
@@ -52,6 +56,8 @@ $(function () {
         }).done(function (states) {
             console.log(states);
             $("#restaurantSelectState").html("");
+            $("#restaurantSelectState").append("<option>Select a state</option>");
+
 
             for (i = 0; i < states.message.length; i++) {
                 //console.log(countries.message[i]._id);
@@ -85,6 +91,8 @@ $(function () {
         }).done(function (cities) {
             console.log(cities);
             $("#restaurantSelectCity").html("");
+
+            $("#restaurantSelectCity").append("<option>Select a city</option>");
 
             for (i = 0; i < cities.message.length; i++) {
                 //console.log(countries.message[i]._id);

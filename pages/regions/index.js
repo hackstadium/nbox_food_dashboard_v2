@@ -177,12 +177,12 @@ var createRegion = {
             if (countryResult.error_code === 0) {
                 console.log("New Country");
                 console.log(countryResult.country_id);
-                 var state = inputState;
+                var state = inputState;
                 createRegion.createState(countryResult.country_id, state);
             } else {
                 console.log("Duplicate Country. Use Existing id");
                 console.log(countryResult.id);
-                 var state = inputState;
+                var state = inputState;
                 createRegion.createState(countryResult.id, state);
             }
 
@@ -260,7 +260,7 @@ var createRegion = {
             }
         });
     },
-    showNotification:function (message) {
+    showNotification: function (message) {
         $.notify("I'm over here !");
     }
 

@@ -174,7 +174,7 @@ var bundles = {
 
             alertify.confirm("Conform delete action", deleteBundleTemplate,
                 function () {
-                    alertify.success('Ok');
+                    //alertify.success('Ok');
                     $.ajax({
                         url: bundles.BASE_URL + "bundle/delete",
                         type: "POST",
