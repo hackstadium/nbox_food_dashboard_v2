@@ -1,6 +1,8 @@
 $(function () {
     console.log("menu js found");
     console.log("menu js ready");
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
 
     // $("#wizard").steps();
 
@@ -27,7 +29,8 @@ $(function () {
 
             console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
 
-            createBundle.addBundle(name, price, categoryID, description);
+            // createBundle.addBundle(name, price, categoryID, description);
+            createBundle.validateInput();
 
         },
 
@@ -310,7 +313,6 @@ var createBundle = {
         $("#preloaderNav").show();
 
 
-
         console.log("Creating a bundle")
         var bundleData = {name: name, price: price, category_id: categoryID, description: description}
 
@@ -395,6 +397,20 @@ var createBundle = {
 
         $('#moreOptions').prepend("<input id='menuOption_" + inputOptionLength + "' class='input-form' type='text' placeholder='New Option Name'>");
 
+        // if ($("#menuOption_0").val() === "") {
+        //     $("#menuOption_0").addClass("error_input");
+        // } else {
+        //     $("#menuOption_0").removeClass("error_input");
+        // }
+
+        for (var i = 0; i < inputOptionLength; i++) {
+            if ($("#menuOption_" + i).val() === "") {
+                $("#menuOption_" + i).addClass("error_input");
+            } else {
+                $("#menuOption_" + i).removeClass("error_input");
+            }
+        }
+
     },
     removeOption: function (optionsID) {
         console.log("Removing option");
@@ -415,6 +431,107 @@ var createBundle = {
 
         $('#moreOptions').html("");
 
+    },
+
+    validateNumeric: function (inputtext) {
+        var numericExpression = /^[0-9]+$/;
+        if (inputtext.match(numericExpression)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+
+    validateAlphabet: function (inputtext) {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if (inputtext.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    validateInput: function () {
+
+        var name = $("#bundleInputName").val();
+        var countryID = $("#selectCountry").find(":selected").data("id");
+        var stateID = $("#selectState").find(":selected").data("id");
+        var cityID = $("#selectCity").find(":selected").data("id");
+        var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+        var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
+        var price = $("#bundleInputPrice").val();
+        var description = $("#bundleInputDescription").val();
+        var priceisValid = createBundle.validateNumeric(price);
+        var inputMenus = $("#inputMenus").val();
+
+        if (name === "") {
+            $("#bundleInputName").addClass("error_input");
+        } else {
+            $("#bundleInputName").removeClass("error_input");
+        }
+
+        if (countryID === undefined) {
+            $("#selectCountryContainer").addClass("error_input");
+        } else {
+            $("#selectCountryContainer").removeClass("error_input");
+        }
+
+        if (stateID === undefined) {
+            $("#selectStateContainer").addClass("error_input");
+        } else {
+            $("#selectStateContainer").removeClass("error_input");
+        }
+
+        if (cityID === undefined) {
+            $("#selectCityContainer").addClass("error_input");
+        } else {
+            $("#selectCityContainer").removeClass("error_input");
+        }
+
+        if (partnerID === undefined) {
+            $("#selectPartnerContainer").addClass("error_input");
+        } else {
+            $("#selectPartnerContainer").removeClass("error_input");
+        }
+
+        if (categoryID === undefined) {
+            $("#selectCategoryContainer").addClass("error_input");
+        } else {
+            $("#selectCategoryContainer").removeClass("error_input");
+        }
+
+        if (!priceisValid) {
+            $("#bundleInputPrice").addClass("error_input");
+        } else {
+            $("#bundleInputPrice").removeClass("error_input");
+        }
+
+        if (description === "") {
+            $("#bundleInputDescription").addClass("error_input");
+        } else {
+            $("#bundleInputDescription").removeClass("error_input");
+        }
+
+        if (inputMenus === "") {
+            $("#inputMenus").addClass("error_input");
+        } else {
+            $("#inputMenus").removeClass("error_input");
+        }
+
+        if ($("#menuOption_0").val() === "") {
+            $("#menuOption_0").addClass("error_input");
+        } else {
+            $("#menuOption_0").removeClass("error_input");
+        }
+
+        if(name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && description !== ""){
+            console.log("All Data Correct")
+        }else {
+            toastr.warning("Invalid Input Values");
+            createBundle.addBundle(name, price, categoryID, description);
+            //createBundle
+        }
     }
 }
 

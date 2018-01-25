@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css"/>
     <link rel="stylesheet" href="../../css/jquery.steps.css"/>
+    <link rel="stylesheet" href="../../css/toastr.css"/>
+
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="shortcut icon" href="../../images/favicon.png"/>
 </head>
@@ -183,35 +185,35 @@
                                                        class="input-form">
                                             </div>
                                             <div class="form-group">
-                                                <div class="styled-select">
+                                                <div id="selectCountryContainer" class="styled-select">
                                                     <select id="selectCountry">
                                                         <option>Select a country</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="styled-select">
+                                                <div id="selectStateContainer" class="styled-select">
                                                     <select id="selectState">
                                                         <option>Select a state</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="styled-select">
+                                                <div id="selectCityContainer" class="styled-select">
                                                     <select id="selectCity">
                                                         <option>Select a city</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="styled-select">
+                                                <div id="selectPartnerContainer" class="styled-select">
                                                     <select id="bundlesSelectPartner">
                                                         <option>Select a partner</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="styled-select">
+                                                <div id="selectCategoryContainer" class="styled-select">
                                                     <select id="bundlesSelectCategory">
                                                         <option>Select a category</option>
                                                     </select>
@@ -281,6 +283,7 @@
 
 
 <script src="../../js/jquery.steps.min.js"></script>
+<script src="../../js/toastr.js"></script>
 
 
 <!--MAIN JS-->
