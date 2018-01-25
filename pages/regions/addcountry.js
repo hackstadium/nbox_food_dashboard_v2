@@ -60,8 +60,11 @@ var country = {
         if (countryisValid) {
            // console.log("country is valid");
             country.createCountry();
+            $("#regionCountry").removeClass("error_input");
+
         } else {
-            toastr.warning("Invalid Country Name");
+            //toastr.warning("Invalid Country Name");
+            $("#regionCountry").addClass("error_input");
         }
     }
 

@@ -119,19 +119,28 @@ var city = {
 
         if (stateID === undefined) {
             console.log("state is undefined");
-            toastr.warning("Select a state");
+            //  toastr.warning("Select a state");
+            $("#selectStateContainer").addClass("error_input");
+
+        } else {
+            $("#selectStateContainer").removeClass("error_input");
 
         }
 
         if (countryID === undefined) {
             console.log("Country is undefined");
-            toastr.warning("Select a country");
-
+            // toastr.warning("Select a country");
+            $("#selectCountryContainer").addClass("error_input");
+        } else {
+            $("#selectCountryContainer").removeClass("error_input");
         }
 
         if (!cityisValid) {
             //console.log("Valid Data");
-            toastr.warning("Invalid State Name");
+            // toastr.warning("Invalid State Name");
+            $("#regionCity").addClass("error_input");
+        } else {
+            $("#regionCity").removeClass("error_input");
         }
 
 

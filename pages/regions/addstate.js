@@ -89,20 +89,29 @@ var state = {
         console.log(stateisValid);
 
         if (countryID === undefined) {
+            $("#selectCountryContainer").addClass("error_input");
+
             console.log("Country is undefined");
-            toastr.warning("Select a country");
+            //toastr.warning("Select a country");
+
+        } else {
+            $("#selectCountryContainer").removeClass("error_input");
 
         }
 
         if (!stateisValid) {
             //console.log("Valid Data");
-            toastr.warning("Invalid State Name");
+            //toastr.warning("Invalid State Name");
+            $("#regionState").addClass("error_input");
+
+        } else {
+            $("#regionState").removeClass("error_input");
         }
 
 
         if (countryID !== undefined && stateisValid) {
             // console.log("Creating A state with valid date");
-            state.createState();
+            //  state.createState();
         }
 
     }

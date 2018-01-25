@@ -111,12 +111,85 @@ $(function () {
         var address = $("#restaurantInputAddress").val();
         var email = $("#restaurantInputEmail").val();
         var phone = $("#restaurantInputPhone").val();
+        var countryID = $("#restaurantSelectCountry").find(":selected").data("id");
+        var stateID = $("#restaurantSelectState").find(":selected").data("id");
         var cityID = $("#restaurantSelectCity").find(":selected").data("id");
         var commission = $("#restaurantInputCommission").val();
 
         console.log(name + " - " + address + " - " + email + " - " + phone + " - " + cityID + " - " + commission);
 
-        addPartners(name, address, email, phone, cityID, commission);
+
+
+        var emailisValid = validateEmail(email);
+        var phoneisValid = validateNumeric(phone);
+        //var cityisValid = validateNum()
+        var commissionisValid = validateNumeric(commission);
+
+        if (name === "") {
+            //toastr.warning("Invalid name");
+            $("#restaurantInputName").addClass("error_input");
+        }else {
+            $("#restaurantInputName").removeClass("error_input");
+        }
+
+        if(countryID === undefined){
+            $("#restaurantSelectCountryContainer").addClass("error_input");
+        }else {
+            $("#restaurantSelectCountryContainer").removeClass("error_input");
+        }
+
+        if (stateID === undefined){
+            $("#restaurantSelectStateContainer").addClass("error_input");
+        }else {
+            $("#restaurantSelectStateContainer").removeClass("error_input");
+        }
+
+        if (cityID === undefined) {
+            //toastr.warning("Select a city");
+            $("#restaurantSelectCityContainer").addClass("error_input");
+        }else {
+            $("#restaurantSelectCityContainer").removeClass("error_input");
+        }
+
+        if (address === "") {
+            //toastr.warning("Enter an address");
+            $("#restaurantInputAddress").addClass("error_input");
+        } else {
+            $("#restaurantInputAddress").removeClass("error_input");
+        }
+
+        if (!emailisValid) {
+           // toastr.warning("Invalid Email");
+            $("#restaurantInputEmail").addClass("error_input");
+        }else {
+            $("#restaurantInputEmail").removeClass("error_input");
+        }
+
+        if (!phoneisValid) {
+           // toastr.warning("Invalid Phone Number");
+            $("#restaurantInputPhone").addClass("error_input");
+        }else {
+            $("#restaurantInputPhone").removeClass("error_input");
+        }
+
+        if (!commissionisValid) {
+           // toastr.warning("Invalid Commission. Use Numbers Only");
+            $("#restaurantInputCommission").addClass("error_input");
+        }else {
+            $("#restaurantInputCommission").removeClass("error_input");
+
+        }
+
+        if(name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined, address !== "" && emailisValid && phoneisValid && commissionisValid){
+            console.log("All Data Correct");
+            addPartners(name, address, email, phone, cityID, commission);
+        }else {
+            toastr.warning("Incorrect Input Values");
+        }
+
+
+
+        // addPartners(name, address, email, phone, cityID, commission);
 
     });
 
@@ -138,9 +211,9 @@ $(function () {
             contentType: "application/json"
         }).done(function (partners) {
             $("#preloaderNav").hide();
-            if(partners.error_code === 1){
+            if (partners.error_code === 1) {
                 toastr.error(partners.message);
-            }else{
+            } else {
                 toastr.success(partners.message);
             }
 
@@ -148,6 +221,36 @@ $(function () {
 
         })
 
+    }
+
+    function validateAlphabet(inputtext) {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if (inputtext.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    function validateEmail(inputtext) {
+        var emailExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (inputtext.match(emailExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    function validateNumeric(inputtext) {
+        var numericExpression = /^[0-9]+$/;
+        if (inputtext.match(numericExpression)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 });

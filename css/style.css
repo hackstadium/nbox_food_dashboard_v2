@@ -18348,3 +18348,9 @@ input::placeholder, textarea::placeholder {
 #toast-container > div {
     width: 400px;
 }
+
+
+.error_input{
+    border: 2px solid #FF7373 !important;
+    border-radius: 4px !important;
+}

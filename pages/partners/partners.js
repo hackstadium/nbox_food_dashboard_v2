@@ -77,7 +77,8 @@ var partners = {
         alertify.confirm('Edit Partner', PartnerEditDetailsTemplate,
             function () {
                 console.log("Partner Modal ok clicked");
-                partners.updatePartner(partnerID);
+                //partners.updatePartner(partnerID);
+                partners.validateInput();
             },
             function () {
 
@@ -115,9 +116,9 @@ var partners = {
             console.log("Value Updated");
             partners.getAllPartners();
 
-            if(partner.error_code === 1){
+            if (partner.error_code === 1) {
                 toastr.error(partner.message);
-            }else{
+            } else {
                 toastr.success(partner.message);
             }
         });
@@ -149,9 +150,9 @@ var partners = {
                     console.log("Value Deleted");
                     partners.getAllPartners();
 
-                    if(partner.error_code === 1){
+                    if (partner.error_code === 1) {
                         toastr.error(partner.message);
-                    }else{
+                    } else {
                         toastr.success(partner.message);
                     }
 
@@ -160,6 +161,44 @@ var partners = {
             function () {
             }).set({transition: 'zoom', label: ' DELETE '}).show();
 
+
+    },
+    validateEmail: function (inputtext) {
+        var emailExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (inputtext.match(emailExp)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    },
+    validateNumeric: function (inputtext) {
+        var numericExpression = /^[0-9]+$/;
+        if (inputtext.match(numericExpression)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    validateInput: function () {
+
+        var updateName = $("#modalPartnerInputName").val();
+        var updateAddress = $("#modalPartnerInputAddress").val();
+        var updateEmail = $("#modalPartnerInputEmail").val();
+        var updatePhone = $("#modalPartnerInputPhone").val();
+        var updateCommission = $("#modalPartnerInputCommission").val();
+
+        var emailisValid = partners.validateEmail(updateEmail);
+        var phoneisValid = partners.validateNumeric(updatePhone);
+        var commissionisValid = partners.validateNumeric(updateCommission);
+
+        if (updateName !== "" && updateAddress !== "" && emailisValid && phoneisValid && commissionisValid) {
+            console.log("All Data is correct");
+        } else {
+            toastr.warning("Invalid Input Values");
+        }
 
     }
 
