@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/pages/category/addpartner.html" afterPath="$PROJECT_DIR$/pages/category/addpartner.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/addpartner.js" afterPath="$PROJECT_DIR$/pages/category/addpartner.js" />
-      <change beforePath="$PROJECT_DIR$/pages/category/categories.html" afterPath="$PROJECT_DIR$/pages/category/categories.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/category.js" afterPath="$PROJECT_DIR$/pages/category/category.js" />
-      <change beforePath="$PROJECT_DIR$/pages/category/index.html" afterPath="$PROJECT_DIR$/pages/category/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/index.js" afterPath="$PROJECT_DIR$/pages/category/index.js" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/index.html" afterPath="$PROJECT_DIR$/pages/partners/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/index.js" afterPath="$PROJECT_DIR$/pages/partners/index.js" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/partners.html" afterPath="$PROJECT_DIR$/pages/partners/partners.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/partners.js" afterPath="$PROJECT_DIR$/pages/partners/partners.js" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addcity.html" afterPath="$PROJECT_DIR$/pages/regions/addcity.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addcity.js" afterPath="$PROJECT_DIR$/pages/regions/addcity.js" />
       <change beforePath="$PROJECT_DIR$/pages/regions/addcountry.html" afterPath="$PROJECT_DIR$/pages/regions/addcountry.html" />
       <change beforePath="$PROJECT_DIR$/pages/regions/addcountry.js" afterPath="$PROJECT_DIR$/pages/regions/addcountry.js" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addstate.html" afterPath="$PROJECT_DIR$/pages/regions/addstate.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addstate.js" afterPath="$PROJECT_DIR$/pages/regions/addstate.js" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/region.js" afterPath="$PROJECT_DIR$/pages/regions/region.js" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/regions.html" afterPath="$PROJECT_DIR$/pages/regions/regions.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +20,7 @@
             <entry file="file://$PROJECT_DIR$/pages/category/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="773">
-                  <caret line="244" column="42" lean-forward="true" selection-start-line="244" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+                  <caret line="244" column="42" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -50,7 +32,7 @@
             <entry file="file://$PROJECT_DIR$/pages/partners/partners.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
-                  <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+                  <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -62,7 +44,17 @@
             <entry file="file://$PROJECT_DIR$/pages/regions/regions.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="267">
-                  <caret line="191" column="32" lean-forward="true" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+                  <caret line="191" column="32" lean-forward="false" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addcountry.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pages/regions/addcountry.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="572">
+                  <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -72,7 +64,7 @@
             <entry file="file://$PROJECT_DIR$/pages/category/categories.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
-                  <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+                  <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -80,11 +72,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="addpartner.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="addpartner.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/category/addpartner.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                <state relative-caret-position="274">
+                  <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -100,7 +92,7 @@
             <entry file="file://$PROJECT_DIR$/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="281">
-                  <caret line="18245" column="25" lean-forward="true" selection-start-line="18245" selection-start-column="25" selection-end-line="18245" selection-end-column="25" />
+                  <caret line="18245" column="25" lean-forward="false" selection-start-line="18245" selection-start-column="25" selection-end-line="18245" selection-end-column="25" />
                   <folding>
                     <element signature="e#325198#325398#2" expanded="true" />
                     <element signature="e#325539#325688#2" expanded="true" />
@@ -129,17 +121,27 @@
             <entry file="file://$PROJECT_DIR$/pages/category/category.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="353">
-                  <caret line="164" column="14" lean-forward="true" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
+                  <caret line="164" column="14" lean-forward="false" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="addpartner.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="addpartner.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/category/addpartner.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="784">
-                  <caret line="183" column="18" lean-forward="true" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+                <state relative-caret-position="169">
+                  <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addcountry.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pages/regions/addcountry.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="728">
+                  <caret line="60" column="46" lean-forward="true" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
@@ -159,7 +161,7 @@
             <entry file="file://$PROJECT_DIR$/pages/partners/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="75">
-                  <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -179,7 +181,7 @@
             <entry file="file://$PROJECT_DIR$/pages/category/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="698">
-                  <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+                  <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -235,8 +237,6 @@
         <option value="$PROJECT_DIR$/pages/bundles/index.html" />
         <option value="$PROJECT_DIR$/pages/bundles/bundles.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/pages/regions/addcountry.html" />
-        <option value="$PROJECT_DIR$/pages/regions/addcountry.js" />
         <option value="$PROJECT_DIR$/pages/regions/addstate.html" />
         <option value="$PROJECT_DIR$/pages/regions/addcity.html" />
         <option value="$PROJECT_DIR$/pages/regions/addstate.js" />
@@ -253,6 +253,8 @@
         <option value="$PROJECT_DIR$/pages/category/category.js" />
         <option value="$PROJECT_DIR$/pages/category/addpartner.js" />
         <option value="$PROJECT_DIR$/pages/category/addpartner.html" />
+        <option value="$PROJECT_DIR$/pages/regions/addcountry.html" />
+        <option value="$PROJECT_DIR$/pages/regions/addcountry.js" />
       </list>
     </option>
   </component>
@@ -314,7 +316,7 @@
               <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="category" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="regions" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -378,12 +380,12 @@
       <workItem from="1516632896432" duration="9367000" />
       <workItem from="1516695319721" duration="12134000" />
       <workItem from="1516712089120" duration="8535000" />
-      <workItem from="1516777734194" duration="22988000" />
+      <workItem from="1516777734194" duration="25306000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197760000" />
+    <option name="totallyTimeSpent" value="200078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -655,7 +657,7 @@
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
-          <caret line="18245" column="25" lean-forward="true" selection-start-line="18245" selection-start-column="25" selection-end-line="18245" selection-end-column="25" />
+          <caret line="18245" column="25" lean-forward="false" selection-start-line="18245" selection-start-column="25" selection-end-line="18245" selection-end-column="25" />
           <folding>
             <element signature="e#325198#325398#2" expanded="true" />
             <element signature="e#325539#325688#2" expanded="true" />
@@ -679,14 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/regions/addcountry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="33" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/regions/addstate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -699,16 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="215" column="56" lean-forward="true" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/regions/addcountry.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="56" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -736,7 +720,7 @@
     <entry file="file://$PROJECT_DIR$/pages/regions/regions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
-          <caret line="191" column="32" lean-forward="true" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+          <caret line="191" column="32" lean-forward="false" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -744,7 +728,7 @@
     <entry file="file://$PROJECT_DIR$/pages/partners/partners.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -762,7 +746,7 @@
     <entry file="file://$PROJECT_DIR$/pages/category/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
-          <caret line="244" column="42" lean-forward="true" selection-start-line="244" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+          <caret line="244" column="42" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -772,7 +756,7 @@
     <entry file="file://$PROJECT_DIR$/pages/category/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="698">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -780,7 +764,7 @@
     <entry file="file://$PROJECT_DIR$/pages/category/category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
-          <caret line="164" column="14" lean-forward="true" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
+          <caret line="164" column="14" lean-forward="false" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -788,7 +772,7 @@
     <entry file="file://$PROJECT_DIR$/pages/partners/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -801,31 +785,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/category/addpartner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="183" column="18" lean-forward="true" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/category/categories.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/category/addpartner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/category/addpartner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="274">
+          <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#1;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/regions/addcountry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/regions/addcountry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="60" column="46" lean-forward="true" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
