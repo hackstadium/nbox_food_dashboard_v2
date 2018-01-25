@@ -54,17 +54,58 @@ var state = {
             console.log(state);
             // state.notifySuccess();
 
-            if(state.error_code === 1){
+            if (state.error_code === 1) {
                 toastr.error(state.message);
-            }else{
+            } else {
                 toastr.success(state.message);
             }
         });
     },
 
-    // notifySuccess: function (message) {
-    //     console.log(message);
-    // }
+    validateAlphabet: function (inputtext) {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if (inputtext.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+
+    validateInput: function () {
+        var stateName = $("#regionState").val();
+        var countryID = $("#selectCountry").find(":selected").data("id");
+        // var selectedCountry = $("#selectCountry").val();
+
+
+        console.log("Validate state Value");
+        console.log(state.validateAlphabet(stateName));
+
+        console.log("Country ID");
+        console.log(countryID);
+
+        var stateisValid = state.validateAlphabet(stateName);
+        console.log("Validating Country Value");
+        console.log(stateisValid);
+
+        if (countryID === undefined) {
+            console.log("Country is undefined");
+            toastr.warning("Select a country");
+
+        }
+
+        if (!stateisValid) {
+            //console.log("Valid Data");
+            toastr.warning("Invalid State Name");
+        }
+
+
+        if (countryID !== undefined && stateisValid) {
+            // console.log("Creating A state with valid date");
+            state.createState();
+        }
+
+    }
 
 }
 

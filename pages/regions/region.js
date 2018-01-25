@@ -59,7 +59,32 @@ var regions = {
         alertify.confirm('Edit Region', RegionEditDetaillsTemplate,
             function () {
                 console.log("Region Modal ok clicked");
-                regions.updateRegion(cityID, stateID, countryID);
+
+                var country = $("#modalRegionsInputCountry").val();
+                var state = $("#modalRegionsInputState").val();
+                var city = $("#modalRegionsInputCity").val();
+                var countryisValid = regions.validateAlphabet(country);
+                var stateisValid = regions.validateAlphabet(state);
+                var cityisValid = regions.validateAlphabet(city);
+
+                if (!countryisValid) {
+                    toastr.warning("Invalid Country");
+                }
+
+                if (!stateisValid) {
+                    toastr.warning("Invalid State");
+                }
+
+                if (!cityisValid) {
+                    toastr.warning("Invalid City");
+                }
+
+
+                if (countryisValid && stateisValid && cityisValid) {
+                    // console.log("All DAta correct");
+                    regions.updateRegion(cityID, stateID, countryID);
+                }
+
             },
             function () {
 
@@ -111,15 +136,60 @@ var regions = {
                     $("#preloaderNav").hide();
 
                     regions.getAllRegions();
-                    if(country.error_code === 1){
+                    if (country.error_code === 1) {
                         toastr.error("Update Failed");
-                    }else{
+                    } else {
                         toastr.success("Update Successful");
                     }
 
                 });
             });
         });
+    },
+
+    validateAlphabet: function (inputtext) {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if (inputtext.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+
+    validateInput: function () {
+        var stateName = $("#regionState").val();
+        var countryID = $("#selectCountry").find(":selected").data("id");
+        // var selectedCountry = $("#selectCountry").val();
+
+
+        console.log("Validate state Value");
+        console.log(state.validateAlphabet(stateName));
+
+        console.log("Country ID");
+        console.log(countryID);
+
+        var stateisValid = state.validateAlphabet(stateName);
+        console.log("Validating Country Value");
+        console.log(stateisValid);
+
+        if (countryID === undefined) {
+            console.log("Country is undefined");
+            toastr.warning("Select a country");
+
+        }
+
+        if (!stateisValid) {
+            //console.log("Valid Data");
+            toastr.warning("Invalid State Name");
+        }
+
+
+        if (countryID !== undefined && stateisValid) {
+            // console.log("Creating A state with valid date");
+            state.createState();
+        }
+
     }
 
 

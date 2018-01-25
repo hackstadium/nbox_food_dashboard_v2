@@ -78,15 +78,71 @@ var city = {
             $("#preloaderNav").hide();
 
             console.log(city);
-            if(city.error_code === 1){
+            if (city.error_code === 1) {
                 toastr.error(city.message);
-            }else{
+            } else {
                 toastr.success(city.message);
             }
         });
 
 
+    },
+
+    validateAlphabet: function (inputtext) {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if (inputtext.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+
+    validateInput: function () {
+        var cityName = $("#regionCity").val();
+        var countryID = $("#selectCountry").find(":selected").data("id");
+        var stateID = $("#selectState").find(":selected").data("id");
+
+        // var selectedCountry = $("#selectCountry").val();
+
+
+        console.log("Validate state Value");
+        console.log(city.validateAlphabet(cityName));
+
+        console.log("Country ID");
+        console.log(countryID);
+
+        var cityisValid = city.validateAlphabet(cityName);
+        console.log("Validating city Value");
+        console.log(cityisValid);
+
+
+        if (stateID === undefined) {
+            console.log("state is undefined");
+            toastr.warning("Select a state");
+
+        }
+
+        if (countryID === undefined) {
+            console.log("Country is undefined");
+            toastr.warning("Select a country");
+
+        }
+
+        if (!cityisValid) {
+            //console.log("Valid Data");
+            toastr.warning("Invalid State Name");
+        }
+
+
+        if (countryID !== undefined && cityisValid && stateID !== undefined) {
+            // console.log("Creating A state with valid date");
+            city.createCity();
+        }
+
     }
+
+
 }
 
 city.init();
