@@ -18327,18 +18327,24 @@ input::placeholder, textarea::placeholder {
     height: 600px;
 }
 
-
-.multiList li{
+.multiList li {
     list-style-type: none;
     /*margin-bottom: 6px;*/
     /*font-size: 14px;*/
 }
 
-.multiList ul{
+.multiList ul {
     padding: 0px;
 }
 
-
-.navbar .navbar-menu-wrapper{
+.navbar .navbar-menu-wrapper {
     justify-content: space-between;
+}
+
+.toast-message {
+    font-size: 20px;
+}
+
+#toast-container > div {
+    width: 400px;
 }

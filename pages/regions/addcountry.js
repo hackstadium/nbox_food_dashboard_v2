@@ -5,10 +5,13 @@ var country = {
     init: function () {
         $("#preloaderNav").hide();
 
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"}
+
     },
 
     createCountry: function () {
         $("#preloaderNav").show();
+
 
         var countryName = $("#regionCountry").val();
         var countryData = {country: countryName};
@@ -24,8 +27,30 @@ var country = {
             console.log(country);
             $("#preloaderNav").hide();
 
+            if(country.error_code === 1){
+                toastr.error(country.message);
+            }else{
+                toastr.success(country.message);
+            }
+
         })
     }
+    // showNotificationSuccess: function () {
+    //     toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "50000000"}
+    //     toastr.success("message");
+    // },
+    //
+    // showNotificationFailed: function () {
+    //     toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "50000000"}
+    //     toastr.error("helloe");
+    // },
+    //
+    // showNotificationInfo: function (message) {
+    //     toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "50000000"}
+    //     toastr.info(message);
+    // }
+
+
 }
 
 country.init();

@@ -3,6 +3,8 @@ var city = {
 
     init: function () {
         city.getAllCountries();
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
     },
 
     getAllCountries: function () {
@@ -76,6 +78,11 @@ var city = {
             $("#preloaderNav").hide();
 
             console.log(city);
+            if(city.error_code === 1){
+                toastr.error(city.message);
+            }else{
+                toastr.success(city.message);
+            }
         });
 
 

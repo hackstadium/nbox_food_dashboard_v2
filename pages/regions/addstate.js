@@ -4,6 +4,8 @@ var state = {
     init: function () {
         state.getAllCountries();
         //$("#preloaderNav").show();
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
     },
 
     getAllCountries: function () {
@@ -49,9 +51,20 @@ var state = {
         }).done(function (state) {
             $("#preloaderNav").hide();
 
-            console.log(state)
+            console.log(state);
+            // state.notifySuccess();
+
+            if(state.error_code === 1){
+                toastr.error(state.message);
+            }else{
+                toastr.success(state.message);
+            }
         });
-    }
+    },
+
+    // notifySuccess: function (message) {
+    //     console.log(message);
+    // }
 
 }
 

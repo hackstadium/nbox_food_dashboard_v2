@@ -5,6 +5,8 @@ var partners = {
 
     init: function () {
         partners.getAllPartners();
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
 
     },
 
@@ -107,11 +109,17 @@ var partners = {
             crossDomain: true,
             data: JSON.stringify(partnerData),
             contentType: "application/json"
-        }).done(function () {
+        }).done(function (partner) {
             $("#preloaderNav").hide();
 
             console.log("Value Updated");
             partners.getAllPartners();
+
+            if(partner.error_code === 1){
+                toastr.error(partner.message);
+            }else{
+                toastr.success(partner.message);
+            }
         });
 
 
@@ -135,11 +143,18 @@ var partners = {
                     crossDomain: true,
                     data: JSON.stringify(deletePartnerData),
                     contentType: "application/json"
-                }).done(function () {
+                }).done(function (partner) {
                     $("#preloaderNav").hide();
 
                     console.log("Value Deleted");
                     partners.getAllPartners();
+
+                    if(partner.error_code === 1){
+                        toastr.error(partner.message);
+                    }else{
+                        toastr.success(partner.message);
+                    }
+
                 });
             },
             function () {

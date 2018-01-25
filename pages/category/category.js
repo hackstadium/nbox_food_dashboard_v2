@@ -2,6 +2,8 @@ var categories = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
         categories.getAllCategories();
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
     },
 
     getAllCategories: function () {
@@ -117,11 +119,17 @@ var categories = {
             crossDomain: true,
             data: JSON.stringify(categoryData),
             contentType: "application/json"
-        }).done(function () {
+        }).done(function (category) {
             $("#preloaderNav").hide();
 
             console.log("Value Updated");
             categories.getAllCategories();
+
+            if (category.error_code === 1) {
+                toastr.error(category.message);
+            } else {
+                toastr.success(category.message);
+            }
         });
 
     },
@@ -143,11 +151,16 @@ var categories = {
                     crossDomain: true,
                     data: JSON.stringify(deleteCategoryData),
                     contentType: "application/json"
-                }).done(function () {
+                }).done(function (category) {
                     $("#preloaderNav").hide();
 
                     console.log("Value Deleted");
                     categories.getAllCategories();
+                    if (category.error_code === 1) {
+                        toastr.error(category.message);
+                    } else {
+                        toastr.success(category.message);
+                    }
                 });
             },
             function () {

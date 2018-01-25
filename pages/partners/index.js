@@ -1,6 +1,8 @@
 $(function () {
 
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
 
     getCountries();
 
@@ -136,6 +138,11 @@ $(function () {
             contentType: "application/json"
         }).done(function (partners) {
             $("#preloaderNav").hide();
+            if(partners.error_code === 1){
+                toastr.error(partners.message);
+            }else{
+                toastr.success(partners.message);
+            }
 
             console.log(partners);
 
