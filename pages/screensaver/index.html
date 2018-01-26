@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin</title>
+    <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/toastr.css"/>
+
+    <link rel="shortcut icon" href="../../images/favicon.png"/>
+</head>
+
+<body>
+<div class=" container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="bg-white text-center navbar-brand-wrapper">
+            <a class="navbar-brand brand-logo" href="index.html">
+                <img src="../../images/nbox_food_logo.png"/>
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="index.html">
+                <img src="../../images/nairabox_green.svg">
+            </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+            <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3"
+                    type="button" data-toggle="minimize">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="preloaderNav">
+                <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw rotate"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+
+            <div>
+                <i class="fa fa-th-large" style="color: #668C61; visibility: hidden"></i>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- partial -->
+    <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../index.html">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
+                           aria-controls="sample-pages">
+                            <i class="fa fa-th-large" aria-hidden="true"></i>
+
+                            <span class="menu-title">Category<i class="fa fa-sort-down"></i></span>
+                        </a>
+                        <div class="collapse" id="category-pages">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/category/index.html">
+                                        Add Categories
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/category/categories.html">
+                                        Manage Categories
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/category/addpartner.html">
+                                        Add Partners
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <!--NAV ITEM BUNDLES-->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#bundle-pages" aria-expanded="false"
+                           aria-controls="sample-pages">
+                            <i class="fa fa-cubes" aria-hidden="true"></i>
+                            <!--<i class="fa fa-th-large" aria-hidden="true"></i>-->
+                            <span class="menu-title">Bundles<i class="fa fa-sort-down"></i></span>
+                        </a>
+                        <div class="collapse" id="bundle-pages">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/bundles/index.html">
+                                        Add Bundles
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/bundles/bundles.html">
+                                        Manage Bundles
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!--NAV ITEM PARTNERS-->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#partner-pages" aria-expanded="false"
+                           aria-controls="sample-pages">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span class="menu-title">Partners<i class="fa fa-sort-down"></i></span>
+                        </a>
+                        <div class="collapse" id="partner-pages">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/partners/index.html">
+                                        Add Partners
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/partners/partners.html">
+                                        Manage Partners
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!--NAV ITEM REGION-->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#region-pages" aria-expanded="false"
+                           aria-controls="sample-pages">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span class="menu-title">Regions<i class="fa fa-sort-down"></i></span>
+                        </a>
+                        <div class="collapse" id="region-pages">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/regions/addcountry.html">
+                                        Add Country
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/regions/addstate.html">
+                                        Add State
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/regions/addcity.html">
+                                        Add City
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/regions/regions.html">
+                                        Manage Regions
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- partial -->
+            <div class="content-wrapper">
+                <h3 class="page-heading mb-4">Add Screensavers</h3>
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="bundle-form">
+
+                                    <div>
+                                        <input id="categoryName" type="text" placeholder="Name of Screensaver Name"
+                                               class="input-form">
+                                    </div>
+                                    <div>
+                                        <input id="fileName" type="text" placeholder="Name of Screensaver Name"
+                                               class="input-form">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="categorySelectCountryContainer" class="styled-select">
+                                            <select id="categorySelectCountry">
+                                                <option>Select a country</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="categorySelectStateContainer" class="styled-select">
+                                            <select id="categorySelectState">
+                                                <option>Select a state</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="categorySelectCityContainer" class="styled-select">
+                                            <select id="categorySelectCity">
+                                                <option>Select a city</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button id="addCategory" type="submit" class="btn btn-primary btn-lg">CREATE
+                                            CATEGORY
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- partial:../../partials/_footer.html -->
+
+            <footer class="footer">
+                <div class="container-fluid clearfix">
+            <span class="float-right">
+                <a href="#">Nairabox Food</a> &copy; 2017
+            </span>
+                </div>
+            </footer>
+
+
+            <!-- partial -->
+        </div>
+    </div>
+
+</div>
+
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="../../js/off-canvas.js"></script>
+<script src="../../js/hoverable-collapse.js"></script>
+<script src="../../js/misc.js"></script>
+<script src="menus.js"></script>
+<script src="../../js/toastr.js"></script>
+
+<script src="index.js"></script>
+</body>
+
+</html>
