@@ -96,7 +96,8 @@ var categories = {
             alertify.confirm('Edit Category', RegionEditDetaillsTemplate,
                 function () {
                     console.log("Category Modal ok clicked");
-                    categories.updateCategory(categoryID);
+                    //categories.updateCategory(categoryID);
+                    categories.validateInput(categoryID);
                 },
                 function () {
 
@@ -192,6 +193,19 @@ var categories = {
 
             console.log(message);
         })
+    },
+
+    validateInput: function (categoryID) {
+        var category = $("#modalCategoryInputCategory").val();
+
+        if (category === "") {
+            $("#modalCategoryInputCategory").addClass("error_input");
+            toastr.warning("Invalid Input Values");
+
+        } else {
+            $("#modalCategoryInputCategory").removeClass("error_input");
+            categories.updateCategory(categoryID);
+        }
     }
 
 }

@@ -101,30 +101,81 @@ $(function () {
 
 
     $("#addCategory").click(function () {
-        $("#preloaderNav").show();
 
 
         var category = $("#categoryName").val();
+        var countryID = $("#categorySelectCountry").find(":selected").data("id");
+        var stateID = $("#categorySelectState").find(":selected").data("id");
         var cityID = $("#categorySelectCity").find(":selected").data("id");
+
+        if (category === "") {
+            $("#categoryName").addClass("error_input");
+        } else {
+            $("#categoryName").removeClass("error_input");
+        }
+
+
+        if (countryID === undefined) {
+            $("#categorySelectCountryContainer").addClass("error_input");
+        } else {
+            $("#categorySelectCountryContainer").removeClass("error_input");
+        }
+
+
+        if (stateID === undefined) {
+            $("#categorySelectStateContainer").addClass("error_input");
+        } else {
+            $("#categorySelectStateContainer").removeClass("error_input");
+        }
+
+
+        if (cityID === undefined) {
+            $("#categorySelectCityContainer").addClass("error_input");
+        } else {
+            $("#categorySelectCityContainer").removeClass("error_input");
+        }
+
         var categoryData = {category: category, city_id: cityID}
 
-        $.ajax({
-            url: BASE_URL + "category/create",
-            type: "POST",
-            crossDomain: true,
-            data: JSON.stringify(categoryData),
-            contentType: "application/json"
-        }).done(function (categories) {
-            $("#preloaderNav").hide();
+        if (category !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
+            console.log("All Data is correct");
+            $("#preloaderNav").show();
 
-            console.log(categories);
 
-            if(categories.error_code === 1){
-                toastr.error(categories.message);
-            }else{
-                toastr.success(categories.message);
-            }
-        });
+            $.ajax({
+                url: BASE_URL + "category/create",
+                type: "POST",
+                crossDomain: true,
+                data: JSON.stringify(categoryData),
+                contentType: "application/json"
+            }).done(function (categories) {
+                $("#preloaderNav").hide();
+
+                console.log(categories);
+
+                if (categories.error_code === 1) {
+                    toastr.error(categories.message);
+                } else {
+                    toastr.success(categories.message);
+                }
+            });
+
+
+        } else {
+            toastr.warning("Invalid Input Values");
+        }
+
+
     });
+
+
+    function validateAlphabet(inputtext) {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if (inputtext.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 });

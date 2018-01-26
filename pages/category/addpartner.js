@@ -162,30 +162,71 @@ $(function () {
     }
 
     $("#addCategoryPartner").click(function () {
-        $("#preloaderNav").show();
 
-
+        var countryID = $("#categoryPartnerSelectCountry").find(":selected").data("id");
+        var stateID = $("#categoryPartnerSelectState").find(":selected").data("id");
+        var cityID = $("#categoryPartnerSelectCity").find(":selected").data("id");
         var partnerID = $("#categoryPartnerSelectPartner").find(":selected").data("id");
         var categoryID = $("#categoryPartnerSelectCategory").find(":selected").data("id");
+
+        if (countryID === undefined) {
+            $("#categoryPartnerSelectCountryContainer").addClass("error_input");
+        } else {
+            $("#categoryPartnerSelectCountryContainer").removeClass("error_input");
+        }
+
+        if (stateID === undefined) {
+            $("#categoryPartnerSelectStateContainer").addClass("error_input");
+        } else {
+            $("#categoryPartnerSelectStateContainer").removeClass("error_input");
+        }
+
+        if (cityID === undefined) {
+            $("#categoryPartnerSelectCityContainer").addClass("error_input");
+        } else {
+            $("#categoryPartnerSelectCityContainer").removeClass("error_input");
+        }
+
+        if (partnerID === undefined) {
+            $("#categoryPartnerSelectPartnerContainer").addClass("error_input");
+        } else {
+            $("#categoryPartnerSelectPartnerContainer").removeClass("error_input");
+        }
+
+        if (categoryID === undefined) {
+            $("#categoryPartnerSelectCategoryContainer").addClass("error_input");
+        } else {
+            $("#categoryPartnerSelectCategoryContainer").removeClass("error_input");
+        }
+
+
         var addCategoryPartnerData = {partner_id: partnerID, category_id: categoryID};
 
-        $.ajax({
-            url: BASE_URL + "category/add/partner",
-            type: "POST",
-            crossDomain: true,
-            data: JSON.stringify(addCategoryPartnerData),
-            contentType: "application/json"
-        }).done(function (message) {
-            $("#preloaderNav").hide();
+        if (countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined) {
+            console.log("All Data is correct");
 
-            console.log(message);
-            if(message.error_code === 1){
-                toastr.error(message.message);
-            }else{
-                toastr.success(message.message);
-            }
-        })
-    })
+            $("#preloaderNav").show();
 
+            $.ajax({
+                url: BASE_URL + "category/add/partner",
+                type: "POST",
+                crossDomain: true,
+                data: JSON.stringify(addCategoryPartnerData),
+                contentType: "application/json"
+            }).done(function (message) {
+                $("#preloaderNav").hide();
+
+                console.log(message);
+                if (message.error_code === 1) {
+                    toastr.error(message.message);
+                } else {
+                    toastr.success(message.message);
+                }
+            });
+        } else {
+            toastr.warning("Invalid Input Value");
+        }
+
+    });
 
 });
