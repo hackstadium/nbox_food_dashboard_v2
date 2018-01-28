@@ -4,7 +4,27 @@ $(function () {
     toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
 
 
-    getCountries();
+    // getCountries();
+
+
+    checkLogin();
+
+    function checkLogin() {
+        console.log("Nav to dashboard page");
+        var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+        console.log(isLoggedIn);
+
+        if (isLoggedIn !== "true") {
+            window.location.href = "../../pages/login/login.html";
+            console.log("Not Logged In");
+        } else {
+            // window.location.href = "../../pages/dashboard/index.html";
+            console.log("logged In");
+            //bundles.getAllbundles();
+            getCountries();
+
+        }
+    }
 
     function getCountries() {
         $("#preloaderNav").show();
@@ -119,7 +139,6 @@ $(function () {
         console.log(name + " - " + address + " - " + email + " - " + phone + " - " + cityID + " - " + commission);
 
 
-
         var emailisValid = validateEmail(email);
         var phoneisValid = validateNumeric(phone);
         //var cityisValid = validateNum()
@@ -128,26 +147,26 @@ $(function () {
         if (name === "") {
             //toastr.warning("Invalid name");
             $("#restaurantInputName").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantInputName").removeClass("error_input");
         }
 
-        if(countryID === undefined){
+        if (countryID === undefined) {
             $("#restaurantSelectCountryContainer").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantSelectCountryContainer").removeClass("error_input");
         }
 
-        if (stateID === undefined){
+        if (stateID === undefined) {
             $("#restaurantSelectStateContainer").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantSelectStateContainer").removeClass("error_input");
         }
 
         if (cityID === undefined) {
             //toastr.warning("Select a city");
             $("#restaurantSelectCityContainer").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantSelectCityContainer").removeClass("error_input");
         }
 
@@ -159,34 +178,33 @@ $(function () {
         }
 
         if (!emailisValid) {
-           // toastr.warning("Invalid Email");
+            // toastr.warning("Invalid Email");
             $("#restaurantInputEmail").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantInputEmail").removeClass("error_input");
         }
 
         if (!phoneisValid) {
-           // toastr.warning("Invalid Phone Number");
+            // toastr.warning("Invalid Phone Number");
             $("#restaurantInputPhone").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantInputPhone").removeClass("error_input");
         }
 
         if (!commissionisValid) {
-           // toastr.warning("Invalid Commission. Use Numbers Only");
+            // toastr.warning("Invalid Commission. Use Numbers Only");
             $("#restaurantInputCommission").addClass("error_input");
-        }else {
+        } else {
             $("#restaurantInputCommission").removeClass("error_input");
 
         }
 
-        if(name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined, address !== "" && emailisValid && phoneisValid && commissionisValid){
+        if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined, address !== "" && emailisValid && phoneisValid && commissionisValid) {
             console.log("All Data Correct");
             addPartners(name, address, email, phone, cityID, commission);
-        }else {
+        } else {
             toastr.warning("Incorrect Input Values");
         }
-
 
 
         // addPartners(name, address, email, phone, cityID, commission);

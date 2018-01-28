@@ -4,9 +4,27 @@ var locations = {
 
 
     init: function () {
-        locations.getAllLocations();
+        // locations.getAllLocations();
         toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        locations.checkLogin();
 
+    },
+
+    checkLogin: function () {
+        console.log("Nav to dashboard page");
+        var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+        console.log(isLoggedIn);
+
+        if (isLoggedIn !== "true") {
+            window.location.href = "../../pages/login/login.html";
+            console.log("Not Logged In");
+        } else {
+            // window.location.href = "../../pages/dashboard/index.html";
+            console.log("logged In");
+            // bundles.getAllbundles();
+            // createLocation.getCountries();
+            locations.getAllLocations();
+        }
     },
 
     getAllLocations: function () {
@@ -92,7 +110,7 @@ var locations = {
             console.log(location);
             if (location.error_code === 1) {
                 toastr.error(location.message);
-             //   locations.getAllLocations()
+                //   locations.getAllLocations()
             } else {
                 toastr.success(location.message);
             }

@@ -4,8 +4,25 @@
 var bundles = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
-        bundles.getAllbundles();
+       // bundles.getAllbundles();
+        bundles.checkLogin();
     },
+
+    checkLogin: function () {
+        console.log("Nav to dashboard page");
+        var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+        console.log(isLoggedIn);
+
+        if (isLoggedIn !== "true") {
+            window.location.href = "../../pages/login/login.html";
+            console.log("Not Logged In");
+        } else {
+            // window.location.href = "../../pages/dashboard/index.html";
+            console.log("logged In");
+            bundles.getAllbundles();
+        }
+    },
+
     getAllbundles: function () {
         $("#preloaderNav").show();
 

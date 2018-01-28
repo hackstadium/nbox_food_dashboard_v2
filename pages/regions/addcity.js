@@ -2,9 +2,28 @@ var city = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
 
     init: function () {
-        city.getAllCountries();
+        //city.getAllCountries();
         toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        city.checkLogin();
 
+    },
+
+    checkLogin: function () {
+        console.log("Nav to dashboard page");
+        var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+        console.log(isLoggedIn);
+
+        if (isLoggedIn !== "true") {
+            window.location.href = "../../pages/login/login.html";
+            console.log("Not Logged In");
+        } else {
+            // window.location.href = "../../pages/dashboard/index.html";
+            console.log("logged In");
+            // bundles.getAllbundles();
+            //partners.getAllPartners();
+            city.getAllCountries();
+
+        }
     },
 
     getAllCountries: function () {

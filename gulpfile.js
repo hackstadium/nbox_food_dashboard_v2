@@ -130,12 +130,12 @@ gulp.task('replacePath', function(){
   gulp.src('pages/*/*.html', { base: "./" })
     .pipe(replace('src="images/', 'src="../../images/'))
     .pipe(replace('href="pages/', 'href="../../pages/'))
-    .pipe(replace('href="index.html"', 'href="../../index.html"'))
+    .pipe(replace('href="login.html"', 'href="../../login.html"'))
     .pipe(gulp.dest('.'));
   gulp.src('pages/*.html', { base: "./" })
     .pipe(replace('src="images/', 'src="../images/'))
     .pipe(replace('"pages/', '"../pages/'))
-    .pipe(replace('href="index.html"', 'href="../index.html"'))
+    .pipe(replace('href="login.html"', 'href="../login.html"'))
     .pipe(gulp.dest('.'));
 });
 

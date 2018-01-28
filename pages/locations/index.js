@@ -4,7 +4,26 @@ var createLocation = {
 
     init: function () {
         toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
-        createLocation.getCountries();
+        // createLocation.getCountries();
+        createLocation.checkLogin();
+    },
+
+
+    checkLogin: function () {
+        console.log("Nav to dashboard page");
+        var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+        console.log(isLoggedIn);
+
+        if (isLoggedIn !== "true") {
+            window.location.href = "../../pages/login/login.html";
+            console.log("Not Logged In");
+        } else {
+            // window.location.href = "../../pages/dashboard/index.html";
+            console.log("logged In");
+            // bundles.getAllbundles();
+            createLocation.getCountries();
+
+        }
     },
 
     getCountries: function () {
