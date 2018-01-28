@@ -18210,8 +18210,9 @@ input::placeholder, textarea::placeholder {
     text-decoration: underline;
 }
 
-.pointer {
+.pointer:hover {
     cursor: pointer;
+    opacity: .7;
 }
 
 .wizard > .content > .body {
@@ -18358,4 +18359,8 @@ input::placeholder, textarea::placeholder {
 .nav-icon{
     color: white;
     font-size: 20px !important;
+}
+
+.nav-button{
+    background-color: transparent !important;
 }
