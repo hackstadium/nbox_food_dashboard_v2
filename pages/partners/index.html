@@ -17,33 +17,6 @@
 <body>
 <div class=" container-scroller">
     <!-- partial:../../partials/_navbar.html -->
-    <!--<nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">-->
-        <!--<div class="bg-white text-center navbar-brand-wrapper">-->
-            <!--<a class="navbar-brand brand-logo" href="index.html">-->
-                <!--<img src="../../images/nbox_food_logo.png"/>-->
-            <!--</a>-->
-            <!--<a class="navbar-brand brand-logo-mini" href="index.html">-->
-                <!--<img src="../../images/nairabox_green.svg">-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="navbar-menu-wrapper d-flex align-items-center">-->
-            <!--<button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3"-->
-                    <!--type="button" data-toggle="minimize">-->
-                <!--<span class="navbar-toggler-icon"></span>-->
-            <!--</button>-->
-            <!--<div id="preloaderNav">-->
-                <!--<i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw rotate"></i>-->
-                <!--<span class="sr-only">Loading...</span>-->
-            <!--</div>-->
-
-            <!--<div>-->
-                <!--<i class="fa fa-th-large" style="color: #668C61; visibility: hidden"></i>-->
-            <!--</div>-->
-
-        <!--</div>-->
-    <!--</nav>-->
-
-
 
     <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="bg-white text-center navbar-brand-wrapper">
@@ -55,7 +28,7 @@
             </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
-            <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3"
+            <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3 pointer"
                     type="button" data-toggle="minimize">
                 <!--<span class="navbar-toggler-icon"></span>-->
                 <i class="fa fa-bars nav-icon" aria-hidden="true"></i>
@@ -82,7 +55,7 @@
             <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../index.html">
+                        <a class="nav-link" href="../../pages/dashboard/index.html">
                             <i class="fa fa-bar-chart" aria-hidden="true"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
@@ -121,8 +94,8 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#bundle-pages" aria-expanded="false"
                            aria-controls="sample-pages">
-                            <i class="fa fa-cubes" aria-hidden="true"></i>
                             <!--<i class="fa fa-th-large" aria-hidden="true"></i>-->
+                            <i class="fa fa-cubes" aria-hidden="true"></i>
                             <span class="menu-title">Bundles<i class="fa fa-sort-down"></i></span>
                         </a>
                         <div class="collapse" id="bundle-pages">
@@ -196,6 +169,59 @@
                             </ul>
                         </div>
                     </li>
+
+
+                    <!--NAV ITEM LOCATION-->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#location-pages" aria-expanded="false"
+                           aria-controls="sample-pages">
+                            <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+                            <i class="fa fa-building" aria-hidden="true"></i>
+                            <span class="menu-title">Locations<i class="fa fa-sort-down"></i></span>
+                        </a>
+                        <div class="collapse" id="location-pages">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/locations/index.html">
+                                        Add Location
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/locations/locations.html">
+                                        Manage Locations
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <!--NAV ITEM LOCATION-->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#screensaver-pages" aria-expanded="false"
+                           aria-controls="screensaver-pages">
+                            <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-building" aria-hidden="true"></i>-->
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <span class="menu-title">Screensavers<i class="fa fa-sort-down"></i></span>
+                        </a>
+                        <div class="collapse" id="screensaver-pages">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/screensaver/index.html">
+                                        Add Screensaver
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../pages/screensaver/screensavers.html">
+                                        Manage Screensavers
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->
@@ -249,7 +275,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button id="addPartner" type="submit" class="btn btn-primary btn-lg">ADD
+                                        <button id="addPartner" type="submit" class="btn btn-primary btn-lg pointer">ADD
                                             PARTNER
                                         </button>
                                     </div>

@@ -35,7 +35,7 @@ var app = {
         // var isLoggedIn = sessionStorage.getItem("isLoggedIn");
         // console.log(isLoggedIn);
         console.log("redirecting to login page");
-        window.location.href = "/pages/login/login.html";
+        window.location.href = "pages/login/login.html";
     }
 
     // showNotification:function (message) {

@@ -17073,6 +17073,8 @@ input:focus {
     color: #5a5f61;
     font-size: 2rem;
     margin-right: 0;
+    text-align: left;
+    padding-left: 16px;
 }
 
 .navbar .navbar-brand-wrapper .navbar-brand:active, .navbar .navbar-brand-wrapper .navbar-brand:focus, .navbar .navbar-brand-wrapper .navbar-brand:hover {
@@ -17081,7 +17083,7 @@ input:focus {
 
 .navbar .navbar-brand-wrapper .navbar-brand img {
     max-width: 100%;
-    width: 60%;
+    width: 40%;
     margin: auto;
 }
 
@@ -17749,7 +17751,7 @@ pre {
 }
 
 .card.card-social .highlight-icon {
-    font-size: 3.25rem;
+    font-size: 2rem;
 }
 
 table.center-aligned-table thead tr th {
@@ -17770,7 +17772,7 @@ table.center-aligned-table tr td {
 .table td,
 .table th {
     border-top: 1px solid #f3f1f1;
-    padding: 0.75rem;
+    padding: 0.8rem;
     vertical-align: middle;
 }
 
@@ -17857,7 +17859,7 @@ input {
 }
 
 .card.card-statistics .highlight-icon {
-    font-size: 3.125rem;
+    font-size: 3rem !important;
 }
 
 .card.card-statistics .highlight-icon-small {
@@ -18153,6 +18155,11 @@ input::placeholder, textarea::placeholder {
 
 .input-form {
     margin-bottom: 16px;
+    width: 350px;
+}
+
+.input-form::placeholder{
+    color:#878787;
 }
 
 /*.multiple-form{*/
@@ -18172,7 +18179,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .dashboard_table {
-    font-size: 16px;
+    font-size: 12px;
     padding: 24px 8px;
     color: #4A4A4A;
 }
