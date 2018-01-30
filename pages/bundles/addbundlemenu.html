@@ -228,120 +228,88 @@
 
             <!-- partial -->
             <div class="content-wrapper">
-                <h3 class="page-heading mb-4">Create a Bundle</h3>
+                <h3 class="page-heading mb-4">Add a menu to a bundle</h3>
                 <div class="row mb-2">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="bundle-form">
+                                    <button onclick="addBundleMenu.addOptions()"
+                                            class="btn_theme_hollow pointer"><i
+                                            class="fa fa-plus text-icon" aria-hidden="true"></i>ADD OPTIONS
+                                    </button>
 
-                                    <div id="wizard">
-                                        <h1>Create a bundle</h1>
-                                        <section>
-                                            <div>
-                                                <input id="bundleInputName" type="text" placeholder="Enter Bundle Name"
-                                                       class="input-form">
-                                            </div>
-                                            <div class="form-group">
-                                                <div id="selectCountryContainer" class="styled-select">
-                                                    <select id="selectCountry">
-                                                        <option>Select a country</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div id="selectStateContainer" class="styled-select">
-                                                    <select id="selectState">
-                                                        <option>Select a state</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div id="selectCityContainer" class="styled-select">
-                                                    <select id="selectCity">
-                                                        <option>Select a city</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!--<div class="form-group">-->
-                                            <!--<div id="selectPartnerContainer" class="styled-select">-->
-                                            <!--<select id="bundlesSelectPartner">-->
-                                            <!--<option>Select a partner</option>-->
-                                            <!--</select>-->
-                                            <!--</div>-->
-                                            <!--</div>-->
-                                            <div class="form-group">
-                                                <div id="selectCategoryContainer" class="styled-select">
-                                                    <select id="bundlesSelectCategory">
-                                                        <option>Select a category</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                    <button onclick="addBundleMenu.clearOptions()"
+                                            class="btn_theme_hollow pointer"><i
+                                            class="fa fa-times-circle text-icon" aria-hidden="true"></i>CLEAR
+                                        OPTIONS
+                                    </button>
+                                    <!--<div>-->
+                                    <div class="form-group">
+                                        <div id="selectMoreBundlesContainer" class="styled-select">
+                                            <select id="selectMoreBundle">
+                                                <option>Select a Bundle</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="selectBundleMenuCountryContainer" class="styled-select">
+                                            <select id="selectBundleMenuCountry">
+                                                <option>Select a country</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="selectBundleMenuStateContainer" class="styled-select" >
+                                            <select id="selectBundleMenuState">
+                                                <option>Select a state</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="selectBundleMenuCityContainer" class="styled-select">
+                                            <select id="selectBundleMenuCity">
+                                                <option>Select a city</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="selectBundleMenuPartnerContainer" class="styled-select">
+                                            <select id="selectBundleMenuPartner">
+                                                <option>Select a partner</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                                            <div>
-                                                <input id="bundleInputPrice" type="text" placeholder="Bundle Price"
-                                                       class="input-form">
-                                            </div>
-                                            <div>
-                                                <textarea rows="4" id="bundleInputDescription" type="text"
-                                                          placeholder="Description"
-                                                          class="input-form"></textarea>
-                                            </div>
+                                    <!--<button onclick="createBundle.addOptions()"-->
+                                    <!--class="btn_theme_hollow pointer"><i-->
+                                    <!--class="fa fa-plus text-icon" aria-hidden="true"></i>ADD OPTIONS-->
+                                    <!--</button>-->
 
-                                        </section>
+                                    <!--<button onclick="createBundle.clearOptions()"-->
+                                    <!--class="btn_theme_hollow pointer"><i-->
+                                    <!--class="fa fa-times-circle text-icon" aria-hidden="true"></i>CLEAR-->
+                                    <!--OPTIONS-->
+                                    <!--</button>-->
 
-                                        <h1>Add menu to the bundle</h1>
-                                        <section>
-                                            <button onclick="createBundle.addOptions()"
-                                                    class="btn_theme_hollow pointer"><i
-                                                    class="fa fa-plus text-icon" aria-hidden="true"></i>ADD OPTIONS
-                                            </button>
+                                    <div class="multipleInput">
+                                        <input id="inputMenusBundle" type="text" placeholder="Enter Menu Item"
+                                               class="input-form">
+                                    </div>
+                                    <div class="multipleInput">
+                                        <input id="inputMenuPriceBundle" type="text" placeholder="Enter Menu Price"
+                                               class="input-form">
+                                    </div>
 
-                                            <button onclick="createBundle.clearOptions()"
-                                                    class="btn_theme_hollow pointer"><i
-                                                    class="fa fa-times-circle text-icon" aria-hidden="true"></i>CLEAR
-                                                OPTIONS
-                                            </button>
-                                            <div class="form-group">
-                                                <div id="selectMenuCountryContainer" class="styled-select">
-                                                    <select id="selectMenuCountry" onclick="createBundle.getMenuState()">
-                                                        <option>Select a country</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div id="selectMenuStateContainer" class="styled-select" >
-                                                    <select id="selectMenuState" onclick="createBundle.getMenuCity()">
-                                                        <option>Select a state</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div id="selectMenuCityContainer" class="styled-select">
-                                                    <select id="selectMenuCity" onclick="createBundle.getMenuPartner()">
-                                                        <option>Select a city</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div id="selectMenuPartnerContainer" class="styled-select">
-                                                    <select id="MenuSelectPartner">
-                                                        <option>Select a partner</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="multipleInput">
-                                                <input id="inputMenus" type="text" placeholder="Enter Menu Item"
-                                                       class="input-form">
-                                            </div>
-                                            <div class="multipleInput">
-                                                <input id="inputMenuPrice" type="text" placeholder="Enter Menu Price"
-                                                       class="input-form">
-                                            </div>
+                                    <div id="moreOptions"></div>
 
-                                            <div id="moreOptions"></div>
+                                    <!--</section>-->
+                                    <!--</div>-->
 
-                                        </section>
+                                    <div class="form-group">
+                                        <button id="addPartner" type="submit" class="btn btn-primary btn-lg pointer" onclick="addBundleMenu.validateInput()">ADD
+                                            MENU TO BUNDLE
+                                        </button>
                                     </div>
 
                                 </div>
@@ -376,13 +344,13 @@
 <script src="../../js/hoverable-collapse.js"></script>
 <script src="../../js/misc.js"></script>
 
-
 <script src="../../js/jquery.steps.min.js"></script>
 <script src="../../js/toastr.js"></script>
 
 
 <!--MAIN JS-->
-<script src="index.js"></script>
+<!--<script src="index.js"></script>-->
+<script src="addBundleMenu.js"></script>
 </body>
 
 </html>

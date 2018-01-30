@@ -23,7 +23,7 @@ $(function () {
 
             var name = $("#bundleInputName").val();
             var price = $("#bundleInputPrice").val();
-            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+            var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
             var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
             var description = $("#bundleInputDescription").val();
 
@@ -59,6 +59,9 @@ $(function () {
 
             for (i = 0; i < countries.message.length; i++) {
                 $("#selectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
+                $("#selectMenuCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
+
+
                 console.log("adding countries");
             }
         });
@@ -344,7 +347,7 @@ var createBundle = {
 
             console.log(bundles);
 
-            var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+            var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
             var name = $("#inputMenus").val();
 
 
@@ -353,6 +356,8 @@ var createBundle = {
 
 
                 createBundle.addMenuToBundle(name, partnerID, bundleID);
+                toastr.success("A new bundle was created successfully");
+
 
             } else {
                 bundleID = bundles.id;
@@ -386,8 +391,14 @@ var createBundle = {
 
         console.log(options);
 
+        var priceMenu = $("#inputMenuPrice").val();
+        // var price = $("#bundleInputPrice").val();
 
-        var menuData = {menu: {name: name, partner_id: partnerID, options: options}, bundle_id: bundleID};
+
+        var menuData = {
+            menu: {name: name, partner_id: partnerID, options: options, price: priceMenu},
+            bundle_id: bundleID
+        };
         console.log("adding menu to bundle")
 
         $.ajax({
@@ -400,6 +411,7 @@ var createBundle = {
             $("#preloaderNav").hide();
 
             console.log(menus);
+            toastr.success("A menu was added to the bundle successfully");
         })
     },
 
@@ -475,12 +487,21 @@ var createBundle = {
         var countryID = $("#selectCountry").find(":selected").data("id");
         var stateID = $("#selectState").find(":selected").data("id");
         var cityID = $("#selectCity").find(":selected").data("id");
-        var partnerID = $("#bundlesSelectPartner").find(":selected").data("id");
+        var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
         var categoryID = $("#bundlesSelectCategory").find(":selected").data("id");
         var price = $("#bundleInputPrice").val();
         var description = $("#bundleInputDescription").val();
         var priceisValid = createBundle.validateNumeric(price);
+        var priceMenu = $("#inputMenuPrice").val();
+        var priceMenuisValid = createBundle.validateNumeric(priceMenu);
+
         var inputMenus = $("#inputMenus").val();
+
+        if (!priceMenuisValid) {
+            $("#inputMenuPrice").addClass("error_input");
+        } else {
+            $("#inputMenuPrice").removeClass("error_input");
+        }
 
         if (name === "") {
             $("#bundleInputName").addClass("error_input");
@@ -507,9 +528,9 @@ var createBundle = {
         }
 
         if (partnerID === undefined) {
-            $("#selectPartnerContainer").addClass("error_input");
+            $("#selectMenuPartnerContainer").addClass("error_input");
         } else {
-            $("#selectPartnerContainer").removeClass("error_input");
+            $("#selectMenuPartnerContainer").removeClass("error_input");
         }
 
         if (categoryID === undefined) {
@@ -542,13 +563,90 @@ var createBundle = {
             $("#menuOption_0").removeClass("error_input");
         }
 
-        if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && description !== "") {
-            console.log("All Data Correct")
+        if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && priceMenuisValid && description !== "") {
+            console.log("All Data Correct");
+            createBundle.addBundle(name, price, categoryID, description);
+
         } else {
             toastr.warning("Invalid Input Values");
-            createBundle.addBundle(name, price, categoryID, description);
+            // createBundle.addBundle(name, price, categoryID, description);
             //createBundle
         }
+    },
+
+    getMenuState: function () {
+        $(function () {
+            var countryID = $("#selectMenuCountry").find(":selected").data("id");
+            $("#preloaderNav").show();
+
+            $.ajax({
+                url: createBundle.BASE_URL + "states?country_id=" + countryID,
+                type: "GET",
+                crossDomain: true,
+                contentType: "application/json"
+            }).done(function (states) {
+                $("#preloaderNav").hide();
+
+                console.log(states);
+                $("#selectMenuState").html("");
+                $("#selectMenuState").append("<option>Select a state</option>");
+
+                for (i = 0; i < states.message.length; i++) {
+                    $("#selectMenuState").append("<option data-id=" + states.message[i]._id + ">" + states.message[i].state + "</option>");
+                    console.log("adding states");
+                }
+            })
+
+            console.log(countryID);
+        })
+
+    },
+    getMenuCity: function () {
+        var stateID = $("#selectMenuState").find(":selected").data("id");
+
+        $("#preloaderNav").show();
+
+        $.ajax({
+            url: createBundle.BASE_URL + "cities?state_id=" + stateID,
+            type: "GET",
+            crossDomain: true,
+            contentType: "application/json"
+        }).done(function (cities) {
+            $("#preloaderNav").hide();
+
+            console.log(cities);
+            $("#selectMenuCity").html("");
+            $("#selectMenuCity").append("<option>Select a city</option>");
+
+            for (i = 0; i < cities.message.length; i++) {
+                $("#selectMenuCity").append("<option data-id=" + cities.message[i]._id + ">" + cities.message[i].city + "</option>");
+                console.log("adding cities");
+            }
+        })
+    },
+    getMenuPartner: function () {
+        var cityID = $("#selectMenuCity").find(":selected").data("id");
+
+        $("#preloaderNav").show();
+
+        console.log("getting Partners");
+        $.ajax({
+            url: createBundle.BASE_URL + "partners?city_id=" + cityID,
+            type: "GET",
+            crossDomain: true,
+            contentType: "application/json"
+        }).done(function (partners) {
+            $("#preloaderNav").hide();
+
+            console.log(partners);
+            $("#MenuSelectPartner").html("");
+            $("#MenuSelectPartner").append("<option>Select a partner</option>");
+
+            for (i = 0; i < partners.message.length; i++) {
+                $("#MenuSelectPartner").append("<option data-id=" + partners.message[i]._id + ">" + partners.message[i].name + "</option>");
+                console.log("adding partners");
+            }
+        })
     }
 }
 

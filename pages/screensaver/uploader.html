@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin</title>
+
+    <link rel="stylesheet" href="../../css/dropzone.css"/>
+
+
+    <link rel="shortcut icon" href="../../images/favicon.png"/>
+    <style>
+        img {
+            max-width: 180px;
+        }
+
+        input[type=file] {
+            padding: 10px;
+            background: #2d2d2d;
+        }
+    </style>
+</head>
+<form method="post" action="http://staging.nairabox.com/foodhub/screensaver/create"
+      id="fileUpload" enctype="multipart/form-data">
+
+    <input id="qqfile" name="image" type='file' onchange="readURL(this);"/>
+    <img id="blah" src="http://placehold.it/180" alt="your image"/>
+    <input name="city" type="text" value="city">
+    <input name="name" type="text" value="name">
+    <input name="city_id" type="text" value="city_id">
+    <input type="submit" class="btn btn-default btn-block" value="Submit">
+</form>
+<body>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../js/dropzone.js"></script>
+
+<!--<script>-->
+<!--Dropzone.autoDiscover = false;-->
+<!--$(function () {-->
+<!--var myDropzone = new Dropzone("#fileUpload", {paramName: 'qqfile'});-->
+<!--myDropzone.on("addedfile", function (file) {-->
+<!--alert('addred file');-->
+<!--})-->
+<!--myDropzone.on('sending', function (file, xhr, formData) {-->
+<!--alert(xhr.status);-->
+<!--});-->
+<!--myDropzone.on('error', function (file, message, xhr) {-->
+<!--alert("error :" + message);-->
+<!--});-->
+<!--myDropzone.on('success', function (file, response) {-->
+<!--debugger;-->
+<!--// alert("error occurred during upload: " + response.message);-->
+<!--var res = JSON.parse(response);-->
+
+<!--console.log(response);-->
+<!--if (res.status !== 200) {-->
+<!--alert("error occurred during upload: " + res.message);-->
+<!--myDropzone.removeFile(file);-->
+<!--}-->
+<!--else {-->
+<!--alert("Upload successfull: " + res.message);-->
+<!--}-->
+
+<!--});-->
+<!--})-->
+
+
+<!--</script>-->
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+</body>
+</html>

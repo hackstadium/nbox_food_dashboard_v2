@@ -18371,3 +18371,42 @@ input::placeholder, textarea::placeholder {
 .nav-button{
     background-color: transparent !important;
 }
+
+
+.file-input{
+    background-color: red !important;
+}
+.btn-default{
+    color: #7FAE78 !important;
+    background-color: white !important;
+    border-radius: 6px;
+    border: 3px solid #7FAE78 !important;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 16px;
+    height: 60px;
+}
+
+.input-group{
+    width: 350px !important;
+    height: 60px;
+}
+
+.input-group .form-control{
+    background-color: #fafafa;
+    border: 1px solid #d5d5d5 !important;
+}
+
+.dual-form{
+    display: flex;
+}
+
+.form-image-preview{
+    margin-left: 64px;
+    color: #7FAE78;
+}
+
+.jpreview-image{
+    border-radius: 8px;
+}
+

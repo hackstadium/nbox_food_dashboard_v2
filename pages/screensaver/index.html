@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css"/>
     <link rel="stylesheet" href="../../css/style.css"/>
-    <link  rel="stylesheet" href="../../css/dropzone.css"/>
+    <link rel="stylesheet" href="../../css/dropzone.css"/>
     <link rel="stylesheet" href="../../css/toastr.css"/>
+    <link rel="stylesheet" href="../../css/jpreview.css"/>
 
     <link rel="shortcut icon" href="../../images/favicon.png"/>
 </head>
@@ -232,50 +233,78 @@
                 <div class="row mb-2">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="bundle-form">
+                            <div class="card-body dual-form">
+                                <form class="bundle-form" method="post"
+                                      action="http://staging.nairabox.com/foodhub/screensaver/create"
+                                      id="fileUpload" enctype="multipart/form-data">
 
                                     <div>
-                                        <input id="categoryName" type="text" placeholder="Name of Screensaver"
+                                        <input name="name" id="screensaverName" type="text" placeholder="Name of Screensaver"
                                                class="input-form">
                                     </div>
-                                    <div>
-                                        <input id="fileName" type="text" placeholder="File path"
-                                               class="input-form" disabled>
-                                    </div>
+                                    <!--<div>-->
+                                    <!--<input id="fileName" type="text" placeholder="File path"-->
+                                    <!--class="input-form" disabled>-->
+                                    <!--</div>-->
 
                                     <div class="form-group">
                                         <div id="categorySelectCountryContainer" class="styled-select">
-                                            <select id="categorySelectCountry">
+                                            <select id="screensaverSelectCountry">
                                                 <option>Select a country</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div id="categorySelectStateContainer" class="styled-select">
-                                            <select id="categorySelectState">
+                                            <select id="screensaverSelectState">
                                                 <option>Select a state</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div id="categorySelectCityContainer" class="styled-select">
-                                            <select id="categorySelectCity">
+                                            <select id="screensaverSelectCity">
                                                 <option>Select a city</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <button id="addCategory" type="submit" class="btn btn-primary btn-lg pointer">ADD
+                                        <!--<label for="exampleInputFile">File input</label>-->
+                                        <!--<input id="qqfile" type="file" class="file file-input pointer" multiple data-jpreview-container="#demo-1-container">-->
+                                        <input id="qqfile" name="image" type='file' onchange="readURL(this);"/>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!--<button id="addCategory" type="submit" class="btn btn-primary btn-lg pointer" onclick="createScreensaver.addScreensaver()">-->
+                                        <!--ADD-->
+                                        <!--SCREENSAVER-->
+                                        <!--</button>-->
+                                        <button type="submit" class="btn btn-primary btn-lg pointe" value="Submit">ADD
                                             SCREENSAVER
                                         </button>
                                     </div>
-                                    <form action="/file-upload" class="dropzone">
-                                        <div class="fallback">
-                                            <input name="file" type="file" multiple />
-                                        </div>
-                                    </form>
+                                    <input id="city_id" name="city_id" type="text" value="city_id" style="visibility: hidden; display: none">
+
+
+
+                                </form>
+
+                                <!--<form method="post" action="http://staging.nairabox.com/foodhub/screensaver/create"-->
+                                <!--id="fileUpload" enctype="multipart/form-data">-->
+
+                                <!--<input id="qqfile" name="image" type='file' onchange="readURL(this);"/>-->
+                                <!--<img id="blah" src="http://placehold.it/180" alt="your image"/>-->
+                                <!--<input name="city" type="text">-->
+                                <!--<input name="name" type="text">-->
+                                <!--<input name="city_id" type="text">-->
+                                <!--<input type="submit" class="btn btn-default btn-block" value="Submit">-->
+                                <!--</form>-->
+                                <div class="form-image-preview">
+                                    <p>Image Preview</p>
+                                    <div id="demo-1-container" class="jpreview-container"></div>
+                                    <img id="blah" src="http://placehold.it/180" alt="your image"/>
                                 </div>
                             </div>
                         </div>
@@ -308,10 +337,35 @@
 <script src="../../js/hoverable-collapse.js"></script>
 <script src="../../js/misc.js"></script>
 <!--<script src="menus.js"></script>-->
+<script src="../../js/jpreview.js"></script>
+
 <script src="../../js/toastr.js"></script>
 <script src="../../js/dropzone.js"></script>
+<script src="../../js/bootstrap-prettyfile.js"></script>
 
 <script src="index.js"></script>
+
+<script>
+
+    $('input[type="file"]').prettyFile();
+    $('.file').jPreview();
+</script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
 </body>
 
 </html>
