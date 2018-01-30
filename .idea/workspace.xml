@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/pages/screensaver/screensavers.html" afterPath="$PROJECT_DIR$/pages/screensaver/screensavers.html" />
       <change beforePath="$PROJECT_DIR$/pages/screensaver/screensavers.js" afterPath="$PROJECT_DIR$/pages/screensaver/screensavers.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,7 +71,7 @@
             <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="556">
-                  <caret line="270" column="58" lean-forward="true" selection-start-line="270" selection-start-column="58" selection-end-line="270" selection-end-column="58" />
+                  <caret line="270" column="58" lean-forward="false" selection-start-line="270" selection-start-column="58" selection-end-line="270" selection-end-column="58" />
                   <folding>
                     <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -148,13 +146,19 @@
           <file leaf-file-name="screensavers.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="543">
-                  <caret line="160" column="45" lean-forward="true" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
+                <state relative-caret-position="665">
+                  <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
                   <folding>
-                    <marker date="1517311258755" expanded="true" signature="1213:1243" ph="..." />
-                    <marker date="1517311258755" expanded="true" signature="6010:6029" ph="..." />
-                    <marker date="1517311258755" expanded="true" signature="6103:6137" ph="..." />
-                    <marker date="1517311258755" expanded="true" signature="6168:6180" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="1213:1243" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="3926:3945" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="4021:4055" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="4086:4098" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="4398:4417" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="4495:4529" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="4560:4572" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="7623:7642" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="7716:7750" ph="..." />
+                    <marker date="1517312104969" expanded="true" signature="7781:7793" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -432,12 +436,12 @@
       <workItem from="1516915266418" duration="2757000" />
       <workItem from="1516949139565" duration="22262000" />
       <workItem from="1517142002685" duration="9764000" />
-      <workItem from="1517168566214" duration="54601000" />
+      <workItem from="1517168566214" duration="55408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305558000" />
+    <option name="totallyTimeSpent" value="306365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -825,7 +829,7 @@
     <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
-          <caret line="270" column="58" lean-forward="true" selection-start-line="270" selection-start-column="58" selection-end-line="270" selection-end-column="58" />
+          <caret line="270" column="58" lean-forward="false" selection-start-line="270" selection-start-column="58" selection-end-line="270" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -842,13 +846,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="160" column="45" lean-forward="true" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
+        <state relative-caret-position="665">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
-            <marker date="1517311258755" expanded="true" signature="1213:1243" ph="..." />
-            <marker date="1517311258755" expanded="true" signature="6010:6029" ph="..." />
-            <marker date="1517311258755" expanded="true" signature="6103:6137" ph="..." />
-            <marker date="1517311258755" expanded="true" signature="6168:6180" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="1213:1243" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="3926:3945" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="4021:4055" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="4086:4098" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="4398:4417" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="4495:4529" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="4560:4572" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="7623:7642" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="7716:7750" ph="..." />
+            <marker date="1517312104969" expanded="true" signature="7781:7793" ph="..." />
           </folding>
         </state>
       </provider>

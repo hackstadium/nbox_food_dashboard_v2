@@ -65,17 +65,74 @@ var screensavers = {
 
     },
 
-    activateScreensaver: function (screensaverID, name, status) {
+    activateScreensaver: function (screensaverID, name, status,image) {
         // var screensaverTitleModal = $("#modalScreensaverTitle").val();
+
+
+
+        var screensaverActivateModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Are you sure you want to activate this ?</h6>"
+            + "<div style='display: flex; align-items: center'>"
+            + "<img style='width: 100px' src='" + image + "'> "
+            + "<div class='file_name'>"
+            + "<h6>Screensaver Title </h6>"
+            + "<p>" + name + "</p>"
+            + "</div>"
+            + "</div>"
+            + "</div>";
+
+
+        var screensaverDeactivateModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Are you sure you want to deactivate this ?</h6>"
+            + "<div style='display: flex; align-items: center'>"
+            + "<img style='width: 100px' src='" + image + "'> "
+            + "<div class='file_name'>"
+            + "<h6>Screensaver Title </h6>"
+            + "<p>" + name + "</p>"
+            + "</div>"
+            + "</div>"
+            + "</div>";
+
+
+
 
         if (status === "ACTIVE") {
             // var status = "INACTIVE";
 
-            screensavers.updateScreensaver(screensaverID, name, "INACTIVE");
+
+            alertify.confirm("Confirm Action", screensaverDeactivateModalTemplate,
+                function () {
+
+                    screensavers.updateScreensaver(screensaverID, name, "INACTIVE");
+
+
+                }, function () {
+
+                }
+            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
+
+
+
 
         } else {
             // var status = "ACTIVE";
-            screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
+
+
+            alertify.confirm("Confirm Action", screensaverActivateModalTemplate,
+                function () {
+
+                    //screensavers.updateScreensaver(screensaverID, name, "INACTIVE");
+                    screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
+
+
+                }, function () {
+
+                }
+            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
+
+           // screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
 
         }
         //
@@ -132,15 +189,18 @@ var screensavers = {
 
     deleteScreensaver: function (screensaverID, name, image) {
 
-        var screensaverEditModalTemplate = "<div>"
+        var screensaverDeleteModalTemplate = "<div>"
             + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
             + "<div style='display: flex; align-items: center'>"
             + "<img style='width: 100px' src='" + image + "'> "
-            + "<p class='file_name'>" + name + "</p>"
+            + "<div class='file_name'>"
+            + "<h6>Screensaver Title </h6>"
+            + "<p>" + name + "</p>"
+            + "</div>"
             + "</div>"
             + "</div>";
 
-        alertify.confirm("Confirm Delete Action", screensaverEditModalTemplate,
+        alertify.confirm("Confirm Delete Action", screensaverDeleteModalTemplate,
             function () {
 
                 // screensavers.validateInput(screensaverID, name, status);
@@ -174,7 +234,6 @@ var screensavers = {
         ).set({transition: 'zoom', label: ' UPDATE '}).show();
 
 
-
     },
 
     validateInput: function (screensaverID, name, status) {
@@ -197,6 +256,8 @@ var screensavers = {
 
     updateScreensaverTitle: function (screensaverID, status) {
         var screensaverTitleModal = $("#modalScreensaverTitle").val();
+
+
 
         $("#preloaderNav").show();
 
