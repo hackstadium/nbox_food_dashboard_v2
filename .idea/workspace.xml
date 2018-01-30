@@ -3,24 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/js/logout.js" afterPath="$PROJECT_DIR$/js/logout.js" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/addbundlemenu.html" afterPath="$PROJECT_DIR$/pages/bundles/addbundlemenu.html" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/bundles.html" afterPath="$PROJECT_DIR$/pages/bundles/bundles.html" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/index.html" afterPath="$PROJECT_DIR$/pages/bundles/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/addpartner.html" afterPath="$PROJECT_DIR$/pages/category/addpartner.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/categories.html" afterPath="$PROJECT_DIR$/pages/category/categories.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/index.html" afterPath="$PROJECT_DIR$/pages/category/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/index.html" afterPath="$PROJECT_DIR$/pages/dashboard/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/locations/index.html" afterPath="$PROJECT_DIR$/pages/locations/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/locations/locations.html" afterPath="$PROJECT_DIR$/pages/locations/locations.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/index.html" afterPath="$PROJECT_DIR$/pages/partners/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/partners.html" afterPath="$PROJECT_DIR$/pages/partners/partners.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addcity.html" afterPath="$PROJECT_DIR$/pages/regions/addcity.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addcountry.html" afterPath="$PROJECT_DIR$/pages/regions/addcountry.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addstate.html" afterPath="$PROJECT_DIR$/pages/regions/addstate.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/regions.html" afterPath="$PROJECT_DIR$/pages/regions/regions.html" />
-      <change beforePath="$PROJECT_DIR$/pages/screensaver/index.html" afterPath="$PROJECT_DIR$/pages/screensaver/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/screensaver/index.js" afterPath="$PROJECT_DIR$/pages/screensaver/index.js" />
       <change beforePath="$PROJECT_DIR$/pages/screensaver/screensavers.html" afterPath="$PROJECT_DIR$/pages/screensaver/screensavers.html" />
       <change beforePath="$PROJECT_DIR$/pages/screensaver/screensavers.js" afterPath="$PROJECT_DIR$/pages/screensaver/screensavers.js" />
     </list>
@@ -32,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.28907332">
+    <splitter split-orientation="horizontal" split-proportion="0.49377593">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="addstate.html" pinned="false" current-in-tab="false">
@@ -79,7 +61,7 @@
             <entry file="file://$PROJECT_DIR$/pages/screensaver/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="312">
-                  <caret line="255" column="46" lean-forward="true" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
+                  <caret line="255" column="46" lean-forward="false" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
                   <folding>
                     <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -90,9 +72,11 @@
           <file leaf-file-name="screensavers.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="463">
-                  <caret line="264" column="36" lean-forward="false" selection-start-line="264" selection-start-column="36" selection-end-line="264" selection-end-column="36" />
-                  <folding />
+                <state relative-caret-position="556">
+                  <caret line="270" column="58" lean-forward="true" selection-start-line="270" selection-start-column="58" selection-end-line="270" selection-end-column="58" />
+                  <folding>
+                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -144,8 +128,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="461">
-                  <caret line="18402" column="1" lean-forward="true" selection-start-line="18402" selection-start-column="1" selection-end-line="18402" selection-end-column="1" />
+                <state relative-caret-position="806">
+                  <caret line="18431" column="33" lean-forward="false" selection-start-line="18431" selection-start-column="33" selection-end-line="18431" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -155,7 +139,7 @@
             <entry file="file://$PROJECT_DIR$/pages/screensaver/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-237">
-                  <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+                  <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -164,10 +148,13 @@
           <file leaf-file-name="screensavers.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="473">
-                  <caret line="134" column="34" lean-forward="true" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
+                <state relative-caret-position="543">
+                  <caret line="160" column="45" lean-forward="true" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
                   <folding>
-                    <marker date="1517308791766" expanded="true" signature="1213:1243" ph="..." />
+                    <marker date="1517311258755" expanded="true" signature="1213:1243" ph="..." />
+                    <marker date="1517311258755" expanded="true" signature="6010:6029" ph="..." />
+                    <marker date="1517311258755" expanded="true" signature="6103:6137" ph="..." />
+                    <marker date="1517311258755" expanded="true" signature="6168:6180" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -177,7 +164,7 @@
             <entry file="file://$PROJECT_DIR$/pages/category/addpartner.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="330">
-                  <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+                  <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -187,7 +174,7 @@
             <entry file="file://$PROJECT_DIR$/pages/category/category.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="222">
-                  <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="153" selection-end-column="11" />
+                  <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="153" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
@@ -207,7 +194,7 @@
             <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="162">
-                  <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+                  <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -311,8 +298,8 @@
         <option value="$PROJECT_DIR$/pages/regions/addstate.html" />
         <option value="$PROJECT_DIR$/pages/regions/regions.html" />
         <option value="$PROJECT_DIR$/pages/screensaver/index.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/pages/screensaver/screensavers.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/pages/screensaver/screensavers.js" />
       </list>
     </option>
@@ -372,12 +359,6 @@
               <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="locations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
@@ -451,12 +432,12 @@
       <workItem from="1516915266418" duration="2757000" />
       <workItem from="1516949139565" duration="22262000" />
       <workItem from="1517142002685" duration="9764000" />
-      <workItem from="1517168566214" duration="52365000" />
+      <workItem from="1517168566214" duration="54601000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303322000" />
+    <option name="totallyTimeSpent" value="305558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -770,7 +751,7 @@
     <entry file="file://$PROJECT_DIR$/pages/screensaver/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
-          <caret line="255" column="46" lean-forward="true" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
+          <caret line="255" column="46" lean-forward="false" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -796,15 +777,7 @@
     <entry file="file://$PROJECT_DIR$/pages/screensaver/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-237">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="18402" column="1" lean-forward="true" selection-start-line="18402" selection-start-column="1" selection-end-line="18402" selection-end-column="1" />
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -820,15 +793,7 @@
     <entry file="file://$PROJECT_DIR$/pages/bundles/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="264" column="36" lean-forward="false" selection-start-line="264" selection-start-column="36" selection-end-line="264" selection-end-column="36" />
+          <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -836,7 +801,7 @@
     <entry file="file://$PROJECT_DIR$/pages/category/addpartner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -844,7 +809,7 @@
     <entry file="file://$PROJECT_DIR$/pages/category/category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
-          <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="153" selection-end-column="11" />
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="153" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -857,12 +822,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="270" column="58" lean-forward="true" selection-start-line="270" selection-start-column="58" selection-end-line="270" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="18431" column="33" lean-forward="false" selection-start-line="18431" selection-start-column="33" selection-end-line="18431" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="134" column="34" lean-forward="true" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
+        <state relative-caret-position="543">
+          <caret line="160" column="45" lean-forward="true" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
           <folding>
-            <marker date="1517308791766" expanded="true" signature="1213:1243" ph="..." />
+            <marker date="1517311258755" expanded="true" signature="1213:1243" ph="..." />
+            <marker date="1517311258755" expanded="true" signature="6010:6029" ph="..." />
+            <marker date="1517311258755" expanded="true" signature="6103:6137" ph="..." />
+            <marker date="1517311258755" expanded="true" signature="6168:6180" ph="..." />
           </folding>
         </state>
       </provider>

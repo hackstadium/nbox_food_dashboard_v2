@@ -30,7 +30,7 @@ var screensavers = {
                     + "<td><img src='" + screensavers.message[i].image + "' style='width: 100px;margin-left: 32px'></td>"
                     + "<td><img>" + screensavers.message[i].name + "</td>"
                     + "<td>" + screensavers.message[i].status + "</td>"
-                    + "<td class='btn_table_container'><button class='btn_table' onclick='screensavers.editScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i><button class='btn_table' onclick='screensavers.activateScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\")'><i class='icon_green fa fa-power-off' aria-hidden='true'></i></button><button class='btn_table' onclick='screensavers.deleteScreensaver(\"" + screensavers.message[i]._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+                    + "<td class='btn_table_container'><button class='btn_table' onclick='screensavers.editScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i><button class='btn_table' onclick='screensavers.activateScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\",\"" + screensavers.message[i].image + "\")'><i class='icon_green fa fa-power-off' aria-hidden='true'></i></button><button class='btn_table' onclick='screensavers.deleteScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\", \"" + screensavers.message[i].image + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     //  + "<td><button class='btn_table' onclick='screensavers.deleteScreensaver()'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
@@ -65,17 +65,17 @@ var screensavers = {
 
     },
 
-    activateScreensaver: function (screensaverID,name,status) {
-       // var screensaverTitleModal = $("#modalScreensaverTitle").val();
+    activateScreensaver: function (screensaverID, name, status) {
+        // var screensaverTitleModal = $("#modalScreensaverTitle").val();
 
-        if (status === "ACTIVE"){
-           // var status = "INACTIVE";
+        if (status === "ACTIVE") {
+            // var status = "INACTIVE";
 
-            screensavers.updateScreensaver(screensaverID,name,"INACTIVE");
+            screensavers.updateScreensaver(screensaverID, name, "INACTIVE");
 
-        }else {
-           // var status = "ACTIVE";
-            screensavers.updateScreensaver(screensaverID,name,"ACTIVE");
+        } else {
+            // var status = "ACTIVE";
+            screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
 
         }
         //
@@ -103,7 +103,7 @@ var screensavers = {
         // });
     },
 
-    updateScreensaver:function (screensaverID,name,status) {
+    updateScreensaver: function (screensaverID, name, status) {
 
         $("#preloaderNav").show();
 
@@ -130,30 +130,50 @@ var screensavers = {
 
     },
 
-    deleteScreensaver: function (screensaverID) {
+    deleteScreensaver: function (screensaverID, name, image) {
 
-        $("#preloaderNav").show();
+        var screensaverEditModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
+            + "<div style='display: flex; align-items: center'>"
+            + "<img style='width: 100px' src='" + image + "'> "
+            + "<p class='file_name'>" + name + "</p>"
+            + "</div>"
+            + "</div>";
 
-        var screensaverData = {screen_saver_id: screensaverID};
-        $.ajax({
-            url: screensavers.BASE_URL + "screensaver/delete",
-            type: "POST",
-            crossDomain: true,
-            data: JSON.stringify(screensaverData),
-            contentType: "application/json"
-        }).done(function (screensaver) {
-            $("#preloaderNav").hide();
+        alertify.confirm("Confirm Delete Action", screensaverEditModalTemplate,
+            function () {
 
-            console.log("Value Updated");
-            console.log(screensaver);
-            screensavers.displayScreensavers();
+                // screensavers.validateInput(screensaverID, name, status);
 
-            if (screensavers.error_code === 0) {
-                toastr.error(screensaver.message);
-            } else {
-                toastr.success(screensaver.message);
+                $("#preloaderNav").show();
+
+                var screensaverData = {screen_saver_id: screensaverID};
+                $.ajax({
+                    url: screensavers.BASE_URL + "screensaver/delete",
+                    type: "POST",
+                    crossDomain: true,
+                    data: JSON.stringify(screensaverData),
+                    contentType: "application/json"
+                }).done(function (screensaver) {
+                    $("#preloaderNav").hide();
+
+                    console.log("Value Updated");
+                    console.log(screensaver);
+                    screensavers.displayScreensavers();
+
+                    if (screensavers.error_code === 0) {
+                        toastr.error(screensaver.message);
+                    } else {
+                        toastr.success(screensaver.message);
+                    }
+                });
+
+            }, function () {
+
             }
-        });
+        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
+
 
     },
 

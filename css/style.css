@@ -18426,3 +18426,9 @@ input::placeholder, textarea::placeholder {
     margin-right: 32px;
 }
 
+.file_name{
+    color: #4a4a4a;
+    font-weight: normal;
+    margin-left: 24px !important;
+}
+
