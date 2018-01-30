@@ -41,7 +41,7 @@
             </div>
 
             <div>
-                <button class="nav-button pointer" onclick="dashboard.logout()">
+                <button class="nav-button pointer" onclick="logout.endSession()">
                     <i class="fa fa-sign-out nav-icon" aria-hidden="true"></i>
                     <!--<span></span>-->
                 </button>
@@ -229,21 +229,46 @@
 
             <!-- partial -->
             <div class="content-wrapper">
-                <h3 class="page-heading mb-4">All Regions</h3>
+                <h3 class="page-heading mb-4">All Screensaver</h3>
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title mb-4">All Regions</h5>
+                        <h5 class="card-title mb-4">All Screensavers</h5>
+                        <div class="inline-options">
+
+                        <!--<div class="form-group">-->
+                            <div id="categorySelectCountryContainer" class="styled-select inline-select">
+                                <select id="screensaversSelectCountry">
+                                    <option>Select a country</option>
+                                </select>
+                            </div>
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <div id="categorySelectStateContainer" class="styled-select inline-select">
+                                <select id="screensaversSelectState">
+                                    <option>Select a state</option>
+                                </select>
+                            </div>
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <div id="categorySelectCityContainer" class="styled-select inline-select">
+                                <select id="screensaversSelectCity">
+                                    <option>Select a city</option>
+                                </select>
+                            </div>
+                        <!--</div>-->
+                    </div>
                         <table class="table table-striped">
                             <thead>
                             <tr class="">
-                                <th>Country</th>
-                                <th>State</th>
-                                <th>City</th>
+                                <th>Thumbnail</th>
+                                <th>Title</th>
+                                <!--<th>File Name</th>-->
+                                <th>Status</th>
 
                             </tr>
                             </thead>
-                            <tbody id="regionsTable">
+                            <tbody id="screensaversTable">
 
                             </tbody>
                         </table>
@@ -281,8 +306,8 @@
 
 <script src="../../js/alertify.min.js"></script>
 <script src="../../js/toastr.js"></script>
-
-<script src="region.js"></script>
+<script src="../../js/logout.js"></script>
+<script src="screensavers.js"></script>
 </body>
 
 </html>

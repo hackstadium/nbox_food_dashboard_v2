@@ -110,12 +110,24 @@ $(function () {
     });
 
 
+    $("form").submit(function (event) {
+        event.preventDefault();
+        var fileSelect = document.getElementById('qqfile');
+        var file = fileSelect.files[0];
+        var name = $("#screensaverName").val();
+        var city_id = $("#screensaverSelectCity").find(":selected").data("id");
 
-    $("form").submit(function (e) {
-       // var name = $("#screensaverName").val();
-      //  var cityID = $("#screensaverSelectCity").find(":selected").data("id");
+        var formData = new FormData();
 
-       // e.preventDefault();
+        // Add the file to the request.
+        formData.append('image', file, file.name);
+        formData.append("city_id", city_id);
+        formData.append("name", name);
+
+        // var name = $("#screensaverName").val();
+        //  var cityID = $("#screensaverSelectCity").find(":selected").data("id");
+
+        // e.preventDefault();
 
         // var fd = new FormData();
         // var file_data = $('input[type="file"]')[0].files; // for multiple files
@@ -126,16 +138,23 @@ $(function () {
         // $.each(other_data, function (key, input) {
         //     fd.append(input.name, input.value);
         // });
-        // $.ajax({
-        //     url: 'http://staging.nairabox.com/foodhub/screensaver/create',
-        //     data: fd,
-        //     contentType: false,
-        //     processData: false,
-        //     type: 'POST',
-        //     success: function (data) {
-        //         console.log(data);
-        //     }
-        // });
+        $.ajax({
+            url: 'http://staging.nairabox.com/foodhub/screensaver/create',
+            data: formData,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                var res = JSON.parse(data);
+                if (res.status === 200) {
+                    toastr.success("A new screensaver was added");
+                } else {
+                    toastr.error("Error occurred :" + res.message);
+                }
+
+            }
+        });
 
     });
 
