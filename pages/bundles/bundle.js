@@ -53,7 +53,9 @@ var bundles = {
                     + "<td>" + allBundles.message[i].category_name + "</td>"
                     + "<td>" + allBundles.message[i].description + "</td>"
                     // + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
-                    + "<td>" + allBundles.message[i].price + "</td>"
+                    // + "<td>" + allBundles.message[i].price + "</td>"
+                    + "<td> NGN " + parseInt(allBundles.message[i].price, 10).toLocaleString() + "</td>"
+
                     + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
                     + "<td><button class='btn_table' onclick='bundles.deleteBundle(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
@@ -80,29 +82,35 @@ var bundles = {
             console.log("One Bundle");
             console.log(bundle.message.menu.length);
             console.log(bundle);
+
+            console.log("Bundle Price");
+            // console.log(bundle.message.price.toLocaleString());
+            var total = "12345";
+            // parseInt("1000", 10)
+            console.log(parseInt(total, 10).toLocaleString());
+            console.log(parseInt(bundle.message.price, 10).toLocaleString());
+
+
             var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
                 + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
                 + "<div class='multiList'><strong>Menus</strong><p id='bundleDetailsMenus'></p></p></div>"
                 + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-                + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div>"
-            + "<div><strong>Menus</strong><table class='table table-striped'>" +
-                "                            <thead>" +
+                + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(bundle.message.price, 10).toLocaleString() + " </p></div>"
+                + "<div><strong>Menus</strong><table class='table table-striped'>" +
+                "<thead>" +
                 "                            <tr>" +
                 "                                <th>Menu</th>" +
                 "                                <th>Partner</th>" +
-                "                                <th>Price</th>\n" +
-                "                                <!--<th>Partner</th>-->\n" +
-                // "                                <th>Price</th>\n" +
-                // "                                <th></th>\n" +
+                "                                <th>Price</th>" +
                 "                            </tr>" +
                 "                            </thead>" +
                 "                            <tbody id='bundleMenusTable'>" +
                 "                            </tbody>" +
                 "                        </table></div></div>";
-                // + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
-                // + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-                 + "<div class='multiList'><strong>Partners</strong><p>" + bundle.message.partner_name + "</p></div>"
-                // + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
+            // + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
+            // + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
+            +"<div class='multiList'><strong>Partners</strong><p>" + bundle.message.menu[0].partner_name + "</p></div>"
+            // + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
 
 
             alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
@@ -119,7 +127,9 @@ var bundles = {
                     + "<td>" + bundle.message.menu[i].name + "</td>"
                     + "<td>" + bundle.message.menu[i].partner_name + "</td>"
                     // + "<td>" + bundle.message.menu[i].partner_name + "</td>"
-                    + "<td>" + bundle.message.menu[i].price + "</td>"
+                    + "<td>NGN " + parseInt(bundle.message.menu[i].price, 10).toLocaleString() + "</td>"
+                    // + "<td>" + bundle.message.menu[i].price + "</td>"
+
                     + "</tr>");
 
 

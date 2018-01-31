@@ -113,60 +113,88 @@ $(function () {
 
 
     $("form").submit(function (event) {
-        $("#preloaderNav").show();
 
         event.preventDefault();
         var fileSelect = document.getElementById('qqfile');
         var file = fileSelect.files[0];
         var name = $("#screensaverName").val();
-        var city_id = $("#screensaverSelectCity").find(":selected").data("id");
+        var countryID = $("#screensaverSelectCountry").find(":selected").data("id");
+        var stateID = $("#screensaverSelectState").find(":selected").data("id");
+        var cityID = $("#screensaverSelectCity").find(":selected").data("id");
+        var fileName = $("#qqfile").val();
 
-        var formData = new FormData();
 
-        // Add the file to the request.
-        formData.append('image', file, file.name);
-        formData.append("city_id", city_id);
-        formData.append("name", name);
+        if (name === "") {
+            $("#screensaverName").addClass("error_input");
+        } else {
+            $("#screensaverName").removeClass("error_input");
+        }
 
-        // var name = $("#screensaverName").val();
-        //  var cityID = $("#screensaverSelectCity").find(":selected").data("id");
 
-        // e.preventDefault();
+        if (countryID === undefined) {
+            $("#categorySelectCountryContainer").addClass("error_input");
+        } else {
+            $("#categorySelectCountryContainer").removeClass("error_input");
+        }
 
-        // var fd = new FormData();
-        // var file_data = $('input[type="file"]')[0].files; // for multiple files
-        // for (var i = 0; i < file_data.length; i++) {
-        //     fd.append("file_" + i, file_data[i]);
-        // }
-        // var other_data = $('form').serializeArray();
-        // $.each(other_data, function (key, input) {
-        //     fd.append(input.name, input.value);
-        // });
-        $.ajax({
-            url: 'http://staging.nairabox.com/foodhub/screensaver/create',
-            data: formData,
-            contentType: false,
-            processData: false,
-            type: 'POST',
-            success: function (data) {
-                console.log(data);
-                $("#preloaderNav").hide();
 
-                // var res = JSON.parse(data);
-                // if (res.status === 200) {
-                //     toastr.success("A new screensaver was added");
-                // } else {
-                //     toastr.error("Error occurred :" + res.message);
-                // }
+        if (stateID === undefined) {
+            $("#categorySelectStateContainer").addClass("error_input");
+        } else {
+            $("#categorySelectStateContainer").removeClass("error_input");
+        }
 
-                if(data.error_code === 0){
-                    toastr.success(data.message);
-                }else {
-                    toastr.error(data.message);
+
+        if (cityID === undefined) {
+            $("#categorySelectCityContainer").addClass("error_input");
+        } else {
+            $("#categorySelectCityContainer").removeClass("error_input");
+        }
+
+        if (fileName === "") {
+            $("#qqfile").addClass("error_input");
+        } else {
+            $("#qqfile").removeClass("error_input");
+        }
+
+
+        if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && fileName !== "") {
+
+            $("#preloaderNav").show();
+
+
+            var city_id = $("#screensaverSelectCity").find(":selected").data("id");
+
+            var formData = new FormData();
+
+
+            // Add the file to the request.
+            formData.append('image', file, file.name);
+            formData.append("city_id", city_id);
+            formData.append("name", name);
+
+
+            $.ajax({
+                url: 'http://staging.nairabox.com/foodhub/screensaver/create',
+                data: formData,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                success: function (data) {
+                    console.log(data);
+                    $("#preloaderNav").hide();
+
+                    if (data.error_code === 0) {
+                        toastr.success(data.message);
+                    } else {
+                        toastr.error(data.message);
+                    }
+
                 }
-
-            }
-        });
+            });
+        }else {
+            toastr.warning("Invalid Input Values");
+        }
 
     });
 
@@ -178,7 +206,7 @@ var createScreensaver = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
 
 
-init: function () {
+    init: function () {
         // createScreensaver.getScreensaverCountry();
 
     },
