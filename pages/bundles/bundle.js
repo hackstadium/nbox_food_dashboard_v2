@@ -36,20 +36,19 @@ var bundles = {
             $("#preloaderNav").hide();
 
             console.log(allBundles);
-            //  console.log(allBundles.message[0].name);
-            //  console.log(allBundles.message[0].category_name);
-            // // console.log(allBundles.message[0].menu[0].name);
-            //  console.log(allBundles.message[0].menu[0].options[0]);
-            //  console.log(allBundles.message[0].menu[0].options[1]);
-            //  console.log(allBundles.message[0].description);
-            //  console.log(allBundles.message[0].menu[0].partner_name);
-            //  console.log(allBundles.message[0].price);
-
+            // console.log("Listing Menu")
+            // console.log(allBundles.message.menu);
 
             for (var i = 0; i < allBundles.message.length; i++) {
 
+                console.log("Listing Menu");
+                console.log(allBundles.message[i].menu);
+                console.log(allBundles.message[i].menu[0].name);
+                bundles.allMenu = allBundles.message;
+
+
                 $("#bundlesTable").append("<tr>"
-                    + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'>" + allBundles.message[i].name + "</td>"
+                    + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i]._id + "\",\"" + allBundles.message[i].name + "\",\"" + allBundles.message[i].category_name + "\",\"" + allBundles.message[i].description + "\", \"" + allBundles.message[i].price + "\", \"" + i + "\")'>" + allBundles.message[i].name + "</td>"
                     + "<td>" + allBundles.message[i].category_name + "</td>"
                     + "<td>" + allBundles.message[i].description + "</td>"
                     // + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
@@ -63,81 +62,125 @@ var bundles = {
 
         });
     },
-    openModalBundleDetails: function (categoryID, bundleID) {
+    openModalBundleDetails: function (bundleID, name, category, description, price, menuIndex) {
+        var menuArray = bundles.allMenu[menuIndex];
         $("#preloaderNav").show();
 
         console.log("clicked to open Modal");
-        console.log(categoryID);
         console.log(bundleID);
-        var bundleData = {category_id: categoryID, bundle_id: bundleID}
-        $.ajax({
-            url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
-            type: "GET",
-            crossDomain: true,
-            data: JSON.stringify(bundleData),
-            contentType: "application/json"
-        }).done(function (bundle) {
-            $("#preloaderNav").hide();
+        console.log(name);
+        console.log(category);
+        console.log(description);
+        console.log(price);
+        // console.log(menuArray);
+        console.log("Passed Menus");
+        console.log(menuArray);
 
-            console.log("One Bundle");
-            console.log(bundle.message.menu.length);
-            console.log(bundle);
-
-            console.log("Bundle Price");
-            // console.log(bundle.message.price.toLocaleString());
-            var total = "12345";
-            // parseInt("1000", 10)
-            console.log(parseInt(total, 10).toLocaleString());
-            console.log(parseInt(bundle.message.price, 10).toLocaleString());
+        // console.log(this.apply(null, menuArray));
+        // console.log(menuArray[0]);
+        // menuArray.forEach(function (item) {
+        //     console.log(item)
+        // })
+        //  console.log(typeof menuArray)
 
 
-            var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
-                + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
-                + "<div class='multiList'><strong>Menus</strong><p id='bundleDetailsMenus'></p></p></div>"
-                + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-                + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(bundle.message.price, 10).toLocaleString() + " </p></div>"
-                + "<div><strong>Menus</strong><table class='table table-striped'>" +
-                "<thead>" +
-                "                            <tr>" +
-                "                                <th>Menu</th>" +
-                "                                <th>Partner</th>" +
-                "                                <th>Price</th>" +
-                "                            </tr>" +
-                "                            </thead>" +
-                "                            <tbody id='bundleMenusTable'>" +
-                "                            </tbody>" +
-                "                        </table></div></div>";
-            // + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
-            // + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-            +"<div class='multiList'><strong>Partners</strong><p>" + bundle.message.menu[0].partner_name + "</p></div>"
-            // + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
+        //debugger
+        //  console.log("JSON Stringified Menus");
+        // console.log(JSON.stringify(menuArray));
+        //console.log(menuArray[0].name);
+
+        // console.log(JSON.stringify(result))
+
+        //
+        // console.log("One Bundle");
+        // //console.log(bundle.message.menu.length);
+        // console.log(bundle);
+        //
+        // console.log("Bundle Price");
+        // var total = "12345";
+        // console.log(parseInt(total, 10).toLocaleString());
+        // console.log(parseInt(bundle.message.price, 10).toLocaleString());
 
 
-            alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
-            for (var i = 0; i < bundle.message.menu.length; i++) {
-                // $('#bundleDetailsMenus').html("");
-                // $('#bundleDetailsOptions').html("");
-                //
-                // $('#bundleDetailsMenus').append("<li>" + bundle.message.menu[i].name + "</li>");
-                // $('#bundleDetailsOptions').append("<li>" + bundle.message.menu[i].options + "</li>");
-                // console.log("listing menu");
+        var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
+            + "<div class='multiList'><strong>Name</strong><p>" + name + " </p></div>"
+            + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
+            + "<div class='multiList'><strong>Description</strong><p>" + description + " </p></div>"
+            + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
+            + "<div><strong>Menus</strong><table class='table table-striped'>" +
+            "<thead>" +
+            "                            <tr>" +
+            "                                <th>Menu</th>" +
+            "                                <th>Partner</th>" +
+            "                                <th>Price</th>" +
+            "                            </tr>" +
+            "                            </thead>" +
+            "                            <tbody id='bundleMenusTable'>" +
+            "                            </tbody>" +
+            "                        </table></div></div>";
+
+        alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+        for (var i = 0; i < menuArray.menu.length; i++) {
+ var one=menuArray.menu[i];
+            $("#bundleMenusTable").append("<tr>"
+                + "<td>" + one.name + "</td>"
+                + "<td>" + one.partner_name + "</td>"
+                + "<td>NGN " + parseInt(one.price, 10).toLocaleString() + "</td>"
+                + "</tr>");
+        }
 
 
-                $("#bundleMenusTable").append("<tr>"
-                    + "<td>" + bundle.message.menu[i].name + "</td>"
-                    + "<td>" + bundle.message.menu[i].partner_name + "</td>"
-                    // + "<td>" + bundle.message.menu[i].partner_name + "</td>"
-                    + "<td>NGN " + parseInt(bundle.message.menu[i].price, 10).toLocaleString() + "</td>"
-                    // + "<td>" + bundle.message.menu[i].price + "</td>"
+        ///////////////
 
-                    + "</tr>");
-
-
-            }
-
-        });
-
+        // var bundleData = {category_id: categoryID, bundle_id: bundleID}
+        // $.ajax({
+        //     url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
+        //     type: "GET",
+        //     crossDomain: true,
+        //     data: JSON.stringify(bundleData),
+        //     contentType: "application/json"
+        // }).done(function (bundle) {
+        //     $("#preloaderNav").hide();
+        //
+        //     console.log("One Bundle");
+        //     console.log(bundle.message.menu.length);
+        //     console.log(bundle);
+        //
+        //     console.log("Bundle Price");
+        //     var total = "12345";
+        //     console.log(parseInt(total, 10).toLocaleString());
+        //     console.log(parseInt(bundle.message.price, 10).toLocaleString());
+        //
+        //
+        //     var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
+        //         + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
+        //         + "<div class='multiList'><strong>Category</strong><p>" + bundle.message.category_name +"</p></div>"
+        //         + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
+        //         + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(bundle.message.price, 10).toLocaleString() + " </p></div>"
+        //         + "<div><strong>Menus</strong><table class='table table-striped'>" +
+        //         "<thead>" +
+        //         "                            <tr>" +
+        //         "                                <th>Menu</th>" +
+        //         "                                <th>Partner</th>" +
+        //         "                                <th>Price</th>" +
+        //         "                            </tr>" +
+        //         "                            </thead>" +
+        //         "                            <tbody id='bundleMenusTable'>" +
+        //         "                            </tbody>" +
+        //         "                        </table></div></div>";
+        //
+        //     alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+        //     for (var i = 0; i < bundle.message.menu.length; i++) {
+        //
+        //         $("#bundleMenusTable").append("<tr>"
+        //             + "<td>" + bundle.message.menu[i].name + "</td>"
+        //             + "<td>" + bundle.message.menu[i].partner_name + "</td>"
+        //             + "<td>NGN " + parseInt(bundle.message.menu[i].price, 10).toLocaleString() + "</td>"
+        //             + "</tr>");
+        //     }
+        // });
     },
+
     openModalEditBundleDetails: function (categoryID, bundleID) {
         $("#preloaderNav").show();
 
