@@ -360,8 +360,10 @@ var createBundle = {
 
 
             } else {
-                bundleID = bundles.id;
-                createBundle.addMenuToBundle(name, partnerID, bundleID);
+                toastr.error(bundles.message);
+
+                // bundleID = bundles.id;
+                // createBundle.addMenuToBundle(name, partnerID, bundleID);
 
             }
 
@@ -411,8 +413,67 @@ var createBundle = {
             $("#preloaderNav").hide();
 
             console.log(menus);
+            console.log("Menu Added");
             toastr.success("A menu was added to the bundle successfully");
+            createBundle.addMoreMenuDialog();
         })
+    },
+
+    addMoreMenuDialog: function () {
+
+        console.log("addMoreMenuDialog : More msnus called")
+
+        var screensaverDeleteModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Do you want to add more menus to this bundle ?</h6>"
+            // + "<div style='display: flex; flex-direction: column'>"
+            // // + "<img style='width: 100px' src='" + image + "'> "
+            // // + "<div class='file_name'>"
+            // + "<h6>Location </h6>"
+            // + "<p>" + location + "</p>"
+            // // + "</div>"
+            // + "</div>"
+            + "</div>";
+
+
+        alertify.confirm(" ", screensaverDeleteModalTemplate,
+            function () {
+
+                // screensavers.validateInput(screensaverID, name, status);
+
+                // $("#preloaderNav").show();
+                //
+                // var locationData = {location_id: locationID};
+                // $.ajax({
+                //     url: locations.BASE_URL + "location/delete",
+                //     type: "POST",
+                //     crossDomain: true,
+                //     data: JSON.stringify(locationData),
+                //     contentType: "application/json"
+                // }).done(function (location) {
+                //     $("#preloaderNav").hide();
+                //
+                //     console.log("Value Updated");
+                //     console.log(location);
+                //     // screensavers.displayScreensavers();
+                //     locations.getAllLocations();
+                //
+                //     if (location.error_code === 0) {
+                //         toastr.error(location.message);
+                //     } else {
+                //         toastr.success(location.message);
+                //     }
+                // });
+
+                window.location.href = "../../pages/bundles/addbundlemenu.html"
+
+            }, function () {
+                window.location.href = "../../pages/bundles/index.html"
+
+
+            }
+        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
+
     },
 
 

@@ -18432,3 +18432,7 @@ input::placeholder, textarea::placeholder {
     margin-left: 24px !important;
 }
 
+.screensaver-image-preview{
+    width: 180px;
+}
+

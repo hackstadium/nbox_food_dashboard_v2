@@ -159,7 +159,20 @@ var categories = {
 
         var deleteCategoryData = {category_id: categoryID};
 
-        var deleteCategoryTemplate = "<p>Delete</p><h5>" + category + "</h5>";
+      //  var deleteCategoryTemplate = "<p>Confi</p><h5>" + category + "</h5>";
+
+
+
+        var deleteCategoryTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
+            + "<div style='display: flex; flex-direction: column'>"
+            // + "<img style='width: 100px' src='" + image + "'> "
+            // + "<div class='file_name'>"
+            + "<h6>Category </h6>"
+            + "<p>" + category + "</p>"
+            // + "</div>"
+            + "</div>"
+            + "</div>";
 
 
         alertify.confirm("Conform delete action", deleteCategoryTemplate,

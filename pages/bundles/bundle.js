@@ -4,7 +4,7 @@
 var bundles = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
-       // bundles.getAllbundles();
+        // bundles.getAllbundles();
         bundles.checkLogin();
     },
 
@@ -36,14 +36,14 @@ var bundles = {
             $("#preloaderNav").hide();
 
             console.log(allBundles);
-            console.log(allBundles.message[0].name);
-            console.log(allBundles.message[0].category_name);
-            console.log(allBundles.message[0].menu[0].name);
-            console.log(allBundles.message[0].menu[0].options[0]);
-            console.log(allBundles.message[0].menu[0].options[1]);
-            console.log(allBundles.message[0].description);
-            console.log(allBundles.message[0].menu[0].partner_name);
-            console.log(allBundles.message[0].price);
+            //  console.log(allBundles.message[0].name);
+            //  console.log(allBundles.message[0].category_name);
+            // // console.log(allBundles.message[0].menu[0].name);
+            //  console.log(allBundles.message[0].menu[0].options[0]);
+            //  console.log(allBundles.message[0].menu[0].options[1]);
+            //  console.log(allBundles.message[0].description);
+            //  console.log(allBundles.message[0].menu[0].partner_name);
+            //  console.log(allBundles.message[0].price);
 
 
             for (var i = 0; i < allBundles.message.length; i++) {
@@ -52,7 +52,7 @@ var bundles = {
                     + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'>" + allBundles.message[i].name + "</td>"
                     + "<td>" + allBundles.message[i].category_name + "</td>"
                     + "<td>" + allBundles.message[i].description + "</td>"
-                    + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
+                    // + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
                     + "<td>" + allBundles.message[i].price + "</td>"
                     + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
                     + "<td><button class='btn_table' onclick='bundles.deleteBundle(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
@@ -83,12 +83,29 @@ var bundles = {
             var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
                 + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
                 + "<div class='multiList'><strong>Menus</strong><p id='bundleDetailsMenus'></p></p></div>"
-                + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
                 + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-                + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
+                + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div>"
+            + "<div><strong>Menus</strong><table class='table table-striped'>" +
+                "                            <thead>" +
+                "                            <tr>" +
+                "                                <th>Menu</th>" +
+                "                                <th>Partner</th>" +
+                "                                <th>Price</th>\n" +
+                "                                <!--<th>Partner</th>-->\n" +
+                // "                                <th>Price</th>\n" +
+                // "                                <th></th>\n" +
+                "                            </tr>" +
+                "                            </thead>" +
+                "                            <tbody id='bundleMenusTable'>" +
+                "                            </tbody>" +
+                "                        </table></div></div>";
+                // + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
+                // + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
+                // + "<div class='multiList'><strong>Partners</strong><p>" + bundle.message.partner_name + "</p></div>"
+                // + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
 
 
-            alertify.alert('Bundle Details',bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+            alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
             for (var i = 0; i < bundle.message.menu.length; i++) {
                 $('#bundleDetailsMenus').html("");
                 $('#bundleDetailsOptions').html("");
@@ -96,6 +113,15 @@ var bundles = {
                 $('#bundleDetailsMenus').append("<li>" + bundle.message.menu[i].name + "</li>");
                 $('#bundleDetailsOptions').append("<li>" + bundle.message.menu[i].options + "</li>");
                 console.log("listing menu");
+
+
+                $("#bundleMenusTable").append("<tr>"
+                    + "<td>" + bundle.message.menu[i].name + "</td>"
+                    + "<td>" + bundle.message.menu[i].partner_name + "</td>"
+                    + "<td>" + bundle.message.menu[i].price + "</td>"
+                    + "</tr>");
+
+
             }
 
         });

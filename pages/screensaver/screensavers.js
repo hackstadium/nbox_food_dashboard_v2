@@ -65,9 +65,8 @@ var screensavers = {
 
     },
 
-    activateScreensaver: function (screensaverID, name, status,image) {
+    activateScreensaver: function (screensaverID, name, status, image) {
         // var screensaverTitleModal = $("#modalScreensaverTitle").val();
-
 
 
         var screensaverActivateModalTemplate = "<div>"
@@ -94,8 +93,6 @@ var screensavers = {
             + "</div>";
 
 
-
-
         if (status === "ACTIVE") {
             // var status = "INACTIVE";
 
@@ -110,9 +107,6 @@ var screensavers = {
 
                 }
             ).set({transition: 'zoom', label: ' UPDATE '}).show();
-
-
-
 
 
         } else {
@@ -132,7 +126,7 @@ var screensavers = {
             ).set({transition: 'zoom', label: ' UPDATE '}).show();
 
 
-           // screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
+            // screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
 
         }
         //
@@ -256,7 +250,6 @@ var screensavers = {
 
     updateScreensaverTitle: function (screensaverID, status) {
         var screensaverTitleModal = $("#modalScreensaverTitle").val();
-
 
 
         $("#preloaderNav").show();

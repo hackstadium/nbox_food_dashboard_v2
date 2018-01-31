@@ -53,7 +53,7 @@ var locations = {
                     + "<td>" + locations.message[i].state + "</td>"
                     + "<td>" + locations.message[i].city + "</td>"
                     + "<td><button class='btn_table' onclick='locations.openEditLocationsDetailsModal(\"" + locations.message[i]._id + "\",\"" + locations.message[i].location + "\", \"" + locations.message[i].address + "\", \"" + locations.message[i].alias_id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-                    + "<td><button class='btn_table' onclick='locations.deleteCategory(\"" + locations.message[i]._id + "\",\"" + locations.message[i].location + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+                    + "<td><button class='btn_table' onclick='locations.deleteLocation(\"" + locations.message[i]._id + "\",\"" + locations.message[i].location + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
         });
@@ -117,6 +117,55 @@ var locations = {
         });
     },
 
+    deleteLocation: function (locationID, location) {
+        console.log("Edit Modal Clicked");
+
+        var screensaverDeleteModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
+            + "<div style='display: flex; flex-direction: column'>"
+            // + "<img style='width: 100px' src='" + image + "'> "
+            // + "<div class='file_name'>"
+            + "<h6>Location </h6>"
+            + "<p>" + location + "</p>"
+            // + "</div>"
+            + "</div>"
+            + "</div>";
+
+        alertify.confirm("Confirm Delete Action", screensaverDeleteModalTemplate,
+            function () {
+
+                // screensavers.validateInput(screensaverID, name, status);
+
+                $("#preloaderNav").show();
+
+                var locationData = {location_id: locationID};
+                $.ajax({
+                    url: locations.BASE_URL + "location/delete",
+                    type: "POST",
+                    crossDomain: true,
+                    data: JSON.stringify(locationData),
+                    contentType: "application/json"
+                }).done(function (location) {
+                    $("#preloaderNav").hide();
+
+                    console.log("Value Updated");
+                    console.log(location);
+                   // screensavers.displayScreensavers();
+                    locations.getAllLocations();
+
+                    if (location.error_code === 0) {
+                        toastr.error(location.message);
+                    } else {
+                        toastr.success(location.message);
+                    }
+                });
+
+            }, function () {
+
+            }
+        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+    },
+
     validateInput: function (locationID) {
 
         var location = $("#modalLocationName").val();
@@ -145,9 +194,9 @@ var locations = {
 
     },
 
-    deleteLocation: function () {
-
-    }
+    // deleteLocation: function () {
+    //
+    // }
 
 }
 

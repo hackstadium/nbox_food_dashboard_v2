@@ -1,5 +1,7 @@
 $(function () {
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+
 
     getScreensaverCountry();
 
@@ -111,6 +113,8 @@ $(function () {
 
 
     $("form").submit(function (event) {
+        $("#preloaderNav").show();
+
         event.preventDefault();
         var fileSelect = document.getElementById('qqfile');
         var file = fileSelect.files[0];
@@ -146,11 +150,19 @@ $(function () {
             type: 'POST',
             success: function (data) {
                 console.log(data);
-                var res = JSON.parse(data);
-                if (res.status === 200) {
-                    toastr.success("A new screensaver was added");
-                } else {
-                    toastr.error("Error occurred :" + res.message);
+                $("#preloaderNav").hide();
+
+                // var res = JSON.parse(data);
+                // if (res.status === 200) {
+                //     toastr.success("A new screensaver was added");
+                // } else {
+                //     toastr.error("Error occurred :" + res.message);
+                // }
+
+                if(data.error_code === 0){
+                    toastr.success(data.message);
+                }else {
+                    toastr.error(data.message);
                 }
 
             }
@@ -165,7 +177,8 @@ var createScreensaver = {
 
     BASE_URL: "http://staging.nairabox.com/foodhub/",
 
-    init: function () {
+
+init: function () {
         // createScreensaver.getScreensaverCountry();
 
     },

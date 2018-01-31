@@ -96,7 +96,7 @@ var partners = {
             function () {
                 console.log("Partner Modal ok clicked");
                 //partners.updatePartner(partnerID);
-                partners.validateInput();
+                partners.validateInput(partnerID);
             },
             function () {
 
@@ -150,10 +150,52 @@ var partners = {
 
         var deletePartnerData = {partner_id: partnerID};
 
-        var deletePartnerTemplate = "<p>Delete</p><h5>" + name + "</h5>";
+        // var deletePartnerTemplate = "<p>Delete</p><h5>" + name + "</h5>";
+        //
+        //
+        // alertify.confirm("Conform delete action", deletePartnerTemplate,
+        //     function () {
+        //         $("#preloaderNav").show();
+        //         $.ajax({
+        //             url: partners.BASE_URL + "partner/delete",
+        //             type: "POST",
+        //             crossDomain: true,
+        //             data: JSON.stringify(deletePartnerData),
+        //             contentType: "application/json"
+        //         }).done(function (partner) {
+        //             $("#preloaderNav").hide();
+        //
+        //             console.log("Value Deleted");
+        //             partners.getAllPartners();
+        //
+        //             if (partner.error_code === 1) {
+        //                 toastr.error(partner.message);
+        //             } else {
+        //                 toastr.success(partner.message);
+        //             }
+        //
+        //         });
+        //     },
+        //     function () {
+        //     }).set({transition: 'zoom', label: ' DELETE '}).show();
 
 
-        alertify.confirm("Conform delete action", deletePartnerTemplate,
+
+
+        /////////
+
+        var screensaverDeleteModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
+            + "<div style='display: flex; align-items: center'>"
+            // + "<img style='width: 100px' src='" + image + "'> "
+            + "<div class='file_name'>"
+            + "<h6>Delete</h6>"
+            + "<p>" + name + "</p>"
+            + "</div>"
+            + "</div>"
+            + "</div>";
+
+        alertify.confirm("Confirm Delete Action", screensaverDeleteModalTemplate,
             function () {
                 $("#preloaderNav").show();
                 $.ajax({
@@ -175,9 +217,12 @@ var partners = {
                     }
 
                 });
-            },
-            function () {
-            }).set({transition: 'zoom', label: ' DELETE '}).show();
+            }, function () {
+
+            }
+        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
+        ////////
 
 
     },
@@ -200,7 +245,7 @@ var partners = {
         }
     },
 
-    validateInput: function () {
+    validateInput: function (partnerID) {
 
         var updateName = $("#modalPartnerInputName").val();
         var updateAddress = $("#modalPartnerInputAddress").val();
@@ -214,6 +259,8 @@ var partners = {
 
         if (updateName !== "" && updateAddress !== "" && emailisValid && phoneisValid && commissionisValid) {
             console.log("All Data is correct");
+            partners.updatePartner(partnerID);
+
         } else {
             toastr.warning("Invalid Input Values");
         }
