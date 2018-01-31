@@ -16974,7 +16974,7 @@ input:focus {
 }
 
 .sidebar .nav.sub-menu {
-    padding-left: 2.5em;
+    padding-left: 1.5em;
 }
 
 .sidebar .nav.sub-menu .nav-item.active .nav-link {
@@ -18434,5 +18434,9 @@ input::placeholder, textarea::placeholder {
 
 .screensaver-image-preview{
     width: 180px;
+}
+
+.inner-nav-link{
+    font-size: 14px !important;
 }
 

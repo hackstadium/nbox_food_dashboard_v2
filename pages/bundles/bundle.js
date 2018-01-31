@@ -101,23 +101,24 @@ var bundles = {
                 "                        </table></div></div>";
                 // + "<div class='multiList'><strong>Options</strong><p id='bundleDetailsOptions'></p></p></div>"
                 // + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-                // + "<div class='multiList'><strong>Partners</strong><p>" + bundle.message.partner_name + "</p></div>"
+                 + "<div class='multiList'><strong>Partners</strong><p>" + bundle.message.partner_name + "</p></div>"
                 // + "<div class='multiList'><strong>Price</strong><p>" + bundle.message.price + " </p></div></div>";
 
 
             alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
             for (var i = 0; i < bundle.message.menu.length; i++) {
-                $('#bundleDetailsMenus').html("");
-                $('#bundleDetailsOptions').html("");
-
-                $('#bundleDetailsMenus').append("<li>" + bundle.message.menu[i].name + "</li>");
-                $('#bundleDetailsOptions').append("<li>" + bundle.message.menu[i].options + "</li>");
-                console.log("listing menu");
+                // $('#bundleDetailsMenus').html("");
+                // $('#bundleDetailsOptions').html("");
+                //
+                // $('#bundleDetailsMenus').append("<li>" + bundle.message.menu[i].name + "</li>");
+                // $('#bundleDetailsOptions').append("<li>" + bundle.message.menu[i].options + "</li>");
+                // console.log("listing menu");
 
 
                 $("#bundleMenusTable").append("<tr>"
                     + "<td>" + bundle.message.menu[i].name + "</td>"
                     + "<td>" + bundle.message.menu[i].partner_name + "</td>"
+                    // + "<td>" + bundle.message.menu[i].partner_name + "</td>"
                     + "<td>" + bundle.message.menu[i].price + "</td>"
                     + "</tr>");
 
