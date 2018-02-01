@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6ebf65-349f-4dd7-9554-245657accd4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/addbundlemenu.html" afterPath="$PROJECT_DIR$/pages/bundles/addbundlemenu.html" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/bundles.html" afterPath="$PROJECT_DIR$/pages/bundles/bundles.html" />
-      <change beforePath="$PROJECT_DIR$/pages/bundles/index.html" afterPath="$PROJECT_DIR$/pages/bundles/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/addpartner.html" afterPath="$PROJECT_DIR$/pages/category/addpartner.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/categories.html" afterPath="$PROJECT_DIR$/pages/category/categories.html" />
-      <change beforePath="$PROJECT_DIR$/pages/category/index.html" afterPath="$PROJECT_DIR$/pages/category/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/index.html" afterPath="$PROJECT_DIR$/pages/dashboard/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/locations/index.html" afterPath="$PROJECT_DIR$/pages/locations/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/locations/locations.html" afterPath="$PROJECT_DIR$/pages/locations/locations.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/index.html" afterPath="$PROJECT_DIR$/pages/partners/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/partners/partners.html" afterPath="$PROJECT_DIR$/pages/partners/partners.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addcity.html" afterPath="$PROJECT_DIR$/pages/regions/addcity.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addcountry.html" afterPath="$PROJECT_DIR$/pages/regions/addcountry.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/addstate.html" afterPath="$PROJECT_DIR$/pages/regions/addstate.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/index.html" afterPath="$PROJECT_DIR$/pages/regions/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/regions/regions.html" afterPath="$PROJECT_DIR$/pages/regions/regions.html" />
-      <change beforePath="$PROJECT_DIR$/pages/screensaver/index.html" afterPath="$PROJECT_DIR$/pages/screensaver/index.html" />
-      <change beforePath="$PROJECT_DIR$/pages/screensaver/screensavers.html" afterPath="$PROJECT_DIR$/pages/screensaver/screensavers.html" />
+      <change beforePath="$PROJECT_DIR$/js/chart.js" afterPath="$PROJECT_DIR$/js/chart.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,8 +38,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/dashboard/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="428" column="86" lean-forward="false" selection-start-line="428" selection-start-column="86" selection-end-line="428" selection-end-column="86" />
+                <state relative-caret-position="300">
+                  <caret line="435" column="66" lean-forward="false" selection-start-line="435" selection-start-column="66" selection-end-line="435" selection-end-column="66" />
                   <folding />
                 </state>
               </provider>
@@ -87,7 +69,7 @@
             <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="251">
-                  <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+                  <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -140,8 +122,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="503">
-                  <caret line="12419" column="41" lean-forward="false" selection-start-line="12419" selection-start-column="41" selection-end-line="12419" selection-end-column="41" />
+                <state relative-caret-position="98">
+                  <caret line="12392" column="24" lean-forward="true" selection-start-line="12392" selection-start-column="24" selection-end-line="12392" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -189,7 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btn</find>
       <find>card-text</find>
       <find>#F2F7F8</find>
       <find>recent</find>
@@ -219,6 +200,7 @@
       <find>multilist</find>
       <find>body</find>
       <find>stripe</find>
+      <find>badge</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -227,7 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/menus/menus.js" />
         <option value="$PROJECT_DIR$/pages/restaurants/index.html" />
         <option value="$PROJECT_DIR$/pages/restaurants/restaurant.js" />
         <option value="$PROJECT_DIR$/pages/menus/menus.html" />
@@ -278,6 +259,7 @@
         <option value="$PROJECT_DIR$/pages/screensaver/screensavers.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/pages/dashboard/index.html" />
+        <option value="$PROJECT_DIR$/js/chart.js" />
       </list>
     </option>
   </component>
@@ -332,12 +314,6 @@
               <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nbox_food_dashboard_v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nbox_food_dashboard_v2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="category" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -410,16 +386,15 @@
       <workItem from="1517168566214" duration="65917000" />
       <workItem from="1517405300623" duration="8689000" />
       <workItem from="1517423149452" duration="4059000" />
-      <workItem from="1517441212510" duration="5980000" />
+      <workItem from="1517441212510" duration="6547000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335602000" />
+    <option name="totallyTimeSpent" value="336169000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -428,7 +403,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13928571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13928571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -456,7 +431,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/icons/001-doc.png" />
     <entry file="file://$PROJECT_DIR$/images/lightbox/thumb-v-v-2.jpg" />
     <entry file="file://$PROJECT_DIR$/images/lightbox/play-button.png" />
     <entry file="file://$PROJECT_DIR$/images/lightbox/thumb-v-v-1.jpg" />
@@ -791,15 +765,7 @@
     <entry file="file://$PROJECT_DIR$/pages/screensaver/screensavers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
-          <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="12419" column="41" lean-forward="false" selection-start-line="12419" selection-start-column="41" selection-end-line="12419" selection-end-column="41" />
+          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -814,8 +780,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/dashboard/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="428" column="86" lean-forward="false" selection-start-line="428" selection-start-column="86" selection-end-line="428" selection-end-column="86" />
+        <state relative-caret-position="300">
+          <caret line="435" column="66" lean-forward="false" selection-start-line="435" selection-start-column="66" selection-end-line="435" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3035">
+          <caret line="273" column="3" lean-forward="true" selection-start-line="273" selection-start-column="3" selection-end-line="273" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="12392" column="24" lean-forward="true" selection-start-line="12392" selection-start-column="24" selection-end-line="12392" selection-end-column="24" />
           <folding />
         </state>
       </provider>

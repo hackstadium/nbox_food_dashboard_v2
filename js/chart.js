@@ -287,15 +287,15 @@ $(function() {
       datasets: [{
         data: [30, 40, 30],
         backgroundColor: [
-            '#745af2',
-            '#5cd069',
+            '#3C7AC9',
+            '#FF5C5C',
             '#fecb01'
         ]
       }],
       labels: [
-          'Pending Orders',
-          'Cancelled Orders',
           'Delivered Orders',
+          'Cancelled Orders',
+          'Pending Orders',
       ]
     };
     var salesChartOptions = {
