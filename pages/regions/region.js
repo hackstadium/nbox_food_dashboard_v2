@@ -111,7 +111,7 @@ var regions = {
             function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
 
 
     },

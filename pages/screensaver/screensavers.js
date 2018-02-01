@@ -61,7 +61,9 @@ var screensavers = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+
+
+         ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
 
     },
 
@@ -106,7 +108,8 @@ var screensavers = {
                 }, function () {
 
                 }
-            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+            ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'CANCEL'}}).show();
+
 
 
         } else {
@@ -123,7 +126,7 @@ var screensavers = {
                 }, function () {
 
                 }
-            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+            ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'CANCEL'}}).show();
 
 
             // screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
@@ -225,7 +228,7 @@ var screensavers = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
 
 
     },

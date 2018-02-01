@@ -82,7 +82,7 @@ var locations = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
 
 
     },
@@ -163,7 +163,7 @@ var locations = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
     },
 
     validateInput: function (locationID) {

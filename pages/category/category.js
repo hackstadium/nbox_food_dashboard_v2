@@ -53,7 +53,7 @@ var categories = {
 
 
                 $("#categoriesTable").append("<tr>"
-                    + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\")'>" + cat.message[i].category + "</td>"
+                    + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\",\"" + cat.message[i]._id + "\")'>" + cat.message[i].category + "</td>"
 
                     + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
                     + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
@@ -64,7 +64,7 @@ var categories = {
     },
 
 
-    openModalCategoryDetails: function (category, partnerIndex) {
+    openModalCategoryDetails: function (category, partnerIndex, categoryID) {
         // debugger;
         //var partnerArray = categories.allPartners;
         var partnersArray = categories.allMenu[partnerIndex];
@@ -88,7 +88,7 @@ var categories = {
             "                            <tr>" +
             // "                                <th>Partner</th>" +
             "                                <th>Partner</th>" +
-             "                                <th>State</th>" +
+            "                                <th>State</th>" +
             "                                <th>City</th>" +
             "                            </tr>" +
             "                            </thead>" +
@@ -99,13 +99,15 @@ var categories = {
         alertify.alert('Category Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
         for (var i = 0; i < partnersArray.partners.length; i++) {
             var one = partnersArray.partners[i];
+            // categories.allMenu = cat.partners;
+            categories.allPartnersID = partnersArray.partner_id;
+
+
             $("#bundleCategoriesTable").append("<tr>"
                 + "<td>" + one.name + "</td>"
                 + "<td>" + one.state + "</td>"
                 + "<td>" + one.city + "</td>"
-
-                // + "<td>" + one.partner_name + "</td>"
-                // + "<td>NGN " + parseInt(one.price, 10).toLocaleString() + "</td>"
+                + "<td><button class='btn_table' onclick='categories.deletePartnerFromCategory(\"" + categoryID + "\",\"" + i + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                 + "</tr>");
         }
 
@@ -177,7 +179,7 @@ var categories = {
                 function () {
 
                 }
-            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+            ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
         });
 
 
@@ -253,33 +255,46 @@ var categories = {
             },
             function () {
                 //alertify.error('Cancel');
-            }).set({transition: 'zoom', label: ' DELETE '}).show();
+            }).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
+
     },
 
-    deletePartnerCategory: function (partnerID, categoryID) {
-        $("#preloaderNav").show();
+    deletePartnerFromCategory: function (categoryID, partnerIndex) {
 
-        console.log("Deleting partner from category");
-        console.log("Deleting with Partner ID");
+
+        var partnerID = categories.allPartnersID[partnerIndex];
+
+        console.log("Partner ID");
         console.log(partnerID);
 
-        console.log("Deleting with Category ID");
+        console.log("Category ID");
         console.log(categoryID);
 
-        var deleteCategoryPartnerData = {partner_id: partnerID, category_id: categoryID};
+        //
+        $("#preloaderNav").show();
+
+        var deletePartnerFromCategoryData = {partner_id: partnerID, category_id: categoryID};
 
 
-        $.ajax({
-            url: categories.BASE_URL + "category/del/partner",
-            type: "POST",
-            crossDomain: true,
-            data: JSON.stringify(deleteCategoryPartnerData),
-            contentType: "application/json"
-        }).done(function (message) {
-            $("#preloaderNav").hide();
-
-            console.log(message);
-        })
+        // $.ajax({
+        //     url: categories.BASE_URL + "category/del/partner",
+        //     type: "POST",
+        //     crossDomain: true,
+        //     data: JSON.stringify(deletePartnerFromCategoryData),
+        //     contentType: "application/json"
+        // }).done(function (message) {
+        //     $("#preloaderNav").hide();
+        //
+        //     console.log(message);
+        //
+        //     if (message.status === 200) {
+        //         toastr.success(message.message);
+        //         window.location.href = "../../pages/category/categories.html";
+        //     } else {
+        //         toastr.error(message.message);
+        //     }
+        //
+        // })
     },
 
     validateInput: function (categoryID) {

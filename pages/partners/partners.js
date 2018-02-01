@@ -101,7 +101,7 @@ var partners = {
             function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
     },
     updatePartner: function (partnerID) {
         $("#preloaderNav").show();
@@ -220,7 +220,7 @@ var partners = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
 
         ////////
 
