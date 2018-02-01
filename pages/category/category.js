@@ -37,23 +37,78 @@ var categories = {
             type: "GET",
             crossDomain: true,
             contentType: "application/json"
-        }).done(function (categories) {
+        }).done(function (cat) {
             $("#preloaderNav").hide();
 
-            console.log(categories);
+            console.log(cat);
             console.log("Category Partner Name");
+            console.log(cat.message[1].partners);
 
-            for (var i = 0; i < categories.message.length; i++) {
+            for (var i = 0; i < cat.message.length; i++) {
+
+                //categories.allPartners = categories.message;
+                //bundles.allMenu = allBundles.message;
+                // debugger;
+                categories.allMenu = cat.message;
+
 
                 $("#categoriesTable").append("<tr>"
-                    + "<td>" + categories.message[i].category + "</td>"
+                    + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\")'>" + cat.message[i].category + "</td>"
 
-                    + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + categories.message[i]._id + "\",\"" + categories.message[i].category + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-                    + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + categories.message[i]._id + "\",\"" + categories.message[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+                    + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+                    + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
 
         });
+    },
+
+
+    openModalCategoryDetails: function (category, partnerIndex) {
+        // debugger;
+        //var partnerArray = categories.allPartners;
+        var partnersArray = categories.allMenu[partnerIndex];
+
+
+        console.log(category);
+        // var menuArray = bundles.allMenu[menuIndex];
+        // var menuArray = bundles.allMenu[menuIndex];
+
+        console.log(partnersArray);
+        //console.log(partnerArray);
+        $("#bundleCategoriesTable").html("");
+
+        var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
+            // + "<div class='multiList'><strong>Name</strong><p>" + name + " </p></div>"
+            + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
+            // + "<div class='multiList'><strong>Description</strong><p>" + description + " </p></div>"
+            // + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
+            + "<div><strong>Partners</strong><table class='table table-striped'>" +
+            "<thead>" +
+            "                            <tr>" +
+            // "                                <th>Partner</th>" +
+            "                                <th>Partner</th>" +
+             "                                <th>State</th>" +
+            "                                <th>City</th>" +
+            "                            </tr>" +
+            "                            </thead>" +
+            "                            <tbody id='bundleCategoriesTable'>" +
+            "                            </tbody>" +
+            "                        </table></div></div>";
+
+        alertify.alert('Category Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+        for (var i = 0; i < partnersArray.partners.length; i++) {
+            var one = partnersArray.partners[i];
+            $("#bundleCategoriesTable").append("<tr>"
+                + "<td>" + one.name + "</td>"
+                + "<td>" + one.state + "</td>"
+                + "<td>" + one.city + "</td>"
+
+                // + "<td>" + one.partner_name + "</td>"
+                // + "<td>NGN " + parseInt(one.price, 10).toLocaleString() + "</td>"
+                + "</tr>");
+        }
+
     },
 
     openModalEditCategoryDetails: function (categoryID, category) {
@@ -159,8 +214,7 @@ var categories = {
 
         var deleteCategoryData = {category_id: categoryID};
 
-      //  var deleteCategoryTemplate = "<p>Confi</p><h5>" + category + "</h5>";
-
+        //  var deleteCategoryTemplate = "<p>Confi</p><h5>" + category + "</h5>";
 
 
         var deleteCategoryTemplate = "<div>"

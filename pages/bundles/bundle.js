@@ -76,32 +76,8 @@ var bundles = {
         console.log("Passed Menus");
         console.log(menuArray);
 
-        // console.log(this.apply(null, menuArray));
-        // console.log(menuArray[0]);
-        // menuArray.forEach(function (item) {
-        //     console.log(item)
-        // })
-        //  console.log(typeof menuArray)
 
-
-        //debugger
-        //  console.log("JSON Stringified Menus");
-        // console.log(JSON.stringify(menuArray));
-        //console.log(menuArray[0].name);
-
-        // console.log(JSON.stringify(result))
-
-        //
-        // console.log("One Bundle");
-        // //console.log(bundle.message.menu.length);
-        // console.log(bundle);
-        //
-        // console.log("Bundle Price");
-        // var total = "12345";
-        // console.log(parseInt(total, 10).toLocaleString());
-        // console.log(parseInt(bundle.message.price, 10).toLocaleString());
-
-
+        $("#bundleMenusTable").html("");
         var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
             + "<div class='multiList'><strong>Name</strong><p>" + name + " </p></div>"
             + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
@@ -121,7 +97,7 @@ var bundles = {
 
         alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
         for (var i = 0; i < menuArray.menu.length; i++) {
- var one=menuArray.menu[i];
+            var one = menuArray.menu[i];
             $("#bundleMenusTable").append("<tr>"
                 + "<td>" + one.name + "</td>"
                 + "<td>" + one.partner_name + "</td>"
