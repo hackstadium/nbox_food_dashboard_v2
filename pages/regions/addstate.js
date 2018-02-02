@@ -77,6 +77,7 @@ var state = {
 
             if (state.error_code === 1) {
                 toastr.error(state.message);
+                state.addCityDialog(stateName);
             } else {
                 toastr.success(state.message);
             }
@@ -135,6 +136,28 @@ var state = {
             state.createState();
         }
 
+    },
+
+    addCityDialog:function (stateName) {
+        console.log("addCityDialog : Add City called");
+
+        var screensaverDeleteModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Do you want to add a city to " + stateName +" ?</h6>"
+            + "</div>";
+
+
+        alertify.confirm(" ", screensaverDeleteModalTemplate,
+            function () {
+
+                window.location.href = "../../pages/regions/addcity.html"
+
+            }, function () {
+                window.location.href = "../../pages/regions/regions.html"
+
+
+            }
+        ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
+    }
     }
 
 }

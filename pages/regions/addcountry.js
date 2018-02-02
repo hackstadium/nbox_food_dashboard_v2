@@ -5,7 +5,7 @@ var country = {
     init: function () {
         $("#preloaderNav").hide();
 
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
         country.checkLogin();
     },
 
@@ -52,10 +52,15 @@ var country = {
                 toastr.error(country.message);
             } else {
                 toastr.success(country.message);
+               // country.addState();
             }
 
         })
     },
+    //
+    // addState: function () {
+    //     console.log("ready to add states");
+    // },
 
     validateAlphabet: function (inputtext) {
         var alphaExp = /^[a-zA-Z\s]*$/;
@@ -78,7 +83,7 @@ var country = {
         // console.log("Validating Country Value");
         // console.log(countryisValid);
 
-        if (countryisValid) {
+        if (countryisValid && countryName !== "") {
             // console.log("country is valid");
             country.createCountry();
             $("#regionCountry").removeClass("error_input");
