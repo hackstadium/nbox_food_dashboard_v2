@@ -103,7 +103,6 @@ $(function () {
         var cityID = $(this).find(":selected").data("id");
         console.log(cityID);
         getBundleMenuPartner(cityID);
-        // getCategory(cityID);
     });
 
 
@@ -138,7 +137,7 @@ var addBundleMenu = {
 
 
     init: function () {
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
 
         addBundleMenu.getAllBundles();
     },
@@ -174,7 +173,6 @@ var addBundleMenu = {
         var partnerID = $("#selectBundleMenuPartner").find(":selected").data("id");
         var bundleID = $("#selectMoreBundle").find(":selected").data("id");
         var priceMenu = $("#inputMenuPriceBundle").val();
-        //var MenuItem = $("#inputMenusBundle").val();
 
         $("#preloaderNav").show();
 
@@ -195,10 +193,6 @@ var addBundleMenu = {
         }
 
         console.log(options);
-
-       // var priceMenu = $("#inputMenuPrice").val();
-        // var price = $("#bundleInputPrice").val();
-
 
         var menuData = {
             menu: {name: name, partner_id: partnerID, options: options, price: priceMenu},
@@ -251,11 +245,8 @@ var addBundleMenu = {
 
         } else {
             toastr.warning("Invalid Input Values");
-            // createBundle.addBundle(name, price, categoryID, description);
-            //createBundle
         }
 
-        // addBundleMenu.addMenuToBundle();
     }
 
 }

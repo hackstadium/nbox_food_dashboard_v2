@@ -2,7 +2,7 @@ var regions = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
         // regions.getAllRegions();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
         regions.checkLogin();
 
     },
@@ -17,15 +17,8 @@ var regions = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
-            //partners.getAllPartners();
-            // city.getAllCountries();
-            // state.getAllCountries();
             regions.getAllRegions();
-
-
         }
     },
 
@@ -111,7 +104,7 @@ var regions = {
             function () {
 
             }
-        ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
+        ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
 
     },
@@ -202,13 +195,11 @@ var regions = {
         }
 
         if (!stateisValid) {
-            //console.log("Valid Data");
             toastr.warning("Invalid State Name");
         }
 
 
         if (countryID !== undefined && stateisValid) {
-            // console.log("Creating A state with valid date");
             state.createState();
         }
 

@@ -18,9 +18,7 @@ var createLocation = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
             createLocation.getCountries();
 
         }
@@ -52,8 +50,6 @@ var createLocation = {
 
     getStates: function () {
         console.log("getting states");
-
-        // var countryID =
 
         var countryID = $("#locationSelectCountry").find(":selected").data("id");
 

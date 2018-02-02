@@ -29,7 +29,6 @@ $(function () {
 
             console.log(name + " - " + price + " - " + categoryID + " - " + description + " - " + partnerID);
 
-            // createBundle.addBundle(name, price, categoryID, description);
             createBundle.validateInput();
 
         },
@@ -277,9 +276,7 @@ var createBundle = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            //bundles.getAllbundles();
         }
     },
 
@@ -362,8 +359,6 @@ var createBundle = {
             } else {
                 toastr.error(bundles.message);
 
-                // bundleID = bundles.id;
-                // createBundle.addMenuToBundle(name, partnerID, bundleID);
 
             }
 
@@ -394,8 +389,6 @@ var createBundle = {
         console.log(options);
 
         var priceMenu = $("#inputMenuPrice").val();
-        // var price = $("#bundleInputPrice").val();
-
 
         var menuData = {
             menu: {name: name, partner_id: partnerID, options: options, price: priceMenu},
@@ -591,8 +584,7 @@ var createBundle = {
 
         } else {
             toastr.warning("Invalid Input Values");
-            // createBundle.addBundle(name, price, categoryID, description);
-            //createBundle
+
         }
     },
 

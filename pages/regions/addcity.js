@@ -2,8 +2,7 @@ var city = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
 
     init: function () {
-        //city.getAllCountries();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
         city.checkLogin();
 
     },
@@ -17,10 +16,7 @@ var city = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
-            //partners.getAllPartners();
             city.getAllCountries();
 
         }
@@ -122,9 +118,6 @@ var city = {
         var countryID = $("#selectCountry").find(":selected").data("id");
         var stateID = $("#selectState").find(":selected").data("id");
 
-        // var selectedCountry = $("#selectCountry").val();
-
-
         console.log("Validate state Value");
         console.log(city.validateAlphabet(cityName));
 
@@ -138,7 +131,6 @@ var city = {
 
         if (stateID === undefined) {
             console.log("state is undefined");
-            //  toastr.warning("Select a state");
             $("#selectStateContainer").addClass("error_input");
 
         } else {
@@ -148,15 +140,12 @@ var city = {
 
         if (countryID === undefined) {
             console.log("Country is undefined");
-            // toastr.warning("Select a country");
             $("#selectCountryContainer").addClass("error_input");
         } else {
             $("#selectCountryContainer").removeClass("error_input");
         }
 
         if (!cityisValid) {
-            //console.log("Valid Data");
-            // toastr.warning("Invalid State Name");
             $("#regionCity").addClass("error_input");
         } else {
             $("#regionCity").removeClass("error_input");
@@ -164,12 +153,9 @@ var city = {
 
 
         if (countryID !== undefined && cityisValid && stateID !== undefined) {
-            // console.log("Creating A state with valid date");
             city.createCity();
         }
-
     }
-
 
 }
 

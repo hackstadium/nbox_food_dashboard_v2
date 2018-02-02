@@ -19,21 +19,14 @@ var country = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
-            //partners.getAllPartners();
-            // city.getAllCountries();
-
         }
     },
 
     createCountry: function () {
         $("#preloaderNav").show();
-// country.inputAlphabet();
 
         var countryName = $("#regionCountry").val();
-        // country.inputAlphabet("123456");
 
         var countryData = {country: countryName};
         console.log(countryName);
@@ -52,15 +45,11 @@ var country = {
                 toastr.error(country.message);
             } else {
                 toastr.success(country.message);
-               // country.addState();
             }
 
         })
     },
-    //
-    // addState: function () {
-    //     console.log("ready to add states");
-    // },
+
 
     validateAlphabet: function (inputtext) {
         var alphaExp = /^[a-zA-Z\s]*$/;
@@ -75,21 +64,14 @@ var country = {
 
     validateInput: function () {
         var countryName = $("#regionCountry").val();
-        //
-        // console.log("Validate Input Value");
-        // console.log(country.validateAlphabet(countryName));
 
         var countryisValid = country.validateAlphabet(countryName);
-        // console.log("Validating Country Value");
-        // console.log(countryisValid);
 
         if (countryisValid && countryName !== "") {
-            // console.log("country is valid");
             country.createCountry();
             $("#regionCountry").removeClass("error_input");
 
         } else {
-            //toastr.warning("Invalid Country Name");
             $("#regionCountry").addClass("error_input");
         }
     }

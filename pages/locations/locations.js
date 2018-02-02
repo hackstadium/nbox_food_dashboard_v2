@@ -4,8 +4,7 @@ var locations = {
 
 
     init: function () {
-        // locations.getAllLocations();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
         locations.checkLogin();
 
     },
@@ -19,10 +18,7 @@ var locations = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
-            // createLocation.getCountries();
             locations.getAllLocations();
         }
     },
@@ -67,10 +63,8 @@ var locations = {
 
 
         var LocationEditDetaillsTemplate = "<div>"
-            // + "<div class='verticalInput'><strong>Category :  </strong><input id='modalCategoryInputCategory' type='text' value='" + locationID + "'></div>"
             + "<div class='verticalInput'><strong>Location :  </strong><input id='modalLocationName' type='text' value='" + location + "'></div>"
             + "<div class='verticalInput'><strong>Address :  </strong><input id='modalLocationAddress' type='text' value='" + address + "'></div>"
-            // + "<div class='verticalInput'><strong>Alias ID :  </strong><input id='modalCategoryInputCategory' type='text' value='" + aliasID + "'></div>"
             + "</div>";
 
 
@@ -82,7 +76,7 @@ var locations = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
+        ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
 
     },
@@ -123,18 +117,13 @@ var locations = {
         var screensaverDeleteModalTemplate = "<div>"
             + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
             + "<div style='display: flex; flex-direction: column'>"
-            // + "<img style='width: 100px' src='" + image + "'> "
-            // + "<div class='file_name'>"
             + "<h6>Location </h6>"
             + "<p>" + location + "</p>"
-            // + "</div>"
             + "</div>"
             + "</div>";
 
         alertify.confirm("Confirm Delete Action", screensaverDeleteModalTemplate,
             function () {
-
-                // screensavers.validateInput(screensaverID, name, status);
 
                 $("#preloaderNav").show();
 
@@ -150,7 +139,6 @@ var locations = {
 
                     console.log("Value Updated");
                     console.log(location);
-                   // screensavers.displayScreensavers();
                     locations.getAllLocations();
 
                     if (location.error_code === 0) {
@@ -163,7 +151,7 @@ var locations = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
+        ).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
     },
 
     validateInput: function (locationID) {
@@ -193,10 +181,6 @@ var locations = {
         }
 
     },
-
-    // deleteLocation: function () {
-    //
-    // }
 
 }
 

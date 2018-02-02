@@ -2,8 +2,6 @@ var state = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
 
     init: function () {
-        // state.getAllCountries();
-        //$("#preloaderNav").show();
         toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
         state.checkLogin();
     },
@@ -18,13 +16,8 @@ var state = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
-            //partners.getAllPartners();
-            // city.getAllCountries();
             state.getAllCountries();
-
 
         }
     },
@@ -73,14 +66,11 @@ var state = {
             $("#preloaderNav").hide();
 
             console.log(state);
-            // state.notifySuccess();
 
             if (state.error_code === 1) {
                 toastr.error(state.message);
-               // state.addCityDialog(stateName);
             } else {
                 toastr.success(state.message);
-              //  state.addCityDialog(stateName);
             }
         });
     },
@@ -98,8 +88,6 @@ var state = {
     validateInput: function () {
         var stateName = $("#regionState").val();
         var countryID = $("#selectCountry").find(":selected").data("id");
-        // var selectedCountry = $("#selectCountry").val();
-
 
         console.log("Validate state Value");
         console.log(state.validateAlphabet(stateName));
@@ -115,7 +103,6 @@ var state = {
             $("#selectCountryContainer").addClass("error_input");
 
             console.log("Country is undefined");
-            //toastr.warning("Select a country");
 
         } else {
             $("#selectCountryContainer").removeClass("error_input");
@@ -123,8 +110,6 @@ var state = {
         }
 
         if (!stateisValid) {
-            //console.log("Valid Data");
-            //toastr.warning("Invalid State Name");
             $("#regionState").addClass("error_input");
 
         } else {
@@ -133,7 +118,6 @@ var state = {
 
 
         if (countryID !== undefined && stateisValid) {
-            // console.log("Creating A state with valid date");
             state.createState();
         }
 

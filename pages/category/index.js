@@ -6,7 +6,6 @@ $(function () {
     toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
 
 
-    // getCountries();
     checkLogin();
 
     function checkLogin() {
@@ -18,9 +17,7 @@ $(function () {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            //bundles.getAllbundles();
             getCountries();
 
         }
@@ -54,7 +51,6 @@ $(function () {
 
     $("#categorySelectCountry").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var countryID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(countryID);

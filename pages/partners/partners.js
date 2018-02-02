@@ -4,8 +4,7 @@ var partners = {
 
 
     init: function () {
-        // partners.getAllPartners();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
         partners.checkLogin();
 
     },
@@ -20,9 +19,7 @@ var partners = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
             partners.getAllPartners();
 
         }
@@ -101,7 +98,7 @@ var partners = {
             function () {
 
             }
-        ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
+        ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
     },
     updatePartner: function (partnerID) {
         $("#preloaderNav").show();
@@ -150,44 +147,9 @@ var partners = {
 
         var deletePartnerData = {partner_id: partnerID};
 
-        // var deletePartnerTemplate = "<p>Delete</p><h5>" + name + "</h5>";
-        //
-        //
-        // alertify.confirm("Conform delete action", deletePartnerTemplate,
-        //     function () {
-        //         $("#preloaderNav").show();
-        //         $.ajax({
-        //             url: partners.BASE_URL + "partner/delete",
-        //             type: "POST",
-        //             crossDomain: true,
-        //             data: JSON.stringify(deletePartnerData),
-        //             contentType: "application/json"
-        //         }).done(function (partner) {
-        //             $("#preloaderNav").hide();
-        //
-        //             console.log("Value Deleted");
-        //             partners.getAllPartners();
-        //
-        //             if (partner.error_code === 1) {
-        //                 toastr.error(partner.message);
-        //             } else {
-        //                 toastr.success(partner.message);
-        //             }
-        //
-        //         });
-        //     },
-        //     function () {
-        //     }).set({transition: 'zoom', label: ' DELETE '}).show();
-
-
-
-
-        /////////
-
         var screensaverDeleteModalTemplate = "<div>"
             + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
             + "<div style='display: flex; align-items: center'>"
-            // + "<img style='width: 100px' src='" + image + "'> "
             + "<div class='file_name'>"
             + "<h6>Delete</h6>"
             + "<p>" + name + "</p>"
@@ -220,9 +182,7 @@ var partners = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
-
-        ////////
+        ).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
 
 
     },

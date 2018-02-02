@@ -1,10 +1,7 @@
 $(function () {
 
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
-    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
-
-
-    // getCountries();
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
 
 
     checkLogin();
@@ -18,9 +15,7 @@ $(function () {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            //bundles.getAllbundles();
             getCountries();
 
         }
@@ -145,7 +140,6 @@ $(function () {
         var commissionisValid = validateNumeric(commission);
 
         if (name === "") {
-            //toastr.warning("Invalid name");
             $("#restaurantInputName").addClass("error_input");
         } else {
             $("#restaurantInputName").removeClass("error_input");
@@ -164,35 +158,30 @@ $(function () {
         }
 
         if (cityID === undefined) {
-            //toastr.warning("Select a city");
             $("#restaurantSelectCityContainer").addClass("error_input");
         } else {
             $("#restaurantSelectCityContainer").removeClass("error_input");
         }
 
         if (address === "") {
-            //toastr.warning("Enter an address");
             $("#restaurantInputAddress").addClass("error_input");
         } else {
             $("#restaurantInputAddress").removeClass("error_input");
         }
 
         if (!emailisValid) {
-            // toastr.warning("Invalid Email");
             $("#restaurantInputEmail").addClass("error_input");
         } else {
             $("#restaurantInputEmail").removeClass("error_input");
         }
 
         if (!phoneisValid) {
-            // toastr.warning("Invalid Phone Number");
             $("#restaurantInputPhone").addClass("error_input");
         } else {
             $("#restaurantInputPhone").removeClass("error_input");
         }
 
         if (!commissionisValid) {
-            // toastr.warning("Invalid Commission. Use Numbers Only");
             $("#restaurantInputCommission").addClass("error_input");
         } else {
             $("#restaurantInputCommission").removeClass("error_input");
@@ -205,9 +194,6 @@ $(function () {
         } else {
             toastr.warning("Incorrect Input Values");
         }
-
-
-        // addPartners(name, address, email, phone, cityID, commission);
 
     });
 

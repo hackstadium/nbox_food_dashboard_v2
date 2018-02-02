@@ -1,12 +1,8 @@
-//const BASE_URL = "http://staging.nairabox.com/foodhub/";
-
-//  getAllBundles();
 var bundles = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
-        // bundles.getAllbundles();
         bundles.checkLogin();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
 
     },
 
@@ -19,7 +15,6 @@ var bundles = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
             bundles.getAllbundles();
         }
@@ -38,8 +33,6 @@ var bundles = {
             $("#preloaderNav").hide();
 
             console.log(allBundles);
-            // console.log("Listing Menu")
-            // console.log(allBundles.message.menu);
 
             for (var i = 0; i < allBundles.message.length; i++) {
 
@@ -53,10 +46,7 @@ var bundles = {
                     + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i]._id + "\",\"" + allBundles.message[i].name + "\",\"" + allBundles.message[i].category_name + "\",\"" + allBundles.message[i].description + "\", \"" + allBundles.message[i].price + "\", \"" + i + "\")'>" + allBundles.message[i].name + "</td>"
                     + "<td>" + allBundles.message[i].category_name + "</td>"
                     + "<td>" + allBundles.message[i].description + "</td>"
-                    // + "<td>" + allBundles.message[i].menu[0].partner_name + "</td>"
-                    // + "<td>" + allBundles.message[i].price + "</td>"
                     + "<td> NGN " + parseInt(allBundles.message[i].price, 10).toLocaleString() + "</td>"
-
                     + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
                     + "<td><button class='btn_table' onclick='bundles.deleteBundle(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
@@ -66,15 +56,12 @@ var bundles = {
     },
     openModalBundleDetails: function (bundleID, name, category, description, price, menuIndex) {
         var menuArray = bundles.allMenu[menuIndex];
-        //$("#preloaderNav").show();
-
         console.log("clicked to open Modal");
         console.log(bundleID);
         console.log(name);
         console.log(category);
         console.log(description);
         console.log(price);
-        // console.log(menuArray);
         console.log("Passed Menus");
         console.log(menuArray);
 
@@ -87,15 +74,15 @@ var bundles = {
             + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
             + "<div><strong>Menus</strong><table class='table table-striped'>" +
             "<thead>" +
-            "                            <tr>" +
-            "                                <th>Menu</th>" +
-            "                                <th>Partner</th>" +
-            "                                <th>Price</th>" +
-            "                            </tr>" +
-            "                            </thead>" +
-            "                            <tbody id='bundleMenusTable'>" +
-            "                            </tbody>" +
-            "                        </table></div></div>";
+            "<tr>" +
+            "<th>Menu</th>" +
+            "<th>Partner</th>" +
+            "<th>Price</th>" +
+            "</tr>" +
+            "</thead>" +
+            "<tbody id='bundleMenusTable'>" +
+            "</tbody>" +
+            "</table></div></div>";
 
         alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
         for (var i = 0; i < menuArray.menu.length; i++) {
@@ -107,56 +94,6 @@ var bundles = {
                 + "</tr>");
         }
 
-
-        ///////////////
-
-        // var bundleData = {category_id: categoryID, bundle_id: bundleID}
-        // $.ajax({
-        //     url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
-        //     type: "GET",
-        //     crossDomain: true,
-        //     data: JSON.stringify(bundleData),
-        //     contentType: "application/json"
-        // }).done(function (bundle) {
-        //     $("#preloaderNav").hide();
-        //
-        //     console.log("One Bundle");
-        //     console.log(bundle.message.menu.length);
-        //     console.log(bundle);
-        //
-        //     console.log("Bundle Price");
-        //     var total = "12345";
-        //     console.log(parseInt(total, 10).toLocaleString());
-        //     console.log(parseInt(bundle.message.price, 10).toLocaleString());
-        //
-        //
-        //     var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
-        //         + "<div class='multiList'><strong>Name</strong><p>" + bundle.message.name + " </p></div>"
-        //         + "<div class='multiList'><strong>Category</strong><p>" + bundle.message.category_name +"</p></div>"
-        //         + "<div class='multiList'><strong>Description</strong><p>" + bundle.message.description + " </p></div>"
-        //         + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(bundle.message.price, 10).toLocaleString() + " </p></div>"
-        //         + "<div><strong>Menus</strong><table class='table table-striped'>" +
-        //         "<thead>" +
-        //         "                            <tr>" +
-        //         "                                <th>Menu</th>" +
-        //         "                                <th>Partner</th>" +
-        //         "                                <th>Price</th>" +
-        //         "                            </tr>" +
-        //         "                            </thead>" +
-        //         "                            <tbody id='bundleMenusTable'>" +
-        //         "                            </tbody>" +
-        //         "                        </table></div></div>";
-        //
-        //     alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
-        //     for (var i = 0; i < bundle.message.menu.length; i++) {
-        //
-        //         $("#bundleMenusTable").append("<tr>"
-        //             + "<td>" + bundle.message.menu[i].name + "</td>"
-        //             + "<td>" + bundle.message.menu[i].partner_name + "</td>"
-        //             + "<td>NGN " + parseInt(bundle.message.menu[i].price, 10).toLocaleString() + "</td>"
-        //             + "</tr>");
-        //     }
-        // });
     },
 
     openModalEditBundleDetails: function (categoryID, bundleID) {
@@ -271,10 +208,10 @@ var bundles = {
 
                         console.log(bundle);
 
-                        if(bundle.status === 200){
+                        if (bundle.status === 200) {
                             toastr.success(bundle.message);
                             bundles.getAllbundles();
-                        }else {
+                        } else {
                             toastr.error(bundle.message);
                         }
                         console.log("Value Deleted");
