@@ -2,8 +2,7 @@ var screensavers = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
 
     init: function () {
-        //  BASE_URL :"http://staging.nairabox.com/foodhub/",
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
 
     },
 
@@ -26,12 +25,10 @@ var screensavers = {
             for (var i = 0; i < screensavers.message.length; i++) {
 
                 $("#screensaversTable").append("<tr>"
-                    //  + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'>" + allBundles.message[i].name + "</td>"
                     + "<td><img src='" + screensavers.message[i].image + "' style='width: 100px;margin-left: 32px'></td>"
                     + "<td><img>" + screensavers.message[i].name + "</td>"
                     + "<td>" + screensavers.message[i].status + "</td>"
                     + "<td class='btn_table_container'><button class='btn_table' onclick='screensavers.editScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i><button class='btn_table' onclick='screensavers.activateScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\",\"" + screensavers.message[i].image + "\")'><i class='icon_green fa fa-power-off' aria-hidden='true'></i></button><button class='btn_table' onclick='screensavers.deleteScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\", \"" + screensavers.message[i].image + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
-                    //  + "<td><button class='btn_table' onclick='screensavers.deleteScreensaver()'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
 
@@ -46,10 +43,7 @@ var screensavers = {
 
 
         var screensaverEditModalTemplate = "<div>"
-            // + "<div class='verticalInput'><strong>Category :  </strong><input id='modalCategoryInputCategory' type='text' value='" + locationID + "'></div>"
             + "<div class='verticalInput'><strong>File Name :  </strong><input id='modalScreensaverTitle' type='text' value='" + name + "'></div>"
-            // + "<div class='verticalInput'><strong>Address :  </strong><input id='modalLocationAddress' type='text' value='" + address + "'></div>"
-            // + "<div class='verticalInput'><strong>Alias ID :  </strong><input id='modalCategoryInputCategory' type='text' value='" + aliasID + "'></div>"
             + "</div>";
 
 
@@ -61,14 +55,11 @@ var screensavers = {
             }, function () {
 
             }
-
-
-         ).set({transition: 'zoom', labels: {ok:'UPDATE', cancel: 'CANCEL'}}).show();
+        ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
     },
 
     activateScreensaver: function (screensaverID, name, status, image) {
-        // var screensaverTitleModal = $("#modalScreensaverTitle").val();
 
 
         var screensaverActivateModalTemplate = "<div>"
@@ -96,8 +87,6 @@ var screensavers = {
 
 
         if (status === "ACTIVE") {
-            // var status = "INACTIVE";
-
 
             alertify.confirm("Confirm Action", screensaverDeactivateModalTemplate,
                 function () {
@@ -108,53 +97,23 @@ var screensavers = {
                 }, function () {
 
                 }
-            ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'CANCEL'}}).show();
-
+            ).set({transition: 'zoom', labels: {ok: 'YES', cancel: 'CANCEL'}}).show();
 
 
         } else {
-            // var status = "ACTIVE";
-
 
             alertify.confirm("Confirm Action", screensaverActivateModalTemplate,
                 function () {
-
-                    //screensavers.updateScreensaver(screensaverID, name, "INACTIVE");
                     screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
 
 
                 }, function () {
 
                 }
-            ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'CANCEL'}}).show();
-
-
-            // screensavers.updateScreensaver(screensaverID, name, "ACTIVE");
+            ).set({transition: 'zoom', labels: {ok: 'YES', cancel: 'CANCEL'}}).show();
 
         }
-        //
-        // $("#preloaderNav").show();
-        //
-        // var screensaverData = {screen_saver_id: screensaverID, name: screensaverTitleModal, status: status};
-        // $.ajax({
-        //     url: screensavers.BASE_URL + "screensaver/update",
-        //     type: "POST",
-        //     crossDomain: true,
-        //     data: JSON.stringify(screensaverData),
-        //     contentType: "application/json"
-        // }).done(function (screensaver) {
-        //     $("#preloaderNav").hide();
-        //
-        //     console.log("Value Updated");
-        //     console.log(screensaver);
-        //     screensavers.displayScreensavers();
-        //
-        //     if (screensavers.error_code === 0) {
-        //         toastr.error(screensaver.message);
-        //     } else {
-        //         toastr.success(screensaver.message);
-        //     }
-        // });
+
     },
 
     updateScreensaver: function (screensaverID, name, status) {
@@ -200,8 +159,6 @@ var screensavers = {
         alertify.confirm("Confirm Delete Action", screensaverDeleteModalTemplate,
             function () {
 
-                // screensavers.validateInput(screensaverID, name, status);
-
                 $("#preloaderNav").show();
 
                 var screensaverData = {screen_saver_id: screensaverID};
@@ -228,7 +185,7 @@ var screensavers = {
             }, function () {
 
             }
-        ).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
+        ).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
 
 
     },
@@ -236,10 +193,6 @@ var screensavers = {
     validateInput: function (screensaverID, name, status) {
 
         var screensaverTitleModal = $("#modalScreensaverTitle").val()
-        // if (screensaverTitleModal === ""){
-        //
-        // }
-
 
         if (screensaverTitleModal === "") {
             $("#modalScreensaverTitle").addClass("error_input");
@@ -253,7 +206,6 @@ var screensavers = {
 
     updateScreensaverTitle: function (screensaverID, status) {
         var screensaverTitleModal = $("#modalScreensaverTitle").val();
-
 
         $("#preloaderNav").show();
 
@@ -308,8 +260,6 @@ $(function () {
 
             for (i = 0; i < countries.message.length; i++) {
                 $("#screensaversSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-                // $("#screensaverSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-
 
                 console.log("adding countries");
             }
@@ -319,7 +269,6 @@ $(function () {
 
     $("#screensaversSelectCountry").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var countryID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(countryID);
@@ -387,12 +336,9 @@ $(function () {
 
     $("#screensaversSelectCity").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var cityID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(cityID);
-        //getScreensaverCity(stateID);
-        //$("#city_id").val(cityID);
         if (cityID !== undefined) {
             screensavers.displayScreensavers();
         }

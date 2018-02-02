@@ -14,9 +14,7 @@ $(function () {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
             getCountries();
 
         }
@@ -89,7 +87,6 @@ $(function () {
 
     $("#categoryPartnerSelectState").change(function () {
         console.log("select state clicked");
-        //var countryID =
         var stateID = $(this).find(":selected").data("id");
         console.log("Selected ID for State");
         console.log(stateID);
