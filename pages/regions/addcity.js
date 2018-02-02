@@ -108,7 +108,7 @@ var city = {
     },
 
     validateAlphabet: function (inputtext) {
-        var alphaExp = /^[a-zA-Z]+$/;
+        var alphaExp = /^[a-zA-Z\s]*$/;
         if (inputtext.match(alphaExp)) {
             return true;
         } else {

@@ -116,6 +116,8 @@ var createLocation = {
         console.log(name);
         console.log(cityID);
         console.log(address);
+        $("#preloaderNav").show();
+
 
         var locationData = {location: name, city_id: cityID, address: address};
 

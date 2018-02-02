@@ -1,6 +1,6 @@
 $(function () {
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
-    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
 
 
     getScreensaverCountry();
@@ -24,8 +24,6 @@ $(function () {
 
             for (i = 0; i < countries.message.length; i++) {
                 $("#screensaverSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-                // $("#screensaverSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-
 
                 console.log("adding countries");
             }
@@ -35,7 +33,6 @@ $(function () {
 
     $("#screensaverSelectCountry").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var countryID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(countryID);
@@ -69,7 +66,6 @@ $(function () {
 
     $("#screensaverSelectState").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var stateID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(stateID);
@@ -102,11 +98,9 @@ $(function () {
 
     $("#screensaverSelectCity").change(function () {
         console.log("select country clicked");
-        //var countryID =
         var cityID = $(this).find(":selected").data("id");
         console.log("Selected ID");
         console.log(cityID);
-        //getScreensaverCity(stateID);
         $("#city_id").val(cityID);
 
     });
@@ -167,7 +161,6 @@ $(function () {
 
             var formData = new FormData();
 
-
             // Add the file to the request.
             formData.append('image', file, file.name);
             formData.append("city_id", city_id);
@@ -192,7 +185,7 @@ $(function () {
 
                 }
             });
-        }else {
+        } else {
             toastr.warning("Invalid Input Values");
         }
 
@@ -207,35 +200,9 @@ var createScreensaver = {
 
 
     init: function () {
-        // createScreensaver.getScreensaverCountry();
 
     },
 
-    // getScreensaverCountry: function () {
-    //     $("#preloaderNav").show();
-    //
-    //     $.ajax({
-    //         url: createScreensaver.BASE_URL + "countries",
-    //         type: "GET",
-    //         crossDomain: true,
-    //         contentType: "application/json"
-    //     }).done(function (countries) {
-    //         $("#preloaderNav").hide();
-    //
-    //         console.log(countries);
-    //
-    //         $("#screensaverSelectCountry").html("");
-    //         $("#screensaverSelectCountry").append("<option>Select a country</option>");
-    //
-    //         for (i = 0; i < countries.message.length; i++) {
-    //             $("#screensaverSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-    //             // $("#screensaverSelectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
-    //
-    //
-    //             console.log("adding countries");
-    //         }
-    //     });
-    // },
 
     getScreensaverState: function () {
 

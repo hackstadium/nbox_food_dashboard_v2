@@ -1,7 +1,6 @@
 var categories = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
-        // categories.getAllCategories();
         toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
         categories.checkLogin();
     },
@@ -16,10 +15,7 @@ var categories = {
             window.location.href = "../../pages/login/login.html";
             console.log("Not Logged In");
         } else {
-            // window.location.href = "../../pages/dashboard/index.html";
             console.log("logged In");
-            // bundles.getAllbundles();
-            //createLocation.getCountries();
             categories.getAllCategories();
 
 
@@ -42,15 +38,10 @@ var categories = {
 
             console.log(cat);
             console.log("Category Partner Name");
-            //console.log(cat.message[1].partners);
 
             for (var i = 0; i < cat.message.length; i++) {
 
-                //categories.allPartners = categories.message;
-                //bundles.allMenu = allBundles.message;
-                // debugger;
                 categories.allMenu = cat.message;
-
 
                 $("#categoriesTable").append("<tr>"
                     + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\",\"" + cat.message[i]._id + "\")'>" + cat.message[i].category + "</td>"
@@ -65,43 +56,32 @@ var categories = {
 
 
     openModalCategoryDetails: function (category, partnerIndex, categoryID) {
-        // debugger;
-        //var partnerArray = categories.allPartners;
         var partnersArray = categories.allMenu[partnerIndex];
 
 
         console.log(category);
-        // var menuArray = bundles.allMenu[menuIndex];
-        // var menuArray = bundles.allMenu[menuIndex];
 
         console.log(partnersArray);
-        //console.log(partnerArray);
         $("#bundleCategoriesTable").html("");
 
         var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
-            // + "<div class='multiList'><strong>Name</strong><p>" + name + " </p></div>"
             + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
-            // + "<div class='multiList'><strong>Description</strong><p>" + description + " </p></div>"
-            // + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
             + "<div><strong>Partners</strong><table class='table table-striped'>" +
             "<thead>" +
-            "                            <tr>" +
-            // "                                <th>Partner</th>" +
-            "                                <th>Partner</th>" +
-            "                                <th>State</th>" +
-            "                                <th>City</th>" +
-            "                            </tr>" +
-            "                            </thead>" +
-            "                            <tbody id='bundleCategoriesTable'>" +
-            "                            </tbody>" +
-            "                        </table></div></div>";
+            "<tr>" +
+            "<th>Partner</th>" +
+            "<th>State</th>" +
+            "<th>City</th>" +
+            "</tr>" +
+            "</thead>" +
+            "<tbody id='bundleCategoriesTable'>" +
+            "</tbody>" +
+            "</table></div></div>";
 
         alertify.alert('Category Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
         for (var i = 0; i < partnersArray.partners.length; i++) {
             var one = partnersArray.partners[i];
-            // categories.allMenu = cat.partners;
             categories.allPartnersID = partnersArray.partner_id;
-
 
             $("#bundleCategoriesTable").append("<tr>"
                 + "<td>" + one.name + "</td>"
@@ -142,7 +122,6 @@ var categories = {
             alertify.confirm('Edit Category', RegionEditDetaillsTemplate,
                 function () {
                     console.log("Category Modal ok clicked");
-                    //categories.updateCategory(categoryID);
                     categories.validateInput(categoryID);
                 },
                 function () {
@@ -185,17 +164,11 @@ var categories = {
 
         var deleteCategoryData = {category_id: categoryID};
 
-        //  var deleteCategoryTemplate = "<p>Confi</p><h5>" + category + "</h5>";
-
-
         var deleteCategoryTemplate = "<div>"
             + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
             + "<div style='display: flex; flex-direction: column'>"
-            // + "<img style='width: 100px' src='" + image + "'> "
-            // + "<div class='file_name'>"
             + "<h6>Category </h6>"
             + "<p>" + category + "</p>"
-            // + "</div>"
             + "</div>"
             + "</div>";
 
@@ -223,7 +196,6 @@ var categories = {
                 });
             },
             function () {
-                //alertify.error('Cancel');
             }).set({transition: 'zoom', labels: {ok:'DELETE', cancel: 'CANCEL'}}).show();
 
     },

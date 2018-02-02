@@ -77,15 +77,16 @@ var state = {
 
             if (state.error_code === 1) {
                 toastr.error(state.message);
-                state.addCityDialog(stateName);
+               // state.addCityDialog(stateName);
             } else {
                 toastr.success(state.message);
+              //  state.addCityDialog(stateName);
             }
         });
     },
 
     validateAlphabet: function (inputtext) {
-        var alphaExp = /^[a-zA-Z]+$/;
+        var alphaExp = /^[a-zA-Z\s]*$/;
         if (inputtext.match(alphaExp)) {
             return true;
         } else {
@@ -138,11 +139,11 @@ var state = {
 
     },
 
-    addCityDialog:function (stateName) {
+    addCityDialog:function (state) {
         console.log("addCityDialog : Add City called");
 
         var screensaverDeleteModalTemplate = "<div>"
-            + "<h6 style='margin-bottom: 32px'>Do you want to add a city to " + stateName +" ?</h6>"
+            + "<h6 style='margin-bottom: 32px'>Do you want to add a city to " + state +" ?</h6>"
             + "</div>";
 
 
@@ -158,7 +159,7 @@ var state = {
             }
         ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
     }
-    }
+
 
 }
 
