@@ -1,7 +1,7 @@
 $(function () {
     console.log("menu js found");
     console.log("menu js ready");
-    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
 
 
     // $("#wizard").steps();
@@ -421,48 +421,15 @@ var createBundle = {
 
     addMoreMenuDialog: function () {
 
-        console.log("addMoreMenuDialog : More msnus called")
+        console.log("addMoreMenuDialog : More menus called");
 
         var screensaverDeleteModalTemplate = "<div>"
             + "<h6 style='margin-bottom: 32px'>Do you want to add more menus to this bundle ?</h6>"
-            // + "<div style='display: flex; flex-direction: column'>"
-            // // + "<img style='width: 100px' src='" + image + "'> "
-            // // + "<div class='file_name'>"
-            // + "<h6>Location </h6>"
-            // + "<p>" + location + "</p>"
-            // // + "</div>"
-            // + "</div>"
             + "</div>";
 
 
         alertify.confirm(" ", screensaverDeleteModalTemplate,
             function () {
-
-                // screensavers.validateInput(screensaverID, name, status);
-
-                // $("#preloaderNav").show();
-                //
-                // var locationData = {location_id: locationID};
-                // $.ajax({
-                //     url: locations.BASE_URL + "location/delete",
-                //     type: "POST",
-                //     crossDomain: true,
-                //     data: JSON.stringify(locationData),
-                //     contentType: "application/json"
-                // }).done(function (location) {
-                //     $("#preloaderNav").hide();
-                //
-                //     console.log("Value Updated");
-                //     console.log(location);
-                //     // screensavers.displayScreensavers();
-                //     locations.getAllLocations();
-                //
-                //     if (location.error_code === 0) {
-                //         toastr.error(location.message);
-                //     } else {
-                //         toastr.success(location.message);
-                //     }
-                // });
 
                 window.location.href = "../../pages/bundles/addbundlemenu.html"
 
@@ -471,7 +438,7 @@ var createBundle = {
 
 
             }
-        ).set({transition: 'zoom', label: ' UPDATE '}).show();
+        ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
 
 
     },
@@ -486,12 +453,6 @@ var createBundle = {
 
 
         $('#moreOptions').prepend("<input id='menuOption_" + inputOptionLength + "' class='input-form' type='text' placeholder='New Option Name'>");
-
-        // if ($("#menuOption_0").val() === "") {
-        //     $("#menuOption_0").addClass("error_input");
-        // } else {
-        //     $("#menuOption_0").removeClass("error_input");
-        // }
 
         for (var i = 0; i < inputOptionLength; i++) {
             if ($("#menuOption_" + i).val() === "") {

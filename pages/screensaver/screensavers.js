@@ -3,7 +3,7 @@ var screensavers = {
 
     init: function () {
         //  BASE_URL :"http://staging.nairabox.com/foodhub/",
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
 
     },
 

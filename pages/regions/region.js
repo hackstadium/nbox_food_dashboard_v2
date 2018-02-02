@@ -2,7 +2,7 @@ var regions = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
         // regions.getAllRegions();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
         regions.checkLogin();
 
     },

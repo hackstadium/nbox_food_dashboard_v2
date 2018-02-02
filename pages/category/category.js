@@ -2,7 +2,7 @@ var categories = {
     BASE_URL: "http://staging.nairabox.com/foodhub/",
     init: function () {
         // categories.getAllCategories();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
         categories.checkLogin();
     },
 
@@ -42,7 +42,7 @@ var categories = {
 
             console.log(cat);
             console.log("Category Partner Name");
-            console.log(cat.message[1].partners);
+            //console.log(cat.message[1].partners);
 
             for (var i = 0; i < cat.message.length; i++) {
 
@@ -132,38 +132,7 @@ var categories = {
             console.log(category.message.partners.length);
             $("#categoriesPartnersTable").html("");
 
-            var globalCategoryID = 123;
 
-            //
-            // for (var i = 0; i < category.message.partners.length; i++) {
-            //     // $("#categoriesPartnersTable").append("<tr>"
-            //     //     + "<td>" + category.message.partners[i].name + "</td>"
-            //     //     +"</tr>"
-            //     // )
-            //
-            //     // $("#partnerInput").append("<ul><li>" + category.message.partners[0].name + "<li></ul>" )
-            //
-            //
-            //     var RegionEditDetaillsTemplate = "<div>"
-            //         + "<div class='verticalInput'><strong>Category :  </strong><input id='modalCategoryInputCategory' type='text' value='" + category.message.category + "'></div>"
-            //         + "<p id='partnerInput'></p>"
-            //         + "<div><table class='table table-striped'>"
-            //         + "<thead>"
-            //         + "<tr class=>"
-            //         + "<th>Partners</th>"
-            //         + "<th></th>"
-            //         + "</tr>"
-            //         + "</thead>"
-            //         + "<tbody id='categoriesPartnersTable'>"
-            //         + "<tr>"
-            //         + "<td>" + category.message.partners[i].name + "</td>"
-            //         + "<td><button class='btn_table' onclick='categories.deletePartnerCategory(\"" + category.message.partner_id[i] + "\", \"" + category.message._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
-            //         + "</tr>"
-            //         + "</tbody>"
-            //         + "</table></div>"
-            //         + "</div>";
-            //
-            // }
 
             var RegionEditDetaillsTemplate = "<div>"
                 + "<div class='verticalInput'><strong>Category :  </strong><input id='modalCategoryInputCategory' type='text' value='" + category.message.category + "'></div>"
@@ -276,25 +245,25 @@ var categories = {
         var deletePartnerFromCategoryData = {partner_id: partnerID, category_id: categoryID};
 
 
-        // $.ajax({
-        //     url: categories.BASE_URL + "category/del/partner",
-        //     type: "POST",
-        //     crossDomain: true,
-        //     data: JSON.stringify(deletePartnerFromCategoryData),
-        //     contentType: "application/json"
-        // }).done(function (message) {
-        //     $("#preloaderNav").hide();
-        //
-        //     console.log(message);
-        //
-        //     if (message.status === 200) {
-        //         toastr.success(message.message);
-        //         window.location.href = "../../pages/category/categories.html";
-        //     } else {
-        //         toastr.error(message.message);
-        //     }
-        //
-        // })
+        $.ajax({
+            url: categories.BASE_URL + "category/del/partner",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(deletePartnerFromCategoryData),
+            contentType: "application/json"
+        }).done(function (message) {
+            $("#preloaderNav").hide();
+
+            console.log(message);
+
+            if (message.status === 200) {
+                toastr.success(message.message);
+                window.location.href = "../../pages/category/categories.html";
+            } else {
+                toastr.error(message.message);
+            }
+
+        })
     },
 
     validateInput: function (categoryID) {

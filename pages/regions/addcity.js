@@ -3,7 +3,7 @@ var city = {
 
     init: function () {
         //city.getAllCountries();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
         city.checkLogin();
 
     },

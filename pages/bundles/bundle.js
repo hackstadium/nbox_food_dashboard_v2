@@ -6,6 +6,8 @@ var bundles = {
     init: function () {
         // bundles.getAllbundles();
         bundles.checkLogin();
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+
     },
 
     checkLogin: function () {
@@ -64,7 +66,7 @@ var bundles = {
     },
     openModalBundleDetails: function (bundleID, name, category, description, price, menuIndex) {
         var menuArray = bundles.allMenu[menuIndex];
-        $("#preloaderNav").show();
+        //$("#preloaderNav").show();
 
         console.log("clicked to open Modal");
         console.log(bundleID);
@@ -188,7 +190,7 @@ var bundles = {
                 function () {
 
                 }
-            ).set({transition: 'zoom', label: ' UPDATE '}).show();
+            ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
 
         })
@@ -219,11 +221,19 @@ var bundles = {
             crossDomain: true,
             data: JSON.stringify(updateBundleData),
             contentType: "application/json"
-        }).done(function () {
+        }).done(function (bundle) {
+
+            if (bundle.status === 200) {
+                toastr.success(bundle.message);
+                bundles.getAllbundles();
+            } else {
+                toastr.error(bundle.message);
+            }
+
+            console.log(bundle);
             $("#preloaderNav").hide();
 
             console.log("Value Updated");
-            bundles.getAllbundles();
         });
     },
 
@@ -257,13 +267,21 @@ var bundles = {
                         crossDomain: true,
                         data: JSON.stringify(deleteBundleData),
                         contentType: "application/json"
-                    }).done(function () {
+                    }).done(function (bundle) {
+
+                        console.log(bundle);
+
+                        if(bundle.status === 200){
+                            toastr.success(bundle.message);
+                            bundles.getAllbundles();
+                        }else {
+                            toastr.error(bundle.message);
+                        }
                         console.log("Value Deleted");
-                        bundles.getAllbundles();
                     });
                 },
                 function () {
-                }).set({transition: 'zoom', label: ' DELETE '}).show();
+                }).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
         });
 
 

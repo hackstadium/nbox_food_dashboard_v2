@@ -3,7 +3,7 @@ var login = {
 
     init: function () {
         // login.login()
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "50000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
 
     },
 

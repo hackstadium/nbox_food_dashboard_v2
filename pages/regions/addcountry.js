@@ -5,8 +5,8 @@ var country = {
     init: function () {
         $("#preloaderNav").hide();
 
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"}
-country.checkLogin();
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
+        country.checkLogin();
     },
 
 
@@ -23,7 +23,7 @@ country.checkLogin();
             console.log("logged In");
             // bundles.getAllbundles();
             //partners.getAllPartners();
-           // city.getAllCountries();
+            // city.getAllCountries();
 
         }
     },
@@ -58,12 +58,14 @@ country.checkLogin();
     },
 
     validateAlphabet: function (inputtext) {
-        var alphaExp = /^[a-zA-Z]+$/;
+        var alphaExp = /^[a-zA-Z\s]*$/;
         if (inputtext.match(alphaExp)) {
             return true;
         } else {
             return false;
         }
+        // /^[a-zA-Z\s]*$/
+        // /^[a-zA-Z]+$/
     },
 
     validateInput: function () {
@@ -77,7 +79,7 @@ country.checkLogin();
         // console.log(countryisValid);
 
         if (countryisValid) {
-           // console.log("country is valid");
+            // console.log("country is valid");
             country.createCountry();
             $("#regionCountry").removeClass("error_input");
 

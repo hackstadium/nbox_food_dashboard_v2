@@ -138,7 +138,7 @@ var addBundleMenu = {
 
 
     init: function () {
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
 
         addBundleMenu.getAllBundles();
     },

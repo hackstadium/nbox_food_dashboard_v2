@@ -3,7 +3,7 @@ $(function () {
 
 
     const BASE_URL = "http://staging.nairabox.com/foodhub/";
-    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
 
 
     // getCountries();
@@ -176,6 +176,7 @@ $(function () {
                     toastr.error(categories.message);
                 } else {
                     toastr.success(categories.message);
+                    addPartnerToCategoryModal(category);
                 }
             });
 
@@ -184,8 +185,29 @@ $(function () {
             toastr.warning("Invalid Input Values");
         }
 
-
     });
+
+
+    function addPartnerToCategoryModal(category) {
+        console.log("addPartnerToCategoryModal : Add partner to that category");
+
+        var screensaverDeleteModalTemplate = "<div>"
+            + "<h6 style='margin-bottom: 32px'>Do you want to add a partner to "+ category +" ?</h6>"
+            + "</div>";
+
+
+        alertify.confirm(" ", screensaverDeleteModalTemplate,
+            function () {
+
+                window.location.href = "../../pages/category/addpartner.html"
+
+            }, function () {
+                window.location.href = "../../pages/category/categories.html"
+
+
+            }
+        ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
+    }
 
 
     function validateAlphabet(inputtext) {

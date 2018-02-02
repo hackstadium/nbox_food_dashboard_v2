@@ -4,7 +4,7 @@ var state = {
     init: function () {
         // state.getAllCountries();
         //$("#preloaderNav").show();
-        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "5000"};
+        toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0","closeButton": true};
         state.checkLogin();
     },
 

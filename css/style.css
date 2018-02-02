@@ -18455,3 +18455,7 @@ input::placeholder, textarea::placeholder {
 .card-statistics-count{
 margin-bottom: 0px !important;
 }
+
+button.toast-close-button{
+    background-color: transparent !important;
+}
