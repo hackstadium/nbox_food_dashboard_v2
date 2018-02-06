@@ -39,8 +39,8 @@
 
             <div>
                 <button class="nav-button pointer" onclick="logout.endSession()">
-                <i class="fa fa-sign-out nav-icon" aria-hidden="true"></i>
-                <!--<span></span>-->
+                    <i class="fa fa-sign-out nav-icon" aria-hidden="true"></i>
+                    <!--<span></span>-->
                 </button>
             </div>
 
@@ -201,7 +201,7 @@
                     </li>
 
 
-                    <!--NAV ITEM SCREENSAVER-->
+                    <!--NAV ITEM LOCATION-->
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#screensaver-pages" aria-expanded="false"
                            aria-controls="screensaver-pages">
@@ -227,7 +227,6 @@
                         </div>
                     </li>
 
-
                     <!--NAV ITEM REPORTS-->
                     <li class="nav-item active">
                         <a class="nav-link" href="../../pages/report/report.html">
@@ -241,10 +240,45 @@
 
             <!-- partial -->
             <div class="content-wrapper">
-                <h3 class="page-heading mb-4">Dashboard</h3>
-                <h5 class="page-heading mb-4">Today's Orders</h5>
+                <div class="card-deck">
+                    <div class="card col-lg-12 px-0 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-bottom: 8px">Transactions</h5>
+                            <div class="btn-group btn-group-custom" role="group" aria-label="Basic example">
+                                <button type="button" class="btn pointer btn-group-custom-btn">Daily</button>
+                                <button type="button" class="btn pointer btn-group-custom-btn">Monthly</button>
+                                <button type="button" class="btn pointer btn-group-custom-btn">Yearly</button>
+                            </div>
+                            <div>
+                                <canvas id="sales-chart" height="300px" ></canvas>
+                            </div>
+                            <!--<div id="sales-chart-legend" class="legend-right"></div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!--<h3 class="page-heading mb-4">Reports</h3>-->
+                <!--<h5 class="page-heading mb-4">Today's Orders</h5>-->
 
                 <div class="row">
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="">
+                                        <h6 class="text-muted">
+                                            <i class="fa fa-clock-o highlight-icon" aria-hidden="true"></i>
+                                        </h6>
+                                    </div>
+                                    <div class="">
+                                        <p class="card-text text-dark card-statistics-title">Pending Orders</p>
+                                        <h5 class="bold-text card-statistics-count">65,650</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
                         <div class="card card-statistics">
                             <div class="card-body">
@@ -336,252 +370,78 @@
                     </div>
                 </div>
 
-                <!--ALL TIME ORDERS-->
-                <h5 class="page-heading mb-4">Total Orders</h5>
-
-                <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-clock-o highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Pending Orders</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-truck highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Orders In Transit</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-check highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Delivered Orders</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-ban highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Cancelled Orders</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-cubes highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Total Orders</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Most Purchased</h5>
-                                <div class="table-responsive table-sales table-striped">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th colspan="">
-                                                Bundle
-                                            </th>
-                                            <!--<th colspan="">-->
-                                                <!--Menu-->
-                                            <!--</th>-->
-                                            <th class="text-right">
-                                                Sales
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody class="dashboard_table text-dark">
-                                        <tr>
-                                            <td>The Ice Cream Bundle</td>
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <td class="text-right">
-                                                10
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shawarma Delights</td>
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <td class="text-right">
-                                                10
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Valentine Special</td>
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <td class="text-right">
-                                                10
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Snack Well</td>
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <td class="text-right">
-                                                10
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Supreme Pizza Fun</td>
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <td class="text-right">
-                                                10
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hungry Man Bundle</td>
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <td class="text-right">
-                                                10
-                                            </td>
-                                        </tr>
-                                        <!--<tr>-->
-                                            <!--<td>Bundle 001</td>-->
-                                            <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                                            <!--<td class="text-right">-->
-                                                <!--10-->
-                                            <!--</td>-->
-                                        <!--</tr>-->
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Sales</h5>
-                                <div class="custom-legend-container w-75 mx-auto">
-                                    <canvas id="sales-chart"></canvas>
-                                </div>
-                                <div id="sales-chart-legend" class="legend-right"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Sales region</h5>
-                                <div class="table-responsive table-sales">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th colspan="">
-                                                Location
-                                            </th>
-                                            <th class="text-right">
-                                                Sales
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody class="dashboard_table text-dark">
-                                        <tr>
-                                            <td>The Place, Lekki</td>
-                                            <td class="text-right">
-                                                240
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bukka Hut, Oshodi</td>
-                                            <td class="text-right">
-                                                240
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Shawarma and Co, Victoria Island</td>
-                                            <td class="text-right">
-                                                240
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>The Place, Lekki</td>
-                                            <td class="text-right">
-                                                240
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bukka Hut, Oshodi</td>
-                                            <td class="text-right">
-                                                240
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shawarma and Co, Victoria Island</td>
-                                            <td class="text-right">
-                                                240
-                                            </td>
-                                        </tr>
-                                        <!--<tr>-->
-                                            <!--<td>The Place, Lekki</td>-->
-                                            <!--<td class="text-right">-->
-                                                <!--240-->
-                                            <!--</td>-->
-                                        <!--</tr>-->
-                                        </tbody>
-                                    </table>
-                                </div>
+                <div class="card-deck">
+                    <div class="card col-lg-12 px-0 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Recent Orders </h5>
+                            <div class="table-responsive">
+                                <table class="table center-aligned-table table-striped">
+                                    <thead>
+                                    <tr class="text-dark">
+                                        <th>Location</th>
+                                        <th>Bundle</th>
+                                        <th>Menu</th>
+                                        <th>Options</th>
+                                        <th>Price</th>
+                                        <th>Partner</th>
+                                        <th>Status</th>
+                                        <th>Time of Order</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="dashboard_table text-dark">
+                                        <td>Swipe Office</td>
+                                        <td>Sample Combo</td>
+                                        <td>3 Meat Pie, 1 Sausage</td>
+                                        <td>Coke, Fanta</td>
+                                        <td>1,200</td>
+                                        <td>The Place</td>
+                                        <td><label class="badge badge-warning">Pending</label></td>
+                                        <td>Mon, Jan 15, 2018 11:31 AM</td>
+                                    </tr>
+                                    <tr class="dashboard_table text-dark">
+                                        <td>Diamond Bank</td>
+                                        <td>Bundle 001</td>
+                                        <td>3 Meat Pie, 1 Sausage</td>
+                                        <td>Coke, Fanta</td>
+                                        <td>1,200</td>
+                                        <td>The Place</td>
+                                        <td><label class="badge badge-warning">Pending</label></td>
+                                        <td>Mon, Jan 15, 2018 11:31 AM</td>
+                                    </tr>
+                                    <tr class="dashboard_table text-dark">
+                                        <td>Access Bank</td>
+                                        <td>Bundle 001</td>
+                                        <td>3 Meat Pie, 1 Sausage</td>
+                                        <td>Coke, Fanta</td>
+                                        <td>1,200</td>
+                                        <td>The Place</td>
+                                        <td><label class="badge badge-warning">Pending</label></td>
+                                        <td>Mon, Jan 15, 2018 11:31 AM</td>
+                                    </tr>
+                                    <tr class="dashboard_table text-dark">
+                                        <td>Guaranty Trust Bank</td>
+                                        <td>Bundle 001</td>
+                                        <td>3 Meat Pie, 1 Sausage</td>
+                                        <td>Coke, Fanta</td>
+                                        <td>1,200</td>
+                                        <td>The Place</td>
+                                        <td><label class="badge badge-warning">Pending</label></td>
+                                        <td>Mon, Jan 15, 2018 11:31 AM</td>
+                                    </tr>
+                                    <tr class="dashboard_table text-dark">
+                                        <td>Swipe Office</td>
+                                        <td>Bundle 001</td>
+                                        <td>3 Meat Pie, 1 Sausage</td>
+                                        <td>Coke, Fanta</td>
+                                        <td>1,200</td>
+                                        <td>The Place</td>
+                                        <td><label class="badge badge-warning">Pending</label></td>
+                                        <td>Mon, Jan 15, 2018 11:31 AM</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -662,6 +522,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- partial:partials/_footer.html -->
             <footer class="footer">
@@ -688,14 +549,14 @@
 <script src="../../js/off-canvas.js"></script>
 <script src="../../js/hoverable-collapse.js"></script>
 <script src="../../js/misc.js"></script>
-<script src="../../js/chart.js"></script>
+<!--<script src="../../js/chart.js"></script>-->
 <!--<script src="js/maps.js"></script>-->
 
 <script src="../../js/notify.min.js"></script>
 
 <!--<script src="../../js/app.js"></script>-->
 <script src="../../js/logout.js"></script>
-<script src="index.js"></script>
+<script src="report.js"></script>
 </body>
 
 </html>
