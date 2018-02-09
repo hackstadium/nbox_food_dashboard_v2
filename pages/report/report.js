@@ -1,4 +1,7 @@
 var reports = {
+  BASE_URL: "http://staging.nairabox.com/foodhub/",
+
+
     init: function () {
         console.log("Reports Page is ready");
         $("#preloaderNav").hide();
@@ -16,21 +19,7 @@ var reports = {
                         '#CFE795'
                     ]
                 }],
-                labels: [
-                    'JAN',
-                    'FEB',
-                    'MAR',
-                    'APR',
-                    'MAY',
-                    'JUN',
-                    'JUL',
-                    'AUG',
-                    'SEP',
-                    'OCT',
-                    'NOV',
-                    'DEC',
-
-                ]
+                labels: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
             };
             var salesChartOptions = {
                 responsive: true,
@@ -57,10 +46,21 @@ var reports = {
             });
             $("#sales-chart-legend").html(salesChart.generateLegend());
         }
+
+
+        //GET ALL REPORTS
+        $.ajax({
+          url: reports.BASE_URL + "orders/total/reports",
+          type: "GET",
+          crossDomain: true,
+          contentType: "application/json"
+        }).done(function (reports) {
+
+
+        });
     }
 
 }
 
 
 reports.init();
-
