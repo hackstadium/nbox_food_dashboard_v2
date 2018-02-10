@@ -18452,6 +18452,7 @@ input::placeholder, textarea::placeholder {
 
 .card-statistics-count {
     margin-bottom: 0px !important;
+    /* font-size:14px; */
 }
 
 button.toast-close-button {

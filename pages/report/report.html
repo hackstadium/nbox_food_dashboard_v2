@@ -2,496 +2,460 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Nairabox Food</title>
-    <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
-    <!--<link rel="stylesheet" href="../../css/font-awesome.min.css"/>-->
-    <link rel="stylesheet" href="../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css"/>
-    <!--<link rel="stylesheet" href="../../node_modules/flag-icon-css/css/flag-icon.min.css"/>-->
-    <link rel="stylesheet" href="../../css/style.css"/>
-    <link rel="shortcut icon" href="../../images/favicon.png"/>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Nairabox Food</title>
+  <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css"/>
+  <!--<link rel="stylesheet" href="../../css/font-awesome.min.css"/>-->
+  <link rel="stylesheet" href="../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css"/>
+  <!--<link rel="stylesheet" href="../../node_modules/flag-icon-css/css/flag-icon.min.css"/>-->
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="shortcut icon" href="../../images/favicon.png"/>
 </head>
 
 <body>
-<div class=" container-scroller">
+  <div class=" container-scroller">
 
     <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="bg-white text-center navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="index.html">
-                <img src="../../images/nbox_food_logo.png"/>
-            </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html">
-                <img src="../../images/nairabox_green.svg">
-            </a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-            <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3 pointer"
-                    type="button" data-toggle="minimize">
-                <!--<span class="navbar-toggler-icon"></span>-->
-                <i class="fa fa-bars nav-icon" aria-hidden="true"></i>
-            </button>
-            <div id="preloaderNav">
-                <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw rotate"></i>
-                <span class="sr-only">Loading...</span>
-            </div>
+      <div class="bg-white text-center navbar-brand-wrapper">
+        <a class="navbar-brand brand-logo" href="index.html">
+          <img src="../../images/nbox_food_logo.png"/>
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">
+          <img src="../../images/nairabox_green.svg">
+        </a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+        <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3 pointer"
+        type="button" data-toggle="minimize">
+        <!--<span class="navbar-toggler-icon"></span>-->
+        <i class="fa fa-bars nav-icon" aria-hidden="true"></i>
+      </button>
+      <div id="preloaderNav">
+        <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw rotate"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
 
-            <div>
-                <button class="nav-button pointer" onclick="logout.endSession()">
-                    <i class="fa fa-sign-out nav-icon" aria-hidden="true"></i>
-                    <!--<span></span>-->
-                </button>
-            </div>
+      <div>
+        <button class="nav-button pointer" onclick="logout.endSession()">
+          <i class="fa fa-sign-out nav-icon" aria-hidden="true"></i>
+          <!--<span></span>-->
+        </button>
+      </div>
 
-        </div>
-    </nav>
-
-    <!-- partial -->
-    <div class="container-fluid">
-        <div class="row row-offcanvas row-offcanvas-right">
-            <!-- partial:partials/_sidebar.html -->
-            <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../../pages/dashboard/index.html">
-                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
-                           aria-controls="sample-pages">
-                            <i class="fa fa-th-large" aria-hidden="true"></i>
-
-                            <span class="menu-title">Category<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="category-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/category/index.html">
-                                        Add Categories
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/category/categories.html">
-                                        Manage Categories
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/category/addpartner.html">
-                                        Add Partners
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-                    <!--NAV ITEM BUNDLES-->
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#bundle-pages" aria-expanded="false"
-                           aria-controls="sample-pages">
-                            <!--<i class="fa fa-th-large" aria-hidden="true"></i>-->
-                            <i class="fa fa-cubes" aria-hidden="true"></i>
-                            <span class="menu-title">Bundles<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="bundle-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/bundles/index.html">
-                                        Add Bundles
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../bundles/addbundlemenu.html">
-                                        Add Menus to Bundles
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/bundles/bundles.html">
-                                        Manage Bundles
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <!--NAV ITEM PARTNERS-->
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#partner-pages" aria-expanded="false"
-                           aria-controls="sample-pages">
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            <span class="menu-title">Partners<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="partner-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/partners/index.html">
-                                        Add Partners
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/partners/partners.html">
-                                        Manage Partners
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <!--NAV ITEM REGION-->
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#region-pages" aria-expanded="false"
-                           aria-controls="sample-pages">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <span class="menu-title">Regions<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="region-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/regions/addcountry.html">
-                                        Add Country
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/regions/addstate.html">
-                                        Add State
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/regions/addcity.html">
-                                        Add City
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/regions/regions.html">
-                                        Manage Regions
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-                    <!--NAV ITEM LOCATION-->
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#location-pages" aria-expanded="false"
-                           aria-controls="sample-pages">
-                            <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
-                            <i class="fa fa-building-o" aria-hidden="true"></i>
-                            <span class="menu-title">Locations<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="location-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/locations/index.html">
-                                        Add Location
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/locations/locations.html">
-                                        Manage Locations
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-                    <!--NAV ITEM LOCATION-->
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#screensaver-pages" aria-expanded="false"
-                           aria-controls="screensaver-pages">
-                            <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
-                            <!--<i class="fa fa-building" aria-hidden="true"></i>-->
-                            <i class="fa fa-picture-o" aria-hidden="true"></i>
-                            <span class="menu-title">Screensavers<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="screensaver-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/screensaver/index.html">
-                                        Add Screensaver
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/screensaver/screensavers.html">
-                                        Manage Screensavers
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <!--NAV ITEM REPORTS-->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../../pages/report/report.html">
-                            <!--<i class="fa fa-bar-chart" aria-hidden="true"></i>-->
-                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                            <span class="menu-title">Reports</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- partial -->
-            <div class="content-wrapper">
-                <div class="card-deck">
-                    <div class="card col-lg-12 px-0 mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title" style="margin-bottom: 8px">Transactions</h5>
-                            <div class="btn-group btn-group-custom" role="group" aria-label="Basic example">
-                                <button type="button" class="btn pointer btn-group-custom-btn">Daily</button>
-                                <button type="button" class="btn pointer btn-group-custom-btn">Monthly</button>
-                                <button type="button" class="btn pointer btn-group-custom-btn">Yearly</button>
-                            </div>
-                            <div>
-                                <canvas id="sales-chart" height="300px" ></canvas>
-                            </div>
-                            <!--<div id="sales-chart-legend" class="legend-right"></div>-->
-                        </div>
-                    </div>
-                </div>
-
-                <!--<h3 class="page-heading mb-4">Reports</h3>-->
-                <!--<h5 class="page-heading mb-4">Today's Orders</h5>-->
-
-                <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h6 class="text-muted">
-                                            <i class="fa fa-credit-card highlight-icon" aria-hidden="true"></i>
-                                        </h6>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark card-statistics-title">Total Transactions</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h6 class="text-muted">
-                                            <i class="fa fa-money highlight-icon" aria-hidden="true"></i>
-                                        </h6>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark card-statistics-title">Total Revenue</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-home highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark card-statistics-title">Partners</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-cubes highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Bundles</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-building-o highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Location</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
-                        <div class="card card-statistics">
-                            <div class="card-body">
-                                <div class="clearfix">
-                                    <div class="">
-                                        <h4 class="text-muted">
-                                            <i class="fa fa-th-large highlight-icon" aria-hidden="true"></i>
-                                        </h4>
-                                    </div>
-                                    <div class="">
-                                        <p class="card-text text-dark">Categories</p>
-                                        <h5 class="bold-text card-statistics-count">65,650</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck">
-                    <div class="card col-lg-12 px-0 mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Transaction per Partners  </h5>
-                            <div class="table-responsive">
-                                <table class="table center-aligned-table table-striped">
-                                    <thead>
-                                    <tr class="text-dark">
-                                        <th>Partner</th>
-                                        <th>Address</th>
-                                        <th>Commission</th>
-                                        <th>Total Transactions</th>
-                                        <th>Total Revenue</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>The Place</td>
-                                        <td>22 Admiralty Way, Lekki Phase 1</td>
-                                        <td>25%</td>
-                                        <td>NGN 365,000</td>
-                                        <td>NGN 91,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>The Place</td>
-                                        <td>22 Admiralty Way, Lekki Phase 1</td>
-                                        <td>25%</td>
-                                        <td>NGN 365,000</td>
-                                        <td>NGN 91,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>The Place</td>
-                                        <td>22 Admiralty Way, Lekki Phase 1</td>
-                                        <td>25%</td>
-                                        <td>NGN 365,000</td>
-                                        <td>NGN 91,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>The Place</td>
-                                        <td>22 Admiralty Way, Lekki Phase 1</td>
-                                        <td>25%</td>
-                                        <td>NGN 365,000</td>
-                                        <td>NGN 91,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>The Place</td>
-                                        <td>22 Admiralty Way, Lekki Phase 1</td>
-                                        <td>25%</td>
-                                        <td>NGN 365,000</td>
-                                        <td>NGN 91,250</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-deck">
-                    <div class="card col-lg-12 px-0 mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Transaction per Locations</h5>
-                            <div class="table-responsive">
-                                <table class="table center-aligned-table table-striped">
-                                    <thead>
-                                    <tr class="text-dark">
-                                        <th>Location</th>
-                                        <th>Address</th>
-                                        <th>Alias ID</th>
-                                        <th>Total Transactions</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>Diamond Bank</td>
-                                        <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                                        <td>10001</td>
-                                        <td>NGN 418,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>Diamond Bank</td>
-                                        <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                                        <td>10001</td>
-                                        <td>NGN 418,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>Diamond Bank</td>
-                                        <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                                        <td>10001</td>
-                                        <td>NGN 418,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>Diamond Bank</td>
-                                        <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                                        <td>10001</td>
-                                        <td>NGN 418,250</td>
-                                    </tr>
-                                    <tr class="dashboard_table text-dark">
-                                        <td>Diamond Bank</td>
-                                        <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                                        <td>10001</td>
-                                        <td>NGN 418,250</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="container-fluid clearfix">
-            <span class="float-right">
-                <a href="#">Star Admin</a> &copy; 2017
-            </span>
-                </div>
-            </footer>
-
-            <!-- partial -->
-        </div>
     </div>
+  </nav>
+
+  <!-- partial -->
+  <div class="container-fluid">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="../../pages/dashboard/index.html">
+              <i class="fa fa-bar-chart" aria-hidden="true"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
+            aria-controls="sample-pages">
+            <i class="fa fa-th-large" aria-hidden="true"></i>
+
+            <span class="menu-title">Category<i class="fa fa-sort-down"></i></span>
+          </a>
+          <div class="collapse" id="category-pages">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link inner-nav-link" href="../../pages/category/index.html">
+                  Add Categories
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link inner-nav-link" href="../../pages/category/categories.html">
+                  Manage Categories
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link inner-nav-link" href="../../pages/category/addpartner.html">
+                  Add Partners
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+        <!--NAV ITEM BUNDLES-->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#bundle-pages" aria-expanded="false"
+          aria-controls="sample-pages">
+          <!--<i class="fa fa-th-large" aria-hidden="true"></i>-->
+          <i class="fa fa-cubes" aria-hidden="true"></i>
+          <span class="menu-title">Bundles<i class="fa fa-sort-down"></i></span>
+        </a>
+        <div class="collapse" id="bundle-pages">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link inner-nav-link" href="../../pages/bundles/index.html">
+                Add Bundles
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link inner-nav-link" href="../bundles/addbundlemenu.html">
+                Add Menus to Bundles
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link inner-nav-link" href="../../pages/bundles/bundles.html">
+                Manage Bundles
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!--NAV ITEM PARTNERS-->
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#partner-pages" aria-expanded="false"
+        aria-controls="sample-pages">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <span class="menu-title">Partners<i class="fa fa-sort-down"></i></span>
+      </a>
+      <div class="collapse" id="partner-pages">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link inner-nav-link" href="../../pages/partners/index.html">
+              Add Partners
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link inner-nav-link" href="../../pages/partners/partners.html">
+              Manage Partners
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!--NAV ITEM REGION-->
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#region-pages" aria-expanded="false"
+      aria-controls="sample-pages">
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <span class="menu-title">Regions<i class="fa fa-sort-down"></i></span>
+    </a>
+    <div class="collapse" id="region-pages">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link inner-nav-link" href="../../pages/regions/addcountry.html">
+            Add Country
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link inner-nav-link" href="../../pages/regions/addstate.html">
+            Add State
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link inner-nav-link" href="../../pages/regions/addcity.html">
+            Add City
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link inner-nav-link" href="../../pages/regions/regions.html">
+            Manage Regions
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+
+
+  <!--NAV ITEM LOCATION-->
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="collapse" href="#location-pages" aria-expanded="false"
+    aria-controls="sample-pages">
+    <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+    <i class="fa fa-building-o" aria-hidden="true"></i>
+    <span class="menu-title">Locations<i class="fa fa-sort-down"></i></span>
+  </a>
+  <div class="collapse" id="location-pages">
+    <ul class="nav flex-column sub-menu">
+      <li class="nav-item">
+        <a class="nav-link inner-nav-link" href="../../pages/locations/index.html">
+          Add Location
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link inner-nav-link" href="../../pages/locations/locations.html">
+          Manage Locations
+        </a>
+      </li>
+    </ul>
+  </div>
+</li>
+
+
+<!--NAV ITEM LOCATION-->
+<li class="nav-item">
+  <a class="nav-link" data-toggle="collapse" href="#screensaver-pages" aria-expanded="false"
+  aria-controls="screensaver-pages">
+  <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+  <!--<i class="fa fa-building" aria-hidden="true"></i>-->
+  <i class="fa fa-picture-o" aria-hidden="true"></i>
+  <span class="menu-title">Screensavers<i class="fa fa-sort-down"></i></span>
+</a>
+<div class="collapse" id="screensaver-pages">
+  <ul class="nav flex-column sub-menu">
+    <li class="nav-item">
+      <a class="nav-link inner-nav-link" href="../../pages/screensaver/index.html">
+        Add Screensaver
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link inner-nav-link" href="../../pages/screensaver/screensavers.html">
+        Manage Screensavers
+      </a>
+    </li>
+  </ul>
+</div>
+</li>
+
+<!--NAV ITEM REPORTS-->
+<li class="nav-item active">
+  <a class="nav-link" href="../../pages/report/report.html">
+    <!--<i class="fa fa-bar-chart" aria-hidden="true"></i>-->
+    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    <span class="menu-title">Reports</span>
+  </a>
+</li>
+</ul>
+</nav>
+
+<!-- partial -->
+<div class="content-wrapper">
+  <div class="card-deck">
+    <div class="card col-lg-12 px-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title" style="margin-bottom: 8px">Transactions</h5>
+        <div class="btn-group btn-group-custom" role="group" aria-label="Basic example">
+          <button type="button" class="btn pointer btn-group-custom-btn">Daily</button>
+          <button type="button" class="btn pointer btn-group-custom-btn">Monthly</button>
+          <button type="button" class="btn pointer btn-group-custom-btn">Yearly</button>
+        </div>
+        <div>
+          <canvas id="sales-chart" height="300px" ></canvas>
+        </div>
+        <!--<div id="sales-chart-legend" class="legend-right"></div>-->
+      </div>
+    </div>
+  </div>
+
+  <!--<h3 class="page-heading mb-4">Reports</h3>-->
+  <!--<h5 class="page-heading mb-4">Today's Orders</h5>-->
+
+  <div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="">
+              <h6 class="text-muted">
+                <i class="fa fa-credit-card highlight-icon" aria-hidden="true"></i>
+              </h6>
+            </div>
+            <div class="">
+              <p class="card-text text-dark card-statistics-title">Total Transactions</p>
+              <h5 style="font-size:14px; font-weight:bold" class="bold-text card-statistics-count" id="totalTransactions">00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="">
+              <h6 class="text-muted">
+                <i class="fa fa-money highlight-icon" aria-hidden="true"></i>
+              </h6>
+            </div>
+            <div class="">
+              <p class="card-text text-dark card-statistics-title">Total Revenue</p>
+              <h5 style="font-size:14px; font-weight:bold" class="bold-text card-statistics-count" id="totalRevenue">00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="">
+              <h4 class="text-muted">
+                <i class="fa fa-home highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="">
+              <p class="card-text text-dark card-statistics-title">Partners</p>
+              <h5 style="font-size:14px; font-weight:bold" class="bold-text card-statistics-count" id="partnerCount">00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="">
+              <h4 class="text-muted">
+                <i class="fa fa-cubes highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="">
+              <p class="card-text text-dark">Bundles</p>
+              <h5 style="font-size:14px; font-weight:bold" class="bold-text card-statistics-count" id="bundleCount">00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="">
+              <h4 class="text-muted">
+                <i class="fa fa-building-o highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="">
+              <p class="card-text text-dark">Location</p>
+              <h5 style="font-size:14px; font-weight:bold" class="bold-text card-statistics-count" id="locationCount">00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 mb-4">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="clearfix">
+            <div class="">
+              <h4 class="text-muted">
+                <i class="fa fa-th-large highlight-icon" aria-hidden="true"></i>
+              </h4>
+            </div>
+            <div class="">
+              <p class="card-text text-dark">Categories</p>
+              <h5 style="font-size:14px; font-weight:bold" class="bold-text card-statistics-count" id="categoryCount">00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-deck">
+    <div class="card col-lg-12 px-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Transactions per Partner  </h5>
+        <div class="table-responsive">
+          <table class="table center-aligned-table table-striped">
+            <thead>
+              <tr class="text-dark">
+                <th>Partner</th>
+                <th>Number of Transactions</th>
+                <th>Total Transactions</th>
+                <th>Total Revenue</th>
+              </tr>
+            </thead>
+            <tbody id="reportPartners">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card col-lg-12 px-0 mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Transactions per Location</h5>
+        <div class="table-responsive">
+          <table class="table center-aligned-table table-striped">
+            <thead>
+              <tr class="text-dark">
+                <th>Location</th>
+                <th>Address</th>
+                <th>Alias ID</th>
+                <th>Total Transactions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="dashboard_table text-dark">
+                <td>Diamond Bank</td>
+                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
+                <td>10001</td>
+                <td>NGN 418,250</td>
+              </tr>
+              <tr class="dashboard_table text-dark">
+                <td>Diamond Bank</td>
+                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
+                <td>10001</td>
+                <td>NGN 418,250</td>
+              </tr>
+              <tr class="dashboard_table text-dark">
+                <td>Diamond Bank</td>
+                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
+                <td>10001</td>
+                <td>NGN 418,250</td>
+              </tr>
+              <tr class="dashboard_table text-dark">
+                <td>Diamond Bank</td>
+                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
+                <td>10001</td>
+                <td>NGN 418,250</td>
+              </tr>
+              <tr class="dashboard_table text-dark">
+                <td>Diamond Bank</td>
+                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
+                <td>10001</td>
+                <td>NGN 418,250</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- partial:partials/_footer.html -->
+<footer class="footer">
+  <div class="container-fluid clearfix">
+    <span class="float-right">
+      <a href="#">Star Admin</a> &copy; 2017
+    </span>
+  </div>
+</footer>
+
+<!-- partial -->
+</div>
+</div>
 
 </div>
 
