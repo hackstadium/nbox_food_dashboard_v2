@@ -245,11 +245,11 @@
     <div class="card col-lg-12 px-0 mb-4">
       <div class="card-body">
         <h5 class="card-title" style="margin-bottom: 8px">Transactions</h5>
-        <div class="btn-group btn-group-custom" role="group" aria-label="Basic example">
+        <!-- <div class="btn-group btn-group-custom" role="group" aria-label="Basic example">
           <button type="button" class="btn pointer btn-group-custom-btn">Daily</button>
           <button type="button" class="btn pointer btn-group-custom-btn">Monthly</button>
           <button type="button" class="btn pointer btn-group-custom-btn">Yearly</button>
-        </div>
+        </div> -->
         <div>
           <canvas id="sales-chart" height="300px" ></canvas>
         </div>
@@ -401,42 +401,11 @@
             <thead>
               <tr class="text-dark">
                 <th>Location</th>
-                <th>Address</th>
-                <th>Alias ID</th>
+                <th>Number of Orders</th>
                 <th>Total Transactions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr class="dashboard_table text-dark">
-                <td>Diamond Bank</td>
-                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                <td>10001</td>
-                <td>NGN 418,250</td>
-              </tr>
-              <tr class="dashboard_table text-dark">
-                <td>Diamond Bank</td>
-                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                <td>10001</td>
-                <td>NGN 418,250</td>
-              </tr>
-              <tr class="dashboard_table text-dark">
-                <td>Diamond Bank</td>
-                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                <td>10001</td>
-                <td>NGN 418,250</td>
-              </tr>
-              <tr class="dashboard_table text-dark">
-                <td>Diamond Bank</td>
-                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                <td>10001</td>
-                <td>NGN 418,250</td>
-              </tr>
-              <tr class="dashboard_table text-dark">
-                <td>Diamond Bank</td>
-                <td>15C Chief Gbalahan Owolabi Street, Lekki Phase 1</td>
-                <td>10001</td>
-                <td>NGN 418,250</td>
-              </tr>
+            <tbody id="reportLocations">
             </tbody>
           </table>
         </div>

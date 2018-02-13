@@ -5,11 +5,38 @@ var reports = {
   init: function () {
     console.log("Reports Page is ready");
     $("#preloaderNav").hide();
-    reports.getTransactions();
+  //  reports.getTransactions();
     reports.getPartnerCount();
     reports.getCategoryCount();
     reports.getBundleCount();
+    reports.getMonthlyStats();
+    reports.getLocationTransaction();
     //  reports.getLocationCount();
+  },
+
+  getLocationTransaction:function(){
+    $.ajax({
+      url: reports.BASE_URL + "orders/location/transactions",
+      type: "GET",
+      crossDomain: true,
+      contentType: "application/json"
+    }).done(function (locations) {
+      console.log("Locations Count");
+      console.log(locations.message.length);
+      var locationsCount = locations.message.length;
+    //  $("#partnerCount").html(partnerCount);
+
+      for (var i = 0; i < locationsCount; i++) {
+
+        $("#reportLocations").append("<tr>"
+        + "<td>" + locations.message[i].location + "</td>"
+        + "<td>" + locations.message[i].TotalOrders  + "</td>"
+        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + locations.message[i].TotaLocationTransaction.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        // + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].TotalPercentageRevenue.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        + "</tr>");
+      }
+
+    })
   },
 
   getPartnerCount:function () {
@@ -72,19 +99,34 @@ var reports = {
     })
   },
 
-  getTransactions: function () {
+  getMonthlyStats:function(){
+    $.ajax({
+      url: reports.BASE_URL + "orders/monthlystats",
+      type: "GET",
+      crossDomain: true,
+      contentType: "application/json"
+    }).done(function (stats) {
+      console.log("stats");
+      console.log(stats.message);
+      reports.getTransactions(stats);
+    })
+  },
 
+  getTransactions: function (stats) {
+console.log("getTransaction stats");
+console.log(stats);
     if ($("#sales-chart").length) {
       var salesChartData = {
         datasets: [{
-          data: [30, 40, 50, 34, 50, 75, 55, 45, 68, 50, 53, 40],
-          backgroundColor: [
-            '#CFE795'
-          ]
+          data: [0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          backgroundColor: '#CFE795'
         }],
         labels: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
       };
       var salesChartOptions = {
+        tooltips: {
+          enabled: false
+        },
         responsive: true,
         // cutoutPercentage: 70,
         legend: false,
@@ -103,7 +145,7 @@ var reports = {
       };
       var salesChartCanvas = $("#sales-chart").get(0).getContext("2d");
       var salesChart = new Chart(salesChartCanvas, {
-        type: 'line',
+        type: 'bar',
         data: salesChartData,
         options: salesChartOptions
       });
