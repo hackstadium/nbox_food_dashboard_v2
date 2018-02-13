@@ -108,17 +108,20 @@ var reports = {
     }).done(function (stats) {
       console.log("stats");
       console.log(stats.message);
-      reports.getTransactions(stats);
+      var februaryTransaction = stats.message.monthlyrevenue[0];
+      console.log("february value");
+      console.log(februaryTransaction);
+      reports.getTransactions(februaryTransaction);
     })
   },
 
-  getTransactions: function (stats) {
+  getTransactions: function (februaryTransaction) {
 console.log("getTransaction stats");
-console.log(stats);
+console.log(februaryTransaction);
     if ($("#sales-chart").length) {
       var salesChartData = {
         datasets: [{
-          data: [0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          data: [0, februaryTransaction, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           backgroundColor: '#CFE795'
         }],
         labels: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
