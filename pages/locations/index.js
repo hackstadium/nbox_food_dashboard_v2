@@ -11,11 +11,16 @@ var createLocation = {
 
   timePicker:function(){
     console.log("time called");
-    $(document).ready(function(){
+    // $(document).ready(function(){
       $('#timepicker').mdtimepicker({
         theme: 'green'
       });
-    });
+
+  //     $("#timepicker").click(function(){
+  //     alert("The paragraph was clicked.");
+  // });
+
+    // });
 
   },
 

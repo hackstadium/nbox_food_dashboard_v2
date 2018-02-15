@@ -5,13 +5,13 @@ var reports = {
   init: function () {
     console.log("Reports Page is ready");
     $("#preloaderNav").hide();
-  //  reports.getTransactions();
+    //  reports.getTransactions();
     reports.getPartnerCount();
     reports.getCategoryCount();
     reports.getBundleCount();
     reports.getMonthlyStats();
     reports.getLocationTransaction();
-    //  reports.getLocationCount();
+    reports.getLocationCount();
   },
 
   getLocationTransaction:function(){
@@ -24,7 +24,7 @@ var reports = {
       console.log("Locations Count");
       console.log(locations.message.length);
       var locationsCount = locations.message.length;
-    //  $("#partnerCount").html(partnerCount);
+      //  $("#partnerCount").html(partnerCount);
 
       for (var i = 0; i < locationsCount; i++) {
 
@@ -96,6 +96,7 @@ var reports = {
     }).done(function (locations) {
       console.log("Location Length");
       console.log(locations);
+      $("#locationCount").html(locations.message.length);
     })
   },
 
@@ -116,8 +117,8 @@ var reports = {
   },
 
   getTransactions: function (februaryTransaction) {
-console.log("getTransaction stats");
-console.log(februaryTransaction);
+    console.log("getTransaction stats");
+    console.log(februaryTransaction);
     if ($("#sales-chart").length) {
       var salesChartData = {
         datasets: [{
@@ -172,6 +173,7 @@ console.log(februaryTransaction);
       for (var i = 0; i < reports.message.TotalpartnerTransactionRevenue.length; i++) {
 
         $("#reportPartners").append("<tr>"
+        + "<td class='table_cell_link pointer' onclick='reports.openModalPartnerTransactionDetails(\"" + reports.message.TotalpartnerTransactionRevenue[i]._id + "\")'>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
         + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
         + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].totalPartnerTransactionsCount + "</td>"
         + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].totalTransactions.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
@@ -211,6 +213,11 @@ console.log(februaryTransaction);
       }) );
 
     });
+  },
+
+  openModalPartnerTransactionDetails:function(partnerID){
+    console.log(" modal Partner ID");
+    console.log(partnerID);
   }
 
 }
