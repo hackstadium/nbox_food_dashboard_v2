@@ -198,8 +198,10 @@ var addBundleMenu = {
             menu: {name: name, partner_id: partnerID, options: options, price: priceMenu},
             bundle_id: bundleID
         };
-        console.log("adding menu to bundle")
-
+        console.log("adding menu to bundle");
+        document.getElementById("addBundleMenu").disabled = true;
+        document.getElementById("addBundleMenu").style.backgroundColor = "black";
+//debugger;
         $.ajax({
             url: addBundleMenu.BASE_URL + "menu/create",
             type: "POST",
@@ -208,6 +210,8 @@ var addBundleMenu = {
             contentType: "application/json"
         }).done(function (menus) {
             $("#preloaderNav").hide();
+            document.getElementById("addBundleMenu").disabled = false;
+            document.getElementById("addBundleMenu").style.backgroundColor = "#86B77E";
 
             console.log(menus);
             toastr.success("A menu was added to the bundle successfully");

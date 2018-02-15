@@ -75,8 +75,17 @@ var city = {
 
     },
 
+    disableButton:function(buttonID){
+    //  debugger;
+      var button = document.getElementById(buttonID);
+      button.disabled = true;
+      button.style.backgroundColor = "black";
+      //  button.style.backgroundColor = "black";
+    },
+
     createCity: function () {
         $("#preloaderNav").show();
+        city.disableButton("addCity");
 
         var cityName = $("#regionCity").val();
         var stateID = $("#selectState").find(":selected").data("id");
@@ -91,12 +100,16 @@ var city = {
             contentType: "application/json"
         }).done(function (city) {
             $("#preloaderNav").hide();
+          //  $("#addState").attr("disabled", "false");
+            document.getElementById("addCity").disabled = false;
+            document.getElementById("addCity").style.backgroundColor = "#86B77E";
 
             console.log(city);
             if (city.error_code === 1) {
                 toastr.error(city.message);
             } else {
                 toastr.success(city.message);
+                window.location.href = "../../pages/regions/regions.html";
             }
         });
 

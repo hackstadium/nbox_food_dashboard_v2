@@ -155,7 +155,8 @@ $(function () {
         if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && fileName !== "") {
 
             $("#preloaderNav").show();
-
+            document.getElementById("addScreensaver").disabled = true;
+            document.getElementById("addScreensaver").style.backgroundColor = "black";
 
             var city_id = $("#screensaverSelectCity").find(":selected").data("id");
 
@@ -176,6 +177,8 @@ $(function () {
                 success: function (data) {
                     console.log(data);
                     $("#preloaderNav").hide();
+                    document.getElementById("addScreensaver").disabled = false;
+                    document.getElementById("addScreensaver").style.backgroundColor = "#86B77E";
 
                     if (data.error_code === 0) {
                         toastr.success(data.message);

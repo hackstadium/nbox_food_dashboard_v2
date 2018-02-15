@@ -220,7 +220,9 @@ $(function () {
             console.log("All Data is correct");
 
             $("#preloaderNav").show();
-
+            document.getElementById("addCategoryPartner").disabled = true;
+            document.getElementById("addCategoryPartner").style.backgroundColor = "black";
+//debugger;
             $.ajax({
                 url: BASE_URL + "category/add/partner",
                 type: "POST",
@@ -229,6 +231,8 @@ $(function () {
                 contentType: "application/json"
             }).done(function (message) {
                 $("#preloaderNav").hide();
+                document.getElementById("addCategoryPartner").disabled = false;
+                document.getElementById("addCategoryPartner").style.backgroundColor = "#86B77E";
 
                 console.log(message);
                 if (message.error_code === 1) {

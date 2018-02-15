@@ -13,7 +13,7 @@ var createLocation = {
     console.log("time called");
     $(document).ready(function(){
       $('#timepicker').mdtimepicker({
-        theme: 'teal'
+        theme: 'green'
       });
     });
 
@@ -117,15 +117,17 @@ var createLocation = {
 
   },
 
-  addLocation: function (name, cityID, address) {
+  addLocation: function (name, cityID, address,cutoff) {
     console.log("adding location");
     console.log(name);
     console.log(cityID);
     console.log(address);
     $("#preloaderNav").show();
+    document.getElementById("addLocation").disabled = true;
+    document.getElementById("addLocation").style.backgroundColor = "black";
 
-
-    var locationData = {location: name, city_id: cityID, address: address};
+//debugger;
+    var locationData = {location: name, city_id: cityID, address: address, cut_off_time:cutoff};
 
     $.ajax({
       url: createLocation.BASE_URL + "location/create",
@@ -135,6 +137,8 @@ var createLocation = {
       contentType: "application/json"
     }).done(function (location) {
       $("#preloaderNav").hide();
+      document.getElementById("addLocation").disabled = false;
+      document.getElementById("addLocation").style.backgroundColor = "#86B77E";
 
       console.log(location);
       if (location.error_code === 1) {
@@ -153,7 +157,13 @@ var createLocation = {
     var countryID = $("#locationSelectCountry").find(":selected").data("id");
     var stateID = $("#locationSelectState").find(":selected").data("id");
     var cityID = $("#locationSelectCity").find(":selected").data("id");
+    var cutoff = $("#timepicker").val();
 
+    if(cutoff === ""){
+      $("#timepicker").addClass("error_input");
+    }else{
+      $("#timepicker").removeClass("error_input");
+    }
     //if ()
 
     if (name === "") {
@@ -186,9 +196,9 @@ var createLocation = {
       $("#locationSelectCityContainer").removeClass("error_input");
     }
 
-    if (name !== "" && address !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
+    if (name !== "" && address !== "" && cutoff !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
       console.log("All Data is correct");
-      createLocation.addLocation(name, cityID, address);
+      createLocation.addLocation(name, cityID, address, cutoff);
     } else {
       toastr.warning("Invalid Input values");
     }

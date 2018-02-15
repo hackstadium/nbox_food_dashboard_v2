@@ -427,7 +427,7 @@ var createBundle = {
                 window.location.href = "../../pages/bundles/addbundlemenu.html"
 
             }, function () {
-                window.location.href = "../../pages/bundles/index.html"
+                window.location.href = "../../pages/bundles/bundles.html"
 
 
             }
@@ -665,5 +665,3 @@ var createBundle = {
 }
 
 createBundle.init();
-
-

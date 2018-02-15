@@ -45,8 +45,17 @@ var state = {
         });
     },
 
+    disableButton:function(buttonID){
+    //  debugger;
+      var button = document.getElementById(buttonID);
+      button.disabled = true;
+      button.style.backgroundColor = "black";
+      //  button.style.backgroundColor = "black";
+    },
+
     createState: function () {
         $("#preloaderNav").show();
+        state.disableButton("addState");
 
         var stateName = $("#regionState").val();
         var countryID = $("#selectCountry").find(":selected").data("id");
@@ -64,6 +73,9 @@ var state = {
             contentType: "application/json"
         }).done(function (state) {
             $("#preloaderNav").hide();
+          //  $("#addState").attr("disabled", "false");
+            document.getElementById("addState").disabled = false;
+            document.getElementById("addState").style.backgroundColor = "#86B77E";
 
             console.log(state);
 
@@ -71,6 +83,27 @@ var state = {
                 toastr.error(state.message);
             } else {
                 toastr.success(state.message);
+
+                //ADD CITY DIALOG
+                console.log("addMoreMenuDialog : More menus called");
+
+                var screensaverDeleteModalTemplate = "<div>"
+                + "<h6 style='margin-bottom: 32px'>Do you want to add a city to " + stateName + " ?</h6>"
+                + "</div>";
+
+
+                alertify.confirm(" ", screensaverDeleteModalTemplate,
+                function () {
+
+                  window.location.href = "../../pages/regions/addcity.html"
+
+                }, function () {
+                //  window.location.href = "../../pages/bundles/index.html"
+
+
+                }
+              ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
+
             }
         });
     },

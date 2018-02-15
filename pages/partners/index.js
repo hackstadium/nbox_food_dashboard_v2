@@ -198,6 +198,10 @@ $(function () {
     });
 
     function addPartners(name, address, email, phone, cityID, commission) {
+
+      document.getElementById("addPartner").disabled = true;
+      document.getElementById("addPartner").style.backgroundColor = "black";
+//debugger;
         var partnerData = {
             name: name,
             address: address,
@@ -215,6 +219,9 @@ $(function () {
             contentType: "application/json"
         }).done(function (partners) {
             $("#preloaderNav").hide();
+            document.getElementById("addPartner").disabled = false;
+            document.getElementById("addPartner").style.backgroundColor = "#86B77E";
+
             if (partners.error_code === 1) {
                 toastr.error(partners.message);
             } else {

@@ -155,6 +155,8 @@ $(function () {
         if (category !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
             console.log("All Data is correct");
             $("#preloaderNav").show();
+            document.getElementById("addCategory").disabled = true;
+            document.getElementById("addCategory").style.backgroundColor = "black";
 
 
             $.ajax({
@@ -165,6 +167,8 @@ $(function () {
                 contentType: "application/json"
             }).done(function (categories) {
                 $("#preloaderNav").hide();
+                document.getElementById("addCategory").disabled = false;
+                document.getElementById("addCategory").style.backgroundColor = "#86B77E";
 
                 console.log(categories);
 
