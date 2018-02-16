@@ -17,11 +17,13 @@ var locations = {
     //   max_hour_value:23,
     //
     // });
-    $( document ).ready(function() {
-        console.log( "ready!" );
-        $("#modalLocationCutOffTime").timepicker();
 
-    });
+    // USING VALUES IN PM
+  //  $( document ).ready(function() {
+    //    console.log( "ready!" );
+      //  $("#modalLocationCutOffTime").timepicker();
+        $("#modalLocationCutOffTime").timepicki();
+    //});
 
   //  $("#")
   },

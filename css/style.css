@@ -18485,11 +18485,41 @@ canvas #sales-chart {
 }
 
 
-.meridian{
+/* .meridian{
   display:none;
-}
+} */
 
 
 .timepicker .title{
   display:none;
+}
+
+.timepicker_wrap{
+width: 210px;
+}
+
+.time{
+  margin: 0px;
+}
+
+.mins{
+  margin: 0px;
+}
+
+.meridian{
+  margin: 0px;
+}
+
+
+.prev{
+  /* background-image: url('../images/top_arr.png'); */
+  background-image: url(../images/arrow_up.png);
+  padding-top: 8px;
+  border: none;
+}
+
+.next{
+  background-image: url(../images/arrow_down.png);
+  padding-top: 8px;
+  border: none;
 }
