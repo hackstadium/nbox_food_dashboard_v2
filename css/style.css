@@ -18483,3 +18483,13 @@ canvas #sales-chart {
 .btn-group-custom-btn :hover{
     /*background-color: red !important;*/
 }
+
+
+.meridian{
+  display:none;
+}
+
+
+.timepicker .title{
+  display:none;
+}

@@ -12,20 +12,18 @@ var locations = {
 
   updateTimepicker:function(){
     console.log("update Time picker");
-    $("#modalLocationCutOffTime").timepicki({
-      show_meridian:false,
-      max_hour_value:8
+    // $("#modalLocationCutOffTime").timepicki({
+    //   min_hour_value:0,
+    //   max_hour_value:23,
+    //
+    // });
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        $("#modalLocationCutOffTime").timepicker();
+
     });
 
-    //  $("#modalLocationCutOffTime")
-
-    //     $("#modalLocationCutOffTime").click(function(){
-    //     alert("The paragraph was clicked.");
-    // });
-
-    // $('#modalLocationCutOffTime').mdtimepicker({
-    //   theme: 'green'
-    // });
+  //  $("#")
   },
 
   checkLogin: function () {
@@ -84,7 +82,7 @@ var locations = {
     var LocationEditDetaillsTemplate = "<div>"
     + "<div class='verticalInput'><strong>Location :  </strong><input id='modalLocationName' type='text' value='" + location + "'></div>"
     + "<div class='verticalInput'><strong>Address :  </strong><input id='modalLocationAddress' type='text' value='" + address + "'></div>"
-    + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' value='" + cutOffTime + "' disabled></div>"
+    + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' value='" + cutOffTime + "' readonly></div>"
     + "</div>";
 
 
@@ -205,3 +203,11 @@ validateInput: function (locationID) {
 }
 
 locations.init();
+
+
+//JQUERY
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $("#modalLocationCutOffTime").timepicker();
+
+});
