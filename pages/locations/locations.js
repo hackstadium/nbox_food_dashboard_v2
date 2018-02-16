@@ -13,8 +13,8 @@ var locations = {
   updateTimepicker:function(){
     console.log("update Time picker");
     $("#modalLocationCutOffTime").timepicki({
-      min_hour_value:0,
-      max_hour_value:23,
+      show_meridian:false,
+      max_hour_value:8
     });
 
     //  $("#modalLocationCutOffTime")
