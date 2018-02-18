@@ -216,6 +216,8 @@ var reports = {
   },
 
   openModalPartnerTransactionDetails:function(partnerID){
+    $("#preloaderNav").show();
+
     console.log(" modal Partner ID");
     console.log(partnerID);
     $.ajax({
@@ -254,8 +256,11 @@ var reports = {
         alertify.alert('Transaction Details', partnerTransactionTemplate).set({transition: 'zoom', label: ' OK '}).show();
 
         for (var i = 0; i < transactions.message.order_details.length; i++) {
+
+console.log(transactions.message.order_details[i].order_created_at);
+
           $("#partnerTransactionTable").append("<tr>"
-          + "<td>" + transactions.message.order_details[i].order_created_at + "</td>"
+          + "<td>" + moment(transactions.message.order_details[i].order_created_at, 'YYYY-MM-DD hh:mm:ss').format('lll')  + "</td>"
           + "<td>" + transactions.message.order_details[i].menu_name + "</td>"
           + "<td>" + transactions.message.order_details[i].order_location + "</td>"
           + "<td>" + transactions.message.order_details[i].order_city + "</td>"
