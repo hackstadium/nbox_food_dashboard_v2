@@ -7,7 +7,7 @@ var locations = {
     toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
     locations.checkLogin();
     //  locations.updateTimepicker();
-
+    locations.IsTimerClicked = false;
   },
 
   updateTimepicker:function(){
@@ -19,13 +19,22 @@ var locations = {
     // });
 
     // USING VALUES IN PM
-  //  $( document ).ready(function() {
+    //  $( document ).ready(function() {
     //    console.log( "ready!" );
-      //  $("#modalLocationCutOffTime").timepicker();
-        $("#modalLocationCutOffTime").timepicki();
+    //  $("#modalLocationCutOffTime").timepicker();
+    executed = locations.IsTimerClicked;
+    //  return function() {
+    if (!executed) {
+      executed = true;
+      // do something
+    //  debugger
+      console.log("logging for true");
+    }
+    //}
+    $("#modalLocationCutOffTime").timepicki();
     //});
 
-  //  $("#")
+    //  $("#")
   },
 
   checkLogin: function () {
@@ -208,8 +217,8 @@ locations.init();
 
 
 //JQUERY
-$( document ).ready(function() {
-    console.log( "ready!" );
-    $("#modalLocationCutOffTime").timepicker();
-
-});
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+//     $("#modalLocationCutOffTime").timepicker();
+//
+// });

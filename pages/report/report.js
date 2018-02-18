@@ -173,7 +173,7 @@ var reports = {
       for (var i = 0; i < reports.message.TotalpartnerTransactionRevenue.length; i++) {
 
         $("#reportPartners").append("<tr>"
-        + "<td class='table_cell_link pointer' onclick='reports.openModalPartnerTransactionDetails(\"" + reports.message.TotalpartnerTransactionRevenue[i]._id + "\")'>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
+        + "<td class='table_cell_link pointer' onclick='reports.openModalPartnerTransactionDetails(\"" + reports.message.TotalpartnerTransactionRevenue[i].partner_id + "\")'>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
         + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
         + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].totalPartnerTransactionsCount + "</td>"
         + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].totalTransactions.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
@@ -218,9 +218,54 @@ var reports = {
   openModalPartnerTransactionDetails:function(partnerID){
     console.log(" modal Partner ID");
     console.log(partnerID);
+    $.ajax({
+      url: reports.BASE_URL + "orders/partners/transactions?partner_id=" + partnerID,
+      //  url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
+      type: "GET",
+      crossDomain: true,
+      contentType: "application/json"
+    }).done(function (transactions) {
+      console.log("Transactions");
+      console.log(transactions.message.order_details);
+
+      ///////
+
+      $("#preloaderNav").hide();
+
+      console.log(transactions);
+      console.log("transaction length");
+      console.log(transactions.message.order_details.length);
+
+        $("#partnerTransactionTable").html("");
+        var partnerTransactionTemplate = "<div>"
+        +"<div><strong>Menus</strong><table class='table table-striped'>" +
+        "<thead>" +
+        "<tr>" +
+        "<th>Time</th>" +
+        "<th>Menu</th>" +
+        "<th>Location</th>" +
+        "<th>City</th>" +
+        "</tr>" +
+        "</thead>" +
+        "<tbody id='partnerTransactionTable'>" +
+        "</tbody>" +
+        "</table></div></div>";
+
+        alertify.alert('Transaction Details', partnerTransactionTemplate).set({transition: 'zoom', label: ' OK '}).show();
+
+        for (var i = 0; i < transactions.message.order_details.length; i++) {
+          $("#partnerTransactionTable").append("<tr>"
+          + "<td>" + transactions.message.order_details[i].order_created_at + "</td>"
+          + "<td>" + transactions.message.order_details[i].menu_name + "</td>"
+          + "<td>" + transactions.message.order_details[i].order_location + "</td>"
+          + "<td>" + transactions.message.order_details[i].order_city + "</td>"
+          + "</tr>")}
+
+      })
+
+    }
+
   }
 
-}
 
-
-reports.init();
+  reports.init();
