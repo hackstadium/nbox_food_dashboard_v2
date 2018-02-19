@@ -254,51 +254,65 @@
 
             <div id="wizard">
               <h1>Create a bundle</h1>
-              <section>
+              <section class="dual-form">
                 <div>
-                  <input id="bundleInputName" type="text" placeholder="Enter Bundle Name"
-                  class="input-form">
-                </div>
-                <div class="form-group">
-                  <div id="selectCountryContainer" class="styled-select">
-                    <select id="selectCountry">
-                      <option>Select a country</option>
-                    </select>
+                  <form class="bundle-form" method="post"
+                  action="http://staging.nairabox.com/foodhub/screensaver/create"
+                  id="fileUpload" enctype="multipart/form-data">
+                  <div>
+                    <input id="bundleInputName" type="text" placeholder="Enter Bundle Name"
+                    class="input-form">
                   </div>
-                </div>
-                <div class="form-group">
-                  <div id="selectStateContainer" class="styled-select">
-                    <select id="selectState">
-                      <option>Select a state</option>
-                    </select>
+                  <div class="form-group">
+                    <div id="selectCountryContainer" class="styled-select">
+                      <select id="selectCountry">
+                        <option>Select a country</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <div id="selectCityContainer" class="styled-select">
-                    <select id="selectCity">
-                      <option>Select a city</option>
-                    </select>
+                  <div class="form-group">
+                    <div id="selectStateContainer" class="styled-select">
+                      <select id="selectState">
+                        <option>Select a state</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
+                  <div class="form-group">
+                    <div id="selectCityContainer" class="styled-select">
+                      <select id="selectCity">
+                        <option>Select a city</option>
+                      </select>
+                    </div>
+                  </div>
 
-                <div class="form-group">
-                  <div id="selectCategoryContainer" class="styled-select">
-                    <select id="bundlesSelectCategory">
-                      <option>Select a category</option>
-                    </select>
+                  <div class="form-group">
+                    <div id="selectCategoryContainer" class="styled-select">
+                      <select id="bundlesSelectCategory">
+                        <option>Select a category</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
 
-                <div>
-                  <input id="bundleInputPrice" type="text" placeholder="Bundle Price"
-                  class="input-form">
-                </div>
-                <div>
-                  <textarea rows="4" id="bundleInputDescription" type="text"
-                  placeholder="Description"
-                  class="input-form"></textarea>
-                </div>
+                  <div>
+                    <input id="bundleInputPrice" type="text" placeholder="Bundle Price"
+                    class="input-form">
+                  </div>
+                  <div>
+                    <textarea rows="4" id="bundleInputDescription" type="text"
+                    placeholder="Description"
+                    class="input-form"></textarea>
+                  </div>
 
+                  <div class="form-group">
+                    <input id="qqfile" name="image" type='file' onchange="readBundlesURL(this);"/>
+                  </div>
+
+                </div>
+                <div class="form-image-preview">
+                  <p>Image Preview</p>
+                  <div id="demo-1-container" class="jpreview-container"></div>
+                  <img class="screensaver-image-preview" id="blah" src="http://placehold.it/180" alt="your image"/>
+                </div>
               </section>
 
               <h1>Add menu to the bundle</h1>
@@ -349,15 +363,15 @@
               <input id="inputMenuPrice" type="text" placeholder="Enter Menu Price"
               class="input-form">
             </div>
-
             <div id="moreOptions"></div>
 
-          </section>
-        </div>
-
+          </form>
+        </section>
       </div>
+
     </div>
   </div>
+</div>
 </div>
 </div>
 
@@ -395,6 +409,25 @@
 <!--MAIN JS-->
 <script src="../../js/logout.js"></script>
 <script src="index.js"></script>
+<script>
+
+$('input[type="file"]').prettyFile();
+$('.file').jPreview();
+</script>
+<script>
+function readBundlesURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#blah')
+      .attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
 </body>
 
 </html>
