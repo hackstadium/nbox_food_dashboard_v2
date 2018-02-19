@@ -25,7 +25,7 @@ var screensavers = {
             for (var i = 0; i < screensavers.message.length; i++) {
 
                 $("#screensaversTable").append("<tr>"
-                    + "<td><img src='" + screensavers.message[i].image + "' style='width: 100px;margin-left: 32px'></td>"
+                    + "<td><img src='" + screensavers.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
                     + "<td><img>" + screensavers.message[i].name + "</td>"
                     + "<td>" + screensavers.message[i].status + "</td>"
                     + "<td class='btn_table_container'><button class='btn_table' onclick='screensavers.editScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i><button class='btn_table' onclick='screensavers.activateScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\",\"" + screensavers.message[i].status + "\",\"" + screensavers.message[i].image + "\")'><i class='icon_green fa fa-power-off' aria-hidden='true'></i></button><button class='btn_table' onclick='screensavers.deleteScreensaver(\"" + screensavers.message[i]._id + "\", \"" + screensavers.message[i].name + "\", \"" + screensavers.message[i].image + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
