@@ -72,7 +72,7 @@ var locations = {
         $("#locationsTable").append("<tr>"
         + "<td>" + locations.message[i].location + "</td>"
         + "<td>" + locations.message[i].address + "</td>"
-        + "<td>" + locations.message[i].cut_off_time + "</td>"
+        // + "<td>" + locations.message[i].cut_off_time + "</td>"
         + "<td>" + locations.message[i].alias_id + "</td>"
         + "<td>" + locations.message[i].country + "</td>"
         + "<td>" + locations.message[i].state + "</td>"
@@ -84,7 +84,7 @@ var locations = {
     });
   },
 
-  openEditLocationsDetailsModal: function (locationID, location, address, aliasID, cutOffTime) {
+  openEditLocationsDetailsModal: function (locationID, location, address, aliasID) {
     console.log("Edit Modal");
     console.log(locationID);
     console.log(address);
@@ -93,7 +93,7 @@ var locations = {
     var LocationEditDetaillsTemplate = "<div>"
     + "<div class='verticalInput'><strong>Location :  </strong><input id='modalLocationName' type='text' value='" + location + "'></div>"
     + "<div class='verticalInput'><strong>Address :  </strong><input id='modalLocationAddress' type='text' value='" + address + "'></div>"
-    + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' value='" + cutOffTime + "' readonly></div>"
+  //  + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' value='" + cutOffTime + "' readonly></div>"
     + "</div>";
 
 

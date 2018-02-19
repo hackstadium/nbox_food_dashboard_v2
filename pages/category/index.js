@@ -119,9 +119,16 @@ $(function () {
 
 
         var category = $("#categoryName").val();
+        var description = $("#categoryDescription").val();
         var countryID = $("#categorySelectCountry").find(":selected").data("id");
         var stateID = $("#categorySelectState").find(":selected").data("id");
         var cityID = $("#categorySelectCity").find(":selected").data("id");
+
+        if (description === "") {
+            $("#categoryDescription").addClass("error_input");
+        } else {
+            $("#categoryDescription").removeClass("error_input");
+        }
 
         if (category === "") {
             $("#categoryName").addClass("error_input");
@@ -129,13 +136,11 @@ $(function () {
             $("#categoryName").removeClass("error_input");
         }
 
-
         if (countryID === undefined) {
             $("#categorySelectCountryContainer").addClass("error_input");
         } else {
             $("#categorySelectCountryContainer").removeClass("error_input");
         }
-
 
         if (stateID === undefined) {
             $("#categorySelectStateContainer").addClass("error_input");
@@ -150,9 +155,9 @@ $(function () {
             $("#categorySelectCityContainer").removeClass("error_input");
         }
 
-        var categoryData = {category: category, city_id: cityID}
+        var categoryData = {category: category, city_id: cityID, description:description}
 
-        if (category !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
+        if (category !== "" && description !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
             console.log("All Data is correct");
             $("#preloaderNav").show();
             document.getElementById("addCategory").disabled = true;

@@ -148,7 +148,7 @@ var screensavers = {
         var screensaverDeleteModalTemplate = "<div>"
             + "<h6 style='margin-bottom: 32px'>Are you sure you want to delete this ?</h6>"
             + "<div style='display: flex; align-items: center'>"
-            + "<img style='width: 100px' src='" + image + "'> "
+            + "<img style='width: 70px' src='" + image + "'> "
             + "<div class='file_name'>"
             + "<h6>Screensaver Title </h6>"
             + "<p>" + name + "</p>"
