@@ -12,29 +12,14 @@ var locations = {
 
   updateTimepicker:function(){
     console.log("update Time picker");
-    // $("#modalLocationCutOffTime").timepicki({
-    //   min_hour_value:0,
-    //   max_hour_value:23,
-    //
-    // });
 
-    // USING VALUES IN PM
-    //  $( document ).ready(function() {
-    //    console.log( "ready!" );
-    //  $("#modalLocationCutOffTime").timepicker();
     executed = locations.IsTimerClicked;
-    //  return function() {
     if (!executed) {
       executed = true;
-      // do something
-    //  debugger
       console.log("logging for true");
     }
-    //}
-    $("#modalLocationCutOffTime").timepicki();
-    //});
+    $("#modalLocationCutOffTime").wickedpicker();
 
-    //  $("#")
   },
 
   checkLogin: function () {
@@ -84,7 +69,7 @@ var locations = {
     });
   },
 
-  openEditLocationsDetailsModal: function (locationID, location, address, aliasID) {
+  openEditLocationsDetailsModal: function (locationID, location, address, aliasID,cutOffTime) {
     console.log("Edit Modal");
     console.log(locationID);
     console.log(address);
@@ -93,7 +78,7 @@ var locations = {
     var LocationEditDetaillsTemplate = "<div>"
     + "<div class='verticalInput'><strong>Location :  </strong><input id='modalLocationName' type='text' value='" + location + "'></div>"
     + "<div class='verticalInput'><strong>Address :  </strong><input id='modalLocationAddress' type='text' value='" + address + "'></div>"
-  //  + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' value='" + cutOffTime + "' readonly></div>"
+    + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' name='timepicker' class='timepicker' value='" + cutOffTime + "' readonly></div>"
     + "</div>";
 
 
