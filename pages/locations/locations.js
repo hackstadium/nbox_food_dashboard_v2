@@ -78,7 +78,8 @@ var locations = {
     var LocationEditDetaillsTemplate = "<div>"
     + "<div class='verticalInput'><strong>Location :  </strong><input id='modalLocationName' type='text' value='" + location + "'></div>"
     + "<div class='verticalInput'><strong>Address :  </strong><input id='modalLocationAddress' type='text' value='" + address + "'></div>"
-    + "<div class='verticalInput' onclick='locations.updateTimepicker()'><strong>Cut-Off Time :  </strong><input id='modalLocationCutOffTime' type='text' name='timepicker' class='timepicker' value='" + cutOffTime + "' readonly></div>"
+    + "<strong>Cut-Off Timer</strong>"
+    + "<div class='verticalInput' onclick='locations.updateTimepicker()'><p>Cut-Off Time :  </p><input id='modalLocationCutOffTime' type='text' name='timepicker' class='timepicker' value='" + cutOffTime + "' readonly></div>"
     + "</div>";
 
 
