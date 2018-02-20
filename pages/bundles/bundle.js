@@ -38,11 +38,12 @@ var bundles = {
 
                 console.log("Listing Menu");
                 console.log(allBundles.message[i].menu);
-                console.log(allBundles.message[i].menu[0].name);
+              //  console.log(allBundles.message[i].menu[0].name);
                 bundles.allMenu = allBundles.message;
 
 
                 $("#bundlesTable").append("<tr>"
+                + "<td><img src='" + allBundles.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
                     + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i]._id + "\",\"" + allBundles.message[i].name + "\",\"" + allBundles.message[i].category_name + "\",\"" + allBundles.message[i].description + "\", \"" + allBundles.message[i].price + "\", \"" + i + "\")'>" + allBundles.message[i].name + "</td>"
                     + "<td>" + allBundles.message[i].category_name + "</td>"
                     + "<td>" + allBundles.message[i].description + "</td>"
