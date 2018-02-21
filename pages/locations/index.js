@@ -13,7 +13,7 @@ var createLocation = {
     console.log("time called");
     // $(document).ready(function(){
       $('#timepicker').mdtimepicker({
-        hourPadding: true ,
+        hourPadding: false ,
         theme: 'green'
       });
 

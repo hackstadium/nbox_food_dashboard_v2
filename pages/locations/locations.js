@@ -57,7 +57,7 @@ var locations = {
         $("#locationsTable").append("<tr>"
         + "<td>" + locations.message[i].location + "</td>"
         + "<td>" + locations.message[i].address + "</td>"
-        // + "<td>" + locations.message[i].cut_off_time + "</td>"
+       + "<td>" + locations.message[i].cut_off_time + "</td>"
         + "<td>" + locations.message[i].alias_id + "</td>"
         + "<td>" + locations.message[i].country + "</td>"
         + "<td>" + locations.message[i].state + "</td>"
@@ -99,6 +99,7 @@ updateLocation: function (locationID) {
 
   var location = $("#modalLocationName").val();
   var address = $("#modalLocationAddress").val();
+  var cutoff = $("#modalLocationCutOffTime").val();
 
 
   console.log("Updating Location info");
@@ -106,7 +107,7 @@ updateLocation: function (locationID) {
   console.log(address);
   console.log(locationID);
 
-  var updateLocationData = {location_id: locationID, location: location, address: address};
+  var updateLocationData = {location_id: locationID, location: location, address: address, cut_off_time:cutoff};
 
   $.ajax({
     url: locations.BASE_URL + "location/update",
@@ -173,6 +174,8 @@ validateInput: function (locationID) {
 
   var location = $("#modalLocationName").val();
   var address = $("#modalLocationAddress").val();
+  var cutoff = $("#modalLocationCutOffTime").val();
+
 
   if (location === "") {
     $("#modalLocationName").addClass("error_input");
@@ -186,7 +189,13 @@ validateInput: function (locationID) {
     $("#modalLocationAddress").removeClass("error_input");
   }
 
-  if (location !== "" && address !== "") {
+  if (cutoff === "") {
+    $("#modalLocationCutOffTime").addClass("error_input");
+  } else {
+    $("#modalLocationCutOffTime").removeClass("error_input");
+  }
+
+  if (location !== "" && address !== "" && cutoff !== "") {
     console.log("All Data Correct");
     locations.updateLocation(locationID);
     locations.getAllLocations();
