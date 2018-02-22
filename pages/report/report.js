@@ -176,8 +176,9 @@ var reports = {
         + "<td class='table_cell_link pointer' onclick='reports.openModalPartnerTransactionDetails(\"" + reports.message.TotalpartnerTransactionRevenue[i].partner_id + "\")'>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
       //  + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
         + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].totalPartnerTransactionsCount + "</td>"
-        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].totalTransactions.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].totalBundleTransactions.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
         + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].TotalPercentageRevenue.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].actuallBundleRevenue.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
         + "</tr>");
       }
 
