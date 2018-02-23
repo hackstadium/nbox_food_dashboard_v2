@@ -189,7 +189,7 @@ var reports = {
       var totalTransactions = 0;
       for (var i = 0; i < transactionLength; i++) {
         console.log("length");
-        totalTransactions += transaction[i].totalTransactions;
+        totalTransactions += transaction[i].totalBundleTransactions;
         //    transactionLength[i];
       }
       console.log("Total Transactions");
@@ -203,7 +203,7 @@ var reports = {
       //GET TOTAL REVENUES
       var totalRevenue = 0;
       for (var i = 0; i < transactionLength; i++) {
-        totalRevenue += parseFloat(transaction[i].TotalPercentageRevenue);
+        totalRevenue += parseFloat(transaction[i].actuallBundleRevenue);
       }
 
       console.log("Total Revenue");
