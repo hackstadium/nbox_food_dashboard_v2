@@ -158,36 +158,88 @@ $(function () {
         var categoryData = {category: category, city_id: cityID, description:description}
 
         if (category !== "" && description !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined) {
+        //     console.log("All Data is correct");
+        //     $("#preloaderNav").show();
+        //     document.getElementById("addCategory").disabled = true;
+        //     document.getElementById("addCategory").style.backgroundColor = "black";
+        //
+        //
+        //     $.ajax({
+        //         url: BASE_URL + "category/create",
+        //         type: "POST",
+        //         crossDomain: true,
+        //         data: JSON.stringify(categoryData),
+        //         contentType: "application/json"
+        //     }).done(function (categories) {
+        //         $("#preloaderNav").hide();
+        //         document.getElementById("addCategory").disabled = false;
+        //         document.getElementById("addCategory").style.backgroundColor = "#86B77E";
+        //
+        //         console.log(categories);
+        //
+        //         if (categories.error_code === 1) {
+        //             toastr.error(categories.message);
+        //         } else {
+        //             toastr.success(categories.message);
+        //             addPartnerToCategoryModal(category);
+        //         }
+        //     });
+        //
+        //
+        // } else {
+        //     toastr.warning("Invalid Input Values");
+
+
             console.log("All Data is correct");
             $("#preloaderNav").show();
             document.getElementById("addCategory").disabled = true;
             document.getElementById("addCategory").style.backgroundColor = "black";
 
 
-            $.ajax({
-                url: BASE_URL + "category/create",
-                type: "POST",
-                crossDomain: true,
-                data: JSON.stringify(categoryData),
-                contentType: "application/json"
-            }).done(function (categories) {
-                $("#preloaderNav").hide();
-                document.getElementById("addCategory").disabled = false;
-                document.getElementById("addCategory").style.backgroundColor = "#86B77E";
+        var fileSelect = document.getElementById('qqfile');
+        var file = fileSelect.files[0];
+        var fileName = $("#qqfile").val();
+      //  var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
 
-                console.log(categories);
+          var formData = new FormData();
 
-                if (categories.error_code === 1) {
-                    toastr.error(categories.message);
-                } else {
-                    toastr.success(categories.message);
-                    addPartnerToCategoryModal(category);
-                }
-            });
+          // Add the file to the request.
+          formData.append('image', file, file.name);
+          formData.append("category", category);
+          formData.append("city_id", cityID);
+        //  formData.append("category_id", categoryID);
+          formData.append("description", description);
+
+          debugger;
+
+          $.ajax({
+            url: 'http://staging.nairabox.com/foodhub/category/create',
+            data: formData,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            success: function (data) {
+              console.log(data);
+              $("#preloaderNav").hide();
+
+              if (data.error_code === 0) {
+                toastr.success(data.message);
+                    //   bundleID = data.bundle_id;
+                    //   createBundle.addMenuToBundle(name, partnerID, bundleID);
+                      // toastr.success("A new bundle was created successfully");
+                              document.getElementById("addCategory").disabled = false;
+                              document.getElementById("addCategory").style.backgroundColor = "#86B77E";
+              } else {
+                toastr.error(data.message);
+              }
+
+            }
+          });
 
 
-        } else {
-            toastr.warning("Invalid Input Values");
+
+
+
         }
 
     });
