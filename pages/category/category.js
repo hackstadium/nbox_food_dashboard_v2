@@ -44,6 +44,7 @@ var categories = {
         categories.allMenu = cat.message;
 
         $("#categoriesTable").append("<tr>"
+        + "<td><img src='" + cat.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
         + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\",\"" + cat.message[i]._id + "\")'>" + cat.message[i].category + "</td>"
         + "<td>" + cat.message[i].description + "</td>"
         + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\",\"" + cat.message[i].description + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
