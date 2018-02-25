@@ -342,7 +342,7 @@ var createBundle = {
   //     $("#preloaderNav").hide();
   //     console.log(bundles);
   //     var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
-  //     var name = $("#inputMenus").val();
+  //     var name = $("#menuName").val();
   //
   //     if (bundles.error_code === 0) {
   //       bundleID = bundles.bundle_id;
@@ -416,11 +416,13 @@ var createBundle = {
     }
 
     console.log(options);
-
+var menuName = $("#menuName").val();
+// console.log("menuName");
+// console.log(menuName);
     var priceMenu = $("#inputMenuPrice").val();
 
     var menuData = {
-      menu: {name: name, partner_id: partnerID, options: options, price: priceMenu},
+      menu: {name: menuName, partner_id: partnerID, options: options, price: priceMenu},
       bundle_id: bundleID
     };
     console.log("adding menu to bundle")
@@ -539,7 +541,7 @@ validateInput: function () {
   var priceMenu = $("#inputMenuPrice").val();
   var priceMenuisValid = createBundle.validateNumeric(priceMenu);
 
-  var inputMenus = $("#inputMenus").val();
+  var menuName = $("#menuName").val();
 
   if (!priceMenuisValid) {
     $("#inputMenuPrice").addClass("error_input");
@@ -595,10 +597,10 @@ validateInput: function () {
     $("#bundleInputDescription").removeClass("error_input");
   }
 
-  if (inputMenus === "") {
-    $("#inputMenus").addClass("error_input");
+  if (menuName === "") {
+    $("#menuName").addClass("error_input");
   } else {
-    $("#inputMenus").removeClass("error_input");
+    $("#menuName").removeClass("error_input");
   }
 
   if ($("#menuOption_0").val() === "") {
