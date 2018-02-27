@@ -176,9 +176,9 @@ var reports = {
         + "<td class='table_cell_link pointer' onclick='reports.openModalPartnerTransactionDetails(\"" + reports.message.TotalpartnerTransactionRevenue[i].partner_id + "\")'>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
       //  + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].partner_name + "</td>"
         + "<td>" + reports.message.TotalpartnerTransactionRevenue[i].totalPartnerTransactionsCount + "</td>"
-        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].totalBundleTransactions.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
-        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].TotalPercentageRevenue.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
-        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].actuallBundleRevenue.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" +parseInt(reports.message.TotalpartnerTransactionRevenue[i].TotalPartnerPercentageRevenue).toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + parseInt(reports.message.TotalpartnerTransactionRevenue[i].TotalPercentageRevenue).toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
+        // + "<td><span style='font-size:10px; margin-right:4px'>NGN</span>" + reports.message.TotalpartnerTransactionRevenue[i].actuallBundleRevenue.toLocaleString(undefined, {  minimumFractionDigits: 2,  maximumFractionDigits: 2}) + "</td>"
         + "</tr>");
       }
 
@@ -189,7 +189,7 @@ var reports = {
       var totalTransactions = 0;
       for (var i = 0; i < transactionLength; i++) {
         console.log("length");
-        totalTransactions += transaction[i].totalBundleTransactions;
+        totalTransactions += transaction[i].totalTransactions;
         //    transactionLength[i];
       }
       console.log("Total Transactions");
@@ -203,7 +203,7 @@ var reports = {
       //GET TOTAL REVENUES
       var totalRevenue = 0;
       for (var i = 0; i < transactionLength; i++) {
-        totalRevenue += parseFloat(transaction[i].actuallBundleRevenue);
+        totalRevenue += parseFloat(transaction[i].TotalPercentageRevenue);
       }
 
       console.log("Total Revenue");
