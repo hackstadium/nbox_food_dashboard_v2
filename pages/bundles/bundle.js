@@ -190,6 +190,7 @@ bundles.updateBundleMenu(bundleID,menuID,partnerID);
       + "<div class='verticalInput'><strong>Bundle Name :  </strong><input id='modalBundlesInputName' type='text' value='" + bundle.message.name + "'></div>"
       + "<div class='verticalInput'><strong>Description :  </strong><input id='modalBundlesInputDescription' type='text' value='" + bundle.message.description + "'></div>"
       + "<div class='verticalInput'><strong>Price :  </strong><input id='modalBundlesInputPrice' type='text' value='" + bundle.message.price + "'></div>"
+      + "<div class='verticalInput'><strong>New Image :  </strong><input id='qqfile' name='image' type='file' onchange='bundles.readBundlesMenuURL(this)'/></div>"
       + "</div>";
 
       alertify.confirm('Edit Bundle', bundleEditDetaillsTemplate,
@@ -206,45 +207,103 @@ bundles.updateBundleMenu(bundleID,menuID,partnerID);
   })
 },
 
+readBundlesMenuURL:function (input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#blah')
+      .attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+},
+
 updateBundle: function (bundleID) {
   $("#preloaderNav").show();
 
-
+  // var updateName = $("#modalBundlesInputName").val();
+  // var updateDescription = $("#modalBundlesInputDescription").val();
+  // var updatePrice = $("#modalBundlesInputPrice").val();
+  //
+  // var updateBundleData = {
+  //   bundle_id: bundleID,
+  //   name: updateName,
+  //   price: updatePrice,
+  //   description: updateDescription
+  // }
+  //
+  // console.log("Bundle ID");
+  // console.log(bundleID);
+  //
+  // $.ajax({
+  //   url: bundles.BASE_URL + "bundle/update",
+  //   type: "POST",
+  //   crossDomain: true,
+  //   data: JSON.stringify(updateBundleData),
+  //   contentType: "application/json"
+  // }).done(function (bundle) {
+  //
+  //   if (bundle.status === 200) {
+  //     toastr.success(bundle.message);
+  //     bundles.getAllbundles();
+  //   } else {
+  //     toastr.error(bundle.message);
+  //   }
+  //
+  //   console.log(bundle);
+  //   $("#preloaderNav").hide();
+  //
+  //   console.log("Value Updated");
+  // });
   var updateName = $("#modalBundlesInputName").val();
   var updateDescription = $("#modalBundlesInputDescription").val();
   var updatePrice = $("#modalBundlesInputPrice").val();
 
-  var updateBundleData = {
-    bundle_id: bundleID,
-    name: updateName,
-    price: updatePrice,
-    description: updateDescription
-  }
+  var fileSelect = document.getElementById('qqfile');
+  var file = fileSelect.files[0];
+  // var fileName = $("#qqfile").val();
+  // var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
 
+  // var updateBundleData = {
+  //   bundle_id: bundleID,
+  //   name: updateName,
+  //   price: updatePrice,
+  //   description: updateDescription
+  // }
 
-  console.log("Bundle ID");
-  console.log(bundleID);
+    var formData = new FormData();
 
-  $.ajax({
-    url: bundles.BASE_URL + "bundle/update",
-    type: "POST",
-    crossDomain: true,
-    data: JSON.stringify(updateBundleData),
-    contentType: "application/json"
-  }).done(function (bundle) {
+    // Add the file to the request.
+    formData.append('image', file, file.name);
+    formData.append("bundle_id", bundleID);
+    formData.append("name", updateName);
+    formData.append("price", updatePrice);
+    formData.append("description", updateDescription);
 
-    if (bundle.status === 200) {
-      toastr.success(bundle.message);
-      bundles.getAllbundles();
-    } else {
-      toastr.error(bundle.message);
-    }
+    $.ajax({
+      url: 'http://staging.nairabox.com/foodhub/bundle/update',
+      data: formData,
+      contentType: false,
+      processData: false,
+      type: 'POST',
+      success: function (data) {
+        console.log(data);
+        $("#preloaderNav").hide();
 
-    console.log(bundle);
-    $("#preloaderNav").hide();
+        if (data.status === 200) {
+          toastr.success(data.message);
+                 //bundleID = data.bundle_id;
+                // createBundle.addMenuToBundle(name, partnerID, bundleID);
+                // toastr.success("A new bundle was created successfully");
+        } else {
+          toastr.error(data.message);
+        }
 
-    console.log("Value Updated");
-  });
+      }
+    });
+
 },
 
 deleteBundle: function (categoryID, bundleID) {
