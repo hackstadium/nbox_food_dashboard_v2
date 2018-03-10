@@ -106,105 +106,105 @@ var bundles = {
 
 
 
-          var bundleMenuEditsTemplate = "<div>"
-          + "<div class='verticalInput'><strong>Menu Name :  </strong><input id='bundleMenuName' type='text' value='" + name + "'></div>"
-          + "<div class='verticalInput'><strong>Price :  </strong><input id='bundleMenuPrice' type='text' value='" + price + "'></div>"
-          + "</div>";
+    var bundleMenuEditsTemplate = "<div>"
+    + "<div class='verticalInput'><strong>Menu Name :  </strong><input id='bundleMenuName' type='text' value='" + name + "'></div>"
+    + "<div class='verticalInput'><strong>Price :  </strong><input id='bundleMenuPrice' type='text' value='" + price + "'></div>"
+    + "</div>";
 
 
-          alertify.confirm('Edit Menu', bundleMenuEditsTemplate,
-          function () {
-bundles.updateBundleMenu(bundleID,menuID,partnerID);
-          },
-          function () {
+    alertify.confirm('Edit Menu', bundleMenuEditsTemplate,
+    function () {
+      bundles.updateBundleMenu(bundleID,menuID,partnerID);
+    },
+    function () {
 
-          }
-        ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
-
-
+    }
+  ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
 
 
-  },
-
-  updateBundleMenu:function (bundleID,menuID,partnerID) {
-    var updateMenuName = $("#bundleMenuName").val();
-    var updateMenuPrice = $("#bundleMenuPrice").val();
-
-    console.log("updateBundleMenu");
-    console.log(updateMenuName);
-    console.log(updateMenuPrice);
-    console.log(bundleID);
-    console.log(menuID);
-    console.log(partnerID);
-
-    var menuData =  {
-            bundle_id : bundleID,
-            menu_id : menuID,
-            menu :  {
-                   name : updateMenuName,
-                   price :updateMenuPrice,
-                   partner_id : partnerID,
-                   options : [ ]
-               }
-        };
-
-        $.ajax({
-            url: bundles.BASE_URL + "menu/edit",
-            type: "POST",
-            crossDomain: true,
-            data: JSON.stringify(menuData),
-            contentType: "application/json"
-        }).done(function (menus) {
-          if (menus.status === 200) {
-            toastr.success(menus.message);
-          //  bundles.getAllbundles();
-          //  window.location.href = ""
-          window.location.href = "../../pages/bundles/bundles.html";
-
-          } else {
-            toastr.error(menus.message);
-          }
-            console.log(menus);
-        })
-  },
-
-  openModalEditBundleDetails: function (categoryID, bundleID) {
-    $("#preloaderNav").show();
-
-    console.log("Edit Modal Clicked");
-    console.log(categoryID);
-    console.log(bundleID);
-    var bundleData = {category_id: categoryID, bundle_id: bundleID}
-
-    $.ajax({
-      url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
-      type: "GET",
-      crossDomain: true,
-      data: JSON.stringify(bundleData),
-      contentType: "application/json"
-    }).done(function (bundle) {
-      $("#preloaderNav").hide();
-
-      var bundleEditDetaillsTemplate = "<div>"
-      + "<div class='verticalInput'><strong>Bundle Name :  </strong><input id='modalBundlesInputName' type='text' value='" + bundle.message.name + "'></div>"
-      + "<div class='verticalInput'><strong>Description :  </strong><input id='modalBundlesInputDescription' type='text' value='" + bundle.message.description + "'></div>"
-      + "<div class='verticalInput'><strong>Price :  </strong><input id='modalBundlesInputPrice' type='text' value='" + bundle.message.price + "'></div>"
-      + "<div class='verticalInput'><strong>New Image :  </strong><input id='qqfile' name='image' type='file' onchange='bundles.readBundlesMenuURL(this)'/></div>"
-      + "</div>";
-
-      alertify.confirm('Edit Bundle', bundleEditDetaillsTemplate,
-      function () {
-        console.log("Modal ok clicked");
-        bundles.updateBundle(bundleID);
-      },
-      function () {
-
-      }
-    ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
 
+},
+
+updateBundleMenu:function (bundleID,menuID,partnerID) {
+  var updateMenuName = $("#bundleMenuName").val();
+  var updateMenuPrice = $("#bundleMenuPrice").val();
+
+  console.log("updateBundleMenu");
+  console.log(updateMenuName);
+  console.log(updateMenuPrice);
+  console.log(bundleID);
+  console.log(menuID);
+  console.log(partnerID);
+
+  var menuData =  {
+    bundle_id : bundleID,
+    menu_id : menuID,
+    menu :  {
+      name : updateMenuName,
+      price :updateMenuPrice,
+      partner_id : partnerID,
+      options : [ ]
+    }
+  };
+
+  $.ajax({
+    url: bundles.BASE_URL + "menu/edit",
+    type: "POST",
+    crossDomain: true,
+    data: JSON.stringify(menuData),
+    contentType: "application/json"
+  }).done(function (menus) {
+    if (menus.status === 200) {
+      toastr.success(menus.message);
+      //  bundles.getAllbundles();
+      //  window.location.href = ""
+      window.location.href = "../../pages/bundles/bundles.html";
+
+    } else {
+      toastr.error(menus.message);
+    }
+    console.log(menus);
   })
+},
+
+openModalEditBundleDetails: function (categoryID, bundleID) {
+  $("#preloaderNav").show();
+
+  console.log("Edit Modal Clicked");
+  console.log(categoryID);
+  console.log(bundleID);
+  var bundleData = {category_id: categoryID, bundle_id: bundleID}
+
+  $.ajax({
+    url: bundles.BASE_URL + "bundle?category_id=" + categoryID + "&bundle_id=" + bundleID,
+    type: "GET",
+    crossDomain: true,
+    data: JSON.stringify(bundleData),
+    contentType: "application/json"
+  }).done(function (bundle) {
+    $("#preloaderNav").hide();
+
+    var bundleEditDetaillsTemplate = "<div>"
+    + "<div class='verticalInput'><strong>Bundle Name :  </strong><input id='modalBundlesInputName' type='text' value='" + bundle.message.name + "'></div>"
+    + "<div class='verticalInput'><strong>Description :  </strong><input id='modalBundlesInputDescription' type='text' value='" + bundle.message.description + "'></div>"
+    + "<div class='verticalInput'><strong>Price :  </strong><input id='modalBundlesInputPrice' type='text' value='" + bundle.message.price + "'></div>"
+    + "<div class='verticalInput'><strong>New Image :  </strong><input id='qqfile' name='image' type='file' onchange='bundles.readBundlesMenuURL(this)'/></div>"
+    + "</div>";
+
+    alertify.confirm('Edit Bundle', bundleEditDetaillsTemplate,
+    function () {
+      console.log("Modal ok clicked");
+      bundles.updateBundle(bundleID);
+    },
+    function () {
+
+    }
+  ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
+
+
+})
 },
 
 readBundlesMenuURL:function (input) {
@@ -263,46 +263,48 @@ updateBundle: function (bundleID) {
 
   var fileSelect = document.getElementById('qqfile');
   var file = fileSelect.files[0];
-  // var fileName = $("#qqfile").val();
-  // var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
 
-  // var updateBundleData = {
-  //   bundle_id: bundleID,
-  //   name: updateName,
-  //   price: updatePrice,
-  //   description: updateDescription
-  // }
 
-    var formData = new FormData();
 
-    // Add the file to the request.
+  var formData = new FormData();
+
+  // Add the file to the request.
+  if(fileSelect.files.length === 0){
+    //formData.append('image', file, file.name);
+    formData.append("bundle_id", bundleID);
+    formData.append("name", updateName);
+    formData.append("price", updatePrice);
+    formData.append("description", updateDescription);
+  }else {
     formData.append('image', file, file.name);
     formData.append("bundle_id", bundleID);
     formData.append("name", updateName);
     formData.append("price", updatePrice);
     formData.append("description", updateDescription);
+  }
+  
 
-    $.ajax({
-      url: 'http://staging.nairabox.com/foodhub/bundle/update',
-      data: formData,
-      contentType: false,
-      processData: false,
-      type: 'POST',
-      success: function (data) {
-        console.log(data);
-        $("#preloaderNav").hide();
+  $.ajax({
+    url: 'http://staging.nairabox.com/foodhub/bundle/update',
+    data: formData,
+    contentType: false,
+    processData: false,
+    type: 'POST',
+    success: function (data) {
+      console.log(data);
+      $("#preloaderNav").hide();
 
-        if (data.status === 200) {
-          toastr.success(data.message);
-                 //bundleID = data.bundle_id;
-                // createBundle.addMenuToBundle(name, partnerID, bundleID);
-                // toastr.success("A new bundle was created successfully");
-        } else {
-          toastr.error(data.message);
-        }
-
+      if (data.status === 200) {
+        toastr.success(data.message);
+        //bundleID = data.bundle_id;
+        // createBundle.addMenuToBundle(name, partnerID, bundleID);
+        // toastr.success("A new bundle was created successfully");
+      } else {
+        toastr.error(data.message);
       }
-    });
+
+    }
+  });
 
 },
 
