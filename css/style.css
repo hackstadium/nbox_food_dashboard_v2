@@ -18419,7 +18419,7 @@ input::placeholder, textarea::placeholder {
 
 .inline-options {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .inline-select {

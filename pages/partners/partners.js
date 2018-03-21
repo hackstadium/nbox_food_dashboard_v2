@@ -39,15 +39,6 @@ var partners = {
             $("#preloaderNav").hide();
 
             console.log(partners);
-            // console.log(partners.message[0].name);
-            // console.log(partners.message[0].address);
-            // console.log(partners.message[0].country);
-            // console.log(partners.message[0].city);
-            // console.log(partners.message[0].state);
-            // console.log(partners.message[0].email);
-            // console.log(partners.message[0].phone_number);
-            // console.log(partners.message[0].commission);
-            //
 
             for (var i = 0; i < partners.message.length; i++) {
 
@@ -64,8 +55,6 @@ var partners = {
                     + "<td><button class='btn_table' onclick='partners.deletePartner(\"" + partners.message[i]._id + "\",\"" + partners.message[i].name + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
                     + "</tr>");
             }
-
-
         });
     },
 

@@ -40,7 +40,7 @@ var bundles = {
         console.log(allBundles.message[i].menu);
         //  console.log(allBundles.message[i].menu[0].name);
         bundles.allMenu = allBundles.message;
-
+//debugger;
 
         $("#bundlesTable").append("<tr>"
         + "<td><img src='" + allBundles.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
@@ -282,7 +282,7 @@ updateBundle: function (bundleID) {
     formData.append("price", updatePrice);
     formData.append("description", updateDescription);
   }
-  
+
 
   $.ajax({
     url: 'http://staging.nairabox.com/foodhub/bundle/update',
