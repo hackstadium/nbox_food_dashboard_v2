@@ -84,8 +84,8 @@ var orders={
         var terminalID = orders.message[x].terminal_id;
         var phone = orders.message[x].phone;
         var userName = orders.message[x].username;
-//   orders.newAllOrderMenu = orders.allOrderMenu;
-// debugger;
+        //   orders.newAllOrderMenu = orders.allOrderMenu;
+        // debugger;
         for (var i = 0; i < orderLength; i++) {
           var singleOrder = order[i].bundleDetails;
           //  console.log(singleOrder);
@@ -96,18 +96,18 @@ var orders={
 
           console.log("singleOrder menu");
           //console.log(singleOrder.menu);
-        //  orders.allOrderMenu = order[i].bundleDetails;
+          //  orders.allOrderMenu = order[i].bundleDetails;
           //  console.log(bundleName + " -- " + bundlePrice + " -- " + timeOfOrder + " -- " + quantity + " -- " + location + " -- " + status + " -- " + orderID + " -- " + terminalID + " -- " + phone);
           // debugger;
           $("#ordersTable").append("<tr>"
           + "<td>" + orderID + "</td>"
-          + "<td>" + timeOfOrder + "</td>"
+          + "<td>" + moment(timeOfOrder, 'DD-MM-YYYY').format('lll') + "</td>"
           + "<td>" + terminalID + "</td>"
           + "<td>" + userName + "</td>"
           + "<td>" + phone + "</td>"
           // + "<td>" + bundleName + "</td>"
-        //  + "<td class='table_cell_link pointer' onclick='orders.showOrderMenu(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + i + "\")'>" + bundleName + "</td>"
-        + "<td>" + bundleName + "</td>"
+          //  + "<td class='table_cell_link pointer' onclick='orders.showOrderMenu(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + i + "\")'>" + bundleName + "</td>"
+          + "<td>" + bundleName + "</td>"
           + "<td>" + quantity + "</td>"
           + "<td>" + bundlePrice + "</td>"
           // + "<td>" + "PARTNER HERE" + "</td>"
@@ -163,7 +163,8 @@ updateOrder:function (orderID, status) {
     contentType: "application/json"
   }).done(function (order) {
     $("#preloaderNav").hide();
-
+    // $('ordersTable')
+    window.location.href = "orders.html";
     console.log("updateOrder");
     console.log(order);
 
@@ -172,7 +173,7 @@ updateOrder:function (orderID, status) {
 
 showOrderMenu:function (bundleName, bundlePrice, index) {
   var orderMenu = orders.allOrderMenu;
-//  var newOrderMenu =  orders.NewAllOrderMenu;
+  //  var newOrderMenu =  orders.NewAllOrderMenu;
   //debugger;
   console.log("showOrderMenu");
   console.log(orderMenu);
