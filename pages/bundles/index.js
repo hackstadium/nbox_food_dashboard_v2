@@ -264,6 +264,7 @@ var createBundle = {
 
   init: function () {
     createBundle.checkLogin();
+    createBundle.inputOptionID = 0;
   },
 
 
@@ -356,42 +357,42 @@ var createBundle = {
 
   addBundle:function(name, price, categoryID, description){
     $("#preloaderNav").show();
-  //  event.preventDefault();
+    //  event.preventDefault();
     var fileSelect = document.getElementById('qqfile');
     var file = fileSelect.files[0];
     var fileName = $("#qqfile").val();
     var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
 
-      var formData = new FormData();
+    var formData = new FormData();
 
-      // Add the file to the request.
-      formData.append('image', file, file.name);
-      formData.append("name", name);
-      formData.append("price", price);
-      formData.append("category_id", categoryID);
-      formData.append("description", description);
+    // Add the file to the request.
+    formData.append('image', file, file.name);
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("category_id", categoryID);
+    formData.append("description", description);
 
-      $.ajax({
-        url: 'http://staging.nairabox.com/foodhub/create/bundle',
-        data: formData,
-        contentType: false,
-        processData: false,
-        type: 'POST',
-        success: function (data) {
-          console.log(data);
-          $("#preloaderNav").hide();
+    $.ajax({
+      url: 'http://staging.nairabox.com/foodhub/create/bundle',
+      data: formData,
+      contentType: false,
+      processData: false,
+      type: 'POST',
+      success: function (data) {
+        console.log(data);
+        $("#preloaderNav").hide();
 
-          if (data.error_code === 0) {
-            toastr.success(data.message);
-                   bundleID = data.bundle_id;
-                   createBundle.addMenuToBundle(name, partnerID, bundleID);
-                  // toastr.success("A new bundle was created successfully");
-          } else {
-            toastr.error(data.message);
-          }
-
+        if (data.error_code === 0) {
+          toastr.success(data.message);
+          bundleID = data.bundle_id;
+          createBundle.addMenuToBundle(name, partnerID, bundleID);
+          // toastr.success("A new bundle was created successfully");
+        } else {
+          toastr.error(data.message);
         }
-      });
+
+      }
+    });
 
   },
 
@@ -416,9 +417,9 @@ var createBundle = {
     }
 
     console.log(options);
-var menuName = $("#menuName").val();
-// console.log("menuName");
-// console.log(menuName);
+    var menuName = $("#menuName").val();
+    // console.log("menuName");
+    // console.log(menuName);
     var priceMenu = $("#inputMenuPrice").val();
 
     var menuData = {
@@ -474,9 +475,16 @@ addOptions: function () {
   console.log($("div#moreOptions input").length);
 
   var inputOptionLength = $("div#moreOptions input").length;
+  //var inputOptionID = 0;
 
+  if (inputOptionLength === 0) {
+    inputOptionID = 0;
+  }else {
+    createBundle.inputOptionID += 1;
+    inputOptionID = createBundle.inputOptionID;
+  }
 
-  $('#moreOptions').prepend("<input id='menuOption_" + inputOptionLength + "' class='input-form' type='text' placeholder='New Option Name'>");
+  $('#moreOptions').prepend("<div id='menuOptionRow_"+ inputOptionID +"' class='input-row'><input id='menuOption_" + inputOptionLength + "' class='input-short-form' type='text' placeholder='New Option Name'><input id='menuOption_" + inputOptionLength + "' class='input-short-form' type='text' placeholder='Price'><i onclick='createBundle.removeOption(\"" + inputOptionID + "\")' class='fa fa-close button-inline' aria-hidden='true'></i></div>");
 
   for (var i = 0; i < inputOptionLength; i++) {
     if ($("#menuOption_" + i).val() === "") {
@@ -491,12 +499,14 @@ removeOption: function (optionsID) {
   console.log("Removing option");
   console.log(optionsID);
 
-  var storedOptions = JSON.parse(localStorage.getItem("options"));
+  // var storedOptions = JSON.parse(localStorage.getItem("options"));
+  //
+  // var newOptionsArray = storedOptions.splice(3, 1);
+  // console.log("Option removed. New Options Created");
+  // console.log(newOptionsArray);
+  // console.log(newOptionsArray.length);
 
-  var newOptionsArray = storedOptions.splice(3, 1);
-  console.log("Option removed. New Options Created");
-  console.log(newOptionsArray);
-  console.log(newOptionsArray.length);
+  $("#menuOptionRow_" + optionsID).remove();
 
 },
 
@@ -612,7 +622,7 @@ validateInput: function () {
   if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && priceMenuisValid && description !== "") {
     console.log("All Data Correct");
     createBundle.addBundle(name, price, categoryID, description);
-  //  createBundle.addBundle();
+    //  createBundle.addBundle();
   } else {
     toastr.warning("Invalid Input Values");
 

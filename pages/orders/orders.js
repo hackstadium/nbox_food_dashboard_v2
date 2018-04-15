@@ -59,11 +59,25 @@ var orders={
 
   getAllOrders:function (selectedLocationAliasID) {
     console.log("getAllOrders");
+    console.log(selectedLocationAliasID);
     //  JSON.stringify()
-    var orderData = {alias_id: selectedLocationAliasID.toString()}
+    var orderData = {alias_id: selectedLocationAliasID.toString()};
     $("#preloaderNav").show();
 
+    // $.ajax({
+    //   url: orders.BASE_URL + "orders/location",
+    //   type: "POST",
+    //   crossDomain: true,
+    //   data: JSON.stringify(orderData),
+    //   contentType: "application/json"
+    // }).done(function (orders) {
+    //   console.log("orders loaded");
+    //   console.log(orders);
+    // });
 
+
+
+//debugger;
     $.ajax({
       url: orders.BASE_URL + "orders/location",
       type: "POST",
@@ -73,7 +87,7 @@ var orders={
     }).done(function (orders) {
       console.log(orders);
       $("#preloaderNav").hide();
-
+ // debugger;
       for ( x in orders.message ) {
         var keys = Object.keys(orders.message[x]);
         var orderLength = orders.message[x].details.length;
@@ -84,21 +98,19 @@ var orders={
         var terminalID = orders.message[x].terminal_id;
         var phone = orders.message[x].phone;
         var userName = orders.message[x].username;
-        //   orders.newAllOrderMenu = orders.allOrderMenu;
-        // debugger;
+
+
         for (var i = 0; i < orderLength; i++) {
           var singleOrder = order[i].bundleDetails;
-          //  console.log(singleOrder);
           var bundleName = singleOrder.name;
           var bundlePrice = singleOrder.price;
           var timeOfOrder = singleOrder.created_at;
           var quantity = order[i].quantity;
+          var bundleID = singleOrder._id;
+
+      //  orders.allOrders =
 
           console.log("singleOrder menu");
-          //console.log(singleOrder.menu);
-          //  orders.allOrderMenu = order[i].bundleDetails;
-          //  console.log(bundleName + " -- " + bundlePrice + " -- " + timeOfOrder + " -- " + quantity + " -- " + location + " -- " + status + " -- " + orderID + " -- " + terminalID + " -- " + phone);
-          // debugger;
           $("#ordersTable").append("<tr>"
           + "<td>" + orderID + "</td>"
           + "<td>" + moment(timeOfOrder, 'DD-MM-YYYY').format('lll') + "</td>"
@@ -107,9 +119,13 @@ var orders={
           + "<td>" + phone + "</td>"
           // + "<td>" + bundleName + "</td>"
           //  + "<td class='table_cell_link pointer' onclick='orders.showOrderMenu(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + i + "\")'>" + bundleName + "</td>"
-          + "<td>" + bundleName + "</td>"
+          + "<td class='table_cell_link pointer' onclick='orders.showMenus(\"" + bundleID + "\")'>" + bundleName + "</td>"
+
+        //  + "<td>" + bundleName + "</td>"
           + "<td>" + quantity + "</td>"
+        //  + "<td><a onclick 'orders.showMenus(\"" + i + "\")" + bundlePrice + "</td>"
           + "<td>" + bundlePrice + "</td>"
+
           // + "<td>" + "PARTNER HERE" + "</td>"
           // + "<td>" + "ADDRESS" + "</td>"
           + "<td>" + status + "</td>"
@@ -121,6 +137,11 @@ var orders={
 
     })
   },
+
+  showMenus:function (bundleID) {
+console.log("bundleID");
+console.log(bundleID);
+},
 
   editOrderStatus:function (orderID, phone, bundleName) {
     console.log("editOrderStatus");

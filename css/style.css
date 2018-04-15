@@ -18550,3 +18550,33 @@ display:none;
   width: 150px;
   height: fit-content;
 }
+
+.dual-form-second{
+padding: 68px;
+}
+
+.input-short-form{
+  width: 175px;
+  margin: 0px 16px 0px 0px;
+}
+
+.input-row{
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.button-inline{
+  cursor: pointer;
+  width: 32px;
+  border-radius: 8px;
+  color: #9D9FA5;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 32px;
+}
+
+.button-inline:hover{
+  background-color: #f2f2f2;
+}
