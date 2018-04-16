@@ -18580,3 +18580,7 @@ padding: 68px;
 .button-inline:hover{
   background-color: #f2f2f2;
 }
+
+.alertify .ajs-dialog{
+  max-width:800px;
+}

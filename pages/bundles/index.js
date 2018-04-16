@@ -327,33 +327,7 @@ var createBundle = {
     }
   },
 
-  // addBundle: function (name, price, categoryID, description) {
-  //   $("#preloaderNav").show();
-  //
-  //   console.log("Creating a bundle")
-  //   var bundleData = {name: name, price: price, category_id: categoryID, description: description}
-  //
-  //   $.ajax({
-  //     url: createBundle.BASE_URL + "create/bundle",
-  //     type: "POST",
-  //     crossDomain: true,
-  //     data: JSON.stringify(bundleData),
-  //     contentType: "application/json"
-  //   }).done(function (bundles) {
-  //     $("#preloaderNav").hide();
-  //     console.log(bundles);
-  //     var partnerID = $("#MenuSelectPartner").find(":selected").data("id");
-  //     var name = $("#menuName").val();
-  //
-  //     if (bundles.error_code === 0) {
-  //       bundleID = bundles.bundle_id;
-  //       createBundle.addMenuToBundle(name, partnerID, bundleID);
-  //       toastr.success("A new bundle was created successfully");
-  //     } else {
-  //       toastr.error(bundles.message);
-  //     }
-  //   })
-  // },
+
 
   addBundle:function(name, price, categoryID, description){
     $("#preloaderNav").show();
@@ -385,8 +359,9 @@ var createBundle = {
         if (data.error_code === 0) {
           toastr.success(data.message);
           bundleID = data.bundle_id;
-          createBundle.addMenuToBundle(name, partnerID, bundleID);
+          //  createBundle.addMenuToBundle(name, partnerID, bundleID);
           // toastr.success("A new bundle was created successfully");
+          createBundle.createOptions(bundleID, partnerID)
         } else {
           toastr.error(data.message);
         }
@@ -396,74 +371,131 @@ var createBundle = {
 
   },
 
-  addMenuToBundle: function (name, partnerID, bundleID) {
+  createOptions:function (bundleID, partnerID) {
     $("#preloaderNav").show();
+    console.log("bundleID");
+    console.log(bundleID);
+    console.log("partnerID");
+    console.log(partnerID);
 
+    console.log(createBundle.inputOptionID);
+    var extrasLength = createBundle.inputOptionID + 1;
 
-    var options = [];
-    console.log("addMenuToBundle : Number of Menu Options");
-    console.log($("div#moreOptions input").length);
+    for (var i = 0; i < extrasLength; i++) {
 
-    var inputOptionLength = $("div#moreOptions input").length;
-
-
-    for (var i = 0; i < inputOptionLength; i++) {
-      console.log("addMenuToBundle : Listing option values");
       console.log($("#menuOption_" + i).val());
-      inputOptionValue = $("#menuOption_" + i).val();
+      console.log($("#menuPriceOption_" + i).val());
 
-      options.push(inputOptionValue);
+      var optionName = $("#menuOption_" + i).val();
+      var optionPrice = $("#menuPriceOption_" + i).val();
 
-    }
-
-    console.log(options);
-    var menuName = $("#menuName").val();
-    // console.log("menuName");
-    // console.log(menuName);
-    var priceMenu = $("#inputMenuPrice").val();
-
-    var menuData = {
-      menu: {name: menuName, partner_id: partnerID, options: options, price: priceMenu},
-      bundle_id: bundleID
+      var optionsData = {bundle_options : {
+        bundle_id: bundleID,
+        partner_id : partnerID,
+        name : optionName,
+        price : optionPrice
+      }
     };
-    console.log("adding menu to bundle")
+
+    //  var lenghtedMessage = "";
 
     $.ajax({
-      url: createBundle.BASE_URL + "menu/create",
+      url: createBundle.BASE_URL + "bundle/option/create",
       type: "POST",
       crossDomain: true,
-      data: JSON.stringify(menuData),
+      data: JSON.stringify(optionsData),
       contentType: "application/json"
-    }).done(function (menus) {
+    }).done(function (options) {
       $("#preloaderNav").hide();
+      console.log(options);
 
-      console.log(menus);
-      console.log("Menu Added");
-      toastr.success("A menu was added to the bundle successfully");
-      createBundle.addMoreMenuDialog();
+      if(options.status === 200){
+
+        var lenghtedMessage = " ... "+ i +" of " + extrasLength;
+        console.log(lenghtedMessage);
+        // debugger;;
+        console.log("options Added");
+        toastr.success(options.message + lenghtedMessage);
+        //  createBundle.addMoreMenuDialog();
+      }else {
+        toastr.error(options.message);
+      }
+
     })
-  },
 
-  addMoreMenuDialog: function () {
+    console.log(optionsData);
 
-    console.log("addMoreMenuDialog : More menus called");
+  }
+},
 
-    var screensaverDeleteModalTemplate = "<div>"
-    + "<h6 style='margin-bottom: 32px'>Do you want to add more menus to this bundle ?</h6>"
-    + "</div>";
-
-
-    alertify.confirm(" ", screensaverDeleteModalTemplate,
-    function () {
-
-      window.location.href = "../../pages/bundles/addbundlemenu.html"
-
-    }, function () {
-      window.location.href = "../../pages/bundles/bundles.html"
+addMenuToBundle: function (name, partnerID, bundleID) {
+  $("#preloaderNav").show();
 
 
-    }
-  ).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
+  var options = [];
+  console.log("addMenuToBundle : Number of Menu Options");
+  console.log($("div#moreOptions input").length);
+
+  var inputOptionLength = $("div#moreOptions input").length;
+
+
+  for (var i = 0; i < inputOptionLength; i++) {
+    console.log("addMenuToBundle : Listing option values");
+    console.log($("#menuOption_" + i).val());
+    inputOptionValue = $("#menuOption_" + i).val();
+
+    options.push(inputOptionValue);
+
+  }
+
+  console.log(options);
+  var menuName = $("#menuName").val();
+  // console.log("menuName");
+  // console.log(menuName);
+  var priceMenu = $("#inputMenuPrice").val();
+
+  var menuData = {
+    menu: {name: menuName, partner_id: partnerID, options: options, price: priceMenu},
+    bundle_id: bundleID
+  };
+  console.log("adding menu to bundle")
+
+  $.ajax({
+    url: createBundle.BASE_URL + "menu/create",
+    type: "POST",
+    crossDomain: true,
+    data: JSON.stringify(menuData),
+    contentType: "application/json"
+  }).done(function (menus) {
+    $("#preloaderNav").hide();
+
+    console.log(menus);
+    console.log("Menu Added");
+    toastr.success("A menu was added to the bundle successfully");
+    createBundle.addMoreMenuDialog();
+  })
+},
+
+addMoreMenuDialog: function () {
+
+  console.log("addMoreMenuDialog : More menus called");
+
+  var screensaverDeleteModalTemplate = "<div>"
+  + "<h6 style='margin-bottom: 32px'>Do you want to add more menus to this bundle ?</h6>"
+  + "</div>";
+
+
+  alertify.confirm(" ", screensaverDeleteModalTemplate,
+  function () {
+
+    window.location.href = "../../pages/bundles/addbundlemenu.html"
+
+  }, function () {
+    window.location.href = "../../pages/bundles/bundles.html"
+
+
+  }
+).set({transition: 'zoom', labels: {ok:'YES', cancel: 'NO'}}).show();
 
 
 },
@@ -479,6 +511,7 @@ addOptions: function () {
 
   if (inputOptionLength === 0) {
     inputOptionID = 0;
+    //createBundle.inputOptionID = 0;
   }else {
     createBundle.inputOptionID += 1;
     inputOptionID = createBundle.inputOptionID;
@@ -557,7 +590,7 @@ validateInput: function () {
   var priceMenu = $("#inputMenuPrice").val();
   var priceMenuisValid = createBundle.validateNumeric(priceMenu);
   var menuName = $("#menuName").val();
-  var isValidOptions = 1;
+  createBundle.isValidOptions = 1;
 
   if (!priceMenuisValid) {
     $("#inputMenuPrice").addClass("error_input");
@@ -619,38 +652,26 @@ validateInput: function () {
     $("#menuName").removeClass("error_input");
   }
 
-  // if ($("#menuOption_0").val() === "") {
-  //   $("#menuOption_0").addClass("error_input");
-  // } else {
-  //   $("#menuOption_0").removeClass("error_input");
-  // }
 
-  //var inputOptionLength = $("div#moreOptions input").length;
-
-
-  for (var i = 0; i < createBundle.inputOptionID; i++) {
-    if ($("#menuOption_" + i).val() === "") {
-      $("#menuOption_" + i).addClass("error_input");
-      isValidOptions = 1;
-    } else {
-      $("#menuOption_" + i).removeClass("error_input");
-      isValidOptions = 5;
-    }
-  }
-
-debugger;
-  // if (inputOptionLength === 0) {
-  //   inputOptionID = 0;
-  // }else {
-  //   createBundle.inputOptionID += 1;
-  //   inputOptionID = createBundle.inputOptionID;
+  // console.log(createBundle.inputOptionID);
+  // var extrasLength = createBundle.inputOptionID + 1;
+  // for (var i = 0; i < extrasLength; i++) {
+  //   // if ($("#menuOption_" + i).val() === "") {
+  //   // //  $("#menuOption_" + i).addClass("error_input");
+  //   //   //createBundle.isValidOptions = 1;
+  //   //   console.log($("#menuOption_" + i).val());
+  //   // }
+  //
+  //   console.log($("#menuOption_" + i).val());
+  //   console.log($("#menuPriceOption_" + i).val());
+  //
   // }
 
 
-  if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && priceMenuisValid && description !== "" && isValidOptions == true) {
-debugger;
+  if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && priceMenuisValid && description !== "") {
+    //debugger;
     console.log("All Data Correct");
-    //createBundle.addBundle(name, price, categoryID, description);
+    createBundle.addBundle(name, price, categoryID, description);
   } else {
     toastr.warning("Invalid Input Values");
   }

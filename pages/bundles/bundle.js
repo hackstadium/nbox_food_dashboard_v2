@@ -40,7 +40,7 @@ var bundles = {
         console.log(allBundles.message[i].menu);
         //  console.log(allBundles.message[i].menu[0].name);
         bundles.allMenu = allBundles.message;
-//debugger;
+        //debugger;
 
         $("#bundlesTable").append("<tr>"
         + "<td><img src='" + allBundles.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
@@ -73,7 +73,9 @@ var bundles = {
     + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
     + "<div class='multiList'><strong>Description</strong><p>" + description + " </p></div>"
     + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
-    + "<div><strong>Menus</strong><table class='table table-striped'>" +
+    + "<div>"
+    +"<strong>Menus</strong>"
+    +"<table class='table table-striped'>" +
     "<thead>" +
     "<tr>" +
     "<th>Menu</th>" +
@@ -83,9 +85,32 @@ var bundles = {
     "</thead>" +
     "<tbody id='bundleMenusTable'>" +
     "</tbody>" +
-    "</table></div></div>";
+    "</table>"+
+    "</div>"+
+    "<div>"+
+    "<strong>Options</strong>"+
+    "<p id='options_message'>LOADING OPTIONS...</p>"+
+    "<table class='table table-striped'>"+
+    "<thead>"+
+    "<tr>"+
+    "<th>Options</th>"+
+    "<th>Price</th>"+
+    "</tr>"+
+    "</thead>"+
+    "<tbody id='bundleOptionsTable'>"+
+    // "<tr>"+
+    // "<td>"+
+    // "hello"+
+    // "</td>"+
+    // "</tr>"+
+    "</tbody>"+
+    "</table>"+
+    "</div>"+
+    "</div>";
 
     alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+
+
     for (var i = 0; i < menuArray.menu.length; i++) {
       var one = menuArray.menu[i];
       $("#bundleMenusTable").append("<tr>"
@@ -96,6 +121,40 @@ var bundles = {
       + "</tr>");
     }
 
+
+    //FETCH ALL OPTIONS
+    var optionsData = {bundle_id : bundleID};
+
+    $.ajax({
+      url: bundles.BASE_URL + "bundle/option/all",
+      type: "POST",
+      crossDomain: true,
+      data: JSON.stringify(optionsData),
+      contentType: "application/json"
+    }).done(function (options) {
+
+      $("#options_message").html("");
+      $("#bundleOptionsTable").html("");
+
+      for (var i = 0; i < options.message.length; i++) {
+        $("#bundleOptionsTable").append(
+          "<tr>"
+          +"<td>"+ options.message[i].name +"</td>"
+          +"<td>NGN "+ parseInt(options.message[i].price, 10).toLocaleString() +"</td>"
+          +"<td><button class='btn_table' onclick='bundles.openModalEditBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\", \"" + options.message[i].price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+          +"</tr>"
+        );
+      }
+
+
+      var extrasLength = options.message.length;
+      if (extrasLength === 0) {
+        $("#bundleOptionsTable").append("No options available");
+        console.log("No options here");
+      }
+
+    })
+
   },
 
   openModalEditBundleMenu:function (bundleID, menuID, partnerID, name, price) {
@@ -103,14 +162,10 @@ var bundles = {
     console.log(bundleID);
     console.log(menuID);
 
-
-
-
     var bundleMenuEditsTemplate = "<div>"
     + "<div class='verticalInput'><strong>Menu Name :  </strong><input id='bundleMenuName' type='text' value='" + name + "'></div>"
     + "<div class='verticalInput'><strong>Price :  </strong><input id='bundleMenuPrice' type='text' value='" + price + "'></div>"
     + "</div>";
-
 
     alertify.confirm('Edit Menu', bundleMenuEditsTemplate,
     function () {
@@ -121,9 +176,57 @@ var bundles = {
     }
   ).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
 
+},
+
+openModalEditBundleOptions:function (bundleOptionID, name, price) {
+
+  console.log("openModalEditBundleOptions");
+  console.log(bundleOptionID);
+  console.log(name);
+  console.log(price);
+
+  var bundleOptionEditsTemplate = "<div>"
+  + "<div class='verticalInput'><strong>Option Name :  </strong><input id='bundleOptionName' type='text' value='" + name + "'></div>"
+  + "<div class='verticalInput'><strong>Price :  </strong><input id='bundleOptionPrice' type='text' value='" + price + "'></div>"
+  + "</div>";
+
+  alertify.confirm('Edit Options', bundleOptionEditsTemplate,
+  function () {
+    bundles.updateBundleOption(bundleOptionID, name, price);
+  },
+  function () {
+
+  }
+).set({transition: 'zoom', labels: {ok: 'UPDATE', cancel: 'CANCEL'}}).show();
+
+},
+
+updateBundleOption:function (bundleOptionID, name, price) {
 
 
+  var updateOptionName = $("#bundleOptionName").val();
+  var updateOptionPrice = $("#bundleOptionPrice").val();
 
+var optionsUpdateData = {bundle_option_id : bundleOptionID, name : updateOptionName, price : updateOptionPrice};
+
+  $.ajax({
+    url: bundles.BASE_URL + "bundle/option/update",
+    type: "POST",
+    crossDomain: true,
+    data: JSON.stringify(optionsUpdateData),
+    contentType: "application/json"
+  }).done(function (options) {
+    if (options.status === 200) {
+      toastr.success(options.message);
+      //  bundles.getAllbundles();
+      //  window.location.href = ""
+    //  window.location.href = "../../pages/bundles/bundles.html";
+
+    } else {
+      toastr.error(options.message);
+    }
+    console.log(options);
+  })
 
 },
 
