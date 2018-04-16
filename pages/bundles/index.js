@@ -484,13 +484,19 @@ addOptions: function () {
     inputOptionID = createBundle.inputOptionID;
   }
 
-  $('#moreOptions').prepend("<div id='menuOptionRow_"+ inputOptionID +"' class='input-row'><input id='menuOption_" + inputOptionLength + "' class='input-short-form' type='text' placeholder='New Option Name'><input id='menuOption_" + inputOptionLength + "' class='input-short-form' type='text' placeholder='Price'><i onclick='createBundle.removeOption(\"" + inputOptionID + "\")' class='fa fa-close button-inline' aria-hidden='true'></i></div>");
+  $('#moreOptions').prepend("<div id='menuOptionRow_"+ inputOptionID +"' class='input-row'><input id='menuOption_" + inputOptionID + "' class='input-short-form' type='text' placeholder='New Option Name'><input id='menuPriceOption_" + inputOptionID + "' class='input-short-form' type='text' placeholder='Price'><i onclick='createBundle.removeOption(\"" + inputOptionID + "\")' class='fa fa-close button-inline' aria-hidden='true'></i></div>");
 
   for (var i = 0; i < inputOptionLength; i++) {
     if ($("#menuOption_" + i).val() === "") {
       $("#menuOption_" + i).addClass("error_input");
     } else {
       $("#menuOption_" + i).removeClass("error_input");
+    }
+
+    if ($("#menuPriceOption_" + i).val() === "") {
+      $("#menuPriceOption_" + i).addClass("error_input");
+    } else {
+      $("#menuPriceOption_" + i).removeClass("error_input");
     }
   }
 
@@ -550,8 +556,8 @@ validateInput: function () {
   var priceisValid = createBundle.validateNumeric(price);
   var priceMenu = $("#inputMenuPrice").val();
   var priceMenuisValid = createBundle.validateNumeric(priceMenu);
-
   var menuName = $("#menuName").val();
+  var isValidOptions = 1;
 
   if (!priceMenuisValid) {
     $("#inputMenuPrice").addClass("error_input");
@@ -613,19 +619,40 @@ validateInput: function () {
     $("#menuName").removeClass("error_input");
   }
 
-  if ($("#menuOption_0").val() === "") {
-    $("#menuOption_0").addClass("error_input");
-  } else {
-    $("#menuOption_0").removeClass("error_input");
+  // if ($("#menuOption_0").val() === "") {
+  //   $("#menuOption_0").addClass("error_input");
+  // } else {
+  //   $("#menuOption_0").removeClass("error_input");
+  // }
+
+  //var inputOptionLength = $("div#moreOptions input").length;
+
+
+  for (var i = 0; i < createBundle.inputOptionID; i++) {
+    if ($("#menuOption_" + i).val() === "") {
+      $("#menuOption_" + i).addClass("error_input");
+      isValidOptions = 1;
+    } else {
+      $("#menuOption_" + i).removeClass("error_input");
+      isValidOptions = 5;
+    }
   }
 
-  if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && priceMenuisValid && description !== "") {
+debugger;
+  // if (inputOptionLength === 0) {
+  //   inputOptionID = 0;
+  // }else {
+  //   createBundle.inputOptionID += 1;
+  //   inputOptionID = createBundle.inputOptionID;
+  // }
+
+
+  if (name !== "" && countryID !== undefined && stateID !== undefined && cityID !== undefined && partnerID !== undefined && categoryID !== undefined && priceisValid && priceMenuisValid && description !== "" && isValidOptions == true) {
+debugger;
     console.log("All Data Correct");
-    createBundle.addBundle(name, price, categoryID, description);
-    //  createBundle.addBundle();
+    //createBundle.addBundle(name, price, categoryID, description);
   } else {
     toastr.warning("Invalid Input Values");
-
   }
 },
 
