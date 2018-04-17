@@ -65,12 +65,29 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item active">
-              <a class="nav-link" href="../../pages/orders/orders.html">
-                  <i class="fa fa-cutlery" aria-hidden="true"></i>
-                  <span class="menu-title">Orders</span>
-              </a>
-          </li>
+          <!-- NAV ITEM ORDERS -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
+            aria-controls="sample-pages">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+
+            <span class="menu-title">Orders<i class="fa fa-sort-down"></i></span>
+          </a>
+          <div class="collapse" id="category-pages">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link inner-nav-link" href="../../pages/orders/orders.html">
+                  All Orders
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link inner-nav-link" href="../../pages/orders/exportorders.html">
+                  Export Orders
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
@@ -119,6 +136,11 @@
             <li class="nav-item">
               <a class="nav-link inner-nav-link" href="../bundles/addbundlemenu.html">
                 Add Menus to Bundles
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link inner-nav-link" href="../bundles/addbundleoptions.html">
+                Add Options to Bundles
               </a>
             </li>
             <li class="nav-item">

@@ -63,12 +63,29 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../../pages/orders/orders.html">
-                            <i class="fa fa-cutlery" aria-hidden="true"></i>
-                            <span class="menu-title">Orders</span>
-                        </a>
-                    </li>
+                    <!-- NAV ITEM ORDERS -->
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
+                      aria-controls="sample-pages">
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+
+                      <span class="menu-title">Orders<i class="fa fa-sort-down"></i></span>
+                    </a>
+                    <div class="collapse" id="category-pages">
+                      <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                          <a class="nav-link inner-nav-link" href="../../pages/orders/orders.html">
+                            All Orders
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link inner-nav-link" href="../../pages/orders/exportorders.html">
+                            Export Orders
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
                            aria-controls="sample-pages">
@@ -100,32 +117,37 @@
 
                     <!--NAV ITEM BUNDLES-->
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#bundle-pages" aria-expanded="false"
-                           aria-controls="sample-pages">
-                            <!--<i class="fa fa-th-large" aria-hidden="true"></i>-->
-                            <i class="fa fa-cubes" aria-hidden="true"></i>
-                            <span class="menu-title">Bundles<i class="fa fa-sort-down"></i></span>
-                        </a>
-                        <div class="collapse" id="bundle-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/bundles/index.html">
-                                        Add Bundles
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../bundles/addbundlemenu.html">
-                                        Add Menus to Bundles
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link inner-nav-link" href="../../pages/bundles/bundles.html">
-                                        Manage Bundles
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                      <a class="nav-link" data-toggle="collapse" href="#bundle-pages" aria-expanded="false"
+                      aria-controls="sample-pages">
+                      <!--<i class="fa fa-th-large" aria-hidden="true"></i>-->
+                      <i class="fa fa-cubes" aria-hidden="true"></i>
+                      <span class="menu-title">Bundles<i class="fa fa-sort-down"></i></span>
+                    </a>
+                    <div class="collapse" id="bundle-pages">
+                      <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                          <a class="nav-link inner-nav-link" href="../../pages/bundles/index.html">
+                            Add Bundles
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link inner-nav-link" href="../bundles/addbundlemenu.html">
+                            Add Menus to Bundles
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link inner-nav-link" href="../bundles/addbundleoptions.html">
+                            Add Options to Bundles
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link inner-nav-link" href="../../pages/bundles/bundles.html">
+                            Manage Bundles
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
 
                     <!--NAV ITEM PARTNERS-->
                     <li class="nav-item">

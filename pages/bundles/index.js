@@ -60,7 +60,6 @@ $(function () {
         $("#selectCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
         $("#selectMenuCountry").append("<option data-id=" + countries.message[i]._id + ">" + countries.message[i].country + "</option>");
 
-
         console.log("adding countries");
       }
     });
@@ -288,10 +287,8 @@ var createBundle = {
     var initalOptions = JSON.parse(localStorage.getItem("options"));
     var initialOptionsInput = JSON.parse(localStorage.getItem("optionsInput"));
 
-
     console.log("saveOptions Length of options");
     console.log(initialOptionsInput.length);
-
 
     if (initalOptions == null) {
 
@@ -534,6 +531,8 @@ addOptions: function () {
   }
 
 },
+
+
 removeOption: function (optionsID) {
   console.log("Removing option");
   console.log(optionsID);

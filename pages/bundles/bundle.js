@@ -142,6 +142,7 @@ var bundles = {
           +"<td>"+ options.message[i].name +"</td>"
           +"<td>NGN "+ parseInt(options.message[i].price, 10).toLocaleString() +"</td>"
           +"<td><button class='btn_table' onclick='bundles.openModalEditBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\", \"" + options.message[i].price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+          +"<td><button class='btn_table' onclick='bundles.deleteBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
           +"</tr>"
         );
       }
@@ -154,6 +155,43 @@ var bundles = {
       }
 
     })
+
+  },
+
+  deleteBundleOptions:function (bundleOptionID, name) {
+
+    var deleteOptionsData = {bundle_option_id : bundleOptionID};
+
+    //////
+    var deleteBundleTemplate = "<p>Delete</p><h5>" + name + "</h5>";
+
+    alertify.confirm("Conform delete action", deleteBundleTemplate,
+    function () {
+      $.ajax({
+        url: bundles.BASE_URL + "bundle/option/delete",
+        type: "POST",
+        crossDomain: true,
+        data: JSON.stringify(deleteOptionsData),
+        contentType: "application/json"
+      }).done(function (options) {
+        if (options.status === 200) {
+          toastr.success(options.message);
+          //  bundles.getAllbundles();
+          //  window.location.href = ""
+         window.location.href = "../../pages/bundles/bundles.html";
+
+        } else {
+          toastr.error(options.message);
+        }
+        console.log(options);
+      })
+    },
+    function () {
+    }).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
+
+    ////
+
+
 
   },
 
