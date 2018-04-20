@@ -64,20 +64,8 @@ var orders={
     var orderData = {alias_id: selectedLocationAliasID.toString()};
     $("#preloaderNav").show();
 
-    // $.ajax({
-    //   url: orders.BASE_URL + "orders/location",
-    //   type: "POST",
-    //   crossDomain: true,
-    //   data: JSON.stringify(orderData),
-    //   contentType: "application/json"
-    // }).done(function (orders) {
-    //   console.log("orders loaded");
-    //   console.log(orders);
-    // });
 
-
-
-//debugger;
+    //debugger;
     $.ajax({
       url: orders.BASE_URL + "orders/location",
       type: "POST",
@@ -87,7 +75,7 @@ var orders={
     }).done(function (orders) {
       console.log(orders);
       $("#preloaderNav").hide();
- // debugger;
+      // debugger;
       for ( x in orders.message ) {
         var keys = Object.keys(orders.message[x]);
         var orderLength = orders.message[x].details.length;
@@ -107,8 +95,9 @@ var orders={
           var timeOfOrder = singleOrder.created_at;
           var quantity = order[i].quantity;
           var bundleID = singleOrder._id;
-
-      //  orders.allOrders =
+          var categoryID = singleOrder.category_id;
+          orders.allMenu = singleOrder.menu;
+//debugger;
 
           console.log("singleOrder menu");
           $("#ordersTable").append("<tr>"
@@ -117,17 +106,9 @@ var orders={
           + "<td>" + terminalID + "</td>"
           + "<td>" + userName + "</td>"
           + "<td>" + phone + "</td>"
-          // + "<td>" + bundleName + "</td>"
-          //  + "<td class='table_cell_link pointer' onclick='orders.showOrderMenu(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + i + "\")'>" + bundleName + "</td>"
-          + "<td class='table_cell_link pointer' onclick='orders.showMenus(\"" + bundleID + "\")'>" + bundleName + "</td>"
-
-        //  + "<td>" + bundleName + "</td>"
+          + "<td class='table_cell_link pointer' onclick='orders.showModalBundle(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + categoryID + "\", \"" + bundleID + "\")'>" + bundleName + "</td>"
           + "<td>" + quantity + "</td>"
-        //  + "<td><a onclick 'orders.showMenus(\"" + i + "\")" + bundlePrice + "</td>"
           + "<td>" + bundlePrice + "</td>"
-
-          // + "<td>" + "PARTNER HERE" + "</td>"
-          // + "<td>" + "ADDRESS" + "</td>"
           + "<td>" + status + "</td>"
           + "<td class='btn_table_container'><button class='btn_table' onclick='orders.editOrderStatus(\"" + orderID + "\", \"" + phone + "\", \"" + bundleName + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i></button></td>"
           + "</tr>");
@@ -138,10 +119,131 @@ var orders={
     })
   },
 
-  showMenus:function (bundleID) {
-console.log("bundleID");
-console.log(bundleID);
-},
+  showModalBundle:function (name, price, categoryID, bundleID) {
+    console.log("bundleID");
+    console.log(bundleID);
+    console.log("orders.allMenu");
+console.log(orders.allMenu);
+    $("#preloaderNav").show();
+
+    // $.ajax({
+    //   url: orders.BASE_URL + "bundle?category_id=" + categoryID + "&" + "bundle_id=" + bundleID,
+    //   type: "GET",
+    //   crossDomain: true,
+    //   contentType: "application/json"
+    // }).done(function (bundle) {
+    //   $("#preloaderNav").hide();
+    //
+    //   console.log(bundle);
+    //
+    //
+    //
+    // })
+
+
+    /////////////////////////
+
+    //var menuArray = bundles.allMenu[menuIndex];
+    // console.log("clicked to open Modal");
+    // console.log(bundleID);
+    // console.log(name);
+    // console.log(category);
+    // console.log(description);
+    // console.log(price);
+    // console.log("Passed Menus");
+    // console.log(menuArray);
+
+
+
+
+    $("#bundleMenusTable").html("");
+    var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
+    + "<div class='multiList'><strong>Name</strong><p>" + name + " </p></div>"
+    // + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
+    // + "<div class='multiList'><strong>Description</strong><p>" + description + " </p></div>"
+    + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
+    + "<div>"
+    +"<strong>Menus</strong>"
+    +"<table class='table table-striped'>" +
+    "<thead>" +
+    "<tr>" +
+    "<th>Menu</th>" +
+    "<th>Partner</th>" +
+    "<th>Price</th>" +
+    "</tr>" +
+    "</thead>" +
+    "<tbody id='bundleMenusTable'>" +
+    "</tbody>" +
+    "</table>"+
+    "</div>"+
+    "<div>"+
+    "<strong>Options</strong>"+
+    "<p id='options_message'>LOADING OPTIONS...</p>"+
+    "<table class='table table-striped'>"+
+    "<thead>"+
+    "<tr>"+
+    "<th>Options</th>"+
+    "<th>Price</th>"+
+    "</tr>"+
+    "</thead>"+
+    "<tbody id='bundleOptionsTable'>"+
+    "</tbody>"+
+    "</table>"+
+    "</div>"+
+    "</div>";
+
+    alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+
+
+    // for (var i = 0; i < menuArray.menu.length; i++) {
+    //   var one = menuArray.menu[i];
+    //   $("#bundleMenusTable").append("<tr>"
+    //   + "<td>" + one.name + "</td>"
+    //   + "<td>" + one.partner_name + "</td>"
+    //   + "<td>NGN " + parseInt(one.price, 10).toLocaleString() + "</td>"
+    //   + "<td><button class='btn_table' onclick='bundles.openModalEditBundleMenu(\"" + bundleID + "\",\"" + i + "\",\"" + one.partner_id + "\",\"" + one.name + "\",\"" + one.price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+    //   + "</tr>");
+    // }
+
+
+    //FETCH ALL OPTIONS
+    // var optionsData = {bundle_id : bundleID};
+    //
+    // $.ajax({
+    //   url: bundles.BASE_URL + "bundle/option/all",
+    //   type: "POST",
+    //   crossDomain: true,
+    //   data: JSON.stringify(optionsData),
+    //   contentType: "application/json"
+    // }).done(function (options) {
+    //
+    //   $("#options_message").html("");
+    //   $("#bundleOptionsTable").html("");
+    //
+    //   for (var i = 0; i < options.message.length; i++) {
+    //     $("#bundleOptionsTable").append(
+    //       "<tr>"
+    //       +"<td>"+ options.message[i].name +"</td>"
+    //       +"<td>NGN "+ parseInt(options.message[i].price, 10).toLocaleString() +"</td>"
+    //       +"<td><button class='btn_table' onclick='bundles.openModalEditBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\", \"" + options.message[i].price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+    //       +"<td><button class='btn_table' onclick='bundles.deleteBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+    //       +"</tr>"
+    //     );
+    //   }
+    //
+    //
+    //   var extrasLength = options.message.length;
+    //   if (extrasLength === 0) {
+    //     $("#bundleOptionsTable").append("No options available");
+    //     console.log("No options here");
+    //   }
+    //
+    // })
+
+    /////////////////////
+
+
+  },
 
   editOrderStatus:function (orderID, phone, bundleName) {
     console.log("editOrderStatus");

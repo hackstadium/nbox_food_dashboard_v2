@@ -98,11 +98,6 @@ var bundles = {
     "</tr>"+
     "</thead>"+
     "<tbody id='bundleOptionsTable'>"+
-    // "<tr>"+
-    // "<td>"+
-    // "hello"+
-    // "</td>"+
-    // "</tr>"+
     "</tbody>"+
     "</table>"+
     "</div>"+
@@ -118,6 +113,7 @@ var bundles = {
       + "<td>" + one.partner_name + "</td>"
       + "<td>NGN " + parseInt(one.price, 10).toLocaleString() + "</td>"
       + "<td><button class='btn_table' onclick='bundles.openModalEditBundleMenu(\"" + bundleID + "\",\"" + i + "\",\"" + one.partner_id + "\",\"" + one.name + "\",\"" + one.price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+      + "<td><button class='btn_table' onclick='bundles.openModalDeleteBundleMenu(\"" + bundleID + "\",\"" + i + "\",\"" + one.name + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
       + "</tr>");
     }
 
@@ -158,27 +154,31 @@ var bundles = {
 
   },
 
-  deleteBundleOptions:function (bundleOptionID, name) {
+  openModalDeleteBundleMenu:function (bundleID, menuIndex, menuName ) {
+    console.log(bundleID);
+    console.log(menuIndex);
+    console.log(menuName);
 
-    var deleteOptionsData = {bundle_option_id : bundleOptionID};
+    var deleteMenuData = {bundle_id : bundleID, menu_id : menuIndex};
 
-    //////
-    var deleteBundleTemplate = "<p>Delete</p><h5>" + name + "</h5>";
+    var deleteMenuTemplate = "<p>Delete</p><h5>" + menuName + "</h5>";
 
-    alertify.confirm("Conform delete action", deleteBundleTemplate,
+    alertify.confirm("Confirm delete action", deleteMenuTemplate,
     function () {
       $.ajax({
-        url: bundles.BASE_URL + "bundle/option/delete",
+        url: bundles.BASE_URL + "menu/delete",
         type: "POST",
         crossDomain: true,
-        data: JSON.stringify(deleteOptionsData),
+        data: JSON.stringify(deleteMenuData),
         contentType: "application/json"
       }).done(function (options) {
         if (options.status === 200) {
           toastr.success(options.message);
-          //  bundles.getAllbundles();
-          //  window.location.href = ""
-         window.location.href = "../../pages/bundles/bundles.html";
+          //console.log(options);
+
+          //  window.location.href = "../../pages/bundles/bundles.html";
+          alertify.closeAll();
+          bundles.getAllbundles();
 
         } else {
           toastr.error(options.message);
@@ -189,9 +189,39 @@ var bundles = {
     function () {
     }).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
 
-    ////
 
+  },
 
+  deleteBundleOptions:function (bundleOptionID, name) {
+
+    var deleteOptionsData = {bundle_option_id : bundleOptionID};
+
+    var deleteBundleTemplate = "<p>Delete</p><h5>" + name + "</h5>";
+
+    alertify.confirm("Confirm delete action", deleteBundleTemplate,
+    function () {
+      $.ajax({
+        url: bundles.BASE_URL + "bundle/option/delete",
+        type: "POST",
+        crossDomain: true,
+        data: JSON.stringify(deleteOptionsData),
+        contentType: "application/json"
+      }).done(function (options) {
+        if (options.status === 200) {
+          toastr.success(options.message);
+
+          //window.location.href = "../../pages/bundles/bundles.html";
+          alertify.closeAll();
+          bundles.getAllbundles();
+
+        } else {
+          toastr.error(options.message);
+        }
+        console.log(options);
+      })
+    },
+    function () {
+    }).set({transition: 'zoom', labels: {ok: 'DELETE', cancel: 'CANCEL'}}).show();
 
   },
 
@@ -245,7 +275,7 @@ updateBundleOption:function (bundleOptionID, name, price) {
   var updateOptionName = $("#bundleOptionName").val();
   var updateOptionPrice = $("#bundleOptionPrice").val();
 
-var optionsUpdateData = {bundle_option_id : bundleOptionID, name : updateOptionName, price : updateOptionPrice};
+  var optionsUpdateData = {bundle_option_id : bundleOptionID, name : updateOptionName, price : updateOptionPrice};
 
   $.ajax({
     url: bundles.BASE_URL + "bundle/option/update",
@@ -258,7 +288,9 @@ var optionsUpdateData = {bundle_option_id : bundleOptionID, name : updateOptionN
       toastr.success(options.message);
       //  bundles.getAllbundles();
       //  window.location.href = ""
-    //  window.location.href = "../../pages/bundles/bundles.html";
+      //  window.location.href = "../../pages/bundles/bundles.html";
+      alertify.closeAll();
+      bundles.getAllbundles();
 
     } else {
       toastr.error(options.message);
@@ -301,7 +333,9 @@ updateBundleMenu:function (bundleID,menuID,partnerID) {
       toastr.success(menus.message);
       //  bundles.getAllbundles();
       //  window.location.href = ""
-      window.location.href = "../../pages/bundles/bundles.html";
+      //window.location.href = "../../pages/bundles/bundles.html";
+      alertify.closeAll();
+      bundles.getAllbundles();
 
     } else {
       toastr.error(menus.message);

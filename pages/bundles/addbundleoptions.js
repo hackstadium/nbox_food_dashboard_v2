@@ -6,7 +6,7 @@ var addBundleOptions = {
 
 
   init: function () {
-    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true};
+    toastr.options = {"positionClass": "toast-bottom-right", "timeOut": "0", "closeButton": true, "preventDuplicates": true,};
 
     addBundleOptions.getAllBundles();
     addBundleOptions.getAllCountries();
@@ -188,11 +188,13 @@ var addBundleOptions = {
         console.log(lenghtedMessage);
         // debugger;;
         console.log("options Added");
-        toastr.success(options.message + lenghtedMessage);
+        toastr.success(options.message);
         //  addBundleOptions.addMoreMenuDialog();
       }else {
         toastr.error(options.message);
       }
+
+
 
     })
 
