@@ -319,7 +319,7 @@
             </div>
             <div class="">
               <p class="card-text text-dark">Delivered Orders</p>
-              <h5  id="today-transit" class="bold-text card-statistics-count">00</h5>
+              <h5  id="today-delivered" class="bold-text card-statistics-count">00</h5>
             </div>
           </div>
         </div>
@@ -378,7 +378,7 @@
             </div>
             <div class="">
               <p class="card-text text-dark">Pending Orders</p>
-              <h5 class="bold-text card-statistics-count">00</h5>
+              <h5 id="all-pending" class="bold-text card-statistics-count">00</h5>
             </div>
           </div>
         </div>
@@ -396,7 +396,7 @@
             </div>
             <div class="">
               <p class="card-text text-dark">Orders In Transit</p>
-              <h5 class="bold-text card-statistics-count">00</h5>
+              <h5 id="all-transit" class="bold-text card-statistics-count">00</h5>
             </div>
           </div>
         </div>
@@ -414,7 +414,7 @@
             </div>
             <div class="">
               <p class="card-text text-dark">Delivered Orders</p>
-              <h5 class="bold-text card-statistics-count">00</h5>
+              <h5 id="all-delivered" class="bold-text card-statistics-count">00</h5>
             </div>
           </div>
         </div>
@@ -432,7 +432,7 @@
             </div>
             <div class="">
               <p class="card-text text-dark">Cancelled Orders</p>
-              <h5 class="bold-text card-statistics-count">00</h5>
+              <h5 id="all-cancelled" class="bold-text card-statistics-count">00</h5>
             </div>
           </div>
         </div>
@@ -450,7 +450,7 @@
             </div>
             <div class="">
               <p class="card-text text-dark">Total Orders</p>
-              <h5 class="bold-text card-statistics-count">00</h5>
+              <h5 id="all-orders" class="bold-text card-statistics-count">00</h5>
             </div>
           </div>
         </div>
@@ -462,7 +462,7 @@
     <div class="col-md-4 mb-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Most Purchased</h5>
+          <h5 class="card-title">Most Purchased Bundles</h5>
           <div class="table-responsive table-sales table-striped">
             <table class="table">
               <thead>
@@ -470,65 +470,12 @@
                   <th colspan="">
                     Bundle
                   </th>
-                  <!--<th colspan="">-->
-                  <!--Menu-->
-                  <!--</th>-->
                   <th class="text-right">
                     Sales
                   </th>
                 </tr>
               </thead>
-              <tbody class="dashboard_table text-dark">
-                <tr>
-                  <td>The Ice Cream Bundle</td>
-                  <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                  <td class="text-right">
-                    10
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shawarma Delights</td>
-                  <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                  <td class="text-right">
-                    10
-                  </td>
-                </tr>
-                <tr>
-                  <td>Valentine Special</td>
-                  <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                  <td class="text-right">
-                    10
-                  </td>
-                </tr>
-                <tr>
-                  <td>Snack Well</td>
-                  <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                  <td class="text-right">
-                    10
-                  </td>
-                </tr>
-                <tr>
-                  <td>Supreme Pizza Fun</td>
-                  <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                  <td class="text-right">
-                    10
-                  </td>
-                </tr>
-                <tr>
-                  <td>Hungry Man Bundle</td>
-                  <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                  <td class="text-right">
-                    10
-                  </td>
-                </tr>
-                <!--<tr>-->
-                <!--<td>Bundle 001</td>-->
-                <!--<td>3 Meat Pie, 1 Sausage</td>-->
-                <!--<td class="text-right">-->
-                <!--10-->
-                <!--</td>-->
-                <!--</tr>-->
-
+              <tbody id="dashboardBundlesPurchased" class="dashboard_table text-dark">
               </tbody>
             </table>
           </div>
@@ -539,6 +486,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Total Sales</h5>
+          <p id="loading-chart-message">Loading Chart....</p>
           <div class="custom-legend-container w-75 mx-auto">
             <canvas id="sales-chart"></canvas>
           </div>
@@ -549,7 +497,7 @@
     <div class="col-md-4 mb-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Sales region</h5>
+          <h5 class="card-title">Top Sales region</h5>
           <div class="table-responsive table-sales">
             <table class="table table-striped">
               <thead>
