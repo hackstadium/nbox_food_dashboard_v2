@@ -12,7 +12,7 @@ var dashboard = {
     dashboard.getTodayDelivered();
     dashboard.getTodayCancelled();
     dashboard.allTotal = 0;
-    dashboard.getAllOrders();
+    //dashboard.getAllOrders();
     dashboard.getTotalSales();
   },
 
@@ -185,6 +185,7 @@ var dashboard = {
     }).done(function (pending) {
 
       allPending = pending.overall_pending_count;
+      todayPending = pending.pending_count;
 
       $.ajax({
         url: dashboard.BASE_URL + "orders/cancelled",
@@ -194,6 +195,7 @@ var dashboard = {
       }).done(function (transit) {
 
         allCancelled = transit.overall_cancelled_count;
+        todayCancelled = transit.cancelled_count;
 
         $.ajax({
           url: dashboard.BASE_URL + "orders/delivered",
@@ -203,10 +205,17 @@ var dashboard = {
         }).done(function (delivered) {
 
           allDelivered = delivered.overall_delivered_count;
+          todayDelivered = delivered.delivered_count;
 
           console.log(allPending);
           console.log(allCancelled);
           console.log(allDelivered);
+
+          var allTotal = allPending + allCancelled + allDelivered;
+          var todayTotal = todayPending + todayCancelled + todayDelivered;
+          $("#all-orders").text(allTotal);
+          $("#today-orders").text(todayTotal);
+
           document.getElementById("loading-chart-message").style.display = "none";
 
 
@@ -215,15 +224,15 @@ var dashboard = {
               datasets: [{
                 data: [allDelivered, allCancelled, allPending],
                 backgroundColor: [
-                    '#3C7AC9',
-                    '#FF5C5C',
-                    '#fecb01'
+                  '#3C7AC9',
+                  '#FF5C5C',
+                  '#fecb01'
                 ]
               }],
               labels: [
-                  'Delivered',
-                  'Cancelled',
-                  'Pending',
+                'Delivered',
+                'Cancelled',
+                'Pending',
 
               ]
             };
@@ -232,8 +241,8 @@ var dashboard = {
               cutoutPercentage: 70,
               legend : false,
               animation: {
-                  animateScale: true,
-                  animateRotate: true
+                animateScale: true,
+                animateRotate: true
               }
             };
             var salesChartCanvas = $("#sales-chart").get(0).getContext("2d");
@@ -244,10 +253,6 @@ var dashboard = {
             });
             $("#sales-chart-legend").html(salesChart.generateLegend());
           }
-
-
-
-
         })
       })
     })

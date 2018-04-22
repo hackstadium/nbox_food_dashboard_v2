@@ -4,6 +4,7 @@ var orders={
 
   init:function () {
     orders.checkLogin();
+  //  orders.showOrdersTimePicker();
   },
 
   checkLogin: function () {
@@ -46,6 +47,12 @@ var orders={
     var selectedLocationAliasID = $("#orderSelectLocation").find(":selected").data("alias_id");
     console.log("validateSearchParams");
     console.log(selectedLocationAliasID);
+    if (selectedLocationAliasID === undefined) {
+      $("#categorySelectCountryContainer").addClass("error_input");
+    } else {
+      $("#categorySelectCountryContainer").removeClass("error_input");
+    }
+
     if (selectedLocationAliasID === undefined) {
       $("#categorySelectCountryContainer").addClass("error_input");
     } else {
@@ -97,7 +104,7 @@ var orders={
           var bundleID = singleOrder._id;
           var categoryID = singleOrder.category_id;
           orders.allMenu = singleOrder.menu;
-//debugger;
+          //debugger;
 
           console.log("singleOrder menu");
           $("#ordersTable").append("<tr>"
@@ -106,7 +113,7 @@ var orders={
           + "<td>" + terminalID + "</td>"
           + "<td>" + userName + "</td>"
           + "<td>" + phone + "</td>"
-        //  + "<td class='table_cell_link pointer' onclick='orders.showModalBundle(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + categoryID + "\", \"" + bundleID + "\")'>" + bundleName + "</td>"
+          //  + "<td class='table_cell_link pointer' onclick='orders.showModalBundle(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + categoryID + "\", \"" + bundleID + "\")'>" + bundleName + "</td>"
           + "<td>" + bundleName + "</td>"
           + "<td>" + quantity + "</td>"
           + "<td>" + bundlePrice + "</td>"
@@ -124,36 +131,8 @@ var orders={
     console.log("bundleID");
     console.log(bundleID);
     console.log("orders.allMenu");
-console.log(orders.allMenu);
+    console.log(orders.allMenu);
     $("#preloaderNav").show();
-
-    // $.ajax({
-    //   url: orders.BASE_URL + "bundle?category_id=" + categoryID + "&" + "bundle_id=" + bundleID,
-    //   type: "GET",
-    //   crossDomain: true,
-    //   contentType: "application/json"
-    // }).done(function (bundle) {
-    //   $("#preloaderNav").hide();
-    //
-    //   console.log(bundle);
-    //
-    //
-    //
-    // })
-
-
-    /////////////////////////
-
-    //var menuArray = bundles.allMenu[menuIndex];
-    // console.log("clicked to open Modal");
-    // console.log(bundleID);
-    // console.log(name);
-    // console.log(category);
-    // console.log(description);
-    // console.log(price);
-    // console.log("Passed Menus");
-    // console.log(menuArray);
-
 
 
 
@@ -297,11 +276,21 @@ updateOrder:function (orderID, status) {
 
 showOrderMenu:function (bundleName, bundlePrice, index) {
   var orderMenu = orders.allOrderMenu;
-  //  var newOrderMenu =  orders.NewAllOrderMenu;
-  //debugger;
+
   console.log("showOrderMenu");
   console.log(orderMenu);
   console.log(index);
+},
+
+showOrdersTimePicker:function () {
+  console.log("showOrdersTimePicker");
+  $('#ordersTimepicker').datepicker({
+      dateFormat: "yyyy-mm-dd",
+      onSelect: function (date) {
+          console.log(date);
+
+      }
+  });
 }
 }
 

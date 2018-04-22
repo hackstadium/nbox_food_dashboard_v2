@@ -18584,3 +18584,23 @@ padding: 68px;
 .alertify .ajs-dialog{
   max-width:800px;
 }
+
+
+.inline-options .input-form{
+  margin-bottom: 0px !important;
+  padding: 12px !important;
+  margin-right: 16px !important;
+}
+
+.datepicker--cell.-selected-, .datepicker--cell.-selected-.-current-{
+  background-color: #86B77E;
+}
+
+.datepicker--cell.-selected-:hover, .datepicker--cell.-selected-.-current-:hover{
+  background-color: #86B77E;
+}
+
+.datepicker--cell.-current-{
+  color: #86B77E;
+  font-weight: bold;
+}
