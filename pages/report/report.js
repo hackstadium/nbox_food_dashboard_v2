@@ -122,7 +122,7 @@ var reports = {
     if ($("#sales-chart").length) {
       var salesChartData = {
         datasets: [{
-          data: [0, februaryTransaction, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          data: [0, 0, 0, februaryTransaction, 0, 0, 0, 0, 0, 0, 0, 0],
           backgroundColor: '#CFE795'
         }],
         labels: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']

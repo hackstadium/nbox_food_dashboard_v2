@@ -4,7 +4,7 @@ var orders={
 
   init:function () {
     orders.checkLogin();
-  //  orders.showOrdersTimePicker();
+    orders.showOrdersTimePicker();
   },
 
   checkLogin: function () {
@@ -45,6 +45,7 @@ var orders={
 
   validateSearchParams:function () {
     var selectedLocationAliasID = $("#orderSelectLocation").find(":selected").data("alias_id");
+var selectedDatepicker = $("#ordersTimepicker").val();
     console.log("validateSearchParams");
     console.log(selectedLocationAliasID);
     if (selectedLocationAliasID === undefined) {
@@ -53,22 +54,23 @@ var orders={
       $("#categorySelectCountryContainer").removeClass("error_input");
     }
 
-    if (selectedLocationAliasID === undefined) {
-      $("#categorySelectCountryContainer").addClass("error_input");
+    if (selectedDatepicker === "") {
+      $("#ordersTimepicker").addClass("error_input");
     } else {
-      $("#categorySelectCountryContainer").removeClass("error_input");
+      $("#ordersTimepicker").removeClass("error_input");
     }
 
-    if ( selectedLocationAliasID !== undefined) {
-      orders.getAllOrders(selectedLocationAliasID)
+    if ( selectedLocationAliasID !== undefined && selectedDatepicker !== "") {
+      orders.getAllOrders(selectedLocationAliasID, selectedDatepicker)
     }
   },
 
-  getAllOrders:function (selectedLocationAliasID) {
+  getAllOrders:function (selectedLocationAliasID, selectedDatepicker) {
     console.log("getAllOrders");
     console.log(selectedLocationAliasID);
+    console.log(selectedDatepicker);
     //  JSON.stringify()
-    var orderData = {alias_id: selectedLocationAliasID.toString()};
+    var orderData = {alias_id: selectedLocationAliasID.toString(), date: selectedDatepicker};
     $("#preloaderNav").show();
 
 
