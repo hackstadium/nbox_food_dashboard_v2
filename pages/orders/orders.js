@@ -45,7 +45,7 @@ var orders={
 
   validateSearchParams:function () {
     var selectedLocationAliasID = $("#orderSelectLocation").find(":selected").data("alias_id");
-var selectedDatepicker = $("#ordersTimepicker").val();
+    var selectedDatepicker = $("#ordersTimepicker").val();
     console.log("validateSearchParams");
     console.log(selectedLocationAliasID);
     if (selectedLocationAliasID === undefined) {
@@ -84,6 +84,10 @@ var selectedDatepicker = $("#ordersTimepicker").val();
     }).done(function (orders) {
       console.log(orders);
       $("#preloaderNav").hide();
+
+      //EMPTY THE TABLE
+      $("#ordersTable").html("");
+
       // debugger;
       for ( x in orders.message ) {
         var keys = Object.keys(orders.message[x]);
@@ -95,13 +99,14 @@ var selectedDatepicker = $("#ordersTimepicker").val();
         var terminalID = orders.message[x].terminal_id;
         var phone = orders.message[x].phone;
         var userName = orders.message[x].username;
+        var timeOfOrder = orders.message[x].created_at;
+
 
 
         for (var i = 0; i < orderLength; i++) {
           var singleOrder = order[i].bundleDetails;
           var bundleName = singleOrder.name;
           var bundlePrice = singleOrder.price;
-          var timeOfOrder = singleOrder.created_at;
           var quantity = order[i].quantity;
           var bundleID = singleOrder._id;
           var categoryID = singleOrder.category_id;
@@ -111,7 +116,7 @@ var selectedDatepicker = $("#ordersTimepicker").val();
           console.log("singleOrder menu");
           $("#ordersTable").append("<tr>"
           + "<td>" + orderID + "</td>"
-          + "<td>" + moment(timeOfOrder, 'DD-MM-YYYY').format('lll') + "</td>"
+          + "<td>" + moment(timeOfOrder, 'YYYY-MM-DD hh:mm:ss').format('lll') + "</td>"
           + "<td>" + terminalID + "</td>"
           + "<td>" + userName + "</td>"
           + "<td>" + phone + "</td>"
@@ -287,11 +292,11 @@ showOrderMenu:function (bundleName, bundlePrice, index) {
 showOrdersTimePicker:function () {
   console.log("showOrdersTimePicker");
   $('#ordersTimepicker').datepicker({
-      dateFormat: "yyyy-mm-dd",
-      onSelect: function (date) {
-          console.log(date);
+    dateFormat: "yyyy-mm-dd",
+    onSelect: function (date) {
+      console.log(date);
 
-      }
+    }
   });
 }
 }
