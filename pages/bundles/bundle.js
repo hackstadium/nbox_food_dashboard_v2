@@ -46,7 +46,7 @@ var bundles = {
         + "<td><img src='" + allBundles.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
         + "<td class='table_cell_link pointer' onclick='bundles.openModalBundleDetails(\"" + allBundles.message[i]._id + "\",\"" + allBundles.message[i].name + "\",\"" + allBundles.message[i].category_name + "\",\"" + allBundles.message[i].description + "\", \"" + allBundles.message[i].price + "\", \"" + i + "\")'>" + allBundles.message[i].name + "</td>"
         + "<td>" + allBundles.message[i].category_name + "</td>"
-        + "<td>" + allBundles.message[i].description + "</td>"
+        // + "<td>" + allBundles.message[i].description + "</td>"
         + "<td> NGN " + parseInt(allBundles.message[i].price, 10).toLocaleString() + "</td>"
         + "<td><button class='btn_table' onclick='bundles.openModalEditBundleDetails(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
         + "<td><button class='btn_table' onclick='bundles.deleteBundle(\"" + allBundles.message[i].category_id + "\",\"" + allBundles.message[i]._id + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"

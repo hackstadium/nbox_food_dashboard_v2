@@ -89,6 +89,8 @@ var orders={
       $("#ordersTable").html("");
 
       // debugger;
+      var orderCounter = 0;
+
       for ( x in orders.message ) {
         var keys = Object.keys(orders.message[x]);
         var orderLength = orders.message[x].details.length;
@@ -96,42 +98,66 @@ var orders={
         var location = orders.message[x].location;
         var status = orders.message[x].status;
         var orderID = orders.message[x]._id;
-        var terminalID = orders.message[x].terminal_id;
+        // var terminalID = orders.message[x].terminal_id;
         var phone = orders.message[x].phone;
         var userName = orders.message[x].username;
         var timeOfOrder = orders.message[x].created_at;
+        var address = orders.message[x].address;
+        var location = orders.message[x].location;
 
-
+        // INCREMENT ORDER COUNTER
+        orderCounter ++;
 
         for (var i = 0; i < orderLength; i++) {
           var singleOrder = order[i].bundleDetails;
+          var singleOption = order[i].options;
           var bundleName = singleOrder.name;
           var bundlePrice = singleOrder.price;
           var quantity = order[i].quantity;
           var bundleID = singleOrder._id;
           var categoryID = singleOrder.category_id;
-          orders.allMenu = singleOrder.menu;
+          //let orderIndex = i;
+          //  orders.allMenu = singleOrder.menu;
           //debugger;
+          // console.log("OrderIndex");
+          //           console.log(i);
 
           console.log("singleOrder menu");
           $("#ordersTable").append("<tr>"
           + "<td>" + orderID + "</td>"
           + "<td>" + moment(timeOfOrder, 'YYYY-MM-DD hh:mm:ss').format('lll') + "</td>"
-          + "<td>" + terminalID + "</td>"
-          + "<td>" + userName + "</td>"
-          + "<td>" + phone + "</td>"
-          //  + "<td class='table_cell_link pointer' onclick='orders.showModalBundle(\"" + bundleName + "\", \"" + bundlePrice + "\", \"" + categoryID + "\", \"" + bundleID + "\")'>" + bundleName + "</td>"
-          + "<td>" + bundleName + "</td>"
+          + "<td class='table_cell_link pointer' onclick='orders.showModalClientDetails(\"" + userName + "\", \"" + phone + "\", \"" + location + "\", \"" + address + "\")'>" + userName + "</td>"
+          + "<td id='orderedItem-" + orderCounter +"'>" + bundleName +" (NGN "+ parseInt(bundlePrice, 10).toLocaleString() + ")"+"</td>"
           + "<td>" + quantity + "</td>"
-          + "<td>" + bundlePrice + "</td>"
           + "<td>" + status + "</td>"
           + "<td class='btn_table_container'><button class='btn_table' onclick='orders.editOrderStatus(\"" + orderID + "\", \"" + phone + "\", \"" + bundleName + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i></button></td>"
           + "</tr>");
+
+          console.log("singleOption");
+          console.log(singleOption);
+
+          for (var i = 0; i < singleOption.length; i++) {
+            //  array[i]
+            $("#orderedItem-" + orderCounter).append(" ,  " + singleOption[i].option.name + "(NGN "+ parseInt(singleOption[i].option.price, 10).toLocaleString()+")")
+          }
 
         }
       }
 
     })
+  },
+
+  showModalClientDetails:function (username, phone, location, address) {
+
+    var orderClientTemplate = "<div id='modalBundleDetails'>"
+    + "<div class='multiList'><strong>Client Name</strong><p>" + username + " </p></div>"
+    + "<div class='multiList'><strong>Phone Number</strong><p>" + phone + " </p></div>"
+    + "<div class='multiList'><strong>Company</strong><p>" + location + " </p></div>"
+    + "<div class='multiList'><strong>Address</strong><p>" + address + " </p></div>"
+    "</div>";
+
+    alertify.alert('Client Record', orderClientTemplate).set({transition: 'zoom', label: ' OK '}).show();
+
   },
 
   showModalBundle:function (name, price, categoryID, bundleID) {
@@ -146,8 +172,6 @@ var orders={
     $("#bundleMenusTable").html("");
     var bundleDetailsTemplate = "<div id='modalBundleDetails'>"
     + "<div class='multiList'><strong>Name</strong><p>" + name + " </p></div>"
-    // + "<div class='multiList'><strong>Category</strong><p>" + category + "</p></div>"
-    // + "<div class='multiList'><strong>Description</strong><p>" + description + " </p></div>"
     + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(price, 10).toLocaleString() + " </p></div>"
     + "<div>"
     +"<strong>Menus</strong>"
@@ -180,55 +204,6 @@ var orders={
     "</div>";
 
     alertify.alert('Bundle Details', bundleDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
-
-
-    // for (var i = 0; i < menuArray.menu.length; i++) {
-    //   var one = menuArray.menu[i];
-    //   $("#bundleMenusTable").append("<tr>"
-    //   + "<td>" + one.name + "</td>"
-    //   + "<td>" + one.partner_name + "</td>"
-    //   + "<td>NGN " + parseInt(one.price, 10).toLocaleString() + "</td>"
-    //   + "<td><button class='btn_table' onclick='bundles.openModalEditBundleMenu(\"" + bundleID + "\",\"" + i + "\",\"" + one.partner_id + "\",\"" + one.name + "\",\"" + one.price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-    //   + "</tr>");
-    // }
-
-
-    //FETCH ALL OPTIONS
-    // var optionsData = {bundle_id : bundleID};
-    //
-    // $.ajax({
-    //   url: bundles.BASE_URL + "bundle/option/all",
-    //   type: "POST",
-    //   crossDomain: true,
-    //   data: JSON.stringify(optionsData),
-    //   contentType: "application/json"
-    // }).done(function (options) {
-    //
-    //   $("#options_message").html("");
-    //   $("#bundleOptionsTable").html("");
-    //
-    //   for (var i = 0; i < options.message.length; i++) {
-    //     $("#bundleOptionsTable").append(
-    //       "<tr>"
-    //       +"<td>"+ options.message[i].name +"</td>"
-    //       +"<td>NGN "+ parseInt(options.message[i].price, 10).toLocaleString() +"</td>"
-    //       +"<td><button class='btn_table' onclick='bundles.openModalEditBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\", \"" + options.message[i].price + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-    //       +"<td><button class='btn_table' onclick='bundles.deleteBundleOptions(\"" + options.message[i]._id + "\", \"" + options.message[i].name + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
-    //       +"</tr>"
-    //     );
-    //   }
-    //
-    //
-    //   var extrasLength = options.message.length;
-    //   if (extrasLength === 0) {
-    //     $("#bundleOptionsTable").append("No options available");
-    //     console.log("No options here");
-    //   }
-    //
-    // })
-
-    /////////////////////
-
 
   },
 
