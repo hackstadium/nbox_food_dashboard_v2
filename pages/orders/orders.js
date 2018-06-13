@@ -5,18 +5,18 @@ var orders={
   init:function () {
     orders.checkLogin();
     orders.showOrdersTimePicker();
+
   },
 
   checkLogin: function () {
-    console.log("Nav to dashboard page");
     var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    console.log(isLoggedIn);
+    //  console.log(isLoggedIn);
 
     if (isLoggedIn !== "true") {
       window.location.href = "../../pages/login/login.html";
-      console.log("Not Logged In");
+      //  console.log("Not Logged In");
     } else {
-      console.log("logged In");
+      //  console.log("logged In");
       orders.getAllLocation();
     }
   },
@@ -30,7 +30,7 @@ var orders={
     }).done(function (locations) {
       $("#preloaderNav").hide();
 
-      console.log(locations);
+      //  console.log(locations);
 
       $("#orderSelectLocation").html("");
       $("#orderSelectLocation").append("<option>Select a location</option>");
@@ -38,7 +38,7 @@ var orders={
       for (i = 0; i < locations.message.length; i++) {
         $("#orderSelectLocation").append("<option data-alias_id=" + locations.message[i].alias_id + ">" + locations.message[i].location + "</option>");
 
-        console.log("adding countries");
+        //  console.log("adding countries");
       }
     });
   },
@@ -46,8 +46,8 @@ var orders={
   validateSearchParams:function () {
     var selectedLocationAliasID = $("#orderSelectLocation").find(":selected").data("alias_id");
     var selectedDatepicker = $("#ordersTimepicker").val();
-    console.log("validateSearchParams");
-    console.log(selectedLocationAliasID);
+    //  console.log("validateSearchParams");
+    //console.log(selectedLocationAliasID);
     if (selectedLocationAliasID === undefined) {
       $("#categorySelectCountryContainer").addClass("error_input");
     } else {
@@ -66,15 +66,15 @@ var orders={
   },
 
   getAllOrders:function (selectedLocationAliasID, selectedDatepicker) {
-    console.log("getAllOrders");
-    console.log(selectedLocationAliasID);
-    console.log(selectedDatepicker);
+    //  console.log("getAllOrders");
+    //console.log(selectedLocationAliasID);
+    //console.log(selectedDatepicker);
     //  JSON.stringify()
     var orderData = {alias_id: selectedLocationAliasID.toString(), date: selectedDatepicker};
     $("#preloaderNav").show();
 
 
-    //debugger;
+
     $.ajax({
       url: orders.BASE_URL + "orders/location",
       type: "POST",
@@ -88,8 +88,10 @@ var orders={
       //EMPTY THE TABLE
       $("#ordersTable").html("");
 
-      // debugger;
+
       var orderCounter = 0;
+      var menuCounter = 0;
+      orders.ordersMenu = [];
 
       for ( x in orders.message ) {
         var keys = Object.keys(orders.message[x]);
@@ -108,31 +110,42 @@ var orders={
         // INCREMENT ORDER COUNTER
         orderCounter ++;
 
+
+        //  orders.allOrdersMenu = [];
+
+
         for (var i = 0; i < orderLength; i++) {
           var singleOrder = order[i].bundleDetails;
           var singleOption = order[i].options;
           var bundleName = singleOrder.name;
           var bundlePrice = singleOrder.price;
+          var bundleMenu = order[i].bundleDetails.menu;
           var quantity = order[i].quantity;
           var bundleID = singleOrder._id;
           var categoryID = singleOrder.category_id;
-          //let orderIndex = i;
-          //  orders.allMenu = singleOrder.menu;
-          //debugger;
-          // console.log("OrderIndex");
-          //           console.log(i);
+          var bundleID = singleOrder._id;
+
+          //  app.allOrdersMenu = singleOrder.menu;
+          orders.ordersMenu.push(bundleMenu);
+
+          console.log("categoryID");
+          console.log(categoryID);
+          console.log("bundleID");
+          console.log(bundleID);
+
 
           console.log("singleOrder menu");
           $("#ordersTable").append("<tr>"
           + "<td>" + orderID + "</td>"
           + "<td>" + moment(timeOfOrder, 'YYYY-MM-DD hh:mm:ss').format('lll') + "</td>"
           + "<td class='table_cell_link pointer' onclick='orders.showModalClientDetails(\"" + userName + "\", \"" + phone + "\", \"" + location + "\", \"" + address + "\")'>" + userName + "</td>"
-          + "<td id='orderedItem-" + orderCounter +"'>" + bundleName +" (NGN "+ parseInt(bundlePrice, 10).toLocaleString() + ")"+"</td>"
+          + "<td id='orderedItem-" + orderCounter +"' class='table_cell_link pointer' onclick='orders.showOrderMenu(\"" + bundleID + "\", \"" + categoryID + "\")' >" + bundleName +" (NGN "+ parseInt(bundlePrice, 10).toLocaleString() + ")"+"</td>"
           + "<td>" + quantity + "</td>"
           + "<td>" + status + "</td>"
           + "<td class='btn_table_container'><button class='btn_table' onclick='orders.editOrderStatus(\"" + orderID + "\", \"" + phone + "\", \"" + bundleName + "\")'><i class='fa fa-pencil icon_green' aria-hidden='true'></i></button></td>"
           + "</tr>");
 
+          menuCounter ++;
           console.log("singleOption");
           console.log(singleOption);
 
@@ -142,6 +155,9 @@ var orders={
           }
 
         }
+
+        console.log("orders.ordersMenu");
+        console.log(orders.ordersMenu);
       }
 
     })
@@ -208,8 +224,8 @@ var orders={
   },
 
   editOrderStatus:function (orderID, phone, bundleName) {
-    console.log("editOrderStatus");
-    console.log(orderID);
+    //console.log("editOrderStatus");
+    //  console.log(orderID);
     var orderDetailTemplate = "<div id='orderDetail'>"
     + "<div class='multiList'><strong>Order ID</strong><p>" + orderID + " </p></div>"
     + "<div class='multiList'><strong>Bundle Name</strong><p>" + bundleName + " </p></div>"
@@ -234,8 +250,8 @@ var orders={
 },
 
 updateOrder:function (orderID, status) {
-  console.log("updateOrder");
-  console.log(orderID);
+  //  console.log("updateOrder");
+  //console.log(orderID);
   //  foodhub/
   $("#preloaderNav").show();
 
@@ -250,26 +266,77 @@ updateOrder:function (orderID, status) {
     $("#preloaderNav").hide();
     // $('ordersTable')
     window.location.href = "orders.html";
-    console.log("updateOrder");
-    console.log(order);
+    //  console.log("updateOrder");
+    //console.log(order);
 
   });
 },
 
-showOrderMenu:function (bundleName, bundlePrice, index) {
-  var orderMenu = orders.allOrderMenu;
+showOrderMenu:function (bundleID, categoryID) {
+  //  var orderMenu = orders.allOrderMenu;
+  console.log(bundleID);
+  console.log(categoryID);
+  $("#preloaderNav").show();
 
-  console.log("showOrderMenu");
-  console.log(orderMenu);
-  console.log(index);
+  $.ajax({
+    url: orders.BASE_URL +"bundle?bundle_id="+ bundleID + "&category_id=" + categoryID,
+    type: "GET",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function(response){
+
+      $("#preloaderNav").hide();
+
+      console.log("response");
+      console.log(response.message);
+
+      $("#bundleMenusTable").html("");
+
+      var OrderDetailsTemplate = "<div id='modalBundleDetails'>"
+      + "<div class='multiList'><strong>Name</strong><p>" + response.message.name + " </p></div>"
+      + "<div class='multiList'><strong>Price</strong><p> NGN " + parseInt(response.message.price, 10).toLocaleString() + " </p></div>"
+      + "<div>"
+      +"<strong>Menus</strong>"
+      +"<table class='table table-striped'>" +
+      "<thead>" +
+      "<tr>" +
+      "<th>Menu</th>" +
+      "<th>Price</th>" +
+      "</tr>" +
+      "</thead>" +
+      "<tbody id='bundleMenusTable'>" +
+      "</tbody>" +
+      "</table>"+
+      "</div>"+
+      "</div>";
+
+
+      alertify.alert('Bundle Menu', OrderDetailsTemplate).set({transition: 'zoom', label: ' OK '}).show();
+
+      for (var i = 0; i < response.message.menu.length; i++) {
+        $("#bundleMenusTable").append("<tr>"
+        + "<td>" + response.message.menu[i].name + "</td>"
+        + "<td>NGN " + parseInt(response.message.menu[i].price, 10).toLocaleString() + "</td>"
+        + "</tr>");
+      }
+
+    },
+    error: function(response){
+      $("#preloaderNav").hide();
+      toastr.error("An error occurred. Try Again");
+      console.log("failed to fetch bundle");
+      console.log(response.message);
+    }
+  })
+
 },
 
 showOrdersTimePicker:function () {
-  console.log("showOrdersTimePicker");
+  //  console.log("showOrdersTimePicker");
   $('#ordersTimepicker').datepicker({
     dateFormat: "yyyy-mm-dd",
     onSelect: function (date) {
-      console.log(date);
+      //  console.log(date);
 
     }
   });
