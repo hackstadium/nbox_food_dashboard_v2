@@ -18604,3 +18604,9 @@ padding: 68px;
   color: #86B77E;
   font-weight: bold;
 }
+
+
+.pagination-container{
+  display: flex;
+  justify-content: center;
+}

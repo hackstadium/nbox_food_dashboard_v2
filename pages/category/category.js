@@ -37,20 +37,59 @@ var categories = {
       $("#preloaderNav").hide();
 
       console.log(cat);
+      console.log(cat.message);
+      console.log(cat.message.length);
+
+var data = cat.message;
+
+      $('#pagination-container').pagination({
+        dataSource: cat.message,
+        pageSize: 5,
+        showPrevious: false,
+        showNext: false,
+        callback: function (data, pagination) {
+          var dataLength = data.length;
+          var html = simpleTemplating(data, dataLength);
+          $('#categoriesTable').html("");
+          $('#categoriesTable').append(html);
+        }
+      })
+
+      function simpleTemplating(data, dataLength) {
+        //var html = '<tr>';
+        var html = '';
+
+        for (var i = 0; i < dataLength; i++) {
+          console.log(cat);
+
+          html += "<tr>"
+          + "<td><img src='" + data[i].image + "' style='width: 70px;margin-left: 32px'></td>"
+          + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + data[i].category + "\", \"" + i + "\",\"" + data[i]._id + "\")'>" + data[i].category + "</td>"
+          + "<td>" + data[i].description + "</td>"
+          + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + data[i]._id + "\",\"" + data[i].category + "\",\"" + data[i].description + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+          + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + data[i]._id + "\",\"" + data[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+          + "</tr>"
+        }
+
+        return html;
+      }
+
+
+      console.log(cat);
       console.log("Category Partner Name");
 
-      for (var i = 0; i < cat.message.length; i++) {
-
-        categories.allMenu = cat.message;
-
-        $("#categoriesTable").append("<tr>"
-        + "<td><img src='" + cat.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
-        + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\",\"" + cat.message[i]._id + "\")'>" + cat.message[i].category + "</td>"
-        + "<td>" + cat.message[i].description + "</td>"
-        + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\",\"" + cat.message[i].description + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
-        + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
-        + "</tr>");
-      }
+      // for (var i = 0; i < cat.message.length; i++) {
+      //
+      //   categories.allMenu = cat.message;
+      //
+      //   $("#categoriesTable").append("<tr>"
+      //   + "<td><img src='" + cat.message[i].image + "' style='width: 70px;margin-left: 32px'></td>"
+      //   + "<td class='table_cell_link pointer' onclick='categories.openModalCategoryDetails(\"" + cat.message[i].category + "\", \"" + i + "\",\"" + cat.message[i]._id + "\")'>" + cat.message[i].category + "</td>"
+      //   + "<td>" + cat.message[i].description + "</td>"
+      //   + "<td><button class='btn_table' onclick='categories.openModalEditCategoryDetails(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\",\"" + cat.message[i].description + "\")'><i class='icon_green fa fa-pencil' aria-hidden='true'></i></button></td>"
+      //   + "<td><button class='btn_table' onclick='categories.deleteCategory(\"" + cat.message[i]._id + "\",\"" + cat.message[i].category + "\")'><i class='icon_red fa fa-trash-o' aria-hidden='true'></i></button></td>"
+      //   + "</tr>");
+      // }
 
     });
   },
@@ -139,9 +178,9 @@ var categories = {
 },
 
 updateCategory: function (categoryID, category, description) {
-//  $("#preloaderNav").show();
+  //  $("#preloaderNav").show();
 
-//  var updateCategory = $("#modalCategoryInputCategory").val();
+  //  var updateCategory = $("#modalCategoryInputCategory").val();
 
   var categoryData = {category_id: categoryID, category: category, description:description};
   $.ajax({
